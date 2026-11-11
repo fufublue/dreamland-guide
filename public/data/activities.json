@@ -1,0 +1,1919 @@
+{
+  "success": true,
+  "updatedAt": "2026-11-11T10:49:53.022Z",
+  "count": 127,
+  "events": [
+    {
+      "id": "row-4",
+      "startDate": "2025/10/29",
+      "endDate": "2025/11/12",
+      "dateText": "2025/10/29~2025/11/12",
+      "rerun": "非復刻",
+      "name": "馬戲團魅影",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/8bed31dd706a0f37e1716a3268b2d059531c5da7800d5954def242363f473a8a.jpg",
+        "pool2": "data/images/ca6337b1791a4f61c925c334966dcbc96c4c2e5b40ef92c42b54c8cad70356e9.jpg",
+        "freeCharacter": "data/images/92d07fed1cc45b96b21b507c59f08f3725c80c3cec090739a8603365263ccb85.jpg",
+        "ssr": "data/images/7c38d6b2e81068a6febb673349a92b44187734bb56fb262c245f06ee3351ab0f.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-5",
+      "startDate": "2025/11/12",
+      "endDate": "2025/11/26",
+      "dateText": "2025/11/12~2025/11/26",
+      "rerun": "不復刻",
+      "name": "輕曳的砂礫",
+      "type": "主線劇情",
+      "images": {
+        "pool1": "data/images/0bdc4b9c08a0efb97adff53959d4e13a478526368b0dba05c07f6afb162a1971.jpg",
+        "pool2": "data/images/9d2d8598caae0d3e957d720a6bf71cf9abbc32b7151491a3d3382949f0cedccf.jpg",
+        "ssr": "data/images/2d9a76ff51b47ba0dfc869808b62fe781f930e35bc69c0dc95361e283a174527.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-6",
+      "startDate": "2025/11/19",
+      "endDate": "2025/12/03",
+      "dateText": "2025/11/19~2025/12/03",
+      "rerun": "非復刻",
+      "name": "夜鶯邀約\n午夜的朦朧會談",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/8d0090809458476a6199864faec3fbee487c6da03c8fe7b71bb63601611155f2.jpg",
+        "pool2": "data/images/bc2d52850873ba629896e9a188989f6f2a6783c937865aee0d388244b33612b8.jpg",
+        "freeCharacter": "data/images/b11ee90a667f2868cceccf1c0f667bac3eb62bbbb32a1655e81b5b6252246d54.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-7",
+      "startDate": "2025/12/03",
+      "endDate": "2025/12/17",
+      "dateText": "2025/12/03~2025/12/17",
+      "rerun": "非復刻",
+      "name": "初夏！\n黃金沙灘與水上樂園",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/408675a019ffd79b760993b2e044fa0117c1d2a0cf14132853311ba2305bd244.jpg",
+        "pool2": "data/images/a7a9a84ed56b35712891e4b6148b85d8cae6896f7f097c39a51854344bcf711d.jpg",
+        "freeCharacter": "data/images/8c1b91a23849c07000a839cb9cf37da131238af649dfb9b7dae93c8c3461c4a4.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-8",
+      "startDate": "2025/12/17",
+      "endDate": "2025/12/31",
+      "dateText": "2025/12/17~2025/12/31",
+      "rerun": "非復刻",
+      "name": "盛夏！\n湛藍海岸與水槍激戰",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/941cdfd9d85339b41fca04fed976999d7bcadf7994019493efa7ac1238a2bb21.jpg",
+        "pool2": "data/images/5804f383da416e9f1de0da9d7c500f738ff38cad49a770700f206ba02aa98c79.jpg",
+        "freeCharacter": "data/images/899d4375277ca4ca30871045451df210636ce5413a2a58bb77c5b08228cbd6bb.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-9",
+      "startDate": "2025/12/24",
+      "endDate": "2026/01/07",
+      "dateText": "2025/12/24~2026/01/07",
+      "rerun": "非復刻",
+      "name": "特別邀約\n可可迪",
+      "type": "特別邀約",
+      "images": {
+        "freeCharacter": "data/images/bf949d5aef87b6078f733691c2e168591d379156fed44c16f5d5c822270fad6e.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-10",
+      "startDate": "2025/12/31",
+      "endDate": "2026/01/14",
+      "dateText": "2025/12/31~2026/01/14",
+      "rerun": "非復刻",
+      "name": "聚光燈下的懸案",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/957fb64c0d9abbf9781f8f755fb95f768bda230d1bb40eaa4489a5ff973e85ee.jpg",
+        "pool2": "data/images/de4d67db33aadecb55e5511c33fe2374c6521753cd649eb75ec60b629a101f99.jpg",
+        "freeCharacter": "data/images/d5bab49209e1d2935fc06c089e3783a7ba2a821a3cff01034ab4dbecd7205d7c.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-11",
+      "startDate": "2026/01/14",
+      "endDate": "2026/01/28",
+      "dateText": "2026/01/14~2026/01/28",
+      "rerun": "不復刻",
+      "name": "深淵的獄火",
+      "type": "主線劇情",
+      "images": {
+        "pool1": "data/images/8ca7693811839ba9ee89da40e1c07d54998fa3dbc8d796c08854f4450b65ff5e.jpg",
+        "pool2": "data/images/cdfd4329c86078839d2d1ef6f90c6250223787424adf34fb6a9971cd3f89e92b.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-12",
+      "startDate": "2026/01/14",
+      "endDate": "2026/01/28",
+      "dateText": "2026/01/14~2026/01/28",
+      "rerun": "非復刻",
+      "name": "特別邀約\n京彥",
+      "type": "特別邀約",
+      "images": {
+        "freeCharacter": "data/images/eadaf876ba20f4e1576c7012dc03c232957b8a7f90b1d93164683324659aa63c.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-13",
+      "startDate": "2026/01/21",
+      "endDate": "2026/02/04",
+      "dateText": "2026/01/21~2026/02/04",
+      "rerun": "非復刻",
+      "name": "夜鶯邀約\n雨夜的特別營業",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/925e0445e653c369af5cd0ead279d74083877ff21891145162f0e17debf11793.jpg",
+        "pool2": "data/images/aca345d4ae70ad530e818f352efca843ef75ea975e76455b69231b6d8a2f7d5a.jpg",
+        "freeCharacter": "data/images/321ccc2d3c0b70b3145752f1c8b523a79d7efc3c0c4d67a7fc3d60f13ac4fdfa.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-14",
+      "startDate": "2026/02/04",
+      "endDate": "2026/02/18",
+      "dateText": "2026/02/04~2026/02/18",
+      "rerun": "非復刻",
+      "name": "冥府的渡船",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/39a956fced5eb782b78cad70b64ebd4fb755b63b357dd981162db947563eef57.jpg",
+        "pool2": "data/images/130da24c4cb25ad5a95cfa40953b6c9e91cbd19af0fb4c79f89131ed1cc27613.jpg",
+        "freeCharacter": "data/images/411435d9ac60987b701912c17bb636f5134f9d0fb386e5c41b730603c0179084.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-15",
+      "startDate": "2026/02/18",
+      "endDate": "2026/03/04",
+      "dateText": "2026/02/18~2026/03/04",
+      "rerun": "非復刻",
+      "name": "風雪中的\n溫泉鄉",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/f385b619ff95985a2a54569fba60fe2a8aa168e3b97269a3b5e4ce27f28efffa.jpg",
+        "pool2": "data/images/b532f6b32a1bbc27d0467435e9d0acbea62eb6cc79e0cee94cf52e65e9d0344f.jpg",
+        "freeCharacter": "data/images/49b320a405b09d8757d645629bc70d8d08afccb6353c520421eaed1271642317.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-16",
+      "startDate": "2026/02/25",
+      "endDate": "2026/03/11",
+      "dateText": "2026/02/25~2026/03/11",
+      "rerun": "非復刻",
+      "name": "特別邀約\n斯絨",
+      "type": "特別邀約",
+      "images": {
+        "freeCharacter": "data/images/771ab2c1480eb50e18d2c8d216c1d17c15803e7250e490920ccaca47abdd5dbb.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-17",
+      "startDate": "2026/03/04",
+      "endDate": "2026/03/18",
+      "dateText": "2026/03/04~2026/03/18",
+      "rerun": "非復刻",
+      "name": "冬日的花車大遊行",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/680ef1b1a537343077e9866c5b9b760f6c1e6fb15dabcd90265e6198ae81650b.jpg",
+        "pool2": "data/images/0f0b66cbb01505d5f940fe9f7e3d1a648275e520bb8a430342877a9f945cd7db.jpg",
+        "freeCharacter": "data/images/61c0b0cbcb2caa0bde68c7b207c7a8919bc837f9d288cb904d804207dae7fd41.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-18",
+      "startDate": "2026/03/18",
+      "endDate": "2026/04/01",
+      "dateText": "2026/03/18~2026/04/01",
+      "rerun": "非復刻",
+      "name": "權杖的棺匣",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/0f508fec50f84682d7d3a00b6f2d3df0df0269054e4247c3da7a3f015f16815e.jpg",
+        "freeCharacter": "data/images/ff165c5e5ac6c34a75756451c6a35a5a387dd66da2f7e7850d9f0da54d1315ff.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-19",
+      "startDate": "2026/04/01",
+      "endDate": "2026/04/15",
+      "dateText": "2026/04/01~2026/04/15",
+      "rerun": "非復刻",
+      "name": "青草牧場",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/495c90df8a84450e5cfbfb791a8d15593f3b8d7c3f507aadc46d2dd1fb7e42eb.jpg",
+        "pool2": "data/images/a8742850ecc38739f762250b97a9e1501f095d9031d02df10b046165167e0d5b.jpg",
+        "freeCharacter": "data/images/8a2dcfb658c9883e66b5aa6371d7e6535752410822ffbd0f89766fd193854f75.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-20",
+      "startDate": "2026/04/15",
+      "endDate": "2026/04/22",
+      "dateText": "2026/04/15~2026/04/22",
+      "rerun": "復刻",
+      "name": "馬戲團魅影",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/8bed31dd706a0f37e1716a3268b2d059531c5da7800d5954def242363f473a8a.jpg",
+        "pool2": "data/images/ca6337b1791a4f61c925c334966dcbc96c4c2e5b40ef92c42b54c8cad70356e9.jpg",
+        "freeCharacter": "data/images/92d07fed1cc45b96b21b507c59f08f3725c80c3cec090739a8603365263ccb85.jpg",
+        "ssr": "data/images/7c38d6b2e81068a6febb673349a92b44187734bb56fb262c245f06ee3351ab0f.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-21",
+      "startDate": "2026/04/22",
+      "endDate": "2026/05/06",
+      "dateText": "2026/04/22~2026/05/06",
+      "rerun": "非復刻",
+      "name": "夜鶯邀約\n月夜的微醺夢鄉",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/bde7da7663f2058b99573dd1452da3ae32ab7180315a280758ddb13fdab497f0.jpg",
+        "pool2": "data/images/687004170dc71f620cb443877ab5938147a74049edd65620a0ba48dd5932dd25.jpg",
+        "freeCharacter": "data/images/a2656bac055c3d5c6e84319abe509def8a43c08fbcd935bcc10b78bcd5ac7769.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-22",
+      "startDate": "2026/05/06",
+      "endDate": "2026/05/13",
+      "dateText": "2026/05/06~2026/05/13",
+      "rerun": "復刻",
+      "name": "午夜的朦朧會談",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/8d0090809458476a6199864faec3fbee487c6da03c8fe7b71bb63601611155f2.jpg",
+        "pool2": "data/images/bc2d52850873ba629896e9a188989f6f2a6783c937865aee0d388244b33612b8.jpg",
+        "freeCharacter": "data/images/b11ee90a667f2868cceccf1c0f667bac3eb62bbbb32a1655e81b5b6252246d54.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-23",
+      "startDate": "2026/05/13",
+      "endDate": "2026/05/27",
+      "dateText": "2026/05/13~2026/05/27",
+      "rerun": "非復刻",
+      "name": "滿月的鬼謠",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/7f4fc038299215465ee9580686415b3cb79adc5bf6e0aa5e1b8f9e5d3b62ebf2.jpg",
+        "freeCharacter": "data/images/a9593f115431e56c001ca1c46fdf25420ff5e51b33e1cd15b68fd5bf4ecc7317.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-24",
+      "startDate": "2026/05/27",
+      "endDate": "2026/06/03",
+      "dateText": "2026/05/27~2026/06/03",
+      "rerun": "復刻",
+      "name": "初夏！\n黃金沙灘與水上樂園",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/408675a019ffd79b760993b2e044fa0117c1d2a0cf14132853311ba2305bd244.jpg",
+        "pool2": "data/images/a7a9a84ed56b35712891e4b6148b85d8cae6896f7f097c39a51854344bcf711d.jpg",
+        "freeCharacter": "data/images/8c1b91a23849c07000a839cb9cf37da131238af649dfb9b7dae93c8c3461c4a4.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-25",
+      "startDate": "2026/06/03",
+      "endDate": "2026/06/17",
+      "dateText": "2026/06/03~2026/06/17",
+      "rerun": "非復刻",
+      "name": "學院的試卷風暴",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/0383a44384ccad12116a8dc79fe0a316048ea34261efd0f8d7aa0e893763a5ca.jpg",
+        "pool2": "data/images/47dffb27c6c8408bebd0a6d73adaf2d3cdd8c6026ee5f26b6118d95650c548f8.jpg",
+        "freeCharacter": "data/images/2493a510848d3a2730b7121627baf5ae89110c4065f0b6712f400516c3d9ea29.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-26",
+      "startDate": "2026/06/17",
+      "endDate": "2026/06/24",
+      "dateText": "2026/06/17~2026/06/24",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n雷塞爾",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/e3427dce6df575dbbf778b1b8eae90a8b7a7e7ba9df23759dc2e3f3f49384700.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-27",
+      "startDate": "2026/06/24",
+      "endDate": "2026/07/01",
+      "dateText": "2026/06/24~2026/07/01",
+      "rerun": "復刻",
+      "name": "盛夏！\n湛藍海岸與水槍激戰",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/941cdfd9d85339b41fca04fed976999d7bcadf7994019493efa7ac1238a2bb21.jpg",
+        "pool2": "data/images/5804f383da416e9f1de0da9d7c500f738ff38cad49a770700f206ba02aa98c79.jpg",
+        "freeCharacter": "data/images/899d4375277ca4ca30871045451df210636ce5413a2a58bb77c5b08228cbd6bb.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-28",
+      "startDate": "2026/07/01",
+      "endDate": "2026/07/08",
+      "dateText": "2026/07/01~2026/07/08",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n沙菲",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c76f5302342882daa2c02eb7d59711f7660f8d535cc4c589fbe9b0d6cc2fef0d.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-29",
+      "startDate": "2026/07/08",
+      "endDate": "2026/07/22",
+      "dateText": "2026/07/08~2026/07/22",
+      "rerun": "不復刻",
+      "name": "星辰的高塔",
+      "type": "主線劇情",
+      "images": {
+        "pool1": "data/images/2981b1a756284e9cf8cbbc697b9ff8a7354f066f8a029f3ee65d14d68de57e51.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-30",
+      "startDate": "2026/07/15",
+      "endDate": "2026/07/22",
+      "dateText": "2026/07/15~2026/07/22",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n默狄厄",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/ebbced3a04142896dd7b4bf150efc284235a0ce49a4b864c547ce00608c4f625.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-31",
+      "startDate": "2026/07/22",
+      "endDate": "2026/08/05",
+      "dateText": "2026/07/22~2026/08/05",
+      "rerun": "非復刻",
+      "name": "驚奇！\n熱帶海島與竊竊私語",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/78f270a9bd50a3721a0621908773de480136c2ae201c5f2c428c36d19990ac07.jpg",
+        "pool2": "data/images/502559f736518ea5fd8a3fab70fff6e922412c0803ee8aac9fed784098c32d40.jpg",
+        "freeCharacter": "data/images/0a75943f23b8b6904f18593cc7298b53ee89d74e7b1050f86cfc09220e3aa6c6.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-32",
+      "startDate": "2026/08/05",
+      "endDate": "2026/08/12",
+      "dateText": "2026/08/05~2026/08/12",
+      "rerun": "復刻",
+      "name": "聚光燈下的懸案",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/957fb64c0d9abbf9781f8f755fb95f768bda230d1bb40eaa4489a5ff973e85ee.jpg",
+        "pool2": "data/images/de4d67db33aadecb55e5511c33fe2374c6521753cd649eb75ec60b629a101f99.jpg",
+        "freeCharacter": "data/images/d5bab49209e1d2935fc06c089e3783a7ba2a821a3cff01034ab4dbecd7205d7c.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-33",
+      "startDate": "2026/08/12",
+      "endDate": "2026/08/19",
+      "dateText": "2026/08/12~2026/08/19",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n奇琪蒂",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c7c83d371fef9a68518a5d89e69dd4fff21119d1c8e5f9b2d002c139ea9f3d42.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-34",
+      "startDate": "2026/08/19",
+      "endDate": "2026/09/02",
+      "dateText": "2026/08/19~2026/09/02",
+      "rerun": "非復刻",
+      "name": "夜鶯邀約\n幻夜的熱沙盛夏",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/782372ad77f2e3d69800966c1e6be9fdee0eced8ca3bd2ed67e92528fa677308.jpg",
+        "pool2": "data/images/32e7cce073af3c39dae6ebc46a10bfda578d0fb28d912da48f2fcb8c311555ae.jpg",
+        "freeCharacter": "data/images/ae78134a230e738901db9005b709f827104729151fc2eb0405ee426249fff74d.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-35",
+      "startDate": "2026/09/02",
+      "endDate": "2026/09/09",
+      "dateText": "2026/09/02~2026/09/09",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n伊斯雷爾",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c7bc5a6c8cbb1e614e43815a55d1c94540c590055bda1ad25546875dfd3d7b48.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-36",
+      "startDate": "2026/09/09",
+      "endDate": "2026/09/16",
+      "dateText": "2026/09/09~2026/09/16",
+      "rerun": "復刻",
+      "name": "雨夜的特別營業",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/925e0445e653c369af5cd0ead279d74083877ff21891145162f0e17debf11793.jpg",
+        "pool2": "data/images/aca345d4ae70ad530e818f352efca843ef75ea975e76455b69231b6d8a2f7d5a.jpg",
+        "freeCharacter": "data/images/321ccc2d3c0b70b3145752f1c8b523a79d7efc3c0c4d67a7fc3d60f13ac4fdfa.jpg",
+        "carriage": "data/images/a658e628e4d4d447ce40ea510d9edbb77c0302e58a6d68057430430dc5defb91.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-37",
+      "startDate": "2026/09/16",
+      "endDate": "2026/09/23",
+      "dateText": "2026/09/16~2026/09/23",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n獠夜[妖魎驚魂]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/fd56de71e06e47f0dc76bea277081a5e8f3e6ecbc6e66446ab290efa2bb155d3.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-38",
+      "startDate": "2026/09/23",
+      "endDate": "2026/10/07",
+      "dateText": "2026/09/23~2026/10/07",
+      "rerun": "非復刻",
+      "name": "玻利西亞的寶石",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/10111319465958c8e8706667e42f7f8e7e7311a08f27affbfa1210eebc7bd5da.jpg",
+        "pool2": "data/images/dacab22057c521e369de3f51b0fe351bd0c57a7fa897e8fb0ea749c7a60fad3d.jpg",
+        "freeCharacter": "data/images/25dddba54eb1c757bc3dc75ab13312979d1dce79941b797391d9ef416cdd95ff.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-39",
+      "startDate": "2026/10/07",
+      "endDate": "2026/10/14",
+      "dateText": "2026/10/07~2026/10/14",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n恩貝爾[輪盤籌碼]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/b2f7d0da089375a54d9f77eb0d4f805a3dd27bbd0d1bcdbd4f0c3132965dcb4f.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-40",
+      "startDate": "2026/10/14",
+      "endDate": "2026/10/21",
+      "dateText": "2026/10/14~2026/10/21",
+      "rerun": "復刻",
+      "name": "冥府的渡船",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/39a956fced5eb782b78cad70b64ebd4fb755b63b357dd981162db947563eef57.jpg",
+        "pool2": "data/images/130da24c4cb25ad5a95cfa40953b6c9e91cbd19af0fb4c79f89131ed1cc27613.jpg",
+        "freeCharacter": "data/images/411435d9ac60987b701912c17bb636f5134f9d0fb386e5c41b730603c0179084.jpg",
+        "carriage": "data/images/49d25878d203389d847b79b254e2ed32c2c6deb8d9764fec58e6203ea5a9a48f.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-41",
+      "startDate": "2026/10/21",
+      "endDate": "2026/10/28",
+      "dateText": "2026/10/21~2026/10/28",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n德米安[純白誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c39d3c69f99f079cfd111b4c90c51765208992958c70496a2832a2dd6cb526b6.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-42",
+      "startDate": "2026/10/21",
+      "endDate": "2026/11/04",
+      "dateText": "2026/10/21~2026/11/04",
+      "rerun": "復刻",
+      "name": "特別邀約\n可可迪",
+      "type": "特別邀約",
+      "images": {
+        "freeCharacter": "data/images/bf949d5aef87b6078f733691c2e168591d379156fed44c16f5d5c822270fad6e.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-43",
+      "startDate": "2026/10/21",
+      "endDate": "2026/11/11",
+      "dateText": "2026/10/21~2026/11/11",
+      "rerun": "不復刻",
+      "name": "第一期時光的馬車\n（自選池）",
+      "type": "時光馬車",
+      "images": {
+        "pool1": "data/images/9a3e148201d75fe36665bdb9d759cd9ae28a3b44384299a3f760fc9f742ffc27.jpg"
+      },
+      "note": "限定角收錄至\n雨夜的特別營業",
+      "link": "https://www.bilibili.com/read/cv40542153/?plat_id=5&share_from=article&share_medium=android&share_plat=android&share_session_id=01de30bd-61e0-4fe8-8ced-a22948f9f8b0&share_source=COPY&share_tag=s_i&timestamp=1761453063&unique_k=pgRCIE6&opus_fallback=1"
+    },
+    {
+      "id": "row-44",
+      "startDate": "2026/10/28",
+      "endDate": "2026/11/11",
+      "dateText": "2026/10/28~2026/11/11",
+      "rerun": "非復刻",
+      "name": "罪惡山莊的鑰匙",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/72b4663c85f1bd53dc7c1411ee859c3a41856691bb2de54c7466cc34372edfb6.jpg",
+        "pool2": "data/images/b79c572b8c2c9e629c0a2a04e2455e389c721a25e5f6871ce7e2a5fffcf456ae.jpg",
+        "freeCharacter": "data/images/71ca7835e6d575f5bda372600e4bd875880f45b0db981d1900052185ef869a35.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-45",
+      "startDate": "2026/11/11",
+      "endDate": "2026/11/18",
+      "dateText": "2026/11/11~2026/11/18",
+      "rerun": "非復刻",
+      "name": "綺念邂逅\n沙菲",
+      "type": "綺念邂逅",
+      "images": {
+        "pool1": "data/images/b03356cab10b1b3340223795c58b2d6fe707c5504f76d68df743db7feec1db61.jpg",
+        "carriage": "data/images/992b3509a766718aa26e72c1782c40c7bdc292639110328412aef0056ae50d70.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-46",
+      "startDate": "2026/11/11",
+      "endDate": "2026/11/18",
+      "dateText": "2026/11/11~2026/11/18",
+      "rerun": "復刻",
+      "name": "風雪中的溫泉鄉",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/f385b619ff95985a2a54569fba60fe2a8aa168e3b97269a3b5e4ce27f28efffa.jpg",
+        "pool2": "data/images/b532f6b32a1bbc27d0467435e9d0acbea62eb6cc79e0cee94cf52e65e9d0344f.jpg",
+        "freeCharacter": "data/images/49b320a405b09d8757d645629bc70d8d08afccb6353c520421eaed1271642317.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-47",
+      "startDate": "2026/11/18",
+      "endDate": "2026/11/25",
+      "dateText": "2026/11/18~2026/11/25",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n雪柾[冰雪白影]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/e67bd743ca67d8f130d18f3f33c706c409219eb7a1f7e10a121783adb03efd36.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-48",
+      "startDate": "2026/11/25",
+      "endDate": "2026/12/02",
+      "dateText": "2026/11/25~2026/12/02",
+      "rerun": "復刻",
+      "name": "冬日的花車大遊行",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/680ef1b1a537343077e9866c5b9b760f6c1e6fb15dabcd90265e6198ae81650b.jpg",
+        "pool2": "data/images/0f0b66cbb01505d5f940fe9f7e3d1a648275e520bb8a430342877a9f945cd7db.jpg",
+        "freeCharacter": "data/images/61c0b0cbcb2caa0bde68c7b207c7a8919bc837f9d288cb904d804207dae7fd41.jpg",
+        "carriage": "data/images/f8cb517b757daa1b1e048c5fb13347009fe99add05071df05ed0d989c9c8768a.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-49",
+      "startDate": "2026/12/02",
+      "endDate": "2026/12/09",
+      "dateText": "2026/12/02~2026/12/09",
+      "rerun": "非復刻",
+      "name": "綺念邂逅\n奇琪蒂",
+      "type": "綺念邂逅",
+      "images": {
+        "pool1": "data/images/c3e6c144f2262c3842d56b5a52ebe72d78704c13303a733ef678ae0f4543deb1.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-50",
+      "startDate": "2026/12/02",
+      "endDate": "2026/12/16",
+      "dateText": "2026/12/02~2026/12/16",
+      "rerun": "非復刻",
+      "name": "特別邀約\n格倫亞",
+      "type": "特別邀約",
+      "images": {
+        "freeCharacter": "data/images/951c77106b3fa25ee294244a64abbcac6ab6be6521eda8a2f98af69056ed9fda.jpg",
+        "carriage": "data/images/5b15430ca34c337ce437c7ad5f502ac88301ef7d6179f92ec60a92fd81625735.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-51",
+      "startDate": "2026/12/02",
+      "endDate": "2026/12/09",
+      "dateText": "2026/12/02~2026/12/09",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n瑟琉[青緲仙逸]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/0723f97ac2034eacb5d5ed37b9eb6e85f1fe71396befb576daa18a1081095667.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-52",
+      "startDate": "2026/12/09",
+      "endDate": "2026/12/23",
+      "dateText": "2026/12/09~2026/12/23",
+      "rerun": "非復刻",
+      "name": "成為偶像",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/63e81a6ba85754049a224dca279f33f64dc018ff9f6749ac039532a0cf94a36d.jpg",
+        "pool2": "data/images/531a30fc7ab126b95e331ccdc793cf21fe9323f6c784d5971e870ecb341745d2.jpg",
+        "freeCharacter": "data/images/639040aed8b9c4040f7c6de93604b36141880214c1199c32150b5e5500c7244a.jpg",
+        "carriage": "data/images/ce6a1b63c0883dc125e6396013e4d6eb417214f5f3e34501f08d30a5032cbe5a.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-53",
+      "startDate": "2026/12/23",
+      "endDate": "2026/12/30",
+      "dateText": "2026/12/23~2026/12/30",
+      "rerun": "非復刻",
+      "name": "綺念邂逅\n維恩",
+      "type": "綺念邂逅",
+      "images": {
+        "pool1": "data/images/1ba34e669a36f8436f1d28f65e7cf1c0865419d2504eef4588dc0d47f398d121.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-54",
+      "startDate": "2026/12/23",
+      "endDate": "2026/12/30",
+      "dateText": "2026/12/23~2026/12/30",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n以剎[風雪散時]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c4cb94e1aec38965c8a6c532e1c7a590ef1c62891ae821d8f2cde8a1f21584f4.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-55",
+      "startDate": "2026/12/30",
+      "endDate": "2027/01/06",
+      "dateText": "2026/12/30~2027/01/06",
+      "rerun": "復刻",
+      "name": "權杖的棺匣",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/0f508fec50f84682d7d3a00b6f2d3df0df0269054e4247c3da7a3f015f16815e.jpg",
+        "freeCharacter": "data/images/ff165c5e5ac6c34a75756451c6a35a5a387dd66da2f7e7850d9f0da54d1315ff.jpg",
+        "carriage": "data/images/73630111a3bbe7db9d9e6f6d2e3ea1794ffd652bc748fb10d2d0ba145e900a86.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-56",
+      "startDate": "2027/01/06",
+      "endDate": "2027/01/13",
+      "dateText": "2027/01/06~2027/01/13",
+      "rerun": "非復刻",
+      "name": "綺念邂逅\n路亞",
+      "type": "綺念邂逅",
+      "images": {
+        "pool1": "data/images/c50799e60065fa4e45e953581594515dca0dc1a19d10ae2ee30dce69fbb71e92.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-57",
+      "startDate": "2027/01/06",
+      "endDate": "2027/01/20",
+      "dateText": "2027/01/06~2027/01/20",
+      "rerun": "非復刻",
+      "name": "夜鶯邀約\n暗夜的心跳迷夢",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/824ccb852757a9f58541601ca7ad88b0d12d2860b12c632e9867a0a8a6ccf0c9.jpg",
+        "pool2": "data/images/1af91a7170af8ce562b76fe0cb3d00fd2c456a5ecdeafcb0f31d0f1b59a37613.jpg",
+        "freeCharacter": "data/images/818f8d2124830e0116144a7ad5310b3280c72e0bc51540fd2569dfd6ff32adba.jpg",
+        "carriage": "data/images/83d40f113109162428abe832635e4430c172d83d53633e97b8c87198c4a40ce9.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-58",
+      "startDate": "2027/01/20",
+      "endDate": "2027/02/03",
+      "dateText": "2027/01/20~2027/02/03",
+      "rerun": "復刻",
+      "name": "特別邀約\n京彥",
+      "type": "特別邀約",
+      "images": {
+        "freeCharacter": "data/images/d606ee898d76ed641491d489fbceb484e07a4e03554038874aede543d67b963f.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-59",
+      "startDate": "2027/01/20",
+      "endDate": "2027/01/27",
+      "dateText": "2027/01/20~2027/01/27",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n米迦[暗羽之刻]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/011070e523c30f933cccf81c3b1602e5c7b097ba3fa58ea5471d66ba4ea0706e.jpg",
+        "carriage": "data/images/7656a502b5bdcef5bf963d36e49310ba6648b9102a7820a452efcbb8ee33122a.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-60",
+      "startDate": "2027/01/27",
+      "endDate": "2027/02/03",
+      "dateText": "2027/01/27~2027/02/03",
+      "rerun": "復刻",
+      "name": "青草牧場",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/495c90df8a84450e5cfbfb791a8d15593f3b8d7c3f507aadc46d2dd1fb7e42eb.jpg",
+        "pool2": "data/images/a8742850ecc38739f762250b97a9e1501f095d9031d02df10b046165167e0d5b.jpg",
+        "freeCharacter": "data/images/8a2dcfb658c9883e66b5aa6371d7e6535752410822ffbd0f89766fd193854f75.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-61",
+      "startDate": "2027/02/03",
+      "endDate": "2027/02/17",
+      "dateText": "2027/02/03~2027/02/17",
+      "rerun": "非復刻",
+      "name": "童話世界的冒險",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/6ff9762e65d31a78a291338e4de7796bf1a1608afb81716cb32f17419bba8eb4.jpg",
+        "pool2": "data/images/44a43b9d70bb7d54505120e6a06c0442244097bc79c77b02edde0ec0f1edc4e4.jpg",
+        "freeCharacter": "data/images/d2a69ae723f460cc9e1e550fcbc768322466b9321cec7fbb127dbd65b0180f7e.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-62",
+      "startDate": "2027/02/17",
+      "endDate": "2027/02/24",
+      "dateText": "2027/02/17~2027/02/24",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n洛蜜歐[暮夜沉醉]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/bc29a0ccba6d63d3704ec121bfaaf421c1513e78bcbe9878cd3b8ef09a87f378.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-63",
+      "startDate": "2027/02/24",
+      "endDate": "2027/03/03",
+      "dateText": "2027/02/24~2027/03/03",
+      "rerun": "復刻",
+      "name": "月夜的微醺夢鄉",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/bde7da7663f2058b99573dd1452da3ae32ab7180315a280758ddb13fdab497f0.jpg",
+        "pool2": "data/images/687004170dc71f620cb443877ab5938147a74049edd65620a0ba48dd5932dd25.jpg",
+        "freeCharacter": "data/images/a2656bac055c3d5c6e84319abe509def8a43c08fbcd935bcc10b78bcd5ac7769.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-64",
+      "startDate": "2027/03/03",
+      "endDate": "2027/03/10",
+      "dateText": "2027/03/03~2027/03/10",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n伊斯雷爾[湛藍誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/f9165b69cca719ec805d1f73603c9df604c492b0182495a996465bd748f12a60.jpg",
+        "carriage": "data/images/39872193390fedf141b905d0c4820f47241a8ac41c067bc437e771ad3672280e.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-65",
+      "startDate": "2027/03/10",
+      "endDate": "2027/03/17",
+      "dateText": "2027/03/10~2027/03/17",
+      "rerun": "非復刻",
+      "name": "綺念邂逅\n赫蘿",
+      "type": "綺念邂逅",
+      "images": {
+        "pool1": "data/images/2e791df9718bd2e2eab447bfff68c7d27159585be555e5fac11978e1d3d5a870.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-66",
+      "startDate": "2027/03/10",
+      "endDate": "2027/03/24",
+      "dateText": "2027/03/10~2027/03/24",
+      "rerun": "非復刻",
+      "name": "學院的騎士守則",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/94f8f4f076fa67e0d21c770ca26c8a808bb2772feb9d839158b64982801e5a1e.jpg",
+        "pool2": "data/images/81615a4bf38660dcb9ae0e114bfc7b20c5c3ea340e993ceb0769fff1a1e39d25.jpg",
+        "freeCharacter": "data/images/425a386989d6549d9098b0a7d07536373d3c0aa613493d5907cb53fdee461cfa.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-67",
+      "startDate": "2027/03/24",
+      "endDate": "2027/03/31",
+      "dateText": "2027/03/24~2027/03/31",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n繆爾夏[琥珀誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/7906940682bdff464a62d3599f5beca2144bcf17dbc8e4b670063bb626cd9e51.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-68",
+      "startDate": "2027/03/31",
+      "endDate": "2027/04/07",
+      "dateText": "2027/03/31~2027/04/07",
+      "rerun": "復刻",
+      "name": "滿月的鬼謠",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/7f4fc038299215465ee9580686415b3cb79adc5bf6e0aa5e1b8f9e5d3b62ebf2.jpg",
+        "freeCharacter": "data/images/a9593f115431e56c001ca1c46fdf25420ff5e51b33e1cd15b68fd5bf4ecc7317.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-69",
+      "startDate": "2027/04/07",
+      "endDate": "2027/04/14",
+      "dateText": "2027/04/07~2027/04/14",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n雪柾[微醺失溫]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c31fefe89bd7193dfad7437acd80f3480374857e187cfffd6541ed16e8edadc8.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-70",
+      "startDate": "2027/04/14",
+      "endDate": "2027/04/28",
+      "dateText": "2027/04/14~2027/04/28",
+      "rerun": "不復刻",
+      "name": "冰封的絕境",
+      "type": "主線劇情",
+      "images": {
+        "pool1": "data/images/e89a47c5cb5ceba832b83604c018e63242573fad06894120b2ba27a138337344.jpg",
+        "freeCharacter": "data/images/11ba97d37c9c139b7759be6a05c16343574ef6ac11adcbb8d550e9a0b57f70c3.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-71",
+      "startDate": "2027/04/21",
+      "endDate": "2027/04/28",
+      "dateText": "2027/04/21~2027/04/28",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n萊米爾[冰鑽星芒]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/084e8d31440340851a22797a7ee68245bc64b032a476a0e0bc2c0961acd00a8e.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-72",
+      "startDate": "2027/04/28",
+      "endDate": "2027/05/19",
+      "dateText": "2027/04/28~2027/05/19",
+      "rerun": "不復刻",
+      "name": "第二期時光的馬車\n（自選池）",
+      "type": "時光馬車",
+      "images": {
+        "pool1": "data/images/b280d0ce24d18acdaab4dd065440e7cfd56b6b373dcd11305d34a5ff0d9a8d7b.jpg"
+      },
+      "note": "限定角收錄至\n月夜的微醺夢鄉",
+      "link": "https://www.bilibili.com/opus/1094933194819502088?plat_id=186&share_from=dynamic&share_medium=android&share_plat=android&share_session_id=cd9e23c8-c9a0-423d-bee9-1c86f1873692&share_source=COPY&share_tag=s_i&spmid=dt.opus-detail.0.0&timestamp=1761454455&unique_k=V6K7PX8"
+    },
+    {
+      "id": "row-73",
+      "startDate": "2027/04/28",
+      "endDate": "2027/05/12",
+      "dateText": "2027/04/28~2027/05/12",
+      "rerun": "非復刻",
+      "name": "病房的心電詭波",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/db5fad436bbe4bd87a83898822b19b302c9e4098b2ca7d9d4b2ceb571002babf.jpg",
+        "pool2": "data/images/ff548dc19f315e3215c44b8959f1661abce065c9c1056f44c86a57a965b06846.jpg",
+        "freeCharacter": "data/images/b7b3a5680ea32be257aa9d5290c95659bd35cf02bb5e025df3602a70cf07be81.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-74",
+      "startDate": "2027/05/12",
+      "endDate": "2027/05/19",
+      "dateText": "2027/05/12~2027/05/19",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n路亞[夜刑侍從]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/b24a30a4cc524203974672286add8d0e2323a7d2577bba1a1ff6acf5ba4e1cde.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-75",
+      "startDate": "2027/05/19",
+      "endDate": "2027/05/26",
+      "dateText": "2027/05/19~2027/05/26",
+      "rerun": "復刻",
+      "name": "學院的試卷風暴",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/0383a44384ccad12116a8dc79fe0a316048ea34261efd0f8d7aa0e893763a5ca.jpg",
+        "pool2": "data/images/47dffb27c6c8408bebd0a6d73adaf2d3cdd8c6026ee5f26b6118d95650c548f8.jpg",
+        "freeCharacter": "data/images/2493a510848d3a2730b7121627baf5ae89110c4065f0b6712f400516c3d9ea29.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-76",
+      "startDate": "2027/05/26",
+      "endDate": "2027/06/02",
+      "dateText": "2027/05/26~2027/06/02",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n德米安[眠雪之諾]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/e9fca4173acac2e4d5b172935cc04fc3709cba23ba41a48a5f1a7ee0a7faff98.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-77",
+      "startDate": "2027/06/02",
+      "endDate": "2027/06/09",
+      "dateText": "2027/06/02~2027/06/09",
+      "rerun": "非復刻",
+      "name": "綺念邂逅\n埃彌克",
+      "type": "綺念邂逅",
+      "images": {
+        "pool1": "data/images/bfcd36b9be121ebcdcadd3b4ea6c49bc5bc06867f011bf42364b0cd16bb269be.jpg"
+      },
+      "note": "同步舉行",
+      "link": ""
+    },
+    {
+      "id": "row-78",
+      "startDate": "2027/06/02",
+      "endDate": "2027/06/09",
+      "dateText": "2027/06/02~2027/06/09",
+      "rerun": "復刻",
+      "name": "專屬時刻\n雷塞爾[秩序之初]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/e3427dce6df575dbbf778b1b8eae90a8b7a7e7ba9df23759dc2e3f3f49384700.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-79",
+      "startDate": "2027/06/09",
+      "endDate": "2027/06/23",
+      "dateText": "2027/06/09~2027/06/23",
+      "rerun": "非復刻",
+      "name": "綠洲的金砂旋律",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/9b506ac53d349e5a8ecd4ccadcbc4b93e8ae0815145bef412bb244779723397e.jpg",
+        "pool2": "data/images/66667b64251beda3659fea68ec7a582e97803158f43a510bd67ba0a90f4cec48.jpg",
+        "freeCharacter": "data/images/c438f7d86d7caf73a21df0247365692ba1f9940e676c7b58d86bc0eca158ebce.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-80",
+      "startDate": "2027/06/23",
+      "endDate": "2027/06/30",
+      "dateText": "2027/06/23~2027/06/30",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n埃彌克[花束序曲]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/611c4a757fb355483bd65fe97afb912f3d5892af2c33d094f5338aa0987892dc.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-81",
+      "startDate": "2027/06/30",
+      "endDate": "2027/07/07",
+      "dateText": "2027/06/30~2027/07/07",
+      "rerun": "復刻",
+      "name": "驚奇！\n熱帶海島與竊竊私語",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/78f270a9bd50a3721a0621908773de480136c2ae201c5f2c428c36d19990ac07.jpg",
+        "pool2": "data/images/502559f736518ea5fd8a3fab70fff6e922412c0803ee8aac9fed784098c32d40.jpg",
+        "freeCharacter": "data/images/0a75943f23b8b6904f18593cc7298b53ee89d74e7b1050f86cfc09220e3aa6c6.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-82",
+      "startDate": "2027/07/07",
+      "endDate": "2027/07/14",
+      "dateText": "2027/07/07~2027/07/14",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n伽利爾亞[鳶紫誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c6c4e6a1f6d987c456792b8ff710f5f71452821155eb22085278fa402f9d3ff7.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-83",
+      "startDate": "2027/07/14",
+      "endDate": "2027/07/21",
+      "dateText": "2027/07/14~2027/07/21",
+      "rerun": "復刻",
+      "name": "專屬時刻\n沙菲[夏夜燈光]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c76f5302342882daa2c02eb7d59711f7660f8d535cc4c589fbe9b0d6cc2fef0d.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-84",
+      "startDate": "2027/07/21",
+      "endDate": "2027/08/04",
+      "dateText": "2027/07/21~2027/08/04",
+      "rerun": "非復刻",
+      "name": "航海鐘的迴響",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/9f1d5410828029b0d8993748fbc02faefdcab6c8ff85d34007e08f3c920b3f98.jpg",
+        "pool2": "data/images/87c6cb25436d74381648811baf50cdf0132d7ec6ea059497687bd1df4dec2408.jpg",
+        "freeCharacter": "data/images/ae2299bb9f6b6da5b29e4f3f657a23652cfa33f24d15018b80937a87eb0aaf36.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-85",
+      "startDate": "2027/08/04",
+      "endDate": "2027/08/11",
+      "dateText": "2027/08/04~2027/08/11",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n瑟琉[沁綠誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/3e8ae2c01d43c732b2723d26fa7f13f87a1bb276b008999ba7eaae069087dfad.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-86",
+      "startDate": "2027/08/11",
+      "endDate": "2027/08/18",
+      "dateText": "2027/08/11~2027/08/18",
+      "rerun": "復刻",
+      "name": "幻夜的熱砂盛宴",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/782372ad77f2e3d69800966c1e6be9fdee0eced8ca3bd2ed67e92528fa677308.jpg",
+        "pool2": "data/images/32e7cce073af3c39dae6ebc46a10bfda578d0fb28d912da48f2fcb8c311555ae.jpg",
+        "freeCharacter": "data/images/ae78134a230e738901db9005b709f827104729151fc2eb0405ee426249fff74d.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-87",
+      "startDate": "2027/08/18",
+      "endDate": "2027/08/25",
+      "dateText": "2027/08/18~2027/08/25",
+      "rerun": "復刻",
+      "name": "專屬時刻\n默狄厄[暗魑封印]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/ebbced3a04142896dd7b4bf150efc284235a0ce49a4b864c547ce00608c4f625.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-88",
+      "startDate": "2027/08/25",
+      "endDate": "2027/09/08",
+      "dateText": "2027/08/25~2027/09/08",
+      "rerun": "非復刻",
+      "name": "猩紅劇場的鬼魅",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/78207ba7fefd545a7e06fb9bd71fedd4a3498db7218abda6ba24b2e7cdcc6de6.jpg",
+        "pool2": "data/images/0f674557aae81607740fc83e4a33a878397bc8808901491e299f4b1617dc0676.jpg",
+        "freeCharacter": "data/images/8e233e829233bb3432330bcd6a00270eb0ddaecf37175029155b4780891591c1.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-89",
+      "startDate": "2027/09/08",
+      "endDate": "2027/09/15",
+      "dateText": "2027/09/08~2027/09/15",
+      "rerun": "復刻",
+      "name": "專屬時刻\n奇琪蒂[午夜戲謔]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/7581befbbc253180804603aedca8dc189bb137c5a2df9592cf5808f267dddc58.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-90",
+      "startDate": "2027/09/15",
+      "endDate": "2027/09/22",
+      "dateText": "2027/09/15~2027/09/22",
+      "rerun": "復刻",
+      "name": "玻利西亞的寶石",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/10111319465958c8e8706667e42f7f8e7e7311a08f27affbfa1210eebc7bd5da.jpg",
+        "pool2": "data/images/dacab22057c521e369de3f51b0fe351bd0c57a7fa897e8fb0ea749c7a60fad3d.jpg",
+        "freeCharacter": "data/images/25dddba54eb1c757bc3dc75ab13312979d1dce79941b797391d9ef416cdd95ff.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-91",
+      "startDate": "2027/09/22",
+      "endDate": "2027/09/29",
+      "dateText": "2027/09/22~2027/09/29",
+      "rerun": "復刻",
+      "name": "專屬時刻\n伊斯雷爾[煙花夜遊]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c4c54491b075f10b1c923e69df05964eb2359b58e25ad3921187cc2a36dc3a22.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-92",
+      "startDate": "2027/09/29",
+      "endDate": "2027/10/13",
+      "dateText": "2027/09/29~2027/10/13",
+      "rerun": "非復刻",
+      "name": "霧色中的暖楓泉",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/2fee0698bf33a3c085314f42c7f994e4737c01b5fda4f4b7a7ac5238e7137d88.jpg",
+        "pool2": "data/images/af8b13ba39dbe35f6741eb57dbb8c9a2bcc2194bf07ce74a68b102cfa2e6a695.jpg",
+        "freeCharacter": "data/images/c38b4d11030cac6e03335e748fae27e4b9302faabcc73b8dbdf8f8638899884b.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-93",
+      "startDate": "2027/10/13",
+      "endDate": "2027/10/20",
+      "dateText": "2027/10/13~2027/10/20",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n修伊[碧浪海岸]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/97b60a86ae22b04ef96b4f8a47c887d927d0605795ee6dfdcf6034cf2ea631c1.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-94",
+      "startDate": "2027/10/20",
+      "endDate": "2027/10/27",
+      "dateText": "2027/10/20~2027/10/27",
+      "rerun": "復刻",
+      "name": "罪惡山莊的鑰匙",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/72b4663c85f1bd53dc7c1411ee859c3a41856691bb2de54c7466cc34372edfb6.jpg",
+        "pool2": "data/images/b79c572b8c2c9e629c0a2a04e2455e389c721a25e5f6871ce7e2a5fffcf456ae.jpg",
+        "pool3": "data/images/9551d38a767f6616a47f183e49adebf6a61f46255cf70a7ab2d70a3ee100762f.png",
+        "freeCharacter": "data/images/71ca7835e6d575f5bda372600e4bd875880f45b0db981d1900052185ef869a35.jpg"
+      },
+      "note": "新增常駐UR",
+      "link": ""
+    },
+    {
+      "id": "row-95",
+      "startDate": "2027/10/27",
+      "endDate": "2027/11/03",
+      "dateText": "2027/10/27~2027/11/03",
+      "rerun": "復刻",
+      "name": "專屬時刻\n獠夜[妖魎驚魂]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/fd56de71e06e47f0dc76bea277081a5e8f3e6ecbc6e66446ab290efa2bb155d3.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-96",
+      "startDate": "2027/11/03",
+      "endDate": "2027/11/24",
+      "dateText": "2027/11/03~2027/11/24",
+      "rerun": "不復刻",
+      "name": "第三期時光的馬車\n（自選池）",
+      "type": "時光馬車",
+      "images": {
+        "pool1": "data/images/3b3bbdc0ca2f7216f6aeaf8df934116f380c308e5c658bca82c5fdf84e5d4533.jpg"
+      },
+      "note": "限定角收錄至\n玻利西亞的寶石",
+      "link": "https://www.bilibili.com/opus/1164743593225617415?spm_id_from=333.1387.0.0"
+    },
+    {
+      "id": "row-97",
+      "startDate": "2027/11/03",
+      "endDate": "2027/11/17",
+      "dateText": "2027/11/03~2027/11/17",
+      "rerun": "非復刻",
+      "name": "月蝕的血影聖餐",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/8d603204529b18b19875e6f19e50b3f18b38b2c559e7f72624c95d53bbde91bd.jpg",
+        "pool2": "data/images/83aebd0e0e78e7442ad1fa795c4259fee848a74848b40e9b2fa8d8582bc0247b.jpg",
+        "freeCharacter": "data/images/a65fa2f46b7b40c57ca0a7a3dc27e53e9b31fa20bd455fa9d5efaf6631276e53.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-98",
+      "startDate": "2027/11/17",
+      "endDate": "2027/11/24",
+      "dateText": "2027/11/17~2027/11/24",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n米迦[禁鎖侍奉]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/844b340a4a371b29ea4419b9355b7aaeee5f6e85e676f57c4c4075547adfc6d8.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-99",
+      "startDate": "2027/11/24",
+      "endDate": "2027/12/01",
+      "dateText": "2027/11/24~2027/12/01",
+      "rerun": "復刻",
+      "name": "成為偶像",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/63e81a6ba85754049a224dca279f33f64dc018ff9f6749ac039532a0cf94a36d.jpg",
+        "pool2": "data/images/531a30fc7ab126b95e331ccdc793cf21fe9323f6c784d5971e870ecb341745d2.jpg",
+        "freeCharacter": "data/images/639040aed8b9c4040f7c6de93604b36141880214c1199c32150b5e5500c7244a.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-100",
+      "startDate": "2027/12/01",
+      "endDate": "2027/12/08",
+      "dateText": "2027/12/01~2027/12/08",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n獠夜[灼紅誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/d8c32628c39e14c1098f734f9839afb754f51b59ac7a68645c1282b81f0c9fa5.jpg",
+        "carriage": "data/images/636d24bead882890dd7f8114f1044f0603ae9aa70ace97a3ff68d7dba3ae31ee.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-101",
+      "startDate": "2027/12/08",
+      "endDate": "2027/12/15",
+      "dateText": "2027/12/08~2027/12/15",
+      "rerun": "復刻",
+      "name": "專屬時刻\n恩貝爾[輪盤籌碼]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/b2f7d0da089375a54d9f77eb0d4f805a3dd27bbd0d1bcdbd4f0c3132965dcb4f.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-102",
+      "startDate": "2027/12/15",
+      "endDate": "2027/12/22",
+      "dateText": "2027/12/15~2027/12/22",
+      "rerun": "復刻",
+      "name": "專屬時刻\n德米安[純白誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/88f833a747f5eb078532cc2d05444cf6473b7a4f0eb9e206da1f2cdd54516290.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-103",
+      "startDate": "2027/12/22",
+      "endDate": "2028/01/05",
+      "dateText": "2027/12/22~2028/01/05",
+      "rerun": "非復刻",
+      "name": "失控分貝",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/3e3376b34af705fb5891a6d7981b6617426c06b0fbe209cebb200e9e4f18e1e9.jpg",
+        "pool2": "data/images/1518adfc4b0601d44a1b0af1d64e116e9907654d7b7ae42e96e22ef03e0efdae.jpg",
+        "freeCharacter": "data/images/e3f25bc889919e7cbe0feabd9ce1d80c99ca2327963fc8baf18d6039cf5672ea.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-104",
+      "startDate": "2028/01/05",
+      "endDate": "2028/01/12",
+      "dateText": "2028/01/05~2028/01/12",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n明影[夜影無刃]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/37e4f67dfa929e1cb3f1ad32e36950464bb49f418d57c33413b3862a86918b83.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-105",
+      "startDate": "2028/01/12",
+      "endDate": "2028/01/19",
+      "dateText": "2028/01/12~2028/01/19",
+      "rerun": "復刻",
+      "name": "夜鶯邀約\n暗夜的心跳迷夢",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/021de292c61f69f1754206fa352b252a98c98e91440472f99b7b45c63a9e286e.jpg",
+        "pool2": "data/images/6f798f092751f74b9e18bc1afa102f5145c3d45ff26041e22e29213fdf73e958.jpg",
+        "freeCharacter": "data/images/818f8d2124830e0116144a7ad5310b3280c72e0bc51540fd2569dfd6ff32adba.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-106",
+      "startDate": "2028/01/19",
+      "endDate": "2028/01/26",
+      "dateText": "2028/01/19~2028/01/26",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n德米安[拂曉兔耳]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/c5996d7d5fdac25f89b3efe725f18d3bad6f63acce8caefa0c2b076fcd21d75b.jpg",
+        "carriage": "data/images/6ee9a92b0187e2ba11fcfbabd30b8e24a5b9a1c48c51b8bfb84ae9fdb59d7cb2.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-107",
+      "startDate": "2028/01/26",
+      "endDate": "2028/02/02",
+      "dateText": "2028/01/26~2028/02/02",
+      "rerun": "復刻",
+      "name": "專屬時刻\n雪柾[冰雪白影]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/8311b23c942d711cff3aabbb929a5abb21398c2bd0ae7e76bbb887ae0d797432.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-108",
+      "startDate": "2028/02/02",
+      "endDate": "2028/02/16",
+      "dateText": "2028/02/02~2028/02/16",
+      "rerun": "非復刻",
+      "name": "萌芽的春日漫遊",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/9ab5085997ea225786674edee81d2905aaa55c9e2edc82d9cc34d35956e4d7b8.jpg",
+        "pool2": "data/images/5fdbf21a2a22b8923448745607eabbea425273edb79296a5498bbcaf8b6dd64d.jpg",
+        "freeCharacter": "data/images/b2e19b599eb51d99f7c4a58459acdcdf4e49cbcfe523834be09cec52f3069c16.jpg",
+        "carriage": "data/images/0a054ccf977392f62b84344f40e65bdf054dcfa6e6e03afb5e6b98fe1077eef6.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-109",
+      "startDate": "2028/02/16",
+      "endDate": "2028/02/23",
+      "dateText": "2028/02/16~2028/02/23",
+      "rerun": "復刻",
+      "name": "專屬時刻\n瑟琉[青緲仙逸]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/0723f97ac2034eacb5d5ed37b9eb6e85f1fe71396befb576daa18a1081095667.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-110",
+      "startDate": "2028/02/23",
+      "endDate": "2028/03/01",
+      "dateText": "2028/02/23~2028/03/01",
+      "rerun": "復刻",
+      "name": "童話世界的冒險",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/6ff9762e65d31a78a291338e4de7796bf1a1608afb81716cb32f17419bba8eb4.jpg",
+        "pool2": "data/images/44a43b9d70bb7d54505120e6a06c0442244097bc79c77b02edde0ec0f1edc4e4.jpg",
+        "freeCharacter": "data/images/d2a69ae723f460cc9e1e550fcbc768322466b9321cec7fbb127dbd65b0180f7e.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-111",
+      "startDate": "2028/03/01",
+      "endDate": "2028/03/08",
+      "dateText": "2028/03/01~2028/03/08",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n奧古丁[虐痛執鞭]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/57f63d72a2da83f6168f87d6e9ee26bf5af463f1d3f1a86ef838b2a6be567b2e.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-112",
+      "startDate": "2028/03/08",
+      "endDate": "2028/03/15",
+      "dateText": "2028/03/08~2028/03/15",
+      "rerun": "復刻",
+      "name": "專屬時刻\n以剎[風雪散時]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/0be3653dd2986e04dbcde62384bb2fafca0cec66a319c9917d2459393f62144c.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-113",
+      "startDate": "2028/03/15",
+      "endDate": "2028/03/29",
+      "dateText": "2028/03/15~2028/03/29",
+      "rerun": "非復刻",
+      "name": "學院的畢業魔法",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/3515d3db839bcf0cdb2546a95f88b61a0afdd75457431d64b8b485bd363be63a.jpg",
+        "pool2": "data/images/7160e2fd22460543c21430ea64bea2b9348f94a3dd994a49a2acab4d91b3ef12.jpg",
+        "freeCharacter": "data/images/b061a1ba588728a865c5d664c38ccc8f56f91eaff3a81463a2bdc6193c1ba47c.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-114",
+      "startDate": "2028/03/29",
+      "endDate": "2028/04/05",
+      "dateText": "2028/03/29~2028/04/05",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n閻秀秀[炸雞魔法]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/f8d2b81106c98781aaf660c0d3acbc16f32e8b8ce57267b471502f306e7d2128.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-115",
+      "startDate": "2028/04/05",
+      "endDate": "2028/04/12",
+      "dateText": "2028/04/05~2028/04/12",
+      "rerun": "復刻",
+      "name": "學院的騎士守則",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/475795784f74b599406e9f308273bba36f118a1fd297db4866d526a74682dfd9.jpg",
+        "pool2": "data/images/2b78d81a8b709267df58fdec4a6e6c2d749cd355416ea1e7d60e64e0243cc186.jpg",
+        "freeCharacter": "data/images/425a386989d6549d9098b0a7d07536373d3c0aa613493d5907cb53fdee461cfa.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-116",
+      "startDate": "2028/04/12",
+      "endDate": "2028/04/19",
+      "dateText": "2028/04/12~2028/04/19",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n瑟琉[霧森兔耳]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/2672bd9056944cb7e9cca74788bd70d6a10c2f59c26772df8fbf26e0bb331b47.jpg",
+        "carriage": "data/images/3fc86c66765efabf547ee2d66fdcbffe3f280c3c7a324253ec7e83da84cb86b4.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-117",
+      "startDate": "2028/04/19",
+      "endDate": "2028/05/10",
+      "dateText": "2028/04/19~2028/05/10",
+      "rerun": "不復刻",
+      "name": "第四期時光的馬車\n（自選池）",
+      "type": "時光馬車",
+      "images": {
+        "pool1": "data/images/1d891c0c3b6e35af5cdb868418fd779fba913c5ef889cded5ad204df82eeaa1e.jpg"
+      },
+      "note": "限定角收錄至\n童話世界的冒險\n首次收錄專屬限定",
+      "link": "https://www.bilibili.com/opus/1229312413602414616?spm_id_from=333.1387.0.0"
+    },
+    {
+      "id": "row-118",
+      "startDate": "2028/04/19",
+      "endDate": "2028/05/03",
+      "dateText": "2028/04/19~2028/05/03",
+      "rerun": "非復刻",
+      "name": "深淵的無期囚徒",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/03a9702acafbd59df1c6926e1c146e9a3ae7fd1e8393da5630d793fb03dcafb0.jpg",
+        "pool2": "data/images/862e2e533a08c6aa3801be74081a851e65584aab6629610a3a7ecb0e3a703bad.jpg",
+        "freeCharacter": "data/images/4692608d120475322198ecfa301ac5afd3af2a5885f3175a69022842f429b3cf.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-119",
+      "startDate": "2028/05/03",
+      "endDate": "2028/05/10",
+      "dateText": "2028/05/03~2028/05/10",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n枯霧[惡意禱告]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/7396c03e7f5bf5d9f9c2821420e796b0fb3d682860bcbcc5c938120e354c29f7.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-120",
+      "startDate": "2028/05/10",
+      "endDate": "2028/05/17",
+      "dateText": "2028/05/10~2028/05/17",
+      "rerun": "復刻",
+      "name": "病房的心電詭波",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/85d53f1904f098393ccd0010c82582836475dc4389b4f40bbfc143d5dbb3ae1a.png",
+        "pool2": "data/images/1f2bce1ddfbe7a0a640f1e5644934a63ac5261050801d6afe43107eab60461ba.png",
+        "freeCharacter": "data/images/b7b3a5680ea32be257aa9d5290c95659bd35cf02bb5e025df3602a70cf07be81.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-121",
+      "startDate": "2028/05/17",
+      "endDate": "2028/05/24",
+      "dateText": "2028/05/17~2028/05/24",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n獠夜[灼炎兔耳]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/cc62c3c5d8aa9b8902d529746a4853de2f22c3f50c5944eb18b3637d36ce2b1e.png",
+        "carriage": "data/images/3becfc593150e9ce0511ff21f34ac3fdcef846f50468b935d67bfff960e599cf.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-122",
+      "startDate": "2028/05/24",
+      "endDate": "2028/05/31",
+      "dateText": "2028/05/24~2028/05/31",
+      "rerun": "復刻",
+      "name": "專屬時刻\n米迦[暗羽之刻]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/003b2d79e435d27c8d86494e9da941763efe00bbc4a7cbb79fc5c8ee49a5beec.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-123",
+      "startDate": "2028/05/31",
+      "endDate": "2028/06/14",
+      "dateText": "2028/05/31~2028/06/14",
+      "rerun": "不復刻",
+      "name": "靈魂的熔爐",
+      "type": "主線劇情",
+      "images": {
+        "pool1": "data/images/2a7fbb244df4343ae92c961823d7f2ee8f27fc636730f77602af05eb8a1e1684.png",
+        "pool2": "data/images/2baa1568b2df293c77a16b2f7fa9d537411403aa8c40e91290614c6b5bc91ae1.png",
+        "carriage": "data/images/969d6aaffef707776b8d3535245c07b3b031b3d0fd24a0b95f0f0ca0518cdb3b.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-124",
+      "startDate": "2028/06/07",
+      "endDate": "2028/06/14",
+      "dateText": "2028/06/07~2028/06/14",
+      "rerun": "復刻",
+      "name": "專屬時刻\n洛蜜歐[暮夜沉醉]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/cbc5f8ade3ed2862ea66de7f3208b1f2ba70d75116c91d1a288d99acd0097310.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-125",
+      "startDate": "2028/06/14",
+      "endDate": "2028/06/21",
+      "dateText": "2028/06/14~2028/06/21",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n修伊[隱密束縛]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/5cd989e258f74bc881c4ca3e2498cf49695d72f2bbb0008c1d49b1ce70166736.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-126",
+      "startDate": "2028/06/21",
+      "endDate": "2028/06/28",
+      "dateText": "2028/06/21~2028/06/28",
+      "rerun": "復刻",
+      "name": "綠洲的金砂旋律",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/b8c925be3f0abf21c0d8c81a23e0252154a8830087db0a379d2c8810449940b8.png",
+        "pool2": "data/images/bd16b0268b5e4dec6b989ec9f0fff7507d1407baab080047a0b2c18001f304d7.png",
+        "freeCharacter": "data/images/c438f7d86d7caf73a21df0247365692ba1f9940e676c7b58d86bc0eca158ebce.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-127",
+      "startDate": "2028/06/28",
+      "endDate": "2028/07/05",
+      "dateText": "2028/06/28~2028/07/05",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n吉露安[揚帆啟航]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/5ae5d485c40e145cfe5b4fd16305c28e714c262775e8464c9274e163f7e604d6.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-128",
+      "startDate": "2028/07/05",
+      "endDate": "2028/07/12",
+      "dateText": "2028/07/05~2028/07/12",
+      "rerun": "復刻",
+      "name": "專屬時刻\n伊斯雷爾[湛藍誓約]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/f9165b69cca719ec805d1f73603c9df604c492b0182495a996465bd748f12a60.jpg"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-129",
+      "startDate": "2028/07/12",
+      "endDate": "2028/07/26",
+      "dateText": "2028/07/12~2028/07/26",
+      "rerun": "非復刻",
+      "name": "沙海的幻夢奇譚",
+      "type": "限時活動",
+      "images": {
+        "pool1": "data/images/4f5fe955bee0357e9dfcd15a64e24cc6f4db3012b67592e47693596d014db950.png",
+        "pool2": "data/images/49a9b1a442741c51688de63eabdf43bbf70cb5970c571dd54a66c6dff47b3551.png",
+        "freeCharacter": "data/images/c08830d4f0cd4960d0ed713fdc56c1deb158127fcc53dfdd3fcc150b3c5d4a0a.png"
+      },
+      "note": "",
+      "link": ""
+    },
+    {
+      "id": "row-130",
+      "startDate": "2028/07/26",
+      "endDate": "2028/08/02",
+      "dateText": "2028/07/26~2028/08/02",
+      "rerun": "非復刻",
+      "name": "專屬時刻\n奇琪蒂[蝠翼節拍]",
+      "type": "專屬時刻",
+      "images": {
+        "pool1": "data/images/2f7721f6ba680be55892bb3951297205da6eab8ad2c35333738e3a5871799f00.png"
+      },
+      "note": "",
+      "link": ""
+    }
+  ]
+}
