@@ -1,0 +1,23 @@
+@import "./global.css";
+@import "./layout.css";
+@import "./Home.css";
+@import "./tools.css";
+@import "./activity.css";
+@import "./challenge.css";
+@import "./common.css";
+@import "./placeholder.css";
+@import "./Topbar.css";
+@import './character-tags.css';
+
+/* ===== 桌面版：統一所有頁面的內容寬度 ===== */
+
+@media (min-width: 761px) {
+
+    .character-detail-page,
+    .character-page,
+    .pool-search-page,
+    .pool-search-detail-header {
+        max-width: none !important;
+        width: 100%;
+    }
+}

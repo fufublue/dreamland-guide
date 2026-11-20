@@ -1,0 +1,722 @@
+/* ========================================
+   抽卡資源計算器整體
+======================================== */
+
+.gacha-calculator-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.gacha-calculator-page .page-description {
+    margin-top: -10px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   共用區塊
+======================================== */
+
+.gacha-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.gacha-panel h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.gacha-hint {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.gacha-error {
+    margin: 0;
+    color: #d9534f;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   計算條件
+======================================== */
+
+.gacha-condition-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gacha-condition-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+/* 條件標題 */
+
+.gacha-condition-heading {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+}
+
+.gacha-condition-label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.gacha-condition-day-count {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* 課金方案 */
+
+.gacha-plan-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.gacha-choice-button {
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-soft);
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.gacha-choice-button:hover {
+    border-color: var(--accent);
+}
+
+.gacha-choice-button.active {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    font-weight: 700;
+}
+
+/* 目標活動 */
+
+.gacha-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.gacha-field>span {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.gacha-field select {
+    width: 100%;
+    min-height: 46px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-soft);
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* 計算時間與本日資源 */
+
+.gacha-condition-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+    padding-top: 2px;
+}
+
+.gacha-time-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.gacha-time-button {
+    min-height: 44px;
+    padding: 9px 8px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-soft);
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.gacha-time-button:hover {
+    border-color: var(--accent);
+}
+
+.gacha-time-button.active {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    font-weight: 700;
+}
+
+/* 計入本日資源 */
+
+.gacha-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 44px;
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.gacha-checkbox-label input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+}
+
+/* ========================================
+   總資源統整
+======================================== */
+
+.gacha-summary-panel {
+    gap: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-color: var(--accent);
+}
+
+.gacha-summary-panel h2 {
+    margin: 0;
+    line-height: 1.35;
+}
+
+.gacha-summary-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.gacha-summary-notes .gacha-hint {
+    line-height: 1.45;
+}
+
+/* 總資源數字 */
+
+.gacha-summary-total {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.gacha-summary-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-soft);
+}
+
+.gacha-summary-item span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.gacha-summary-item strong {
+    color: var(--text);
+    font-size: 18px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* 預估總抽數 */
+
+.gacha-summary-item:last-child {
+    grid-column: 1 / -1;
+    padding: 18px;
+    border-color: var(--accent);
+    background: var(--accent-bg);
+}
+
+.gacha-summary-item:last-child span {
+    color: var(--accent-dark);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.gacha-summary-item:last-child strong {
+    color: var(--accent-dark);
+    font-size: 28px;
+    line-height: 1.35;
+}
+
+/* ========================================
+   基礎累積資源
+======================================== */
+
+.gacha-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.gacha-result-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-soft);
+}
+
+.gacha-result-item span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.gacha-result-item strong {
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.gacha-result-total {
+    grid-column: 1 / -1;
+    border-color: var(--accent);
+    background: var(--accent-bg);
+}
+
+.gacha-result-total strong {
+    color: var(--accent-dark);
+    font-size: 22px;
+}
+
+/* ========================================
+   活動額外資源
+======================================== */
+
+.gacha-event-estimates {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 單一活動卡片 */
+
+.gacha-event-estimate {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-soft);
+}
+
+/* 活動名稱與日期 */
+
+.gacha-event-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.gacha-event-header strong {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.gacha-event-header span {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* 活動資訊格 */
+
+.gacha-event-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.gacha-event-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    min-width: 0;
+    min-height: 76px;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+}
+
+.gacha-event-detail span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.gacha-event-detail strong {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* 參考抽數 */
+
+.gacha-event-pull {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    background: var(--accent-bg);
+}
+
+.gacha-event-pull span {
+    color: var(--accent-dark);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.gacha-event-pull strong {
+    color: var(--accent-dark);
+    font-size: 19px;
+    font-weight: 700;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* 無法估算的活動 */
+
+.gacha-event-unavailable {
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   活動額外資源總量
+======================================== */
+
+.gacha-extra-total {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
+.gacha-extra-total h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.gacha-extra-total-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.gacha-extra-total-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-soft);
+}
+
+.gacha-extra-total-item span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.gacha-extra-total-item strong {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* 參考抽數橫跨兩欄 */
+
+.gacha-extra-total-pull {
+    grid-column: 1 / -1;
+    border-color: var(--accent);
+    background: var(--accent-bg);
+}
+
+.gacha-extra-total-pull span,
+.gacha-extra-total-pull strong {
+    color: var(--accent-dark);
+}
+
+.gacha-extra-total-pull strong {
+    font-size: 22px;
+}
+
+/* 手機版 */
+
+@media (max-width: 600px) {
+    .gacha-extra-total {
+        padding: 13px;
+        gap: 10px;
+    }
+
+    .gacha-extra-total-grid {
+        gap: 8px;
+    }
+
+    .gacha-extra-total-item {
+        padding: 12px;
+    }
+
+    .gacha-extra-total-item strong {
+        font-size: 15px;
+    }
+
+    .gacha-extra-total-pull strong {
+        font-size: 20px;
+    }
+}
+
+/* ========================================
+   手機版
+======================================== */
+
+@media (max-width: 600px) {
+
+    .gacha-calculator-page {
+        gap: 16px;
+    }
+
+    .gacha-panel {
+        gap: 15px;
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .gacha-panel h2 {
+        font-size: 18px;
+    }
+
+    .gacha-condition-section {
+        gap: 17px;
+    }
+
+    /* 手機版條件區改為上下排列 */
+
+    .gacha-condition-bottom {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* 總資源 */
+
+    .gacha-summary-total {
+        gap: 9px;
+    }
+
+    .gacha-summary-item {
+        padding: 13px;
+    }
+
+    .gacha-summary-item strong {
+        font-size: 16px;
+    }
+
+    .gacha-summary-item:last-child {
+        padding: 16px;
+    }
+
+    .gacha-summary-item:last-child strong {
+        font-size: 25px;
+    }
+
+    /* 基礎資源 */
+
+    .gacha-result-grid {
+        gap: 9px;
+    }
+
+    .gacha-result-item {
+        padding: 13px;
+    }
+
+    .gacha-result-item strong {
+        font-size: 15px;
+    }
+
+    .gacha-result-total strong {
+        font-size: 20px;
+    }
+
+    /* 活動卡片 */
+
+    .gacha-event-estimates {
+        gap: 11px;
+    }
+
+    .gacha-event-estimate {
+        gap: 11px;
+        padding: 13px;
+    }
+
+    .gacha-event-details {
+        gap: 8px;
+    }
+
+    .gacha-event-detail {
+        min-height: 70px;
+        padding: 11px;
+    }
+
+    .gacha-event-detail strong {
+        font-size: 15px;
+    }
+
+    .gacha-event-pull {
+        padding: 12px;
+    }
+
+    .gacha-event-pull span {
+        font-size: 13px;
+    }
+
+    .gacha-event-pull strong {
+        font-size: 17px;
+    }
+}
+
+/* ========================================
+   小螢幕
+======================================== */
+
+@media (max-width: 380px) {
+
+    .gacha-summary-total,
+    .gacha-result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gacha-summary-item:last-child,
+    .gacha-result-total {
+        grid-column: auto;
+    }
+
+    .gacha-event-details {
+        gap: 7px;
+    }
+
+    .gacha-event-detail {
+        padding: 10px;
+    }
+
+    .gacha-event-detail strong {
+        font-size: 14px;
+    }
+
+    .gacha-event-pull {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .gacha-event-pull strong {
+        text-align: left;
+    }
+}
+
+/* 參考抽數第四格 */
+
+.gacha-event-detail-pull {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+}
+
+.gacha-event-detail-pull span,
+.gacha-event-detail-pull strong {
+    color: var(--accent-dark);
+}
+
+.gacha-event-detail-pull strong {
+    font-size: 19px;
+}
+
+/* 活動額外資源說明文字間距 */
+
+.gacha-panel:has(.gacha-event-estimates) {
+    gap: 10px;
+}
+
+.gacha-panel:has(.gacha-event-estimates)>.gacha-hint+.gacha-hint {
+    margin-top: -6px;
+}
+
+.gacha-calculator-page>.gacha-panel:first-of-type {
+    margin-top: 0px;
+}

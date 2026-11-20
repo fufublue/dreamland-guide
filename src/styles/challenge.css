@@ -1,0 +1,431 @@
+/* ===== 挑戰券換算 ===== */
+
+.challenge-converter {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.challenge-converter-intro {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* 70次 / 30次切換 */
+
+.challenge-target-switch {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    gap: 6px;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.challenge-target-switch button {
+    flex: 1;
+    min-height: 44px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.challenge-target-switch button.active {
+    background: var(--surface);
+    color: var(--accent-dark);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+}
+
+/* 計算機主體 */
+
+.challenge-calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+/* 輸入欄位 */
+
+.challenge-input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.challenge-input {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.challenge-input>span {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.challenge-input-field {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    padding: 0 12px;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.challenge-input-field input {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.challenge-input-field>span {
+    flex-shrink: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 區塊標題 */
+
+.challenge-section {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.challenge-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.challenge-section-title strong,
+.challenge-section-heading {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.challenge-section-title>span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* 六種難度配置 */
+
+.challenge-difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.challenge-difficulty-card {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0;
+    padding: 16px 6px;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.challenge-difficulty-card>span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.challenge-difficulty-card>strong {
+    color: var(--text);
+    font-size: 24px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.challenge-difficulty-card>small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* 難度卡片的細微色彩區別 */
+/* 六種難度統一樣式 */
+
+.challenge-difficulty-card {
+    background: var(--surface-soft);
+    border-color: var(--border);
+}
+
+.challenge-difficulty-card>strong {
+    color: var(--text);
+}
+
+/* 本次挑戰場數 */
+
+.challenge-total-runs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--surface-soft);
+    border-radius: 10px;
+}
+
+.challenge-total-runs>span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.challenge-total-runs>strong {
+    color: var(--text);
+    font-size: 15px;
+}
+
+/* 挑戰券不足提醒 */
+
+.challenge-warning {
+    padding: 13px 14px;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.challenge-warning strong {
+    color: var(--text);
+    font-size: 13px;
+}
+
+.challenge-warning p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* 預計成果 */
+
+.challenge-reward-section {
+    padding: 17px;
+    background: var(--surface-soft);
+    border-radius: 13px;
+}
+
+.challenge-reward-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.challenge-reward-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.challenge-reward-item>span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.challenge-reward-item>strong {
+    color: var(--accent-dark);
+    font-size: 25px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* 超出目標場數 */
+
+.challenge-extra-runs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.challenge-extra-runs>span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.challenge-extra-runs>strong {
+    color: var(--text);
+    font-size: 13px;
+}
+
+/* 最終累計總場數 */
+.challenge-final-runs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 4px;
+    padding: 18px;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent);
+    border-radius: 13px;
+}
+
+.challenge-final-runs>span {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.challenge-final-runs>strong {
+    color: var(--accent-dark);
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.challenge-final-runs>strong small {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* 計算細節 */
+
+.challenge-details {
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.challenge-details summary {
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.challenge-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 16px;
+}
+
+.challenge-detail-list>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.challenge-detail-list>div>span {
+    color: var(--muted);
+}
+
+.challenge-detail-list>div>strong {
+    color: var(--text);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* 手機版 */
+
+@media (max-width: 480px) {
+    .challenge-calculator {
+        padding: 15px;
+        gap: 19px;
+    }
+
+    .challenge-input-grid {
+        gap: 10px;
+    }
+
+    .challenge-input>span {
+        font-size: 12px;
+    }
+
+    .challenge-input-field {
+        padding: 0 8px;
+    }
+
+    .challenge-input-field input {
+        font-size: 16px;
+    }
+
+    .challenge-difficulty-grid {
+        gap: 7px;
+    }
+
+    .challenge-difficulty-card {
+        gap: 3px;
+        padding: 14px 3px;
+    }
+
+    .challenge-difficulty-card>span {
+        font-size: 12px;
+    }
+
+    .challenge-difficulty-card>strong {
+        font-size: 21px;
+    }
+
+    .challenge-difficulty-card>small {
+        font-size: 10px;
+    }
+
+    .challenge-reward-section {
+        padding: 14px;
+    }
+
+    .challenge-reward-item>strong {
+        font-size: 22px;
+    }
+
+    .challenge-final-runs {
+        padding: 15px;
+    }
+
+    .challenge-final-runs>strong {
+        font-size: 27px;
+    }
+
+    .challenge-plan-section {
+        margin-bottom: -6px;
+    }
+}
+
+/* 有安排挑戰場數的難度 */
+.challenge-difficulty-card.has-runs {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+}
+
+.challenge-difficulty-card.has-runs>strong {
+    color: var(--accent-dark);
+}
+
+/* 調整預計挑戰場數與預計成果的間距 */
+.challenge-plan-section {
+    margin-bottom: -9px;
+}

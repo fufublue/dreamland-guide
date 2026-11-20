@@ -1,0 +1,1150 @@
+/* ========================================
+   活動中心整體
+======================================== */
+
+.activity-page {
+    width: 100%;
+    color: var(--text);
+    padding-top: 12px;
+}
+
+.activity-page>h1 {
+    margin: 17px 0 10px;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.activity-page>p {
+    margin: 0 0 25px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   區塊標題
+======================================== */
+
+.activity-page>h2,
+.current-activity-section>h2 {
+    margin: 25px 0 15px;
+    font-size: 19px;
+    font-weight: 650;
+    letter-spacing: 0.5px;
+}
+
+.activity-page>h2.activity-list-heading {
+    margin-top: 18px;
+}
+
+/* ========================================
+   活動工具列
+======================================== */
+
+.activity-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 22px 0 18px;
+    flex-wrap: wrap;
+}
+
+/* 列表 / 月曆切換 */
+
+.activity-view-switch {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 11px;
+    background: var(--surface-soft);
+}
+
+.activity-view-switch button {
+    padding: 9px 18px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.activity-view-switch button.selected {
+    background: var(--surface);
+    color: var(--accent-dark);
+    font-weight: 650;
+    box-shadow: 0 1px 5px #00000012;
+}
+
+/* 搜尋與分類篩選 */
+
+.activity-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: min(440px, 100%);
+}
+
+.activity-search {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    min-height: 42px;
+    padding: 0 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 13px;
+    outline: none;
+}
+
+.activity-search::placeholder {
+    color: var(--muted);
+}
+
+.activity-search:focus {
+    border-color: var(--accent);
+}
+
+.activity-type-filter {
+    width: 125px;
+    min-width: 125px;
+    min-height: 42px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.activity-type-filter:focus {
+    border-color: var(--accent);
+}
+
+/* ========================================
+   目前進行中活動
+======================================== */
+
+.current-activity-section {
+    margin: 0 0 25px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface-soft);
+}
+
+.current-activity-section>h2 {
+    margin: 0 0 15px;
+}
+
+.current-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.current-activity-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto 32px;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+}
+
+.current-activity-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.current-activity-info>strong {
+    min-width: 0;
+}
+
+.current-activity-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.current-activity-info>span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.current-activity-toggle {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--surface-soft);
+    color: var(--accent);
+    font-size: 19px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.current-activity-view {
+    flex-shrink: 0;
+    min-height: 28px;
+    padding: 4px 7px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.current-activity-view:hover,
+.current-activity-toggle:hover {
+    border-color: var(--accent);
+}
+
+.current-activity-detail {
+    grid-column: 1 / -1;
+}
+
+.current-activity-detail {
+    grid-column: 1 / -1;
+}
+
+.current-activity-detail p {
+    margin: 5px 0;
+}
+
+.current-activity-detail a {
+    color: var(--accent-dark);
+    text-decoration: none;
+}
+
+.current-activity-detail a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   即將開始 / 近期結束
+======================================== */
+
+.activity-neighbor-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 4px;
+}
+
+.activity-neighbor-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 15px 17px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
+.activity-neighbor-label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.activity-neighbor-name {
+    display: block;
+    width: 100%;
+    padding: 9px 2px;
+    border: 0;
+    border-top: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: left;
+    cursor: pointer;
+}
+
+.activity-neighbor-name:hover {
+    color: var(--accent);
+}
+
+.activity-neighbor-item.upcoming .activity-neighbor-name {
+    text-align: right;
+}
+
+.activity-neighbor-item.upcoming {
+    align-items: stretch;
+    text-align: right;
+}
+
+.activity-neighbor-item.upcoming .activity-neighbor-label,
+.activity-neighbor-item.upcoming .activity-neighbor-name {
+    text-align: right;
+}
+
+/* ========================================
+   活動列表
+======================================== */
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.activity-event {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.activity-event:hover {
+    border-color: var(--accent);
+}
+
+.activity-event-button {
+    width: 100%;
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 20px;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    text-align: left;
+    cursor: pointer;
+}
+
+.activity-event-main {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activity-event-title-row {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.activity-event-title-row>strong {
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+.activity-event-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.activity-date {
+    display: block;
+    margin-left: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.activity-expand-icon {
+    flex-shrink: 0;
+    width: 27px;
+    height: 27px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--surface-soft);
+    color: var(--accent);
+    font-size: 19px;
+    line-height: 1;
+}
+
+/* ========================================
+   活動標籤
+======================================== */
+
+.activity-type,
+.activity-rerun,
+.activity-status-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.activity-type {
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+}
+
+.activity-type[data-type="限時活動"] {
+    background: #f9ebdf;
+    color: #b86d36;
+}
+
+.activity-type[data-type="專屬時刻"] {
+    background: #f7e8ef;
+    color: #b45d85;
+}
+
+.activity-type[data-type="主線劇情"] {
+    background: #e8edf8;
+    color: #5874a9;
+}
+
+.activity-type[data-type="夢影馬車"] {
+    background: #eee9f8;
+    color: #8065ae;
+}
+
+.activity-type[data-type="特別邀約"] {
+    background: #e7f1ec;
+    color: #54866b;
+}
+
+.activity-type[data-type="時光馬車"] {
+    background: #f8eedc;
+    color: #a9823e;
+}
+
+.activity-type[data-type="綺念邂逅"] {
+    background: #f8e8e8;
+    color: #b75d5d;
+}
+
+/* 復刻：柔和橘紅 */
+.activity-rerun:not(.activity-no-rerun):not(.activity-not-rerun) {
+    background: #F8E5DC;
+    color: #A85D42;
+}
+
+/* 不復刻：維持原本灰色 */
+.activity-rerun.activity-no-rerun {
+    background: var(--surface-soft);
+    color: var(--muted);
+}
+
+/* 非復刻：柔和藍綠 */
+.activity-rerun.activity-not-rerun {
+    background: #E0EFEB;
+    color: #47796D;
+}
+
+.activity-status-tag.ending {
+    background: #fae8e8;
+    color: #b74747;
+}
+
+/* ========================================
+   活動詳細資訊
+======================================== */
+
+.activity-event-detail {
+    padding: 17px 20px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.activity-event-detail p {
+    margin: 5px 0;
+}
+
+.activity-event-detail a {
+    color: var(--accent-dark);
+    text-decoration: none;
+}
+
+.activity-event-detail a:hover {
+    text-decoration: underline;
+}
+
+.activity-event-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.activity-event-images img {
+    display: block;
+    width: min(100%, 240px);
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: contain;
+    border-radius: 9px;
+    background: var(--surface-soft);
+}
+
+.activity-event-detail>button {
+    margin-top: 12px;
+    min-height: 34px;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.activity-event-detail>button:hover {
+    border-color: var(--accent);
+}
+
+/* 空白提示 */
+
+.activity-empty {
+    padding: 35px 20px;
+    border: 1px dashed var(--border);
+    border-radius: 11px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.activity-empty h2 {
+    color: var(--text);
+    font-size: 18px;
+}
+
+/* ========================================
+   月曆整體
+======================================== */
+
+.activity-calendar {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+}
+
+/* 月份切換列 */
+
+.calendar-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.calendar-heading h2 {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 650;
+}
+
+/* 上一個月在左，下一個月與今天在右 */
+
+.calendar-heading>button {
+    flex-shrink: 0;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 9px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.calendar-heading>button:hover,
+.calendar-next-controls>button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.calendar-next-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.calendar-next-controls .calendar-today-button {
+    order: 1;
+}
+
+.calendar-next-controls>button:not(.calendar-today-button) {
+    order: 2;
+}
+
+.calendar-next-controls>button {
+    flex-shrink: 0;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 9px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.calendar-next-controls .calendar-today-button {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 2px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    cursor: pointer;
+}
+
+.calendar-today-day {
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 1.2;
+}
+
+/* 星期列 */
+
+.calendar-grid {
+    display: block;
+    width: 100%;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+}
+
+.calendar-weekday {
+    min-width: 0;
+    padding: 10px 2px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-soft);
+    color: var(--muted);
+    text-align: center;
+    font-size: 12px;
+}
+
+/* 每週日期區 */
+
+.calendar-weeks {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-week {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    width: 100%;
+    border-left: 1px solid var(--border);
+}
+
+/* 日期格 */
+
+.calendar-week .calendar-day {
+    position: relative;
+    min-width: 0;
+    min-height: 145px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 5px;
+    border: 0;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--text);
+    text-align: left;
+    cursor: pointer;
+}
+
+.calendar-week .calendar-day.other-month {
+    background: var(--bg);
+}
+
+.calendar-week .calendar-day.other-month .calendar-day-number {
+    color: var(--muted);
+    opacity: 0.45;
+}
+
+/* 選取日期 */
+/* selected date */
+.calendar-week .calendar-day.selected {
+    background: var(--accent-bg);
+    border-color: transparent;
+    z-index: auto;
+    outline: none;
+}
+
+.calendar-week .calendar-day.selected::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.calendar-day-number {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+}
+
+.calendar-week .calendar-day.today .calendar-day-number {
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+}
+
+/* 跨日期活動色帶 */
+
+.calendar-week-bars {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(4, 18px);
+    row-gap: 3px;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.calendar-event-chip {
+    min-width: 0;
+    display: block;
+    margin: 0 2px;
+    padding: 2px 5px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    font-size: 12px;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.calendar-event-chip[data-type="限時活動"] {
+    background: #f9ebdf;
+    color: #b86d36;
+}
+
+.calendar-event-chip[data-type="專屬時刻"] {
+    background: #f7e8ef;
+    color: #b45d85;
+}
+
+.calendar-event-chip[data-type="主線劇情"] {
+    background: #e8edf8;
+    color: #5874a9;
+}
+
+.calendar-event-chip[data-type="夢影馬車"] {
+    background: #eee9f8;
+    color: #8065ae;
+}
+
+.calendar-event-chip[data-type="特別邀約"] {
+    background: #e7f1ec;
+    color: #54866b;
+}
+
+.calendar-event-chip[data-type="時光馬車"] {
+    background: #f8eedc;
+    color: #a9823e;
+}
+
+.calendar-event-chip[data-type="綺念邂逅"] {
+    background: #f8e8e8;
+    color: #b75d5d;
+}
+
+.calendar-event-more {
+    position: absolute;
+    right: 4px;
+    bottom: 3px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* 選取日期的活動 */
+
+.calendar-selected-events {
+    margin-top: 22px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: var(--surface-soft);
+}
+
+.calendar-selected-events>h3 {
+    margin: 0 0 15px;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.calendar-selected-events .activity-list {
+    margin-top: 0;
+}
+
+/* ========================================
+   手機版
+======================================== */
+
+@media (max-width: 760px) {
+    .activity-page>h1 {
+        font-size: 27px;
+    }
+
+    .activity-page>p {
+        font-size: 12px;
+    }
+
+    .activity-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .activity-view-switch {
+        width: 100%;
+    }
+
+    .activity-view-switch button {
+        flex: 1;
+        padding: 9px 8px;
+    }
+
+    .activity-filter-group {
+        width: 100%;
+        gap: 7px;
+    }
+
+    .activity-search {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .activity-type-filter {
+        width: 115px;
+        min-width: 115px;
+        padding: 0 7px;
+        font-size: 12px;
+    }
+
+    .current-activity-section {
+        padding: 15px 12px;
+    }
+
+    .current-activity-item {
+        padding: 11px 10px;
+        gap: 8px;
+    }
+
+    .current-activity-title {
+        font-size: 13px;
+    }
+
+        .current-activity-item>.current-activity-view {
+            min-height: 28px;
+            padding: 4px 7px;
+            font-size: 11px;
+        }
+
+    .activity-neighbor-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .activity-neighbor-item {
+        min-width: 0;
+        padding: 12px 9px;
+    }
+
+    .activity-neighbor-label {
+        font-size: 12px;
+    }
+
+    .activity-neighbor-name {
+        font-size: 11px;
+        overflow-wrap: anywhere;
+    }
+
+    .activity-neighbor-item {
+        padding: 14px;
+    }
+
+    .activity-event-button {
+        min-height: 68px;
+        padding: 14px 12px;
+        gap: 9px;
+    }
+
+    .activity-event-main {
+        gap: 8px;
+    }
+
+    .activity-event-title-row>strong {
+        font-size: 14px;
+    }
+
+    .activity-event-meta {
+        gap: 6px;
+        font-size: 11px;
+    }
+
+    .activity-date {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .activity-event-detail {
+        padding: 13px 13px 16px;
+    }
+
+    .activity-event-images img {
+        width: min(100%, 240px);
+    }
+
+    .activity-calendar {
+        padding: 12px 7px;
+    }
+
+    .calendar-heading {
+        gap: 5px;
+        margin-bottom: 13px;
+    }
+
+    .calendar-heading h2 {
+        font-size: 14px;
+    }
+
+    .calendar-heading>button,
+    .calendar-next-controls>button {
+        min-width: 29px;
+        height: 31px;
+        padding: 0 5px;
+        font-size: 15px;
+    }
+
+    .calendar-next-controls {
+        gap: 4px;
+    }
+
+    .calendar-next-controls .calendar-today-button {
+        width: 29px;
+        min-width: 29px;
+        height: 31px;
+    }
+
+    .calendar-today-day {
+        font-size: 13px;
+    }
+
+    .calendar-weekday {
+        padding: 7px 1px;
+        font-size: 11px;
+    }
+
+    .calendar-week .calendar-day {
+        min-height: 110px;
+        padding: 5px 2px;
+    }
+
+    .calendar-day-number {
+        width: 21px;
+        height: 21px;
+        font-size: 11px;
+    }
+
+    .calendar-week .calendar-day.today .calendar-day-number {
+        width: 21px;
+        height: 21px;
+    }
+
+    .calendar-week-bars {
+        top: 32px;
+        grid-auto-rows: 18px;
+        gap: 2px 0;
+    }
+
+    .calendar-event-chip {
+        margin: 0 1px;
+        padding: 1px 2px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .calendar-selected-events {
+        margin-top: 15px;
+        padding: 12px;
+    }
+
+    .calendar-selected-events>h3 {
+        font-size: 14px;
+    }
+}
+
+/* 更窄的手機 */
+
+@media (max-width: 380px) {
+    .activity-page>h1 {
+        font-size: 25px;
+    }
+
+    .current-activity-item {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .calendar-heading h2 {
+        font-size: 13px;
+    }
+
+    .calendar-week .calendar-day {
+        min-height: 110px;
+    }
+
+    .calendar-event-chip {
+        font-size: 7px;
+        padding: 1px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .calendar-week .calendar-day {
+        min-height: 140px;
+        padding: 5px 3px;
+        font-size: 12px;
+    }
+
+    .calendar-event-chip {
+        font-size: 9px;
+        line-height: 15px;
+        padding: 1px;
+    }
+
+        .calendar-week-bars {
+            top: 31px;
+            grid-template-rows: repeat(4, 18px);
+            row-gap: 3px;
+        }
+}
+
+/* ===== 活動類型配色 ===== */
+
+/* 限時活動：紅色 */
+.activity-type[data-type="限時活動"],
+.calendar-event-chip[data-type="限時活動"] {
+    background: #F6DFE2;
+    color: #A74450;
+}
+
+/* 專屬時刻：青色 */
+.activity-type[data-type="專屬時刻"],
+.calendar-event-chip[data-type="專屬時刻"] {
+    background: #D9EFF0;
+    color: #26777C;
+}
+
+/* 主線劇情：藍色 */
+.activity-type[data-type="主線劇情"],
+.calendar-event-chip[data-type="主線劇情"] {
+    background: #E1EAF8;
+    color: #45669A;
+}
+
+/* 夢影馬車：橘色 */
+.activity-type[data-type="夢影馬車"],
+.calendar-event-chip[data-type="夢影馬車"] {
+    background: #FCE8D5;
+    color: #A65320;
+}
+
+/* 特別邀約：棕色 */
+.activity-type[data-type="特別邀約"],
+.calendar-event-chip[data-type="特別邀約"] {
+    background: #EFE4D8;
+    color: #866044;
+}
+
+/* 時光馬車：黃色 */
+.activity-type[data-type="時光馬車"],
+.calendar-event-chip[data-type="時光馬車"] {
+    background: #F8EFCB;
+    color: #92721E;
+}
+
+/* 綺念邂逅：黃綠色 */
+.activity-type[data-type="綺念邂逅"],
+.calendar-event-chip[data-type="綺念邂逅"] {
+    background: #EDF0D5;
+    color: #737D2F;
+}

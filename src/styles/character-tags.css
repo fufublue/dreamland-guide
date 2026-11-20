@@ -1,0 +1,101 @@
+/* ========================================
+   共用角色標籤樣式
+======================================== */
+
+.character-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 21px;
+    padding: 0 6px;
+    border: 1px solid;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+}
+/* ========================================
+   角色稀有度
+======================================== */
+
+.rarity-ur {
+    background: rgba(167, 122, 203, 0.14);
+    color: #A77ACB;
+    border-color: rgba(167, 122, 203, 0.3);
+}
+
+.rarity-ssr {
+    background: rgba(198, 155, 69, 0.14);
+    color: #C69B45;
+    border-color: rgba(198, 155, 69, 0.3);
+}
+
+.rarity-sr {
+    background: rgba(96, 152, 201, 0.14);
+    color: #6098C9;
+    border-color: rgba(96, 152, 201, 0.3);
+}
+
+.rarity-r {
+    background: rgba(105, 169, 132, 0.14);
+    color: #69A984;
+    border-color: rgba(105, 169, 132, 0.3);
+}
+
+/* ========================================
+   角色屬性
+======================================== */
+
+.element-water {
+    background: rgba(57, 137, 216, 0.14);
+    color: #3989D8;
+    border-color: rgba(57, 137, 216, 0.3);
+}
+
+.element-fire {
+    background: rgba(227, 107, 99, 0.14);
+    color: #E36B63;
+    border-color: rgba(227, 107, 99, 0.3);
+}
+
+.element-wind {
+    background: rgba(85, 168, 121, 0.14);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.3);
+}
+
+.element-earth {
+    background: rgba(169, 135, 101, 0.14);
+    color: #A98765;
+    border-color: rgba(169, 135, 101, 0.3);
+}
+
+.element-thunder {
+    background: rgba(198, 155, 53, 0.14);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.3);
+}
+
+.element-light {
+    background: rgba(214, 173, 76, 0.14);
+    color: #D6AD4C;
+    border-color: rgba(214, 173, 76, 0.3);
+}
+
+.element-dark {
+    background: rgba(146, 113, 197, 0.14);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.3);
+}
+
+/* ========================================
+   角色職業
+======================================== */
+
+.character-class {
+    background: rgba(111, 157, 154, 0.14);
+    color: #6F9D9A;
+    border-color: rgba(111, 157, 154, 0.3);
+}

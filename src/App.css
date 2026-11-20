@@ -1,3 +1,6 @@
+html {
+  scrollbar-gutter: stable;
+}
 
 #root {
   min-height: 100vh;
@@ -15,16 +18,35 @@ button {
   font: inherit;
 }
 
+/* ===== 全站主題：紫色系 ===== */
+
+/* 白天模式 */
 .app-shell {
-  --bg: #f7f5f1;
+  --bg: #f7f5fb;
   --surface: #ffffff;
-  --surface-soft: #f0ede7;
-  --text: #393630;
-  --muted: #918a80;
-  --border: #e9e5dd;
-  --accent: #a58b72;
-  --accent-dark: #8c725a;
-  --accent-bg: #f2ece4;
+  --surface-soft: #f0edf7;
+
+  --text: #373241;
+  --muted: #898397;
+  --border: #e7e1ef;
+
+  --accent: #9276b5;
+  --accent-dark: #765b9a;
+  --accent-bg: #eee8f6;
+
+  /* 其他元件共用的主題變數 */
+  --text-color: var(--text);
+  --text-secondary: var(--muted);
+  --text-muted: var(--muted);
+
+  --card-background: var(--surface);
+  --hover-background: var(--surface-soft);
+  --surface-hover: var(--surface-soft);
+
+  --border-color: var(--border);
+
+  --accent-color: var(--accent);
+  --accent-background: var(--accent-bg);
 
   min-height: 100vh;
   background: var(--bg);
@@ -32,16 +54,33 @@ button {
   transition: background 0.2s, color 0.2s;
 }
 
+/* 夜晚模式 */
 .app-shell.dark {
-  --bg: #1e1e1c;
-  --surface: #292825;
-  --surface-soft: #34312c;
-  --text: #eeeae4;
-  --muted: #aaa399;
-  --border: #403d37;
-  --accent: #d0ad8d;
-  --accent-dark: #e0bd9c;
-  --accent-bg: #40372f;
+  --bg: #1e1a26;
+  --surface: #292432;
+  --surface-soft: #352e40;
+
+  --text: #eee9f5;
+  --muted: #aaa0b8;
+  --border: #453b52;
+
+  --accent: #c2a8e5;
+  --accent-dark: #d4bdf0;
+  --accent-bg: #3c314b;
+
+  /* 其他元件共用的主題變數 */
+  --text-color: var(--text);
+  --text-secondary: var(--muted);
+  --text-muted: var(--muted);
+
+  --card-background: var(--surface);
+  --hover-background: var(--surface-soft);
+  --surface-hover: var(--surface-soft);
+
+  --border-color: var(--border);
+
+  --accent-color: var(--accent);
+  --accent-background: var(--accent-bg);
 }
 
 /* 側邊欄 */
@@ -225,16 +264,12 @@ button {
   border: 1px solid var(--border);
   border-radius: 20px;
   background:
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(165, 139, 114, 0.15),
-      transparent 32%
-    ),
-    linear-gradient(
-      120deg,
+    radial-gradient(circle at 90% 20%,
+      rgba(146, 118, 181, 0.15),
+      transparent 32%),
+    linear-gradient(120deg,
       var(--surface),
-      var(--accent-bg)
-    );
+      var(--accent-bg));
 }
 
 .welcome-section::after {
@@ -268,7 +303,7 @@ button {
 }
 
 .welcome-section p,
-.subpage > p {
+.subpage>p {
   position: relative;
   z-index: 1;
   color: var(--muted);
@@ -714,27 +749,47 @@ button {
   padding-top: 10px;
 }
 
+/* 工具詳細頁上方列 */
+.tool-detail-header {
+  margin-bottom: 30px;
+}
+
+.tool-detail-topline {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+/* 返回工具中心 */
 .back-button {
-  margin-bottom: 35px;
-  padding: 9px 13px;
-  border: 1px solid var(--border);
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border: 1px solid transparent;
   border-radius: 8px;
-  background: var(--surface);
+  background: transparent;
   color: var(--muted);
   font-size: 13px;
   cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  position: absolute;
+  top: -7px;
+  right: 0;
 }
 
 .back-button:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent-dark);
 }
 
+/* 工具標題 */
 .tool-detail-heading {
   display: flex;
   align-items: center;
   gap: 17px;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .tool-detail-icon {
@@ -796,6 +851,21 @@ button {
     font-size: 20px;
   }
 
+  .tool-detail-header {
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 25px;
+  }
+
+  .tool-detail-topline {
+    margin-bottom: 16px;
+  }
+
+  .back-button {
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+
   .tool-detail-heading {
     align-items: flex-start;
     gap: 12px;
@@ -831,22 +901,22 @@ button {
   display: flex;
   gap: 6px;
   padding: 5px;
-  background: var(--surface, #f1eee8);
+  background: var(--surface-soft);
   border-radius: 12px;
 }
 
 .activity-view-switch button {
   border: 0;
   background: transparent;
-  color: var(--text-secondary, #777);
+  color: var(--muted);
   padding: 9px 18px;
   border-radius: 9px;
   cursor: pointer;
 }
 
 .activity-view-switch button.selected {
-  background: var(--card, #fff);
-  color: var(--text, #333);
+  background: var(--surface);
+  color: var(--text);
   box-shadow: 0 1px 5px #00000012;
 }
 
@@ -854,15 +924,15 @@ button {
   width: min(280px, 100%);
   min-height: 42px;
   padding: 0 14px;
-  border: 1px solid var(--border, #e5e0d8);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  background: var(--card, #fff);
-  color: var(--text, #333);
+  background: var(--surface);
+  color: var(--text);
   outline: none;
 }
 
 .activity-search:focus {
-  border-color: var(--accent, #b58d69);
+  border-color: var(--accent);
 }
 
 .activity-list {
@@ -871,11 +941,18 @@ button {
   gap: 10px;
 }
 
+/* 活動項目 */
+
 .activity-event {
   overflow: hidden;
-  border: 1px solid var(--border, #e8e2d9);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  background: var(--card, #fff);
+  background: var(--surface);
+  transition: border-color 0.2s;
+}
+
+.activity-event:hover {
+  border-color: var(--accent);
 }
 
 .activity-event-button {
@@ -884,24 +961,25 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 17px 20px;
+  padding: 18px 20px;
   border: 0;
   background: transparent;
-  color: var(--text, #333);
+  color: var(--text);
   text-align: left;
   cursor: pointer;
 }
 
 .activity-event-main {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 9px;
-  min-width: 0;
+  gap: 10px;
 }
 
 .activity-event-main strong {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.5;
 }
 
 .activity-event-meta {
@@ -909,31 +987,25 @@ button {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
-  color: var(--text-secondary, #888);
+  color: var(--muted);
   font-size: 12px;
+  line-height: 1.6;
 }
 
-.activity-type,
-.activity-rerun {
-  padding: 3px 9px;
-  border-radius: 20px;
-  background: var(--surface, #f1eee8);
-}
-
-.activity-rerun {
-  color: #a66d43;
-  background: #f8eee4;
-}
+/* 展開符號 */
 
 .activity-expand-icon {
-  color: var(--text-secondary, #999);
-  font-size: 20px;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 21px;
 }
 
+/* 活動詳細內容 */
+
 .activity-event-detail {
-  padding: 14px 20px 18px;
-  border-top: 1px solid var(--border, #e8e2d9);
-  color: var(--text-secondary, #777);
+  padding: 15px 20px 19px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
   font-size: 13px;
   line-height: 1.8;
 }
@@ -942,21 +1014,127 @@ button {
   margin: 3px 0;
 }
 
+/* 活動類型標籤 */
+
+.activity-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px 5px 9px;
+  line-height: 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.activity-type[data-type="限時活動"] {
+  color: #b74747;
+  background: #fae8e8;
+}
+
+.activity-type[data-type="專屬時刻"] {
+  color: #8056a8;
+  background: #f0e9f8;
+}
+
+.activity-type[data-type="主線劇情"] {
+  color: #47845c;
+  background: #e8f3e9;
+}
+
+.activity-type[data-type="夢影馬車"] {
+  color: #477cae;
+  background: #e8f0fa;
+}
+
+.activity-type[data-type="特別邀約"] {
+  color: #6d7279;
+  background: #eceef0;
+}
+
+.activity-type[data-type="時光馬車"] {
+  color: #927321;
+  background: #f8f0d9;
+}
+
+.activity-type[data-type="綺念邂逅"] {
+  color: #397e91;
+  background: #e3f2f5;
+}
+
+/* 復刻狀態標籤 */
+
+.activity-rerun {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px 5px 9px;
+  line-height: 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  justify-content: center;
+}
+
+/* 復刻：橘色 */
+
+.activity-rerun:not(.activity-no-rerun):not(.activity-not-rerun) {
+  color: #b86d36;
+  background: #f9ebdf;
+}
+
+/* 非復刻：藍色 */
+
+.activity-not-rerun {
+  color: #477cae;
+  background: #e8f0fa;
+}
+
+/* 不復刻：灰色 */
+
+.activity-no-rerun {
+  color: #6d7279;
+  background: #eceef0;
+}
+
+/* 活動圖片 */
+
+.activity-event-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.activity-event-images img {
+  width: 240px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #f8f6f2;
+}
+
+/* 空白及錯誤提示 */
+
 .activity-empty {
   padding: 42px 20px;
-  border: 1px dashed var(--border, #ddd5ca);
+  border: 1px dashed var(--border);
   border-radius: 12px;
-  color: var(--text-secondary, #999);
+  color: var(--muted);
   text-align: center;
   font-size: 14px;
   line-height: 1.7;
 }
 
+/* 月曆 */
+
 .activity-calendar {
   padding: 20px;
-  border: 1px solid var(--border, #e8e2d9);
+  border: 1px solid var(--border);
   border-radius: 14px;
-  background: var(--card, #fff);
+  background: var(--surface);
 }
 
 .calendar-heading {
@@ -974,10 +1152,10 @@ button {
 .calendar-heading button {
   width: 36px;
   height: 36px;
-  border: 1px solid var(--border, #e5e0d8);
+  border: 1px solid var(--border);
   border-radius: 9px;
-  background: var(--surface, #f8f6f2);
-  color: var(--text, #333);
+  background: var(--surface-soft);
+  color: var(--text);
   cursor: pointer;
 }
 
@@ -988,7 +1166,7 @@ button {
 
 .calendar-weekday {
   padding: 10px 0;
-  color: var(--text-secondary, #888);
+  color: var(--muted);
   text-align: center;
   font-size: 13px;
 }
@@ -996,9 +1174,9 @@ button {
 .calendar-day {
   min-height: 88px;
   padding: 9px;
-  border-top: 1px solid var(--border, #eee9e1);
-  border-right: 1px solid var(--border, #eee9e1);
-  color: var(--text, #333);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  color: var(--text);
   font-size: 13px;
 }
 
@@ -1007,14 +1185,17 @@ button {
 }
 
 .calendar-day.empty {
-  background: var(--surface, #faf9f6);
+  background: var(--surface-soft);
 }
 
-.activity-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.calendar-day.selected {
+  background: #e8f0ff;
+  border: 2px solid #7298d8;
+  border-radius: 8px;
 }
+
+
+/* 手機版 */
 
 @media (max-width: 600px) {
   .activity-toolbar {
@@ -1035,6 +1216,26 @@ button {
     width: 100%;
   }
 
+  .activity-event-button {
+    padding: 15px 14px;
+  }
+
+  .activity-event-main strong {
+    font-size: 15px;
+  }
+
+  .activity-event-meta {
+    gap: 6px;
+  }
+
+  .activity-event-detail {
+    padding: 13px 14px 16px;
+  }
+
+  .activity-event-images img {
+    width: min(100%, 240px);
+  }
+
   .activity-calendar {
     padding: 12px 8px;
   }
@@ -1045,38 +1246,1265 @@ button {
   }
 }
 
-/* ===== 活動中心：深色模式月曆 ===== */
+/* 活動搜尋與類型篩選 */
 
-.app-shell.dark .activity-calendar {
-  background: #292824;
-  border-color: #48453e;
-  color: #eeeae2;
+.activity-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(440px, 100%);
 }
 
-.app-shell.dark .calendar-heading h2 {
-  color: #eeeae2;
+.activity-filter-group .activity-search {
+  flex: 1;
+  width: auto;
+  min-width: 0;
 }
 
-.app-shell.dark .calendar-heading button {
-  background: #383630;
-  border-color: #514d44;
-  color: #eeeae2;
+.activity-type-filter {
+  width: 135px;
+  min-width: 135px;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
 }
 
-.app-shell.dark .calendar-weekday {
-  color: #c3bdb1;
+.activity-type-filter:focus {
+  border-color: var(--accent);
 }
 
-.app-shell.dark .calendar-day {
-  color: #eeeae2;
-  border-color: #48453e;
+/* 手機版搜尋與篩選 */
+
+@media (max-width: 600px) {
+  .activity-filter-group {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .activity-filter-group .activity-search {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .activity-type-filter {
+    width: 125px;
+    min-width: 125px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
 }
 
-.app-shell.dark .calendar-day.empty {
-  background: #24231f;
+/* 月曆當日活動 */
+.calendar-selected-events {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e8e5df);
+  border-radius: 12px;
 }
 
-.app-shell.dark .activity-calendar .activity-empty {
-  color: #bdb6aa;
-  border-color: #514d44;
+.calendar-selected-events h3 {
+  margin: 0 0 16px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.calendar-selected-events .activity-list {
+  margin-top: 0;
+}
+
+.calendar-selected-events .activity-empty {
+  margin: 0;
+  padding: 12px 0;
+}
+
+/* 月曆日期格內的活動 */
+.calendar-day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  min-width: 0;
+}
+
+.calendar-event-chip {
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 1.4;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 月曆活動類型配色 */
+.calendar-event-chip[data-type="限時活動"] {
+  color: #b74747;
+  background: #fae8e8;
+}
+
+.calendar-event-chip[data-type="專屬時刻"] {
+  color: #8056a8;
+  background: #f0e9f8;
+}
+
+.calendar-event-chip[data-type="主線劇情"] {
+  color: #47845c;
+  background: #e8f3e9;
+}
+
+.calendar-event-chip[data-type="夢影馬車"] {
+  color: #477cae;
+  background: #e8f0fa;
+}
+
+.calendar-event-chip[data-type="特別邀約"] {
+  color: #6d7279;
+  background: #eceef0;
+}
+
+.calendar-event-chip[data-type="時光馬車"] {
+  color: #927321;
+  background: #f8f0d9;
+}
+
+.calendar-event-chip[data-type="綺念邂逅"] {
+  color: #397e91;
+  background: #e3f2f5;
+}
+
+/* 手機版月曆調整 */
+@media (max-width: 600px) {
+  .calendar-day {
+    min-height: 76px;
+    padding: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .calendar-day-events {
+    gap: 3px;
+    margin-top: 4px;
+  }
+
+  .calendar-event-chip {
+    padding: 2px 3px;
+    font-size: 9px;
+    line-height: 1.3;
+    border-radius: 3px;
+  }
+
+  .calendar-selected-events {
+    padding: 15px;
+    margin-top: 18px;
+  }
+
+  .calendar-selected-events h3 {
+    font-size: 15px;
+  }
+}
+
+
+/* ===== 活動月曆：連續活動色帶 ===== */
+
+/* 月曆整體改為上下排列 */
+.calendar-grid {
+  display: block;
+  width: 100%;
+}
+
+/* 星期標題 */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.calendar-weekday {
+  box-sizing: border-box;
+  min-width: 0;
+  text-align: center;
+  border: 1px solid var(--border);
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+/* 每週日期區域 */
+.calendar-weeks {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-week {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
+}
+
+/* 日期格 */
+.calendar-week .calendar-day {
+  position: relative;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 145px;
+  padding: 8px 6px;
+  border: 1px solid var(--border);
+  margin-right: -1px;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+
+/* 日期數字 */
+.calendar-day-number {
+  position: relative;
+  z-index: 3;
+}
+
+/* 空白日期格 */
+.calendar-week .calendar-day.empty {
+  cursor: default;
+}
+
+/* 活動色帶所在的七欄網格 */
+.calendar-week-bars {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(4, 18px);
+  row-gap: 3px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 活動色帶 */
+.calendar-week-bars .calendar-event-chip {
+  box-sizing: border-box;
+  display: block;
+  min-width: 0;
+  height: 18px;
+  margin: 0 1px;
+  padding: 2px 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  line-height: 14px;
+  border-radius: 4px;
+  opacity: 0.78;
+}
+
+/* 超過兩條色帶時的提示 */
+.calendar-event-more {
+  position: absolute;
+  left: 6px;
+  bottom: 5px;
+  z-index: 3;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* 選取日期 */
+.calendar-week .calendar-day.selected {
+  background: var(--accent-bg);
+  border-color: transparent;
+  z-index: auto;
+  outline: none;
+}
+
+.calendar-week .calendar-day.selected::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 手機版月曆 */
+@media (max-width: 600px) {
+  .calendar-week .calendar-day {
+    min-height: 130px;
+    padding: 5px 3px;
+    font-size: 12px;
+  }
+
+  .calendar-week-bars {
+    top: 31px;
+    grid-template-rows: repeat(4, 17px);
+    row-gap: 3px;
+  }
+
+  .calendar-week-bars .calendar-event-chip {
+    height: 17px;
+    padding: 2px 3px;
+    font-size: 9px;
+    line-height: 13px;
+    border-radius: 3px;
+    opacity: 0.78;
+  }
+
+  .calendar-event-more {
+    left: 3px;
+    bottom: 4px;
+    font-size: 9px;
+  }
+
+  .calendar-weekday {
+    padding: 7px 2px;
+    font-size: 12px;
+  }
+}
+
+/* 前後月份的日期 */
+.calendar-week .calendar-day.other-month .calendar-day-number {
+  color: var(--text-muted);
+  opacity: 0.45;
+}
+
+/* 月曆：回到今天按鈕 */
+.calendar-today-button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 22px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.calendar-today-button:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+}
+
+/* 月曆：今天與下一個月按鈕並排 */
+.calendar-next-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 0;
+}
+
+.calendar-today-button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 今天按鈕：小日曆外觀 */
+.today-date {
+  width: 23px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid var(--accent);
+  border-radius: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.today-date-top {
+  width: 100%;
+  height: 5px;
+  background: var(--accent);
+}
+
+.today-date-number {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+/* 活動清單：回到頂端按鈕 */
+
+.back-to-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 30px;
+  z-index: 1000;
+  padding: 0 0 4px 0;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--surface);
+  color: var(--accent);
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.10),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.back-to-top-button:hover {
+  background: var(--surface-soft);
+  color: var(--accent-dark);
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.14),
+    0 2px 5px rgba(0, 0, 0, 0.07);
+}
+
+.back-to-top-button:active {
+  transform: translateY(-1px) scale(0.94);
+}
+
+@media (max-width: 600px) {
+  .back-to-top-button {
+    right: 16px;
+    bottom: calc(90px + env(safe-area-inset-bottom));
+
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .back-to-top-button {
+    right: 16px;
+    bottom: calc(90px + env(safe-area-inset-bottom));
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+    padding-bottom: 4px;
+  }
+}
+
+
+/* 現正進行活動區 */
+.current-activity-section {
+  margin-bottom: 28px;
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+}
+
+.current-activity-section h2 {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* 進行中活動列表 */
+.current-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.current-activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.current-activity-info {
+  min-width: 0;
+  flex: 1;
+}
+
+/* 定位按鈕 */
+.current-activity-item button {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 16px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.current-activity-item button:hover {
+  background: var(--accent-bg);
+  filter: brightness(0.96);
+}
+
+/* 前一個、下一個活動提示 */
+.activity-neighbor-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 20px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 現正進行活動名稱 */
+.current-activity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.current-activity-info strong {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.current-activity-info span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* 定位按鈕互動效果 */
+.current-activity-item button {
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.current-activity-item button:active {
+  transform: scale(0.96);
+}
+
+/* 沒有進行中活動時的提示 */
+.current-activity-section>p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+@media (max-width: 600px) {
+  .current-activity-section {
+    padding: 15px 12px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+
+  .current-activity-section h2 {
+    font-size: 18px;
+    margin-bottom: 13px;
+  }
+
+  .current-activity-item {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .current-activity-info strong {
+    font-size: 14px;
+  }
+
+  .current-activity-info span {
+    font-size: 11px;
+  }
+
+  .current-activity-item button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .activity-neighbor-links {
+    flex-direction: column;
+    gap: 9px;
+    font-size: 12px;
+  }
+}
+
+
+
+.activity-neighbor-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.activity-neighbor-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-neighbor-item:last-child {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.activity-neighbor-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.activity-neighbor-name {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+
+/* 現正進行：活動開合 */
+.current-activity-item {
+  flex-wrap: wrap;
+}
+
+.current-activity-info {
+  cursor: pointer;
+}
+
+.current-activity-info strong {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.current-activity-expand-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* 縮小定位按鈕 */
+.current-activity-item>button {
+  padding: 4px 9px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* 展開的活動詳細資訊 */
+.current-activity-detail {
+  width: 100%;
+  padding: 12px 4px 2px;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.current-activity-detail p {
+  margin: 0 0 8px;
+}
+
+.current-activity-detail a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* 活動圖片 */
+.current-activity-detail .activity-event-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.current-activity-detail .activity-event-images img {
+  width: min(100%, 240px);
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.activity-neighbor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.activity-neighbor-name {
+  display: block;
+}
+
+.activity-status-tag.ending {
+  display: inline-flex;
+  margin-left: 8px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: #fcefeb;
+  color: #c53c3c;
+  font-size: 12px;
+  font-weight: 600;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.current-activity-info strong {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.activity-status-tag.ending {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+  margin-left: 0;
+  transform: none;
+}
+
+.current-activity-title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 8px;
+  width: 100%;
+}
+
+.current-activity-title strong {
+  min-width: 0;
+  font-size: inherit;
+}
+
+.activity-status-tag.ending {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+
+/* ===== 統一各頁面標題區位置 ===== */
+
+.activity-page,
+.tools-page,
+.tool-detail-page,
+.subpage {
+  padding-top: 7px;
+}
+
+@media (max-width: 760px) {
+
+  .activity-page,
+  .tools-page,
+  .tool-detail-page,
+  .subpage {
+    padding-top: 5px;
+  }
+}
+
+/* ===== 挑戰券換算 ===== */
+
+.challenge-converter {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.challenge-converter-intro {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 70次 / 30次切換 */
+
+.challenge-target-switch {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  gap: 6px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.challenge-target-switch button {
+  flex: 1;
+  min-height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.challenge-target-switch button.active {
+  background: var(--surface);
+  color: var(--accent-dark);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+}
+
+/* 計算機主體 */
+
+.challenge-calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* 輸入欄位 */
+
+.challenge-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.challenge-input {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.challenge-input>span {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.challenge-input-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 0 12px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.challenge-input-field input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.challenge-input-field>span {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 區塊標題 */
+
+.challenge-section {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.challenge-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.challenge-section-title strong,
+.challenge-section-heading {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.challenge-section-title>span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 六種難度配置 */
+
+.challenge-difficulty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.challenge-difficulty-card {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 16px 6px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.challenge-difficulty-card>span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.challenge-difficulty-card>strong {
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.challenge-difficulty-card>small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* 難度卡片的細微色彩區別 */
+/* 六種難度統一樣式 */
+
+.challenge-difficulty-card {
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+
+.challenge-difficulty-card>strong {
+  color: var(--text);
+}
+
+/* 本次挑戰場數 */
+
+.challenge-total-runs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface-soft);
+  border-radius: 10px;
+}
+
+.challenge-total-runs>span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.challenge-total-runs>strong {
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* 挑戰券不足提醒 */
+
+.challenge-warning {
+  padding: 13px 14px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.challenge-warning strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.challenge-warning p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 預計成果 */
+
+.challenge-reward-section {
+  padding: 17px;
+  background: var(--surface-soft);
+  border-radius: 13px;
+}
+
+.challenge-reward-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.challenge-reward-item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.challenge-reward-item>span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.challenge-reward-item>strong {
+  color: var(--accent-dark);
+  font-size: 25px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* 超出目標場數 */
+
+.challenge-extra-runs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.challenge-extra-runs>span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.challenge-extra-runs>strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* 最終累計總場數 */
+.challenge-final-runs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+  padding: 18px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent);
+  border-radius: 13px;
+}
+
+.challenge-final-runs>span {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.challenge-final-runs>strong {
+  color: var(--accent-dark);
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.challenge-final-runs>strong small {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* 計算細節 */
+
+.challenge-details {
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.challenge-details summary {
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.challenge-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.challenge-detail-list>div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.challenge-detail-list>div>span {
+  color: var(--muted);
+}
+
+.challenge-detail-list>div>strong {
+  color: var(--text);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* 手機版 */
+
+@media (max-width: 480px) {
+  .challenge-calculator {
+    padding: 15px;
+    gap: 19px;
+  }
+
+  .challenge-input-grid {
+    gap: 10px;
+  }
+
+  .challenge-input>span {
+    font-size: 12px;
+  }
+
+  .challenge-input-field {
+    padding: 0 8px;
+  }
+
+  .challenge-input-field input {
+    font-size: 16px;
+  }
+
+  .challenge-difficulty-grid {
+    gap: 7px;
+  }
+
+  .challenge-difficulty-card {
+    gap: 3px;
+    padding: 14px 3px;
+  }
+
+  .challenge-difficulty-card>span {
+    font-size: 12px;
+  }
+
+  .challenge-difficulty-card>strong {
+    font-size: 21px;
+  }
+
+  .challenge-difficulty-card>small {
+    font-size: 10px;
+  }
+
+  .challenge-reward-section {
+    padding: 14px;
+  }
+
+  .challenge-reward-item>strong {
+    font-size: 22px;
+  }
+
+  .challenge-final-runs {
+    padding: 15px;
+  }
+
+  .challenge-final-runs>strong {
+    font-size: 27px;
+  }
+
+  .challenge-plan-section {
+    margin-bottom: -6px;
+  }
+}
+
+/* 有安排挑戰場數的難度 */
+.challenge-difficulty-card.has-runs {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+
+.challenge-difficulty-card.has-runs>strong {
+  color: var(--accent-dark);
+}
+
+/* 調整預計挑戰場數與預計成果的間距 */
+.challenge-plan-section {
+  margin-bottom: -9px;
+}
+
+/* ===== 修正下拉選單展開後的選項顏色 ===== */
+
+.app-shell select {
+  color: var(--text);
+  background-color: var(--surface);
+}
+
+.app-shell select option,
+.app-shell select optgroup {
+  color: var(--text);
+  background-color: var(--surface);
+}
+
+/* 滑鼠指向或鍵盤選取的選項 */
+.app-shell select option:checked {
+  color: var(--text);
+  background-color: var(--accent-bg);
 }

@@ -1,0 +1,265 @@
+/* ===== 工具中心 ===== */
+
+.tools-page {
+    padding-top: 12px;
+}
+
+.page-title {
+    margin: 16px 0 8px;
+    font-size: 34px;
+    font-weight: 550;
+    letter-spacing: 1px;
+}
+
+.page-description {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.tool-group {
+    margin-top: 38px;
+}
+
+.tool-group-heading {
+    margin-bottom: 17px;
+}
+
+.tool-group-heading h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 650;
+}
+
+.tool-group-heading p {
+    margin: 7px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.tool-card {
+    min-width: 0;
+    min-height: 105px;
+    padding: 19px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: var(--surface);
+    color: var(--text);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.tool-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(70, 58, 44, 0.06);
+}
+
+.dark .tool-card:hover {
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.15);
+}
+
+.tool-card-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.tool-card-content {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.tool-card-title {
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.tool-card-description {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.tool-card-arrow {
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 18px;
+}
+
+/* ===== 工具詳細頁 ===== */
+
+.tool-detail-page {
+    padding-top: 10px;
+}
+
+.tool-detail-header {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.tool-detail-topline {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.back-button {
+    flex-shrink: 0;
+    padding: 7px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    position: absolute;
+    top: -7px;
+    right: 0;
+}
+
+.back-button:hover {
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+}
+
+.tool-detail-heading {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-top: 0;
+}
+
+.tool-detail-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    font-size: 27px;
+}
+
+.tool-detail-heading h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+    font-weight: 550;
+}
+
+.tool-detail-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ===== 工具中心手機版 ===== */
+
+@media (max-width: 760px) {
+    .tools-page {
+        padding-top: 13px;
+    }
+
+    .page-title {
+        font-size: 27px;
+    }
+
+    .tool-group {
+        margin-top: 31px;
+    }
+
+    .tool-group-heading h2 {
+        font-size: 17px;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .tool-card {
+        min-height: 91px;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .tool-card-icon {
+        width: 39px;
+        height: 39px;
+        font-size: 20px;
+    }
+
+    .tool-detail-header {
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 25px;
+    }
+
+    .tool-detail-topline {
+        margin-bottom: 16px;
+    }
+
+    .back-button {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    .tool-detail-heading {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .tool-detail-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 23px;
+    }
+
+    .tool-detail-heading h1 {
+        font-size: 22px;
+    }
+}
+
+/* ===== ICON 文字位置調整 ===== */
+
+/* SVG 圖示容器：所有圖示本體統一 26px */
+.page-header-icon-content,
+.tool-card-icon-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 工具詳細頁 ICON 大小 */
+.tool-detail-header .page-header-large .page-header-icon {
+    font-size: 0;
+}
+
+/* 電腦版：所有共用 ICON 內的文字再往上移 1px */
+@media (min-width: 761px) {    
+
+    .tool-card-icon-content {
+        transform: translateY(-2px);
+    }
+}
+

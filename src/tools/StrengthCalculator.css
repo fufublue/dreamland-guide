@@ -1,0 +1,561 @@
+/* ========================================
+   強度計算
+======================================== */
+
+.strength-calculator {
+    width: 100%;
+    min-width: 0;
+    color: var(--text);
+}
+
+.strength-page-heading {
+    margin-bottom: 20px;
+}
+
+.strength-page-heading h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.strength-page-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   主要區塊
+======================================== */
+
+.strength-section {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 18px;
+    padding: 14px;
+    border: 1px solid rgba(155, 125, 210, 0.18);
+    border-radius: 10px;
+    background: var(--surface-soft);
+}
+
+.strength-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.strength-section-heading h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.strength-section-heading p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   設定分類
+======================================== */
+
+.strength-setting-group {
+    min-width: 0;
+    padding: 14px 0;
+    border-top: 1px solid rgba(155, 125, 210, 0.16);
+}
+
+.strength-setting-group:first-of-type {
+    padding-top: 0;
+    border-top: none;
+}
+
+.strength-setting-group:last-child {
+    padding-bottom: 0;
+}
+
+.strength-setting-group h4 {
+    margin: 0 0 12px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   欄位排列
+======================================== */
+
+.strength-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    min-width: 0;
+}
+
+.strength-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.strength-field>span {
+    line-height: 1.5;
+}
+
+/* 下拉選單 */
+
+.strength-field select {
+    width: 100%;
+    min-width: 0;
+    min-height: 38px;
+    padding: 6px 28px 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text);
+    color-scheme: light dark;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.strength-field select:focus {
+    border-color: var(--accent);
+}
+
+.strength-field select option,
+.strength-field select optgroup {
+    background: var(--surface);
+    color: var(--text);
+}
+
+
+/* ========================================
+   數字輸入欄位
+======================================== */
+
+.strength-number-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--surface);
+}
+
+.strength-number-input:focus-within {
+    border-color: var(--accent);
+}
+
+.strength-number-input input {
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.strength-number-input>span {
+    flex-shrink: 0;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/* ========================================
+   勾選選項
+======================================== */
+
+.strength-toggle-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.strength-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.strength-toggle input {
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin: 0;
+
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.strength-toggle input:checked {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.2 3.2L13 4.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 13px;
+}
+
+.strength-toggle input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.strength-sub-fields {
+    margin-top: 4px;
+}
+
+
+/* ========================================
+   計算結果
+======================================== */
+
+.strength-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.strength-result-card {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid rgba(155, 125, 210, 0.2);
+    border-radius: 9px;
+    background: var(--accent-bg);
+}
+
+.strength-result-card>span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.strength-result-card>strong {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+   角色排名
+======================================== */
+
+.strength-ranking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.strength-ranking-card {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid rgba(155, 125, 210, 0.16);
+    border-radius: 9px;
+    background: rgba(155, 125, 210, 0.08);
+}
+
+.strength-ranking-card h4 {
+    margin: 0 0 10px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.strength-ranking-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   資料狀態
+======================================== */
+
+.strength-data-status {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(155, 125, 210, 0.12);
+    border-radius: 8px;
+    background: rgba(155, 125, 210, 0.045);
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.strength-calculator>p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.strength-calculator>button {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+
+/* ========================================
+   電腦版
+======================================== */
+
+@media (min-width: 761px) {
+    .strength-section {
+        padding: 16px;
+    }
+
+    .strength-section-heading h3 {
+        font-size: 16px;
+    }
+
+    .strength-setting-group h4 {
+        font-size: 14px;
+    }
+
+    .strength-field {
+        font-size: 13px;
+    }
+
+    .strength-field select {
+        min-height: 40px;
+        font-size: 14px;
+    }
+
+    .strength-number-input input {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .strength-toggle {
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================
+   平板與手機
+======================================== */
+
+@media (max-width: 760px) {
+    .strength-page-heading {
+        margin-bottom: 16px;
+    }
+
+    .strength-page-heading h2 {
+        font-size: 19px;
+    }
+
+    .strength-section {
+        margin-bottom: 14px;
+        padding: 11px;
+        border-radius: 9px;
+    }
+
+    .strength-section-heading {
+        margin-bottom: 14px;
+    }
+
+    .strength-fields-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px 9px;
+    }
+
+    .strength-setting-group {
+        padding: 12px 0;
+    }
+
+    .strength-field {
+        font-size: 11px;
+    }
+
+    .strength-field select {
+        min-height: 36px;
+        padding: 5px 22px 5px 7px;
+        font-size: 12px;
+    }
+
+    .strength-number-input {
+        padding: 0 8px;
+    }
+
+    .strength-number-input input {
+        height: 36px;
+        font-size: 13px;
+    }
+
+    .strength-toggle-list {
+        gap: 9px 16px;
+    }
+
+    .strength-toggle {
+        font-size: 12px;
+    }
+
+    .strength-result-card,
+    .strength-ranking-card {
+        padding: 11px;
+    }
+}
+
+
+/* ========================================
+   小螢幕手機
+======================================== */
+
+@media (max-width: 380px) {
+    .strength-section {
+        padding: 9px;
+    }
+
+    .strength-fields-grid {
+        gap: 10px 7px;
+    }
+
+    .strength-field {
+        font-size: 10px;
+    }
+
+    .strength-field select {
+        padding-left: 6px;
+        padding-right: 18px;
+        font-size: 11px;
+    }
+
+    .strength-result-grid,
+    .strength-ranking-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 強度計算結果：角色上下排列 */
+.strength-result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 角色結果 */
+.strength-result-list .strength-result-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+/* 單一技能區域 */
+.strength-skill-result {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-color, #ddd);
+}
+
+/* 技能名稱 */
+.strength-skill-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 傷害與倍率 */
+.strength-skill-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* 天賦標記 */
+.strength-talent-label {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 0.8em;
+    color: var(--accent-color, #8b7b61);
+}
+
+/* 天賦倍率變化 */
+.strength-talent-change {
+    font-size: 0.9em;
+    color: var(--accent-color, #8b7b61);
+}
+
+/* 技能效果 */
+.strength-skill-effects {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.6;
+}
+
+/* 原始技能收合 */
+.strength-original-details {
+    margin-top: 4px;
+    font-size: 0.9em;
+    color: var(--text-secondary, #777);
+}
+
+.strength-original-details summary {
+    cursor: pointer;
+    user-select: none;
+}
+
+.strength-original-details>div {
+    margin-top: 6px;
+    line-height: 1.6;
+}

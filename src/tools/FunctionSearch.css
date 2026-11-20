@@ -1,0 +1,896 @@
+/* ========================================
+   功能查找
+======================================== */
+
+.function-search {
+    width: 100%;
+    min-width: 0;
+    color: var(--text-primary);
+}
+
+.function-message {
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.function-error {
+    padding: 24px 16px;
+    text-align: center;
+    color: #dc5555;
+}
+
+
+/* ========================================
+   篩選區
+======================================== */
+
+.function-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(155, 125, 210, 0.14);
+    border-radius: 10px;
+    background: rgba(155, 125, 210, 0.06);
+}
+
+.function-filter-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.function-section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.function-clear-filters {
+    flex-shrink: 0;
+    align-self: auto;
+    padding: 5px 10px;
+    border: 1px solid rgba(155, 125, 210, 0.25);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--accent-color);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.function-clear-filters:hover {
+    background: rgba(155, 125, 210, 0.12);
+}
+
+.function-select-grid {
+    display: grid;
+    gap: 10px;
+    min-width: 0;
+}
+
+.function-select-grid-primary,
+.function-select-grid-secondary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.function-select-grid-compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.function-select-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.function-select-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.function-filter-select {
+    width: 100%;
+    min-width: 0;
+    min-height: 38px;
+    padding: 6px 28px 6px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    outline: none;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    color-scheme: light dark;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.function-filter-select:focus {
+    border-color: var(--accent-color);
+}
+
+.function-filter-select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* 下拉選單展開後的選項 */
+.function-filter-select option {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+.function-filter-select optgroup {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+/* ========================================
+   詳細篩選
+======================================== */
+
+.function-detail-filter {
+    padding-top: 10px;
+    border-top: 1px solid rgba(155, 125, 210, 0.16);
+}
+
+.function-detail-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4px 0;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.function-detail-toggle-right {
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.function-detail-filter-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding-top: 12px;
+}
+
+
+/* ========================================
+   搜尋結果標題
+======================================== */
+
+.function-results-section {
+    width: 100%;
+    min-width: 0;
+}
+
+.function-results-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.function-result-count {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.function-empty {
+    padding: 36px 16px;
+    border: 1px solid rgba(155, 125, 210, 0.12);
+    border-radius: 10px;
+    background: rgba(155, 125, 210, 0.06);
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+
+/* ========================================
+   角色結果列表
+======================================== */
+
+.function-results {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.function-result {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(155, 125, 210, 0.12);
+    border-radius: 10px;
+    background: rgba(155, 125, 210, 0.10);
+}
+
+.function-result-main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.function-result-main:hover {
+    background: rgba(155, 125, 210, 0.08);
+}
+
+
+/* ========================================
+   角色名稱與標籤
+======================================== */
+
+.function-result-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
+}
+
+.function-result-name {
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.function-result-tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 0;
+    transform: translateY(1.5px);
+}
+
+.function-result-tags .character-rarity,
+.function-result-tags .character-element,
+.function-result-tags .character-class {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 19px;
+    padding: 1px 6px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   角色稀有度標籤
+======================================== */
+
+.function-result-tags .rarity-ur {
+    background: rgba(146, 113, 197, 0.18);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.3);
+}
+
+.function-result-tags .rarity-ssr {
+    background: rgba(198, 155, 53, 0.14);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.3);
+}
+
+.function-result-tags .rarity-sr {
+    background: rgba(76, 145, 205, 0.14);
+    color: #4C91CD;
+    border-color: rgba(76, 145, 205, 0.3);
+}
+
+.function-result-tags .rarity-r {
+    background: rgba(85, 168, 121, 0.14);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.3);
+}
+
+
+/* ========================================
+   角色屬性標籤
+======================================== */
+
+.function-result-tags .element-water {
+    background: rgba(57, 137, 216, 0.13);
+    color: #3989D8;
+    border-color: rgba(57, 137, 216, 0.3);
+}
+
+.function-result-tags .element-fire {
+    background: rgba(227, 107, 99, 0.13);
+    color: #E36B63;
+    border-color: rgba(227, 107, 99, 0.3);
+}
+
+.function-result-tags .element-wind {
+    background: rgba(85, 168, 121, 0.13);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.3);
+}
+
+.function-result-tags .element-earth {
+    background: rgba(169, 135, 101, 0.13);
+    color: #A98765;
+    border-color: rgba(169, 135, 101, 0.3);
+}
+
+.function-result-tags .element-thunder {
+    background: rgba(198, 155, 53, 0.13);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.3);
+}
+
+.function-result-tags .element-light {
+    background: rgba(214, 173, 76, 0.13);
+    color: #D6AD4C;
+    border-color: rgba(214, 173, 76, 0.3);
+}
+
+.function-result-tags .element-dark {
+    background: rgba(146, 113, 197, 0.13);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.3);
+}
+
+
+/* ========================================
+   角色職業標籤
+======================================== */
+
+.function-result-tags .character-class {
+    background: rgba(155, 125, 210, 0.12);
+    color: var(--accent-color);
+    border-color: rgba(155, 125, 210, 0.2);
+}
+
+
+/* ========================================
+   符合效果數量
+======================================== */
+
+.function-result-match-count {
+    display: inline-flex;
+    align-items: center;
+    min-height: 23px;
+    margin-top: 6px;
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+
+/* ========================================
+   角色技能效果摘要
+======================================== */
+
+.function-result-effect-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    margin-top: 12px;
+}
+
+.function-result-skill-group {
+    min-width: 0;
+}
+
+.function-match-skill {
+    margin-bottom: 4px;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.function-result-effect {
+    position: relative;
+    padding-left: 12px;
+    color: var(--text-primary);
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.function-result-effect::before {
+    position: absolute;
+    top: 0;
+    left: 1px;
+    content: '・';
+    color: var(--accent-color);
+}
+
+.function-result-bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+
+/* ========================================
+   天賦標籤與前後效果比較
+======================================== */
+
+.function-talent-tag {
+    display: inline-block;
+    margin-left: 5px;
+    color: var(--accent-color);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* ========================================
+   技能效果前後比較
+======================================== */
+
+.function-change-before {
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+.function-change-arrow {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.function-change-after {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* ========================================
+   展開後的效果詳細資料
+======================================== */
+
+.function-result-detail {
+    min-width: 0;
+    max-width: 100%;
+    padding: 14px;
+    border-top: 1px solid rgba(155, 125, 210, 0.16);
+    background: rgba(128, 128, 128, 0.035);
+    box-sizing: border-box;
+}
+
+.function-match-detail {
+    min-width: 0;
+    margin-bottom: 16px;
+}
+
+.function-match-detail:last-child {
+    margin-bottom: 0;
+}
+
+.function-detail-title {
+    margin: 12px 0 8px;
+    padding-left: 9px;
+    border-left: 3px solid var(--accent-color);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.function-match-detail>.function-detail-title:first-child {
+    margin-top: 0;
+}
+
+
+/* ========================================
+   單項效果詳細資料卡片
+======================================== */
+
+.function-match-detail-item {
+    min-width: 0;
+    max-width: 100%;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(155, 125, 210, 0.16);
+    border-radius: 8px;
+    background: rgba(155, 125, 210, 0.045);
+    box-sizing: border-box;
+}
+
+.function-match-detail-item:first-of-type {
+    margin-top: 0;
+}
+
+.function-match-source {
+    margin-bottom: 7px;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   效果內容：完整寬度
+======================================== */
+
+.function-detail-row-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.14);
+    box-sizing: border-box;
+}
+
+.function-detail-label {
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.function-detail-content {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    color: var(--text-primary);
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   效果短資訊：兩欄排列
+======================================== */
+
+.function-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 12px;
+    width: 100%;
+    min-width: 0;
+}
+
+.function-detail-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.10);
+}
+
+.function-detail-value {
+    min-width: 0;
+    color: var(--text-primary);
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* ========================================
+   天賦、突破特性與備註
+======================================== */
+
+.function-detail-text {
+    color: var(--text-primary);
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.function-detail-text>div {
+    margin-bottom: 3px;
+}
+
+.function-detail-text>div:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ========================================
+   資料人工確認提醒
+======================================== */
+
+.function-review-warning {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border: 1px solid rgba(220, 85, 85, 0.25);
+    border-radius: 7px;
+    background: rgba(220, 85, 85, 0.08);
+    color: #dc5555;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   電腦版
+======================================== */
+
+@media (min-width: 481px) {
+    .function-filters {
+        padding: 14px;
+        gap: 14px;
+    }
+
+    .function-section-title {
+        font-size: 15px;
+    }
+
+    .function-select-title {
+        font-size: 13px;
+    }
+
+    .function-filter-select {
+        min-height: 40px;
+        font-size: 14px;
+    }
+
+    .function-detail-toggle {
+        font-size: 14px;
+    }
+
+    .function-result-name {
+        font-size: 16px;
+    }
+
+    .function-result-tags .character-rarity,
+    .function-result-tags .character-element,
+    .function-result-tags .character-class {
+        min-height: 19px;
+        font-size: 10px;
+    }
+
+    .function-result-match-count {
+        font-size: 12px;
+    }
+
+    .function-match-skill {
+        font-size: 13px;
+    }
+
+    .function-result-effect {
+        font-size: 14px;
+    }
+
+    .function-detail-title {
+        font-size: 15px;
+    }
+
+    .function-detail-text {
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================
+   手機版
+======================================== */
+
+@media (max-width: 480px) {
+    .function-filters {
+        padding: 9px;
+        gap: 10px;
+    }
+
+    .function-select-grid {
+        gap: 7px;
+    }
+
+    .function-select-title {
+        font-size: 11px;
+    }
+
+    .function-filter-select {
+        min-height: 36px;
+        padding-left: 7px;
+        padding-right: 20px;
+        font-size: 11px;
+    }
+
+    .function-detail-filter-content {
+        gap: 7px;
+    }
+
+    .function-clear-filters {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .function-result-main {
+        padding: 12px 10px;
+    }
+
+    .function-result-top {
+        gap: 5px;
+    }
+
+    .function-result-name {
+        font-size: 14px;
+    }
+
+    .function-result-tags {
+        gap: 3px;
+    }
+
+    .function-result-tags .character-rarity,
+    .function-result-tags .character-element,
+    .function-result-tags .character-class {
+        min-height: 18px;
+        padding: 1px 5px;
+        font-size: 9px;
+    }
+
+    .function-result-match-count {
+        font-size: 10px;
+    }
+
+    .function-result-effect {
+        font-size: 12px;
+    }
+
+    .function-result-detail {
+        padding: 10px;
+    }
+
+    .function-match-detail-item {
+        padding: 9px;
+    }
+
+    .function-talent-tag {
+        font-size: 10px;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    .function-detail-grid {
+        gap: 0 10px;
+    }
+
+    .function-detail-cell {
+        padding: 8px 0;
+    }
+
+    .function-detail-label {
+        font-size: 11px;
+    }
+
+    .function-detail-value {
+        font-size: 12px;
+    }
+
+    .function-detail-content {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .function-detail-text {
+        font-size: 12px;
+    }
+}
+
+/* ========================================
+   詳細篩選：標籤按鈕式多選
+======================================== */
+
+.function-tag-filter {
+    min-width: 0;
+}
+
+.function-tag-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.function-tag-option {
+    min-height: 26px;
+    padding: 3px 9px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.function-tag-option:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.function-tag-option.selected {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    color: white;
+    font-weight: 600;
+}
+
+@media (min-width: 481px) {
+    .function-tag-options {
+        gap: 6px;
+    }
+
+    .function-tag-option {
+        min-height: 28px;
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .function-tag-options {
+        gap: 4px;
+    }
+
+    .function-tag-option {
+        min-height: 25px;
+        padding: 3px 8px;
+        font-size: 10px;
+    }
+}
+
+/* 功能查找：詳細資料中的逐項效果 */
+.function-detail-effect-line {
+    position: relative;
+    padding-left: 0;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* 天賦標記保持完整，不拆開 */
+.function-detail-effect-line .function-talent-tag {
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 4px;
+}

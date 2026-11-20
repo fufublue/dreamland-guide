@@ -1,0 +1,307 @@
+/* ===== 網站主框架 ===== */
+
+.app-shell {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.2s, color 0.2s;
+}
+
+/* ===== 側邊欄 ===== */
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 250px;
+    padding: 30px 20px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 8px 35px;
+}
+
+.brand-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-size: 22px;
+}
+
+.brand-name {
+    font-size: 16px;
+    font-weight: 650;
+    letter-spacing: 0.5px;
+}
+
+.brand-subtitle {
+    margin-top: 5px;
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    color: var(--muted);
+}
+
+.nav-label {
+    padding: 0 12px 13px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    padding: 14px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--muted);
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+}
+
+.nav-item.active {
+    font-weight: 650;
+}
+
+.nav-icon {
+    width: 22px;
+    text-align: center;
+    font-size: 19px;
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
+    padding: 15px 10px 5px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ===== 主內容區 ===== */
+
+.main-area {
+    min-height: 100vh;
+    margin-left: 250px;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    height: 72px;
+    padding: 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.mobile-brand {
+    display: none;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-button,
+.login-button {
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.theme-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-button:hover {
+    background: var(--surface-soft);
+}
+
+.login-button {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+.login-button:hover {
+    background: var(--accent-dark);
+}
+
+/* ===== 頁面容器 ===== */
+
+.page-content {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 45px 52px 35px;
+}
+
+.page-footer {
+    margin-top: 75px;
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+
+
+/* ===== 手機版導覽列 ===== */
+
+.mobile-nav {
+    display: none;
+}
+
+/* ===== 手機版主框架 ===== */
+
+@media (max-width: 760px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-area {
+        margin-left: 0;
+        padding-bottom: 85px;
+    }
+
+    .topbar {
+        height: 60px;
+        padding: 0 17px;
+        justify-content: space-between;
+    }
+
+    .mobile-brand {
+        display: block;
+        font-size: 15px;
+        font-weight: 650;
+    }
+
+    .topbar-actions {
+        gap: 8px;
+    }
+
+    .theme-button,
+    .login-button {
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .page-content {
+        padding: 22px 17px 25px;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        inset: auto 0 0;
+        min-height: 68px;
+        padding: 5px 4px;
+        display: flex;
+        justify-content: space-around;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        z-index: 20;
+    }
+
+    .mobile-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+    }
+
+    .mobile-nav-item span {
+        font-size: 19px;
+    }
+
+    .mobile-nav-item small {
+        font-size: 10px;
+    }
+
+    .mobile-nav-item.active {
+        color: var(--accent);
+        font-weight: 650;
+    }
+
+    .page-footer {
+        margin-top: 45px;
+    }
+}
+
+
+
+/* ===== 側邊欄 SVG 尺寸與對齊修正 ===== */
+.nav-icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon .site-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    object-fit: contain;
+    transform: translateY(2px);
+}
+
+.mobile-nav-icon .site-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    object-fit: contain;
+    transform: translateY(2px);
+}

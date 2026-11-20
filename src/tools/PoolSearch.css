@@ -1,0 +1,444 @@
+/* ===== 混池查詢整體 ===== */
+
+.pool-search-page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0 32px;
+    color: var(--text-color, #333);
+    box-sizing: border-box;
+}
+
+/* ===== 查詢模式切換 ===== */
+
+.pool-mode-switch {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 5px;
+    border-radius: 12px;
+    background: var(--hover-background, rgba(120, 120, 120, 0.08));
+}
+
+.pool-mode-switch button {
+    flex: 1;
+    min-height: 42px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--text-secondary, #888);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.pool-mode-switch button.active {
+    background: var(--card-background, #fff);
+    color: var(--accent-color, #9b83bd);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== 模式說明 ===== */
+
+.pool-mode-description {
+    margin: 0 0 16px;
+    color: var(--text-secondary, #888);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ===== 角色搜尋框 ===== */
+
+.pool-search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 52px;
+    padding: 0 15px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 12px;
+    background: var(--card-background, #fff);
+    box-sizing: border-box;
+}
+
+.pool-search-icon {
+    font-size: 24px;
+    color: var(--text-secondary, #888);
+    line-height: 1;
+}
+
+.pool-search-box input {
+    flex: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-color, #333);
+    font-size: 15px;
+}
+
+.pool-search-box input::placeholder {
+    color: var(--text-secondary, #aaa);
+}
+
+.pool-search-clear {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary, #888);
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* ===== 混池期數選項 ===== */
+
+.pool-range-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.pool-range-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+    min-height: 52px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 12px;
+    background: var(--card-background, #fff);
+    color: var(--text-color, #444);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.pool-range-button:hover {
+    border-color: var(--accent-color, #9b83bd);
+}
+
+.pool-range-button.active {
+    border-color: var(--accent-color, #9b83bd);
+    background: var(--accent-background, rgba(155, 131, 189, 0.12));
+    color: var(--accent-color, #8c70b2);
+}
+
+.pool-prediction-tag {
+    flex-shrink: 0;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: rgba(220, 160, 50, 0.14);
+    color: #b77c20;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* ===== 搜尋結果 ===== */
+
+.pool-search-results {
+    margin-top: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 12px;
+    background: var(--card-background, #fff);
+}
+
+.pool-results-heading {
+    padding: 13px 15px;
+    border-bottom: 1px solid var(--border-color, #eee);
+    color: var(--text-secondary, #888);
+    font-size: 13px;
+}
+
+.pool-result-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 15px;
+    border: none;
+    border-bottom: 1px solid var(--border-color, #eee);
+    background: transparent;
+    color: var(--text-color, #333);
+    text-align: left;
+    cursor: pointer;
+}
+
+.pool-result-item:last-child {
+    border-bottom: none;
+}
+
+.pool-result-item:hover {
+    background: var(--hover-background, rgba(120, 120, 120, 0.06));
+}
+
+.pool-result-name {
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.pool-result-type {
+    color: var(--text-secondary, #888);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.pool-result-arrow {
+    color: var(--text-secondary, #999);
+    font-size: 18px;
+}
+
+/* ===== 提示與錯誤 ===== */
+
+.pool-search-message,
+.pool-search-hint {
+    padding: 24px 12px;
+    color: var(--text-secondary, #888);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.pool-search-error {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(220, 70, 70, 0.08);
+    color: #d34b4b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ===== 查詢結果 ===== */
+
+.pool-selected-result {
+    margin-top: 26px;
+}
+
+.pool-selected-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.pool-section-label {
+    margin-bottom: 5px;
+    color: var(--text-secondary, #888);
+    font-size: 12px;
+}
+
+.pool-selected-heading h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.pool-change-button {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text-secondary, #777);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ===== 角色資訊 ===== */
+
+.pool-info-panel {
+    padding: 7px 17px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 12px;
+    background: var(--card-background, #fff);
+}
+
+.pool-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color, #eee);
+    font-size: 14px;
+}
+
+.pool-info-row:last-child {
+    border-bottom: none;
+}
+
+.pool-info-row span {
+    flex-shrink: 0;
+    color: var(--text-secondary, #888);
+}
+
+.pool-info-row strong {
+    color: var(--text-color, #333);
+    text-align: right;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* ===== 預測提醒 ===== */
+
+.pool-prediction-notice {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(220, 160, 50, 0.12);
+    color: #b77c20;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ===== 累積角色清單 ===== */
+
+.pool-group-section {
+    margin-top: 28px;
+}
+
+.pool-group-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.pool-group-description {
+    margin: 8px 0 20px;
+    color: var(--text-secondary, #888);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.pool-character-group {
+    margin-top: 22px;
+}
+
+.pool-character-group h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    color: var(--text-color, #555);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.pool-character-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 21px;
+    height: 21px;
+    padding: 0 5px;
+    border-radius: 20px;
+    background: var(--hover-background, rgba(120, 120, 120, 0.1));
+    color: var(--text-secondary, #888);
+    font-size: 11px;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.pool-character-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.pool-character-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+    padding: 9px 13px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 20px;
+    background: var(--card-background, #fff);
+    color: var(--text-color, #444);
+    font-size: 13px;
+    line-height: 1.4;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+.pool-character-chip:hover {
+    border-color: var(--accent-color, #9b83bd);
+}
+
+.pool-character-chip.current {
+    border-color: var(--accent-color, #9b83bd);
+    background: var(--accent-background, rgba(155, 131, 189, 0.12));
+    color: var(--accent-color, #8c70b2);
+    font-weight: 700;
+}
+
+.pool-character-chip span {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* ===== 手機版 ===== */
+
+@media (max-width: 600px) {
+    .pool-mode-switch button {
+        min-height: 40px;
+        font-size: 13px;
+    }
+
+    .pool-range-grid {
+        gap: 8px;
+    }
+
+    .pool-range-button {
+        min-height: 48px;
+        padding: 10px 11px;
+        font-size: 12px;
+    }
+
+    .pool-selected-heading h3 {
+        font-size: 18px;
+    }
+
+    .pool-info-panel {
+        padding: 6px 13px;
+    }
+
+    .pool-info-row {
+        font-size: 13px;
+    }
+
+    .pool-character-list {
+        gap: 7px;
+    }
+
+    .pool-character-chip {
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+}
+
+/* ===== 混池範圍查詢標題對齊 ===== */
+
+@media (min-width: 761px) {
+    .pool-search-detail-header {
+        width: 100%;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+}

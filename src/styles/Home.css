@@ -1,0 +1,310 @@
+/* ===== 首頁歡迎區 ===== */
+
+.welcome-section {
+    position: relative;
+    overflow: hidden;
+    padding: 48px 45px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(115deg,
+            #FFFFFF 0%,
+            #F8F2FC 42%,
+            #EDE1F5 75%,
+            #F8EAF2 100%);
+}
+
+/* 裝飾文字 */
+.welcome-section::after {
+    content: "夢";
+    position: absolute;
+    right: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 150px;
+    font-weight: 700;
+
+    background: linear-gradient(135deg,
+            #8052B8 0%,
+            #A66BC9 50%,
+            #D77FAF 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    opacity: 0.42;
+    pointer-events: none;
+}
+
+.welcome-label {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 650;
+    
+}
+
+.welcome-section h1 {
+    position: relative;
+    z-index: 1;
+    margin: 17px 0 12px;
+    display: block;
+    width: fit-content;
+    font-size: 36px;
+    font-weight: 550;
+    letter-spacing: 1.5px;
+
+    background: linear-gradient(90deg,
+            #8966C1 0%,
+            #B184D1 50%,
+            #e29abe 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.welcome-section p {
+    position: relative;
+    z-index: 1;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+
+}
+
+/* ===== 首頁區塊標題 ===== */
+
+.section-block {
+    margin-top: 42px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 19px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 650;
+    letter-spacing: 0.5px;
+}
+
+.section-heading p {
+    margin: 7px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ===== 首頁功能分類卡片 ===== */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.category-card {
+    position: relative;
+    min-height: 90px;
+    padding: 16px 22px;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 16px;
+    gap: 16px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--text);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+.category-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(70, 58, 44, 0.07);
+}
+
+.dark .category-card:hover {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.category-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.category-title {
+    font-size: 15px;
+    font-weight: 650;
+}
+
+.category-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 6px;
+}
+
+.category-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.category-arrow {
+    position: absolute;
+    right: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.category-card:hover .category-arrow {
+    transform: translate(4px, -50%);
+}
+
+/* ===== 首頁使用說明 ===== */
+
+.info-panel {
+    padding: 24px 26px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.info-panel p {
+    margin: 0 0 8px;
+}
+
+.info-panel p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== 首頁手機版 ===== */
+
+@media (max-width: 760px) {
+    .welcome-section {
+        padding: 34px 24px;
+        border-radius: 16px;
+    }
+
+    .welcome-section::after {
+        right: 10px;
+        font-size: 105px;
+    }
+
+    .welcome-section h1 {
+        font-size: 27px;
+    }
+
+    .welcome-section p {
+        max-width: 260px;
+        font-size: 13px;
+    }
+
+    .section-block {
+        margin-top: 32px;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .category-card {
+        min-height: 90px;
+        padding: 16px 21px;
+    }
+
+    .category-arrow {
+        right: 20px;
+        top: 50%;
+        bottom: auto;
+    }
+
+    .info-panel {
+        padding: 19px;
+    }
+}
+
+/* ===== 小螢幕微調 ===== */
+
+@media (max-width: 380px) {
+    .welcome-section {
+        padding: 29px 19px;
+    }
+
+    .welcome-section h1 {
+        font-size: 24px;
+    }
+}
+
+/* ===== 首頁夜間模式 ===== */
+
+.dark .welcome-section {
+    background:
+        radial-gradient(circle at 90% 20%,
+            rgba(177, 132, 209, 0.16),
+            transparent 35%),
+        linear-gradient(115deg,
+            #292333 0%,
+            #332A40 45%,
+            #3B2E43 75%,
+            #382C3B 100%);
+}
+
+/* 夜間模式裝飾文字 */
+.dark .welcome-section::after {
+    background: linear-gradient(135deg,
+            #D8B8FF 0%,
+            #E6BDF2 50%,
+            #F3B9D7 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    opacity: 0.38;
+}
+
+/* 夜間模式主標題 */
+.dark .welcome-section h1 {
+    background: linear-gradient(90deg,
+            #C5A5E8 0%,
+            #D6B5E9 50%,
+            #EABBD5 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

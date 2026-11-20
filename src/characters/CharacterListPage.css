@@ -1,0 +1,589 @@
+/* ==================================================
+   角色列表頁
+================================================== */
+
+.character-page {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 32px;
+    color: var(--text);
+}
+
+/* ==================================================
+   頁面標題
+================================================== */
+
+.character-page-header {
+    margin-bottom: 22px;
+}
+
+.character-page-header h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.character-page-header p {
+    margin: 7px 0 0;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* ==================================================
+   搜尋框
+================================================== */
+
+.character-search {
+    margin-top: 24px;
+    margin-bottom: 17px;
+}
+
+.character-search input {
+    display: block;
+    width: 100%;
+    height: 43px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.character-search input::placeholder {
+    color: var(--text-muted);
+}
+
+.character-search input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* ==================================================
+   角色篩選器
+================================================== */
+
+.character-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.character-filter-label {
+    display: flex;
+    flex: 0 0 48px;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.character-filter-options {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.character-filter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 27px;
+    padding: 2px 9px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--muted);
+    font: inherit;
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.character-filter-button:hover {
+    border-color: var(--accent);
+}
+
+.character-filter-button.active:not(.character-tag) {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    color: var(--accent);
+}
+
+.character-filter-button.character-tag {
+    background: var(--surface);
+    color: var(--muted);
+    border-color: var(--border);
+}
+
+/* 稀有度選取顏色 */
+
+.character-filter-button.character-tag.rarity-ur.active {
+    background: rgba(167, 122, 203, .14);
+    color: #A77ACB;
+    border-color: rgba(167, 122, 203, .3);
+}
+
+.character-filter-button.character-tag.rarity-ssr.active {
+    background: rgba(198, 155, 69, .14);
+    color: #C69B45;
+    border-color: rgba(198, 155, 69, .3);
+}
+
+.character-filter-button.character-tag.rarity-sr.active {
+    background: rgba(96, 152, 201, .14);
+    color: #6098C9;
+    border-color: rgba(96, 152, 201, .3);
+}
+
+.character-filter-button.character-tag.rarity-r.active {
+    background: rgba(105, 169, 132, .14);
+    color: #69A984;
+    border-color: rgba(105, 169, 132, .3);
+}
+
+/* 屬性選取顏色 */
+
+.character-filter-button.character-tag.element-water.active {
+    background: rgba(57, 137, 216, .14);
+    color: #3989D8;
+    border-color: rgba(57, 137, 216, .3);
+}
+
+.character-filter-button.character-tag.element-fire.active {
+    background: rgba(227, 107, 99, .14);
+    color: #E36B63;
+    border-color: rgba(227, 107, 99, .3);
+}
+
+.character-filter-button.character-tag.element-wind.active {
+    background: rgba(85, 168, 121, .14);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, .3);
+}
+
+.character-filter-button.character-tag.element-earth.active {
+    background: rgba(169, 135, 101, .14);
+    color: #A98765;
+    border-color: rgba(169, 135, 101, .3);
+}
+
+.character-filter-button.character-tag.element-thunder.active {
+    background: rgba(198, 155, 53, .14);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, .3);
+}
+
+.character-filter-button.character-tag.element-light.active {
+    background: rgba(214, 173, 76, .14);
+    color: #D6AD4C;
+    border-color: rgba(214, 173, 76, .3);
+}
+
+.character-filter-button.character-tag.element-dark.active {
+    background: rgba(146, 113, 197, .14);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, .3);
+}
+
+/* 職業選取顏色 */
+
+.character-filter-button.character-tag.character-class.active {
+    background: rgba(111, 157, 154, .14);
+    color: #6F9D9A;
+    border-color: rgba(111, 157, 154, .3);
+}
+
+/* ==================================================
+   角色列表
+================================================== */
+
+.character-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: none;
+}
+
+/* 單一角色完整區塊 */
+
+.character-list-entry {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-soft);
+}
+
+/* 角色列 */
+
+.character-list-entry .character-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 66px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: var(--text);
+    text-align: left;
+    cursor: pointer;
+}
+
+/* 角色主要資訊 */
+
+.character-list-item-main {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* 角色名稱 */
+
+.character-list-item-name {
+    flex-shrink: 0;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* 稀有度、屬性、職業標籤 */
+
+.character-list-item-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 0;
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* 前往詳細資料按鈕 */
+
+.character-list-item-arrow {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 4px;
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.character-list-item-arrow:hover {
+    text-decoration: underline;
+}
+
+/* ==================================================
+   展開摘要
+================================================== */
+
+.character-list-preview {
+    padding: 2px 15px 17px;
+    border-top: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* 技能摘要區：兩欄 */
+
+.character-list-skills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 0;
+}
+
+/* 每個技能 */
+
+.character-list-skill {
+    min-width: 0;
+    padding: 11px 0;
+}
+
+/* 必殺技獨佔一整行 */
+
+.character-list-skill:first-child {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--border);
+}
+
+/* 二技能與一技能並排 */
+
+.character-list-skill:nth-child(2) {
+    border-right: 1px solid var(--border);
+    padding-right: 16px;
+}
+
+.character-list-skill:nth-child(3) {
+    padding-left: 0;
+}
+
+/* 技能標題與類型 */
+
+.character-list-skill-heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 5px;
+}
+
+.character-list-skill-heading h4 {
+    margin: 0;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* 技能類型標籤 */
+
+.character-list-skill-heading .skill-type-tag {
+    height: 21px;
+    min-height: 21px;
+    padding: 0 7px;
+    font-size: 10px;
+}
+
+/* 技能效果摘要 */
+
+.character-list-skill-effect {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* ==================================================
+   天賦效果
+================================================== */
+
+.character-list-talents {
+    margin-top: 7px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+
+.character-list-talents>h4 {
+    margin: 0 0 7px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* 天賦項目：簡潔文字列表 */
+
+.character-list-talent {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 5px 9px;
+    margin-bottom: 5px;
+}
+
+.character-list-talent:last-child {
+    margin-bottom: 0;
+}
+
+.character-list-talent strong {
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.character-list-talent p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+.character-list-talent .character-list-talent-warning {
+    color: #c28a43;
+}
+
+/* ==================================================
+   載入、錯誤及搜尋結果提示
+================================================== */
+
+.character-page-message,
+.character-page-error {
+    padding: 28px 16px;
+    color: var(--text-muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+.character-page-error {
+    color: #c28a43;
+}
+
+/* ==================================================
+   手機版
+================================================== */
+
+@media (max-width: 760px) {
+
+    .character-page {
+        padding-bottom: 22px;
+    }
+
+    .character-page-header {
+        margin-bottom: 18px;
+    }
+
+    .character-page-header h1 {
+        font-size: 22px;
+    }
+
+    .character-search {
+        margin-top: 20px;
+        margin-bottom: 13px;
+    }
+
+    .character-search input {
+        height: 41px;
+        font-size: 13px;
+    }
+
+    .character-filter-button {
+        min-height: 26px;
+        padding: 2px 8px;
+        font-size: 11px;
+    }
+
+    /* 角色名稱與標籤維持同一行 */
+
+    .character-list-entry .character-list-item {
+        min-height: 58px;
+        padding: 10px;
+        gap: 6px;
+    }
+
+    .character-list-item-main {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 7px;
+        overflow: hidden;
+    }
+
+    .character-list-item-name {
+        font-size: 13px;
+    }
+
+    .character-list-item-info {
+        flex-wrap: nowrap;
+        gap: 4px;
+        font-size: 10px;
+    }
+
+    .character-list-item-info .character-tag {
+        flex-shrink: 0;
+    }
+
+    .character-list-item-arrow {
+        padding: 5px 2px;
+        font-size: 11px;
+    }
+
+    /* 展開摘要 */
+
+    .character-list-preview {
+        padding: 2px 10px 13px;
+    }
+
+    .character-list-skills {
+        column-gap: 12px;
+    }
+
+    .character-list-skill {
+        padding: 9px 0;
+    }
+
+    .character-list-skill:nth-child(2) {
+        padding-right: 9px;
+    }
+
+    .character-list-skill-heading {
+        gap: 5px;
+        margin-bottom: 4px;
+    }
+
+    .character-list-skill-heading h4 {
+        font-size: 12px;
+    }
+
+    .character-list-skill-heading .skill-type-tag {
+        height: 19px;
+        min-height: 19px;
+        padding: 0 5px;
+        font-size: 9px;
+    }
+
+    .character-list-skill-effect {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    /* 天賦 */
+
+    .character-list-talents {
+        margin-top: 5px;
+        padding-top: 8px;
+    }
+
+    .character-list-talents>h4 {
+        font-size: 11px;
+    }
+
+    .character-list-talent {
+        gap: 4px 7px;
+        margin-bottom: 4px;
+    }
+
+    .character-list-talent strong,
+    .character-list-talent p {
+        font-size: 10px;
+    }
+}

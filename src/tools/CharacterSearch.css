@@ -1,0 +1,864 @@
+/* ========================================
+   角色查詢列表
+======================================== */
+
+.character-search {
+    width: 100%;
+    min-width: 0;
+    color: var(--text-primary);
+}
+
+.character-message {
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.character-error {
+    color: #dc5555;
+}
+
+.character-error button {
+    display: block;
+    margin: 14px auto 0;
+}
+
+.character-search-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.character-count {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.character-search-input {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.character-search-input:focus {
+    border-color: var(--accent-color);
+}
+
+.character-search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+
+/* ========================================
+   篩選區
+======================================== */
+
+.character-filters {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 10px;
+    row-gap: 9px;
+    padding: 13px 14px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(155, 125, 210, 0.25);
+    border-radius: 12px;
+    background: rgba(155, 125, 210, 0.09);
+    box-shadow: 0 2px 8px rgba(80, 60, 110, 0.04);
+}
+
+.character-filter-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.character-filter-group:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.character-filter-group:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.character-filter-group:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.character-filter-title {
+    display: flex;
+    flex: 0 0 48px;
+    align-items: center;
+    align-self: center;
+    min-height: 28px;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.character-filter-options {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    gap: 6px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.character-filter-option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 27px;
+    padding: 3px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: rgba(128, 128, 128, 0.06);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.character-filter-option:hover {
+    border-color: var(--accent-color);
+}
+
+.character-filter-option.selected {
+    font-weight: 700;
+}
+
+/* 稀有度篩選 */
+
+.character-filter-group:nth-child(1) .character-filter-option:nth-child(1).selected {
+    background: rgba(146, 113, 197, 0.18);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.4);
+}
+
+.character-filter-group:nth-child(1) .character-filter-option:nth-child(2).selected {
+    background: rgba(198, 155, 53, 0.16);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.4);
+}
+
+.character-filter-group:nth-child(1) .character-filter-option:nth-child(3).selected {
+    background: rgba(76, 145, 205, 0.16);
+    color: #4C91CD;
+    border-color: rgba(76, 145, 205, 0.4);
+}
+
+.character-filter-group:nth-child(1) .character-filter-option:nth-child(4).selected {
+    background: rgba(85, 168, 121, 0.16);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.4);
+}
+
+/* 屬性篩選：依照實際屬性名稱配色 */
+
+.character-filter-option.filter-element-water.selected {
+    background: rgba(57, 137, 216, 0.13);
+    color: #3989D8;
+    border-color: rgba(57, 137, 216, 0.3);
+}
+
+.character-filter-option.filter-element-fire.selected {
+    background: rgba(227, 107, 99, 0.13);
+    color: #E36B63;
+    border-color: rgba(227, 107, 99, 0.3);
+}
+
+.character-filter-option.filter-element-wind.selected {
+    background: rgba(85, 168, 121, 0.13);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.3);
+}
+
+.character-filter-option.filter-element-earth.selected {
+    background: rgba(169, 135, 101, 0.13);
+    color: #A98765;
+    border-color: rgba(169, 135, 101, 0.3);
+}
+
+.character-filter-option.filter-element-thunder.selected {
+    background: rgba(198, 155, 53, 0.13);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.3);
+}
+
+.character-filter-option.filter-element-light.selected {
+    background: rgba(214, 173, 76, 0.13);
+    color: #D6AD4C;
+    border-color: rgba(214, 173, 76, 0.3);
+}
+
+.character-filter-option.filter-element-dark.selected {
+    background: rgba(146, 113, 197, 0.13);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.3);
+}
+
+/* 職業篩選 */
+
+.character-filter-group:nth-child(3) .character-filter-option.selected {
+    background: rgba(155, 125, 210, 0.14);
+    color: var(--accent-color);
+    border-color: rgba(155, 125, 210, 0.35);
+}
+
+/* 清除篩選 */
+
+.character-clear-filters {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+    padding: 5px 8px;
+    border: 1px solid rgba(155, 125, 210, 0.25);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--accent-color);
+    font-size: 11px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.character-clear-filters:hover {
+    background: rgba(155, 125, 210, 0.12);
+}
+
+
+/* ========================================
+   角色列表
+======================================== */
+
+.character-list {
+    width: 100%;
+}
+
+.character-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    gap: 12px;
+    border: 1px solid rgba(155, 125, 210, 0.12);
+    border-radius: 10px;
+    background: rgba(155, 125, 210, 0.10);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    transition: background 0.15s ease;
+}
+
+.character-row:hover {
+    background: rgba(155, 125, 210, 0.18);
+}
+
+.character-row-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    gap: 8px;
+}
+
+.character-name {
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.character-row-tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.character-row-arrow {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    font-size: 23px;
+    font-weight: 300;
+}
+
+/* 列表標籤共用尺寸 */
+
+.character-row-tags .character-rarity,
+.character-row-tags .character-element,
+.character-row-tags .character-class {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 23px;
+    padding: 2px 9px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* 列表稀有度 */
+
+.character-row-tags .rarity-ur {
+    background: rgba(146, 113, 197, 0.18);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.3);
+}
+
+.character-row-tags .rarity-ssr {
+    background: rgba(198, 155, 53, 0.14);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.3);
+}
+
+.character-row-tags .rarity-sr {
+    background: rgba(76, 145, 205, 0.14);
+    color: #4C91CD;
+    border-color: rgba(76, 145, 205, 0.3);
+}
+
+.character-row-tags .rarity-r {
+    background: rgba(85, 168, 121, 0.14);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.3);
+}
+
+/* 列表職業 */
+
+.character-row-tags .character-class {
+    background: rgba(155, 125, 210, 0.12);
+    color: var(--accent-color);
+    border-color: rgba(155, 125, 210, 0.2);
+}
+
+.character-empty {
+    padding: 36px 16px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+
+/* ========================================
+   角色屬性專屬顏色
+======================================== */
+
+.element-water {
+    background: rgba(57, 137, 216, 0.13);
+    color: #3989D8;
+    border: 1px solid rgba(57, 137, 216, 0.3);
+}
+
+.element-fire {
+    background: rgba(227, 107, 99, 0.13);
+    color: #E36B63;
+    border: 1px solid rgba(227, 107, 99, 0.3);
+}
+
+.element-wind {
+    background: rgba(85, 168, 121, 0.13);
+    color: #55A879;
+    border: 1px solid rgba(85, 168, 121, 0.3);
+}
+
+.element-earth {
+    background: rgba(169, 135, 101, 0.13);
+    color: #A98765;
+    border: 1px solid rgba(169, 135, 101, 0.3);
+}
+
+.element-thunder {
+    background: rgba(198, 155, 53, 0.13);
+    color: #C69B35;
+    border: 1px solid rgba(198, 155, 53, 0.3);
+}
+
+.element-light {
+    background: rgba(214, 173, 76, 0.13);
+    color: #D6AD4C;
+    border: 1px solid rgba(214, 173, 76, 0.3);
+}
+
+.element-dark {
+    background: rgba(146, 113, 197, 0.13);
+    color: #9271C5;
+    border: 1px solid rgba(146, 113, 197, 0.3);
+}
+
+
+/* ========================================
+   角色詳細資料頁
+======================================== */
+
+.character-detail {
+    width: 100%;
+    min-width: 0;
+    color: var(--text-primary);
+}
+
+.character-back-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.character-back-button:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.character-detail-basic {
+    padding: 18px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(155, 125, 210, 0.25);
+    border-radius: 12px;
+    background: rgba(155, 125, 210, 0.09);
+}
+
+.character-detail-name {
+    font-size: 22px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* 詳細頁三種標籤統一尺寸 */
+
+.character-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.character-detail-tags>span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 23px;
+    padding: 2px 9px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* 詳細頁稀有度 */
+
+.character-detail-tags>.character-rarity.rarity-ur {
+    background: rgba(146, 113, 197, 0.18);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.3);
+}
+
+.character-detail-tags>.character-rarity.rarity-ssr {
+    background: rgba(198, 155, 53, 0.14);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.3);
+}
+
+.character-detail-tags>.character-rarity.rarity-sr {
+    background: rgba(76, 145, 205, 0.14);
+    color: #4C91CD;
+    border-color: rgba(76, 145, 205, 0.3);
+}
+
+.character-detail-tags>.character-rarity.rarity-r {
+    background: rgba(85, 168, 121, 0.14);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.3);
+}
+
+/* 詳細頁屬性 */
+
+.character-detail-tags>.character-element.element-water {
+    background: rgba(57, 137, 216, 0.13);
+    color: #3989D8;
+    border-color: rgba(57, 137, 216, 0.3);
+}
+
+.character-detail-tags>.character-element.element-fire {
+    background: rgba(227, 107, 99, 0.13);
+    color: #E36B63;
+    border-color: rgba(227, 107, 99, 0.3);
+}
+
+.character-detail-tags>.character-element.element-wind {
+    background: rgba(85, 168, 121, 0.13);
+    color: #55A879;
+    border-color: rgba(85, 168, 121, 0.3);
+}
+
+.character-detail-tags>.character-element.element-earth {
+    background: rgba(169, 135, 101, 0.13);
+    color: #A98765;
+    border-color: rgba(169, 135, 101, 0.3);
+}
+
+.character-detail-tags>.character-element.element-thunder {
+    background: rgba(198, 155, 53, 0.13);
+    color: #C69B35;
+    border-color: rgba(198, 155, 53, 0.3);
+}
+
+.character-detail-tags>.character-element.element-light {
+    background: rgba(214, 173, 76, 0.13);
+    color: #D6AD4C;
+    border-color: rgba(214, 173, 76, 0.3);
+}
+
+.character-detail-tags>.character-element.element-dark {
+    background: rgba(146, 113, 197, 0.13);
+    color: #9271C5;
+    border-color: rgba(146, 113, 197, 0.3);
+}
+
+/* 詳細頁職業 */
+
+.character-detail-tags>.character-class {
+    background: rgba(155, 125, 210, 0.12);
+    color: var(--accent-color);
+    border-color: rgba(155, 125, 210, 0.25);
+}
+
+.character-detail-section {
+    margin-bottom: 24px;
+}
+
+.character-detail-section h3 {
+    margin: 0 0 13px;
+    padding-left: 10px;
+    border-left: 3px solid var(--accent-color);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   技能資料
+======================================== */
+
+.character-skill {
+    margin-bottom: 15px;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 11px;
+    background: var(--card-bg);
+}
+
+.character-skill-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.character-skill-heading strong {
+    font-size: 15px;
+}
+
+/* 技能類型標籤 */
+
+.character-skill-heading>span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 9px;
+    border: 1px solid rgba(155, 125, 210, 0.2);
+    border-radius: 20px;
+    background: rgba(155, 125, 210, 0.12);
+    color: var(--accent-color);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* 技能初始與滿等 */
+
+.character-skill-levels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.character-skill-level {
+    min-width: 0;
+    padding: 11px;
+    border-radius: 9px;
+    background: var(--border-color);
+}
+
+.character-skill-level-title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* CD 與係數 */
+
+.character-skill-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 3px;
+    margin: 0;
+    font-size: 13px;
+}
+
+.character-skill-field+.character-skill-field {
+    margin-top: 8px;
+}
+
+.character-skill-field>span:first-child {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.character-skill-field>span:last-child {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    overflow-wrap: anywhere;
+}
+
+/* 技能效果 */
+
+.character-skill-effect {
+    margin-top: 8px;
+    padding-top: 0;
+}
+
+.character-skill-effect-title {
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.character-detail-text {
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+   電腦版字體調整
+======================================== */
+
+@media (min-width: 481px) {
+
+    .character-search-input {
+        font-size: 15px;
+    }
+
+    .character-filter-title {
+        font-size: 13px;
+    }
+
+    .character-filter-option {
+        font-size: 13px;
+        min-height: 29px;
+    }
+
+    .character-clear-filters {
+        font-size: 12px;
+    }
+
+    /* 角色列表 */
+
+    .character-name {
+        font-size: 16px;
+    }
+
+    .character-row-tags .character-rarity,
+    .character-row-tags .character-element,
+    .character-row-tags .character-class {
+        font-size: 12px;
+        min-height: 25px;
+    }
+
+    /* 詳細資料 */
+
+    .character-detail-name {
+        font-size: 24px;
+    }
+
+    .character-detail-section h3 {
+        font-size: 18px;
+    }
+
+    /* 技能 */
+
+    .character-skill-heading strong {
+        font-size: 16px;
+    }
+
+    .character-skill-level-title {
+        font-size: 15px;
+    }
+
+    .character-skill-field>span:first-child {
+        font-size: 13px;
+    }
+
+    .character-skill-field>span:last-child {
+        font-size: 15px;
+    }
+
+    .character-skill-effect-title {
+        font-size: 13px;
+    }
+
+    .character-detail-text {
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================
+   手機版
+======================================== */
+
+@media (max-width: 480px) {
+
+    .character-filters {
+        padding: 9px;
+        column-gap: 5px;
+        row-gap: 8px;
+    }
+
+    .character-filter-group {
+        gap: 7px;
+    }
+
+    .character-filter-title {
+        flex-basis: 44px;
+        font-size: 12px;
+    }
+
+    .character-filter-options {
+        gap: 5px;
+    }
+
+    .character-filter-option {
+        padding: 3px 8px;
+        font-size: 11px;
+    }
+
+    .character-clear-filters {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+
+    .character-row {
+        padding: 12px 10px;
+    }
+
+    .character-detail-name {
+        font-size: 19px;
+    }
+
+    .character-skill {
+        padding: 10px;
+    }
+
+    .character-skill-levels {
+        gap: 7px;
+    }
+
+    .character-skill-level {
+        padding: 9px;
+    }
+
+    .character-skill-field,
+    .character-detail-text {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .character-name {
+        font-size: 13px;
+    }
+}
+
+/* 角色名稱與返回按鈕排列 */
+.character-detail-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.character-detail-heading .character-detail-name {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 返回角色列表按鈕稍微縮小 */
+.character-detail-heading .character-back-button {
+    flex-shrink: 0;
+    padding: 5px 9px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+    opacity: 0.75;
+}
+
+.character-detail-heading .character-back-button:hover {
+    opacity: 1;
+}

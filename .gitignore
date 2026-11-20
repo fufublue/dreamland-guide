@@ -22,3 +22,30 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# ===== 測試用資料 =====
+/src/engine/test/
+
+# ===== 不需要上傳的舊檔案（確認不再使用後才啟用）=====
+# /src/App.css
+# /src/assets/react.svg
+# /src/assets/vite.svg
+# /src/assets/hero.png
+# /src/characters/TalentUnlockPanel.tsx
+# /src/tools/StrengthCalculator.tsx
+# /src/tools/StrengthCalculator.css
+
+# ===== 建置及套件暫存檔 =====
+/node_modules/
+/dist/
+
+# ===== 作業系統產生的檔案 =====
+.DS_Store
+Thumbs.db
+
+
+# 本機環境變數與機密設定
+.env
+.env.*
+!.env.example

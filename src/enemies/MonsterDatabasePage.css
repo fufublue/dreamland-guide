@@ -1,0 +1,434 @@
+/* ===== 敵人資料庫 ===== */
+
+.monster-database-page {
+    width: 100%;
+    padding-bottom: 32px;
+    color: var(--text);
+    box-sizing: border-box;
+}
+
+/* ===== 搜尋與篩選面板 ===== */
+
+.monster-database-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 24px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
+.monster-search-section {
+    width: 100%;
+}
+
+.monster-search {
+    display: block;
+    width: 100%;
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-soft);
+    color: var(--text);
+    font-size: 13px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.monster-search:focus {
+    border-color: var(--accent);
+    background: var(--surface);
+}
+
+.monster-filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.monster-filter-title {
+    margin: 0;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.monster-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.monster-filter-button {
+    padding: 8px 15px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.monster-filter-button:hover {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+}
+
+.monster-filter-button.active {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    font-weight: 650;
+}
+
+/* ===== 左右主要版面 ===== */
+
+.monster-database-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.8fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.monster-list-section,
+.monster-detail-section {
+    min-width: 0;
+}
+
+/* ===== 敵人列表面板 ===== */
+
+.monster-list-section {
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
+.monster-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.monster-section-heading h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.monster-count {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.monster-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 650px;
+    overflow-y: auto;
+    border-top: 1px solid var(--border);
+}
+
+.monster-list-item {
+    width: 100%;
+    padding: 13px 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    background: transparent;
+    color: var(--text);
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.monster-list-item:hover {
+    background: var(--surface-soft);
+}
+
+.monster-list-item.active {
+    border-left-color: var(--accent);
+    background: var(--accent-bg);
+}
+
+.monster-list-item-name {
+    min-width: 0;
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.monster-list-item-meta {
+    flex-shrink: 0;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ===== 敵人詳細資料面板 ===== */
+
+.monster-detail-section {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
+.monster-detail-header {
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.monster-detail-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.monster-detail-title {
+    margin: 0;
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.monster-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.monster-info-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 7px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.monster-type-tag {
+    background: #eee8f6;
+    border-color: #ded2ed;
+    color: #765b9a;
+}
+
+.monster-defense-tag {
+    background: #e8eff8;
+    border-color: #d3e0f0;
+    color: #52749b;
+}
+
+.dark .monster-type-tag {
+    background: #443653;
+    border-color: #59476d;
+    color: #d4bdf0;
+}
+
+.dark .monster-defense-tag {
+    background: #304052;
+    border-color: #40566f;
+    color: #b7d1ef;
+}
+
+.monster-notes {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* ===== 技能區域 ===== */
+
+.monster-skills-section {
+    margin-top: 25px;
+}
+
+.monster-skills-heading {
+    margin: 0 0 15px;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.monster-skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.monster-skill-item {
+    padding: 17px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-soft);
+}
+
+.monster-skill-name {
+    margin: 0 0 14px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.monster-skill-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 20px;
+}
+
+.monster-skill-field {
+    min-width: 0;
+}
+
+.monster-skill-field-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.monster-skill-field-value {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.monster-skill-field-full {
+    grid-column: auto;
+}
+
+/* ===== 資料可信度 ===== */
+
+.monster-confidence {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+.monster-confidence.tested {
+    background: #e5f3e9;
+    color: #39764a;
+}
+
+.monster-confidence.derived {
+    background: #eee8f6;
+    color: #765b9a;
+}
+
+.monster-confidence.unconfirmed {
+    background: #f8eee0;
+    color: #a36d2f;
+}
+
+.dark .monster-confidence.tested {
+    background: #294535;
+    color: #a7d8b4;
+}
+
+.dark .monster-confidence.derived {
+    background: #443653;
+    color: #d4bdf0;
+}
+
+.dark .monster-confidence.unconfirmed {
+    background: #4c3928;
+    color: #e9c18d;
+}
+
+/* ===== 空白及提示狀態 ===== */
+
+.monster-empty-state {
+    padding: 35px 15px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.monster-placeholder {
+    padding: 30px 15px;
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ===== 手機版 ===== */
+
+@media (max-width: 760px) {
+    .monster-database-page {
+        padding-bottom: 22px;
+    }
+
+    .monster-page-heading h1 {
+        font-size: 22px;
+    }
+
+    .monster-database-toolbar {
+        gap: 13px;
+        margin-top: 22px;
+        margin-bottom: 18px;
+        padding: 15px;
+    }
+
+    .monster-search {
+        max-width: none;
+    }
+
+    .monster-database-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .monster-list-section {
+        padding: 15px;
+    }
+
+    .monster-list {
+        max-height: 300px;
+    }
+
+    .monster-detail-section {
+        padding: 17px;
+    }
+
+    .monster-detail-title {
+        font-size: 19px;
+    }
+
+    .monster-skill-item {
+        padding: 14px;
+    }
+
+    .monster-skill-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 12px;
+    }
+
+    .monster-skill-field-full {
+        grid-column: auto;
+    }
+}
