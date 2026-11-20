@@ -270,7 +270,7 @@ export default function StrengthCalculatorV2() {
     const [autoApplyWandEffects, setAutoApplyWandEffects] =
         useState<AutoApplyWandEffects>(false)
 
-    const [accessoryQuality, setAccessoryQuality] =
+    const [accessoryQuality] =
         useState<AccessoryQuality>('rainbow')
 
     // 最大值模式的環境效果

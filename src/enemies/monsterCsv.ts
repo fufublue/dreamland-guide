@@ -4,7 +4,6 @@ import type {
     MonsterData,
     MonsterSkill,
     MonsterType,
-    DefenseType,
     SkillType,
     SkillRange,
 } from "./monsterTypes";

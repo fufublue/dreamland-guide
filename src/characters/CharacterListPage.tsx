@@ -109,9 +109,6 @@ export default function CharacterListPage({
         return () => cancelAnimationFrame(frame)
     }, [focusCharacterId, loading])
 
-    const pageTitle =
-        attackType === 'physical' ? '物理角色資料' : '魔法角色資料'
-
     // 屬性對應標籤顏色
     const elementClassMap: Record<string, string> = {
         水: 'element-water',
@@ -122,12 +119,6 @@ export default function CharacterListPage({
         光: 'element-light',
         暗: 'element-dark',
     }
-
-    const hasFilters =
-        keyword.trim() ||
-        selectedRarities.length > 0 ||
-        selectedElements.length > 0 ||
-        selectedClasses.length > 0
 
     return (
         <div className="character-page">

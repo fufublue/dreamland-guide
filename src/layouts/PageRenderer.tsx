@@ -1,5 +1,5 @@
 
-import { useState, useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import type {
     NavigationItem,
@@ -51,14 +51,7 @@ export default function PageRenderer({
     onBackToDatabase,
     children,
 }: PageRendererProps) {
-    const [isCharacterDetailPage, setIsCharacterDetailPage] =
-        useState(false);
-
-    useEffect(() => {
-        if (activePage !== "database" || !selectedDatabaseItem) {
-            setIsCharacterDetailPage(false);
-        }
-    }, [activePage, selectedDatabaseItem]);
+    
 
     const handleDatabaseItemSelect = (item: DatabaseItem) => {
         if (
@@ -66,13 +59,11 @@ export default function PageRenderer({
             item.id === "magic-characters" ||
             item.id === "monster-database"
         ) {
-            setIsCharacterDetailPage(false);
             onSelectDatabaseItem(item.id as DatabaseItemId);
         }
     };
 
     const handleBackToDatabase = () => {
-        setIsCharacterDetailPage(false);
         onBackToDatabase();
     };
 
@@ -132,7 +123,6 @@ export default function PageRenderer({
                     <CharacterBrowserPage
                         key={selectedDatabaseItem}
                         attackType={isPhysical ? "physical" : "magic"}
-                        onDetailPageChange={setIsCharacterDetailPage}
                     />
                 </div>
             </div>
