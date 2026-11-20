@@ -17,7 +17,7 @@ export const DATA_VERSIONS = {
     characterData: '1',
 
     // GAS：卡池資料
-    poolData: '1',
+    poolData: '2',
 
     // GAS：強度計算基準資料
     strengthBaseData: '1',
