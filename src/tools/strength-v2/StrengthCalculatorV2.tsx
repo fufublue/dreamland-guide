@@ -10,13 +10,11 @@ import type {
   CharacterElement,
   CharacterClass,
   AttackType,
-  TalentNodeSelection,
   WeaponQuality,
   AccessoryQuality,
   HangingTraitDamageBonus,
   AutoApplyWandEffects,
   StrengthEnemySettings,
-  CharacterCombatStats,
   SkillLevelType,
   MaximumModeEnvironment,
 } from "./types";
