@@ -13,7 +13,7 @@
  */
 export const DATA_VERSIONS = {
   // GAS：角色資料（物理與魔法共用同一個版本）
-  characterData: "1",
+  characterData: "2",
 
   // GAS：卡池資料
   poolData: "2",
