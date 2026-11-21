@@ -103,24 +103,12 @@ export function useCharacterDataset(
             }
 
             setLoading(true)
-            setError('')
-
-            console.log('[Dataset Hook] 開始載入角色資料')
+            setError('')           
 
             try {
                 const result = await getCharacterDataset()
 
-                if (!active) return
-
-                console.log(
-                    '[Dataset Hook] 載入完成，第一位角色：',
-                    result.dataset.getAll()[0]
-                )
-
-                console.log(
-                    '[Dataset Hook] 第一位角色普攻：',
-                    result.dataset.getAll()[0]?.normalAttack
-                )
+                if (!active) return              
 
                 const filteredCharacters = result.dataset
                     .getAll()

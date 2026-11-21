@@ -72,7 +72,6 @@ async function fetchCharacters(
 
     const responseText = await response.text()
 
-    console.log('[GAS 角色資料] 回傳內容：', responseText.slice(0, 500))
 
     const data = JSON.parse(responseText) as CharacterApiResponse
 
@@ -166,7 +165,6 @@ async function fetchTalentMultipliers(
 
     const responseText = await response.text()
 
-    console.log('[GAS 天賦倍率] 回傳內容：', responseText.slice(0, 500))
 
     const data = JSON.parse(responseText) as TalentMultiplierApiResponse
 
@@ -184,8 +182,7 @@ async function fetchTalentMultipliers(
 export async function loadCharacterDataset(
     fetcher: typeof fetch = fetch
 ): Promise<CharacterDataResult> {
-    console.error('### 正在執行 characterDataSource.ts 的 loadCharacterDataset ###')
-
+   
     // 同時取得物理、魔法及天賦倍率資料
     // 天賦倍率 API 失敗時，不影響角色資料載入
     const [
@@ -248,11 +245,6 @@ export async function loadCharacterDataset(
         )
     )
 
-    console.log(
-        '[Data Source] 轉換後的第一位物理角色：',
-        physicalCharacters[0]
-    )
-
     // 建立魔法角色
     const magicCharacters = magicData.characters.map(character =>
         createEngineCharacterFromJson(
@@ -260,11 +252,6 @@ export async function loadCharacterDataset(
             'magic',
             talentMultiplierMap.get(character.name)
         )
-    )
-
-    console.log(
-        '[Data Source] 轉換後的第一位魔法角色：',
-        magicCharacters[0]
     )
 
     // 合併角色資料

@@ -751,26 +751,6 @@ export default function StrengthCalculator() {
         return true
     })
 
-    // 暫時檢查必殺技解析資料
-    console.log(
-        '必殺技範圍與效果檢查',
-        charactersWithSkills.map(item => {
-            const ultimate = item.selectedSkills.find(
-                skill => skill.skillName === 'ultimate'
-            )
-
-            return {
-                角色: item.character.name,
-                必殺技倍率: ultimate?.coefficient,
-                必殺技效果: ultimate?.effects,
-            }
-        })
-    )
-
-
-
-
-
 
     const damageResults = filteredCharactersWithSkills.map(item => {
         const attack =

@@ -2025,61 +2025,6 @@ export function testCalculationParser() {
     })
 }
 
-
-export function logCalculationParserTest() {
-    const results = testCalculationParser()
-
-    console.table(
-        results.map(item => ({
-            原始文字: item.text,
-            預期效果數量: item.expectedCount,
-            實際效果數量: item.actualCount,
-            預期待確認: item.expectedReview ? '是' : '否',
-            實際待確認: item.actualReview ? '是' : '否',
-            測試結果: item.passed ? '通過' : '失敗',
-        }))
-    )
-    return results
-}
-
-
-
-export function testTalentParser() {
-    const testCases = [
-        '天賦9時1技能效果改為大幅60%',
-        '天賦12時2技能效果改為中幅40%',
-        '天賦12時2技能CD改為12秒',
-        '天賦12時2技能新增降單體小幅20%魔防15秒',
-        '天賦9時1技能黑暗機率改為80%',
-        '天賦15時必殺技效果新增加全體小幅20%魔攻15秒',
-        '天賦9時1技能效果改為15秒',
-        '天賦12時2技能效果改為中幅',
-        '天賦12時2技能回血改為198%',
-    ]
-
-    return testCases.map(text => ({
-        text,
-        result: parseTalentLine(text),
-    }))
-}
-
-export function logTalentParserTest() {
-    console.table(
-        testTalentParser().map(item => ({
-            原始文字: item.text,
-            對應技能: item.result?.skillName ?? '未辨識',
-            變更類型: item.result?.changes
-                .map(change => change.type)
-                .join('、') || '未辨識',
-            解析結果: item.result?.changes
-                .map(change => change.value)
-                .join('、') || '無',
-            需要確認: item.result?.reviewRequired ?? true,
-        }))
-    )
-}
-
-
 // 強度計算效果審查統計
 export interface CalculationReviewSummary {
     totalCharacters: number
