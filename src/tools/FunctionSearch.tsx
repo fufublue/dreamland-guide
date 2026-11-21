@@ -14,7 +14,6 @@ import {
     type EffectTargetSide,
     type EffectRange,
     type EffectCategory,
-    logCalculationParserTest,
 } from '../characterEffectParser'
 import './FunctionSearch.css'
 
