@@ -345,7 +345,6 @@ function getRarityOrder(value: string) {
 }
 
 export default function FunctionSearch() {
-    logCalculationParserTest()
     const [characters, setCharacters] = useState<Character[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
