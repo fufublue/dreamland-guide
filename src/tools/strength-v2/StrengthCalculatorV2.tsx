@@ -551,14 +551,12 @@ export default function StrengthCalculatorV2() {
 
 
     const formatStat = (value: unknown) => {
-        if (typeof value !== 'number' || !Number.isFinite(value)) {
-            return '資料缺漏'
-        }
+      if (typeof value !== "number" || !Number.isFinite(value)) {
+        return "資料缺漏";
+      }
 
-        return value.toLocaleString('zh-TW', {
-            maximumFractionDigits: 2,
-        })
-    }
+      return Math.floor(value).toLocaleString("zh-TW");
+    };
 
     // 點擊排名後，跳轉到對應角色名稱的開頭
     const scrollToCharacterDetails = (characterId: string) => {

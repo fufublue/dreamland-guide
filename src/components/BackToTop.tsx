@@ -37,51 +37,53 @@ export default function BackToTop({
     }
 
     return (
-        <button
-            type="button"
-            onClick={handleClick}
-            aria-label="返回頂端"
-            title="返回頂端"
-            style={{
-                position: "fixed",
-                right: isMobile ? "16px" : "24px",
-                bottom: isMobile
-                    ? "calc(90px + env(safe-area-inset-bottom))"
-                    : "30px",
-                zIndex: 999999,
+      <button
+        type="button"
+        onClick={handleClick}
+        aria-label="返回頂端"
+        title="返回頂端"
+        style={{
+          position: "fixed",
+          right: isMobile ? "16px" : "24px",
+          bottom: isMobile
+            ? "calc(90px + env(safe-area-inset-bottom))"
+            : "30px",
+          zIndex: 999999,
 
-                width: isMobile ? "36px" : "40px",
-                height: isMobile ? "36px" : "40px",
+          width: isMobile ? "36px" : "40px",
+          height: isMobile ? "36px" : "40px",
 
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
 
-                padding: 0,
-                border: "1px solid #D8CDEB",
-                borderRadius: "50%",
+          padding: 0,
+          border: "1px solid #D8CDEB",
+          borderRadius: "50%",
 
-                background: "#FFFFFF",
-                color: "#8565B5",
+          background: "#FFFFFF",
+          color: "#8565B5",
 
-                boxShadow: "0 3px 10px rgba(0,0,0,0.15)",
+          boxShadow: "0 3px 10px rgba(0,0,0,0.15)",
 
-                fontSize: isMobile ? "19px" : "21px",
-                fontWeight: 500,
-                lineHeight: 1,
+          fontSize: isMobile ? "19px" : "21px",
+          fontWeight: 500,
+          lineHeight: 1,
 
-                cursor: "pointer",
-            }}
+          cursor: "pointer",
+        }}
+      >
+        <span
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            lineHeight: 1,
+            transform: "translateY(-1.5px)",
+          }}
         >
-            <span
-                style={{
-                    display: "block",
-                    transform: "translateY(-2px)",
-                    lineHeight: 1,
-                }}
-            >
-                ↑
-            </span>
-        </button>
+          ↑
+        </span>
+      </button>
     );
 }
