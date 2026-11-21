@@ -1,1752 +1,2379 @@
-
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { loadStrengthData } from './data/loadStrengthData'
-import { DEFAULT_CHARACTER_FILTERS } from './settings'
-import { calculateCharacterStats } from './calculations/characterStats'
-import { calculateCharacterDamage } from './calculations/characterDamage'
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { loadStrengthData } from "./data/loadStrengthData";
+import { DEFAULT_CHARACTER_FILTERS, DEFAULT_ENVIRONMENT } from "./settings";
+import { calculateCharacterStats } from "./calculations/characterStats";
+import { calculateCharacterDamage } from "./calculations/characterDamage";
+import type { EngineCharacter } from "../../engine/types/character";
 import type {
-    CharacterFilterSettings,
-    CharacterRarity,
-    CharacterElement,
-    CharacterClass,
-    AttackType,
-    TalentNodeSelection,
-    WeaponQuality,
-    AccessoryQuality,
-    HangingTraitDamageBonus,
-    AutoApplyWandEffects,
-    StrengthEnemySettings,
-    CharacterCombatStats,
-    SkillLevelType,
-} from './types'
+  CharacterFilterSettings,
+  CharacterRarity,
+  CharacterElement,
+  CharacterClass,
+  AttackType,
+  TalentNodeSelection,
+  WeaponQuality,
+  AccessoryQuality,
+  HangingTraitDamageBonus,
+  AutoApplyWandEffects,
+  StrengthEnemySettings,
+  CharacterCombatStats,
+  SkillLevelType,
+  MaximumModeEnvironment,
+} from "./types";
 import {
-    calculateBreakthroughTraitDamageBonus,
-    calculateBreakthroughTraitHealingBonus,
-} from './calculations/breakthroughTrait'
+  calculateBreakthroughTraitDamageBonus,
+  calculateBreakthroughTraitHealingBonus,
+} from "./calculations/breakthroughTrait";
 
-import './StrengthCalculatorV2.css'
+import "./StrengthCalculatorV2.css";
 
-type StrengthData = Awaited<ReturnType<typeof loadStrengthData>>
+type StrengthData = Awaited<ReturnType<typeof loadStrengthData>>;
+
+type CalculatedCharacterItem = {
+  character: EngineCharacter;
+} & ReturnType<typeof calculateCharacterStats> & {
+    damage: ReturnType<typeof calculateCharacterDamage>;
+  };
+
+type CalculationWorkerResponse =
+  | { type: "results"; results: CalculatedCharacterItem[] }
+  | { type: "progress"; completed: number; total: number }
+  | { type: "character-error"; characterName: string; message: string }
+  | { type: "complete" };
 
 type EnemySelectionItem = {
-    key: number
-    enemy: StrengthEnemySettings | null
-}
+  key: number;
+  enemy: StrengthEnemySettings | null;
+};
 
-function getEnemyKindLabel(
-    kind: StrengthEnemySettings['kind'],
-): string {
-    switch (kind) {
-        case 'boss':
-            return 'BOSS'
-        case 'minion':
-            return '小怪'
-        case 'bossMinion':
-            return 'BOSS小怪'
-    }
+function getEnemyKindLabel(kind: StrengthEnemySettings["kind"]): string {
+  switch (kind) {
+    case "boss":
+      return "BOSS";
+    case "minion":
+      return "小怪";
+    case "bossMinion":
+      return "BOSS小怪";
+  }
 }
 
 // 技能類型標籤顏色
 function getSkillTypeClass(type: string): string {
-    switch (type) {
-        case '全體攻擊':
-            return 'skill-type-all-attack'
-        case '單體攻擊':
-            return 'skill-type-single-attack'
-        case '全體回血':
-            return 'skill-type-all-healing'
-        case '單體回血':
-            return 'skill-type-single-healing'
-        default:
-            return ''
-    }
+  switch (type) {
+    case "全體攻擊":
+      return "skill-type-all-attack";
+    case "單體攻擊":
+      return "skill-type-single-attack";
+    case "全體回血":
+      return "skill-type-all-healing";
+    case "單體回血":
+      return "skill-type-single-healing";
+    default:
+      return "";
+  }
 }
 
 type FilterOption<T extends string> = {
-    value: T
-    label: string
-    className: string
-}
+  value: T;
+  label: string;
+  className: string;
+};
 
 type FilterGroupProps<T extends string> = {
-    title: string
-    options: FilterOption<T>[]
-    selected: T[]
-    onChange: (value: T) => void
-    onClear: () => void
-    showClear?: boolean
-}
+  title: string;
+  options: FilterOption<T>[];
+  selected: T[];
+  onChange: (value: T) => void;
+  onClear: () => void;
+  showClear?: boolean;
+};
 
 const RARITY_OPTIONS: FilterOption<CharacterRarity>[] = [
-    { value: 'UR', label: 'UR', className: 'rarity-ur' },
-    { value: 'SSR', label: 'SSR', className: 'rarity-ssr' },
-    { value: 'SR', label: 'SR', className: 'rarity-sr' },
-    { value: 'R', label: 'R', className: 'rarity-r' },
-]
+  { value: "UR", label: "UR", className: "rarity-ur" },
+  { value: "SSR", label: "SSR", className: "rarity-ssr" },
+  { value: "SR", label: "SR", className: "rarity-sr" },
+  { value: "R", label: "R", className: "rarity-r" },
+];
 
 const ELEMENT_OPTIONS: FilterOption<CharacterElement>[] = [
-    { value: '水', label: '水', className: 'element-water' },
-    { value: '火', label: '火', className: 'element-fire' },
-    { value: '風', label: '風', className: 'element-wind' },
-    { value: '地', label: '地', className: 'element-earth' },
-    { value: '雷', label: '雷', className: 'element-thunder' },
-    { value: '光', label: '光', className: 'element-light' },
-    { value: '暗', label: '暗', className: 'element-dark' },
-]
+  { value: "水", label: "水", className: "element-water" },
+  { value: "火", label: "火", className: "element-fire" },
+  { value: "風", label: "風", className: "element-wind" },
+  { value: "地", label: "地", className: "element-earth" },
+  { value: "雷", label: "雷", className: "element-thunder" },
+  { value: "光", label: "光", className: "element-light" },
+  { value: "暗", label: "暗", className: "element-dark" },
+];
 
 const CLASS_OPTIONS: FilterOption<CharacterClass>[] = [
-    { value: '拳', label: '拳', className: 'character-class' },
-    { value: '鞋', label: '鞋', className: 'character-class' },
-    { value: '書', label: '書', className: 'character-class' },
-    { value: '物杖', label: '物杖', className: 'character-class' },
-    { value: '魔杖', label: '魔杖', className: 'character-class' },
-    { value: '盾', label: '盾', className: 'character-class' },
-]
+  { value: "拳", label: "拳", className: "character-class" },
+  { value: "鞋", label: "鞋", className: "character-class" },
+  { value: "書", label: "書", className: "character-class" },
+  { value: "物杖", label: "物杖", className: "character-class" },
+  { value: "魔杖", label: "魔杖", className: "character-class" },
+  { value: "盾", label: "盾", className: "character-class" },
+];
 
 const ATTACK_TYPE_OPTIONS: FilterOption<AttackType>[] = [
-    { value: 'physical', label: '物理', className: 'attack-physical' },
-    { value: 'magic', label: '魔法', className: 'attack-magic' },
-]
+  { value: "physical", label: "物理", className: "attack-physical" },
+  { value: "magic", label: "魔法", className: "attack-magic" },
+];
 
 function FilterGroup<T extends string>({
-    title,
-    options,
-    selected,
-    onChange,
-    onClear,
-    showClear = true,
+  title,
+  options,
+  selected,
+  onChange,
+  onClear,
+  showClear = true,
 }: FilterGroupProps<T>) {
-    return (
-        <div className="strength-v2-filter-group">
-            <div className="strength-v2-filter-title">
-                {title}
-            </div>
+  return (
+    <div className="strength-v2-filter-group">
+      <div className="strength-v2-filter-title">{title}</div>
 
-            <div className="strength-v2-filter-options">
-                {showClear && (
-                    <button
-                        type="button"
-                        className={`strength-v2-filter-option ${selected.length === 0 ? 'is-active' : ''}`}
-                        aria-pressed={selected.length === 0}
-                        onClick={onClear}
-                    >
-                        全部
-                    </button>
-                )}
+      <div className="strength-v2-filter-options">
+        {showClear && (
+          <button
+            type="button"
+            className={`strength-v2-filter-option ${selected.length === 0 ? "is-active" : ""}`}
+            aria-pressed={selected.length === 0}
+            onClick={onClear}
+          >
+            全部
+          </button>
+        )}
 
-                {options.map((option) => (
-                    <button
-                        key={option.value}
-                        type="button"
-                        className={`strength-v2-filter-option ${option.className
-                            ? `character-tag ${option.className}`
-                            : ''
-                            } ${selected.includes(option.value) ? 'is-active' : ''
-                            }`}
-                        aria-pressed={selected.includes(option.value)}
-                        onClick={() => onChange(option.value)}
-                    >
-                        {option.label}
-                    </button>
-                ))}
-            </div>
-        </div>
-    )
+        {options.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            className={`strength-v2-filter-option ${
+              option.className ? `character-tag ${option.className}` : ""
+            } ${selected.includes(option.value) ? "is-active" : ""}`}
+            aria-pressed={selected.includes(option.value)}
+            onClick={() => onChange(option.value)}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-function toggleFilterValue<T extends string>(
-    selected: T[],
-    value: T,
-): T[] {
-    return selected.includes(value)
-        ? selected.filter((item) => item !== value)
-        : [...selected, value]
+function toggleFilterValue<T extends string>(selected: T[], value: T): T[] {
+  return selected.includes(value)
+    ? selected.filter((item) => item !== value)
+    : [...selected, value];
 }
 
-type CalculationMode =
-    | 'coefficient'
-    | 'selfEffects'
-    | 'maximum'
+type CalculationMode = "coefficient" | "selfEffects" | "maximum";
 
-type EffectLevel = 'small' | 'medium' | 'large'
+type EffectLevel = "small" | "medium" | "large";
 
 type CalculationSnapshot = {
-    filters: CharacterFilterSettings
-    calculationMode: CalculationMode
+  filters: CharacterFilterSettings;
+  calculationMode: CalculationMode;
 
-    skillLevel: SkillLevelType
-    talentNode: number
+  skillLevel: SkillLevelType;
+  talentNode: number;
 
-    weaponQuality: WeaponQuality
-    accessoryQuality: AccessoryQuality
-    hangingTraitDamageBonus: HangingTraitDamageBonus
-    autoApplyWandEffects: AutoApplyWandEffects
+  weaponQuality: WeaponQuality;
+  accessoryQuality: AccessoryQuality;
+  hangingTraitDamageBonus: HangingTraitDamageBonus;
+  autoApplyWandEffects: AutoApplyWandEffects;
 
-    treatSelfHpConditionAsMet: boolean
+  treatSelfHpConditionAsMet: boolean;
 
-    remainingSeconds: number
-    ultimateUses: number | null
+  remainingSeconds: number;
+  ultimateUses: number | null;
 
-    environmentEffects: {
-        attackUp: boolean
-        defenseDown: boolean
-        elementalDamageUp: boolean
-        elementalDamageUpLevel: EffectLevel
-        elementalResistanceDown: boolean
-        elementalResistanceDownLevel: EffectLevel
-    }
+  environmentEffects: MaximumModeEnvironment;
 
-    enemySelections: EnemySelectionItem[]
-}
+  enemySelections: EnemySelectionItem[];
+};
 
 const CALCULATION_MODES: {
-    value: CalculationMode
-    label: string
-    description: string
+  value: CalculationMode;
+  label: string;
+  description: string;
 }[] = [
-        {
-            value: 'coefficient',
-            label: '只看係數',
-            description: '不計入角色戰鬥中觸發的自身增減益效果。',
-        },
-        {
-            value: 'selfEffects',
-            label: '角色自帶增減益效果',
-            description: '計入角色技能及天賦在戰鬥中觸發的自身增減益效果。',
-        },
-        {
-            value: 'maximum',
-            label: '最大值',
-            description: '使用者自行設定環境效果，開啟的效果視為全程生效。',
-        },
-    ]
+  {
+    value: "coefficient",
+    label: "只看係數",
+    description: "不計入角色戰鬥中觸發的自身增減益效果。",
+  },
+  {
+    value: "selfEffects",
+    label: "角色自帶增減益效果",
+    description: "計入角色技能及天賦在戰鬥中觸發的自身增減益效果。",
+  },
+  {
+    value: "maximum",
+    label: "最大值",
+    description: "使用者自行設定環境效果，依各自持續時間與 CD 觸發。",
+  },
+];
 
-const TALENT_NODE_OPTIONS = Array.from(
-    { length: 14 },
-    (_, index) => index + 4,
-)
+const TALENT_NODE_OPTIONS = Array.from({ length: 14 }, (_, index) => index + 4);
 
 export default function StrengthCalculatorV2() {
-    const [data, setData] = useState<StrengthData | null>(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
-    // 敵人設定
-    const [enemySelections, setEnemySelections] =
-        useState<EnemySelectionItem[]>([])
+  const [data, setData] = useState<StrengthData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  // 敵人設定
+  const [enemySelections, setEnemySelections] = useState<EnemySelectionItem[]>(
+    [],
+  );
 
-    const [nextEnemyKey, setNextEnemyKey] = useState(1)
+  const [nextEnemyKey, setNextEnemyKey] = useState(1);
 
-    // 計算模式
-    const [calculationMode, setCalculationMode] =
-        useState<CalculationMode>('maximum')
+  // 計算模式
+  const [calculationMode, setCalculationMode] =
+    useState<CalculationMode>("maximum");
 
-    // 戰鬥排程設定
-    const [remainingSeconds, setRemainingSeconds] =
-        useState(50)
+  // 戰鬥排程設定
+  const [remainingSeconds, setRemainingSeconds] = useState(50);
 
-    const [ultimateUses, setUltimateUses] =
-        useState<number | null>(null)
+  const [ultimateUses, setUltimateUses] = useState<number | null>(null);
 
-    // 共用技能等級：預設初始等級
-    const [skillLevel, setSkillLevel] =
-        useState<SkillLevelType>('initial')
+  // 共用技能等級：預設初始等級
+  const [skillLevel, setSkillLevel] = useState<SkillLevelType>("initial");
 
-    // 共用天賦節點：3 代表尚未額外解鎖天賦 4～17
-    const [talentNode, setTalentNode] = useState(3)
+  // 共用天賦節點：預設解鎖至天賦 5
+  const [talentNode, setTalentNode] = useState(5);
 
-    // 裝備設定：預設沿用目前計算基準資料的彩武、相同掛件、彩色飾品
-    const [weaponQuality, setWeaponQuality] =
-        useState<WeaponQuality>('rainbow')
+  // 裝備設定：預設沿用目前計算基準資料的彩武、相同掛件、彩色飾品
+  const [weaponQuality, setWeaponQuality] = useState<WeaponQuality>("rainbow");
 
-    // 掛件傷害特性百分比，預設 15%
-    const [hangingTraitDamageBonus, setHangingTraitDamageBonus] =
-        useState<HangingTraitDamageBonus>(15)
+  // 掛件傷害特性百分比，預設 15%
+  const [hangingTraitDamageBonus, setHangingTraitDamageBonus] =
+    useState<HangingTraitDamageBonus>(15);
 
-    // 是否將自身生命值條件視為成立，預設開啟
-    const [treatSelfHpConditionAsMet, setTreatSelfHpConditionAsMet] =
-        useState(true)
+  // 是否將自身生命值條件視為成立，預設開啟
+  const [treatSelfHpConditionAsMet, setTreatSelfHpConditionAsMet] =
+    useState(true);
 
-    // 是否自動將杖角色套用杖的效果，預設關閉
-    const [autoApplyWandEffects, setAutoApplyWandEffects] =
-        useState<AutoApplyWandEffects>(false)
+  // 是否自動將杖角色套用杖的效果，預設關閉
+  const [autoApplyWandEffects, setAutoApplyWandEffects] =
+    useState<AutoApplyWandEffects>(false);
 
-    const [accessoryQuality] =
-        useState<AccessoryQuality>('rainbow')
+  const [accessoryQuality] = useState<AccessoryQuality>("rainbow");
 
-    // 最大值模式的環境效果
-    const [environmentEffects, setEnvironmentEffects] = useState({
-        attackUp: true,
-        defenseDown: true,
+  // 最大值模式的環境效果
+  const [environmentEffects, setEnvironmentEffects] =
+    useState<MaximumModeEnvironment>(() => ({
+      attackIncrease: { ...DEFAULT_ENVIRONMENT.attackIncrease },
+      defenseReduction: { ...DEFAULT_ENVIRONMENT.defenseReduction },
+      attributeDamageIncrease: {
+        ...DEFAULT_ENVIRONMENT.attributeDamageIncrease,
+      },
+      attributeResistanceReduction: {
+        ...DEFAULT_ENVIRONMENT.attributeResistanceReduction,
+      },
+    }));
 
-        elementalDamageUp: false,
-        elementalDamageUpLevel: 'medium' as EffectLevel,
+  // 篩選條件分成「正在編輯」與「已套用計算」兩份，避免每次點選都重新計算角色
+  const [filters, setFilters] = useState<CharacterFilterSettings>(() => ({
+    rarity: [...DEFAULT_CHARACTER_FILTERS.rarity],
+    element: [...DEFAULT_CHARACTER_FILTERS.element],
+    characterClass: [...DEFAULT_CHARACTER_FILTERS.characterClass],
+    attackType: [...DEFAULT_CHARACTER_FILTERS.attackType],
+  }));
 
-        elementalResistanceDown: false,
-        elementalResistanceDownLevel: 'medium' as EffectLevel,
-    })
+  const [calculationSnapshot, setCalculationSnapshot] =
+    useState<CalculationSnapshot | null>(null);
 
-    // 篩選條件分成「正在編輯」與「已套用計算」兩份，避免每次點選都重新計算角色
-    const [filters, setFilters] = useState<CharacterFilterSettings>(() => ({
-        rarity: [...DEFAULT_CHARACTER_FILTERS.rarity],
-        element: [...DEFAULT_CHARACTER_FILTERS.element],
-        characterClass: [...DEFAULT_CHARACTER_FILTERS.characterClass],
-        attackType: [...DEFAULT_CHARACTER_FILTERS.attackType],
-    }))
+  const [hasCalculated, setHasCalculated] = useState(false);
 
-    const [calculationSnapshot, setCalculationSnapshot] =
-        useState<CalculationSnapshot | null>(null)
+  // 計算移至 Web Worker，避免大量角色排程搜尋時凍結網頁操作。
+  const [calculatedCharacters, setCalculatedCharacters] = useState<
+    CalculatedCharacterItem[]
+  >([]);
+  const [isCalculating, setIsCalculating] = useState(false);
+  const [calculationProgress, setCalculationProgress] = useState({
+    completed: 0,
+    total: 0,
+  });
+  const [calculationWorkerErrors, setCalculationWorkerErrors] = useState<
+    string[]
+  >([]);
 
-    const [hasCalculated, setHasCalculated] = useState(false)
+  // 強度比較區設定
+  const [comparisonTab, setComparisonTab] = useState<"damage" | "healing">(
+    "damage",
+  );
 
-    // 強度比較區設定
-    const [comparisonTab, setComparisonTab] =
-        useState<'damage' | 'healing'>('damage')
+  // 傷害與治療各自獨立設定前幾名
+  const [damageTopCount, setDamageTopCount] = useState(3);
+  const [healingTopCount, setHealingTopCount] = useState(3);
 
-    // 傷害與治療各自獨立設定前幾名
-    const [damageTopCount, setDamageTopCount] = useState(3)
-    const [healingTopCount, setHealingTopCount] = useState(3)
+  // 角色傷害比較區：左右兩名角色
+  const [compareCharacterAId, setCompareCharacterAId] = useState("");
 
+  const [compareCharacterBId, setCompareCharacterBId] = useState("");
 
+  useEffect(() => {
+    let cancelled = false;
 
-    useEffect(() => {
-        let cancelled = false
+    async function loadData() {
+      try {
+        setLoading(true);
+        setError(null);
 
-        async function loadData() {
-            try {
-                setLoading(true)
-                setError(null)
+        const result = await loadStrengthData();
 
-                const result = await loadStrengthData()
-
-                if (!cancelled) {
-                    setData(result)
-                }
-            } catch (err) {
-                if (!cancelled) {
-                    setError(
-                        err instanceof Error
-                            ? err.message
-                            : '強度計算資料載入失敗。',
-                    )
-                }
-            } finally {
-                if (!cancelled) {
-                    setLoading(false)
-                }
-            }
+        if (!cancelled) {
+          setData(result);
         }
-
-        loadData()
-
-        return () => {
-            cancelled = true
+      } catch (err) {
+        if (!cancelled) {
+          setError(
+            err instanceof Error ? err.message : "強度計算資料載入失敗。",
+          );
         }
-    }, [])
-
-    // 只依篩選條件取得角色名單；這個步驟不會執行傷害計算
-    const getFilteredCharacters = useCallback((selectedFilters: CharacterFilterSettings) => {
-        if (!data) return []
-
-        const allCharacters = data.characterData.dataset.getAll()
-
-        return allCharacters.filter((character) => {
-            const matchesRarity =
-                selectedFilters.rarity.length === 0 ||
-                selectedFilters.rarity.some(
-                    (value) => value === character.rarity
-                )
-
-            const matchesElement =
-                selectedFilters.element.length === 0 ||
-                selectedFilters.element.some(
-                    (value) => value === character.element
-                )
-
-            const matchesClass =
-                selectedFilters.characterClass.length === 0 ||
-                selectedFilters.characterClass.some(
-                    (value) => value === character.class
-                )
-
-            const matchesAttackType =
-                selectedFilters.attackType.length === 0 ||
-                (
-                    character.attackType !== undefined &&
-                    selectedFilters.attackType.some(
-                        (value) => value === character.attackType
-                    )
-                )
-
-            return (
-                matchesRarity &&
-                matchesElement &&
-                matchesClass &&
-                matchesAttackType
-            )
-        })
-    }, [data])
-
-    // 即時更新符合條件的人數，僅篩選名單，不計算角色傷害
-    const filteredCharacters = useMemo(
-        () => getFilteredCharacters(filters),
-        [getFilteredCharacters, filters],
-    )
-
-
-
-
-    const calculatedCharacters = useMemo(() => {
-        const snapshot = calculationSnapshot
-
-        if (!data || !snapshot) return []
-
-        // 使用上次按下重新計算時保存的篩選條件
-        const appliedCharacters = getFilteredCharacters(snapshot.filters)
-
-        // 整理已選擇的敵人
-        const enemies = snapshot.enemySelections.flatMap((item) =>
-            item.enemy ? [item.enemy] : [],
-        )
-
-        // 環境效果
-        const environment = {
-            attackIncrease: snapshot.environmentEffects.attackUp,
-            defenseReduction: snapshot.environmentEffects.defenseDown,
-
-            attributeDamageIncrease: {
-                enabled: snapshot.environmentEffects.elementalDamageUp,
-                magnitude: snapshot.environmentEffects.elementalDamageUpLevel,
-            },
-
-            attributeResistanceReduction: {
-                enabled: snapshot.environmentEffects.elementalResistanceDown,
-                magnitude: snapshot.environmentEffects.elementalResistanceDownLevel,
-            },
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
         }
-
-        return appliedCharacters.map((character) => {
-            const result = calculateCharacterStats(
-                character,
-                data.strengthBaseData,
-                snapshot.weaponQuality,
-                snapshot.talentNode as TalentNodeSelection,
-                'same',
-                'UR',
-                snapshot.accessoryQuality,
-                snapshot.hangingTraitDamageBonus,
-                snapshot.autoApplyWandEffects,
-            )
-
-            // 只有 UR 使用目前選擇的技能等級
-            const selectedSkillLevel: SkillLevelType =
-                character.rarity === 'UR'
-                    ? snapshot.skillLevel
-                    : 'max'
-
-            const damage = calculateCharacterDamage({
-                character,
-
-                normalAttackLevel: selectedSkillLevel,
-                skillLevel: selectedSkillLevel,
-
-                selectedNode: snapshot.talentNode as TalentNodeSelection,
-
-                stats: {
-                    ...result.stats,
-                    damageBonus: null,
-                    attributeBoost:
-                        result.additionalStats.attributeBoost ?? null,
-                    attributeResistance:
-                        result.additionalStats.attributeResistance ?? null,
-                    abnormalResistance:
-                        result.additionalStats.abnormalResistance ?? null,
-                    criticalDamageResistance:
-                        result.additionalStats.criticalDamageResistance ?? null,
-                    criticalResistance:
-                        result.additionalStats.criticalResistance ?? null,
-                } satisfies CharacterCombatStats,
-
-                enemies,
-
-                elementRelation: 'advantage',
-
-                mode: snapshot.calculationMode,
-
-                environment,
-
-                weaponDamageBonus: result.weaponDamageBonus,
-                hangingTraitDamageBonus: result.hangingTraitDamageBonus,
-                hangingTraitHealingBonus: result.hangingTraitHealingBonus,
-
-                treatSelfHpConditionAsMet:
-                    snapshot.treatSelfHpConditionAsMet,
-
-                scheduleSettings: {
-                    remainingSeconds: snapshot.remainingSeconds,
-                    ultimateUses: snapshot.ultimateUses,
-                },
-            })
-
-            return {
-                character,
-                ...result,
-                damage,
-            }
-        })
-    }, [
-        data,
-        calculationSnapshot,
-        getFilteredCharacters,
-    ])
-
-    // 依目前比較分頁，取得需要高亮的角色
-    const highlightedCharacterIds = useMemo(() => {
-        const topCount =
-            comparisonTab === 'damage'
-                ? damageTopCount
-                : healingTopCount
-
-        // 取得所有有效的比較數值
-        const scores = calculatedCharacters.flatMap((item) => {
-            const value =
-                comparisonTab === 'damage'
-                    ? item.damage.schedule?.totalDamage
-                    : item.damage.schedule?.totalHealing
-
-            if (typeof value !== 'number' || !Number.isFinite(value)) {
-                return []
-            }
-
-            return [{
-                id: item.character.id,
-                value,
-            }]
-        })
-
-        if (scores.length === 0) {
-            return new Set<string>()
-        }
-
-        // 只用來判斷排名，不會改變原本角色排列順序
-        const sortedScores = scores
-            .map((item) => item.value)
-            .sort((a, b) => b - a)
-
-        // 取得名次門檻
-        const cutoffIndex = Math.min(topCount - 1, sortedScores.length - 1)
-        const cutoffScore = sortedScores[cutoffIndex]
-
-        // 同分者全部納入，因此高亮數量可能超過設定名額
-        return new Set(
-            scores
-                .filter((item) => item.value >= cutoffScore)
-                .map((item) => item.id),
-        )
-    }, [
-        calculatedCharacters,
-        comparisonTab,
-        damageTopCount,
-        healingTopCount,
-    ])
-
-
-    const formatStat = (value: unknown) => {
-      if (typeof value !== "number" || !Number.isFinite(value)) {
-        return "資料缺漏";
       }
-
-      return Math.floor(value).toLocaleString("zh-TW");
-    };
-
-    // 點擊排名後，跳轉到對應角色名稱的開頭
-    const scrollToCharacterDetails = (characterId: string) => {
-        const target = document.getElementById(
-            `strength-v2-detail-${characterId}`
-        )
-
-        if (!target) return
-
-        const characterName = target.querySelector('h3')
-
-        if (!characterName) return
-
-        characterName.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-        })
     }
 
-    return (
-        <div className="strength-v2-page">
-
-            {loading && (
-                <div className="strength-v2-message">
-                    正在載入角色與強度基準資料……
-                </div>
-            )}
-
-            {!loading && error && (
-                <div className="strength-v2-error">
-                    <h3>資料載入失敗</h3>
-                    <p>{error}</p>
-                </div>
-            )}
-
-            {!loading && !error && data && (
-                <>
-
-                    <section className="strength-v2-section strength-v2-character-settings">
-                        <h2>角色篩選與設定</h2>
-
-                        {/* 角色篩選 */}
-                        <div className="strength-v2-character-filters">
-                            <p className="strength-v2-muted">
-                                調整好篩選條件後，請至下方「計算結果」按下開始計算。
-                            </p>
-
-                            <FilterGroup
-                                title="稀有度"
-                                options={RARITY_OPTIONS}
-                                selected={filters.rarity}
-                                onChange={(value) => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        rarity: toggleFilterValue(prev.rarity, value),
-                                    }))
-                                }}
-                                onClear={() => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        rarity: [],
-                                    }))
-                                }}
-                            />
-
-                            <FilterGroup
-                                title="屬性"
-                                options={ELEMENT_OPTIONS}
-                                selected={filters.element}
-                                onChange={(value) => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        element: [value],
-                                    }))
-                                }}
-                                onClear={() => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        element: [],
-                                    }))
-                                }}
-                            />
-
-                            <FilterGroup
-                                title="職業"
-                                showClear={false}
-                                options={CLASS_OPTIONS}
-                                selected={filters.characterClass}
-                                onChange={(value) => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        characterClass: toggleFilterValue(
-                                            prev.characterClass,
-                                            value,
-                                        ),
-                                    }))
-                                }}
-                                onClear={() => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        characterClass: [],
-                                    }))
-                                }}
-                            />
-
-                            <FilterGroup
-                                title="攻擊類型"
-                                showClear={false}
-                                options={ATTACK_TYPE_OPTIONS}
-                                selected={filters.attackType}
-                                onChange={(value) => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        attackType: [value],
-                                    }))
-                                }}
-                                onClear={() => {
-                                    setFilters((prev) => ({
-                                        ...prev,
-                                        attackType: [],
-                                    }))
-                                }}
-                            />
-                        </div>
-
-                        {/* 角色技能與天賦 */}
-                        <div className="strength-v2-character-options">
-                            <div className="strength-v2-setting-group">
-                                <h3>技能設定</h3>
-
-                                <div className="strength-v2-setting-row">
-                                    <label htmlFor="strength-v2-skill-level">
-                                        UR技能等級
-                                    </label>
-
-                                    <select
-                                        id="strength-v2-skill-level"
-                                        value={skillLevel}
-                                        onChange={(event) => {
-                                            setSkillLevel(event.target.value as SkillLevelType)
-                                        }}
-                                    >
-                                        <option value="initial">初始等級</option>
-                                        <option value="max">最大等級</option>
-                                    </select>
-                                </div>
-
-                                <p className="strength-v2-muted">
-                                    此設定共用所有技能。其他角色一律使用最大技能等級。
-                                </p>
-                            </div>
-
-                            <div className="strength-v2-setting-group">
-                                <h3>天賦設定</h3>
-
-                                <div className="strength-v2-setting-row">
-                                    <label htmlFor="strength-v2-talent-node">
-                                        天賦解鎖節點
-                                    </label>
-
-                                    <select
-                                        id="strength-v2-talent-node"
-                                        value={talentNode}
-                                        onChange={(event) => {
-                                            setTalentNode(Number(event.target.value))
-                                        }}
-                                    >
-                                        <option value={3}>未額外解鎖</option>
-
-                                        {TALENT_NODE_OPTIONS.map((node) => (
-                                            <option key={node} value={node}>
-                                                天賦 {node}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                <p className="strength-v2-muted">
-                                    選擇節點若超出角色實際擁有的節點，
-                                    會以該角色的最大節點來計算。
-                                </p>
-                            </div>
-                            {/* 自身生命值條件 */}
-                            <div className="strength-v2-conditional-rule">
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        checked={treatSelfHpConditionAsMet}
-                                        onChange={(event) => {
-                                            setTreatSelfHpConditionAsMet(event.target.checked)
-                                        }}
-                                    />
-                                    將自身生命值條件視為成立
-                                </label>
-
-                                <p>
-                                    開啟後，有生命條件的技能一律採用達成後的倍率。
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* 角色裝備設定 */}
-                        <div className="strength-v2-character-equipment">
-                            <h3>裝備與掛件設定</h3>
-
-                            <div className="strength-v2-equipment-grid">
-                                <div className="strength-v2-equipment-field">
-                                    <label htmlFor="strength-v2-weapon-quality">
-                                        武器品質
-                                    </label>
-
-                                    <select
-                                        id="strength-v2-weapon-quality"
-                                        value={weaponQuality}
-                                        onChange={(event) => {
-                                            setWeaponQuality(
-                                                event.target.value as WeaponQuality
-                                            )
-                                        }}
-                                    >
-                                        <option value="gold">金色武器</option>
-                                        <option value="rainbow">彩色武器</option>
-                                    </select>
-                                </div>
-
-                                <div className="strength-v2-equipment-field">
-                                    <label htmlFor="strength-v2-hanging-bonus">
-                                        掛件特性
-                                    </label>
-
-                                    <select
-                                        id="strength-v2-hanging-bonus"
-                                        value={hangingTraitDamageBonus}
-                                        onChange={(event) => {
-                                            setHangingTraitDamageBonus(
-                                                Number(event.target.value) as HangingTraitDamageBonus
-                                            )
-                                        }}
-                                    >
-                                        <option value={15}>15%</option>
-                                        <option value={10}>10%</option>
-                                        <option value={8}>8%</option>
-                                        <option value={5}>5%</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="strength-v2-conditional-rule">
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        checked={autoApplyWandEffects}
-                                        onChange={(event) => {
-                                            setAutoApplyWandEffects(event.target.checked)
-                                        }}
-                                    />
-                                    是否將杖角色套用杖掛件的對應效果
-                                </label>
-
-                                <p>
-                                    開啟後，物杖與魔杖會將掛件特性由傷害特性轉為治癒特性。
-                                </p>
-                            </div>
-                        </div>
-
-
-                    </section>
-
-
-
-                    {data.status.warnings.length > 0 && (
-                        <section className="strength-v2-section">
-                            <h2>資料檢查提醒</h2>
-
-                            <p>
-                                目前有 {data.status.warnings.length} 項提醒
-                            </p>
-
-                            <ul className="strength-v2-warning-list">
-                                {data.status.warnings.map((warning, index) => (
-                                    <li key={`${warning.source}-${index}`}>
-                                        <strong>{warning.source}</strong>
-                                        <p>{warning.message}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </section>
-                    )}
-
-                    <section className="strength-v2-section">
-                        <h2>計算設定</h2>
-
-                        {/* 計算模式 */}
-                        <div className="strength-v2-setting-group">
-                            <h3>計算模式</h3>
-
-                            <div className="strength-v2-mode-options">
-                                {CALCULATION_MODES.map((mode) => (
-                                    <button
-                                        key={mode.value}
-                                        type="button"
-                                        className={`strength-v2-mode-option ${calculationMode === mode.value
-                                            ? 'is-active'
-                                            : ''
-                                            }`}
-                                        aria-pressed={calculationMode === mode.value}
-                                        onClick={() => setCalculationMode(mode.value)}
-                                    >
-                                        {mode.label}
-                                    </button>
-                                ))}
-                            </div>
-
-                            <p className="strength-v2-muted">
-                                {
-                                    CALCULATION_MODES.find(
-                                        (mode) => mode.value === calculationMode,
-                                    )?.description
-                                }
-                            </p>
-                        </div>
-
-                        {/* 戰鬥排程設定 */}
-                        <div className="strength-v2-setting-group">
-                            <h3>戰鬥條件</h3>
-
-                            <div className="strength-v2-setting-row">
-                                <label htmlFor="strength-v2-remaining-seconds">
-                                    第三波剩餘時間（秒）
-                                </label>
-
-                                <input
-                                    id="strength-v2-remaining-seconds"
-                                    type="number"
-                                    min="0"
-                                    step="1"
-                                    value={remainingSeconds}
-                                    onChange={(event) => {
-                                        const value = Number(event.target.value)
-
-                                        if (Number.isFinite(value) && value >= 0) {
-                                            setRemainingSeconds(Math.floor(value))
-                                        }
-                                    }}
-                                />
-                            </div>
-
-                            <div className="strength-v2-setting-row">
-                                <label htmlFor="strength-v2-ultimate-uses">
-                                    必殺技使用次數
-                                </label>
-
-                                <input
-                                    id="strength-v2-ultimate-uses"
-                                    type="number"
-                                    min="0"
-                                    step="1"
-                                    placeholder="不限制"
-                                    value={ultimateUses ?? ''}
-                                    onChange={(event) => {
-                                        const value = event.target.value
-
-                                        if (value === '') {
-                                            setUltimateUses(null)
-                                            return
-                                        }
-
-                                        const number = Number(value)
-
-                                        if (
-                                            Number.isFinite(number) &&
-                                            number >= 0
-                                        ) {
-                                            setUltimateUses(Math.floor(number))
-                                        }
-                                    }}
-                                />
-                            </div>
-
-                            <p className="strength-v2-muted">
-                                必殺技次數留空代表不限制。
-                                此設定會套用至所有角色。
-                            </p>
-                        </div>
-
-
-                        {/* 最大值模式專用環境效果 */}
-                        {calculationMode === 'maximum' && (
-                            <div className="strength-v2-setting-group strength-v2-environment-settings">
-                                <h3>環境效果</h3>
-
-                                <p className="strength-v2-muted">
-                                    開啟的效果視為全程 100% 生效，不需要設定覆蓋率。
-                                </p>
-
-                                {/* 攻擊提升 */}
-                                <div className="strength-v2-environment-row">
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            checked={environmentEffects.attackUp}
-                                            onChange={(event) => {
-                                                setEnvironmentEffects((prev) => ({
-                                                    ...prev,
-                                                    attackUp: event.target.checked,
-                                                }))
-                                            }}
-                                        />
-                                        攻擊提升（大幅）
-                                    </label>
-                                </div>
-
-                                {/* 防禦降低 */}
-                                <div className="strength-v2-environment-row">
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            checked={environmentEffects.defenseDown}
-                                            onChange={(event) => {
-                                                setEnvironmentEffects((prev) => ({
-                                                    ...prev,
-                                                    defenseDown: event.target.checked,
-                                                }))
-                                            }}
-                                        />
-                                        防禦降低（大幅）
-                                    </label>
-                                </div>
-
-                                {/* 屬性傷害提升 */}
-                                <div className="strength-v2-environment-row">
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            checked={environmentEffects.elementalDamageUp}
-                                            onChange={(event) => {
-                                                setEnvironmentEffects((prev) => ({
-                                                    ...prev,
-                                                    elementalDamageUp: event.target.checked,
-                                                }))
-                                            }}
-                                        />
-                                        屬性傷害提升
-                                    </label>
-
-                                    <select
-                                        value={environmentEffects.elementalDamageUpLevel}
-                                        disabled={!environmentEffects.elementalDamageUp}
-                                        onChange={(event) => {
-                                            setEnvironmentEffects((prev) => ({
-                                                ...prev,
-                                                elementalDamageUpLevel:
-                                                    event.target.value as EffectLevel,
-                                            }))
-                                        }}
-                                    >
-                                        <option value="small">小幅 20%</option>
-                                        <option value="medium">中幅 40%</option>
-                                        <option value="large">大幅 60%</option>
-                                    </select>
-                                </div>
-
-                                {/* 屬性抗性降低 */}
-                                <div className="strength-v2-environment-row">
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            checked={
-                                                environmentEffects.elementalResistanceDown
-                                            }
-                                            onChange={(event) => {
-                                                setEnvironmentEffects((prev) => ({
-                                                    ...prev,
-                                                    elementalResistanceDown:
-                                                        event.target.checked,
-                                                }))
-                                            }}
-                                        />
-                                        屬性抗性降低
-                                    </label>
-
-                                    <select
-                                        value={
-                                            environmentEffects.elementalResistanceDownLevel
-                                        }
-                                        disabled={
-                                            !environmentEffects.elementalResistanceDown
-                                        }
-                                        onChange={(event) => {
-                                            setEnvironmentEffects((prev) => ({
-                                                ...prev,
-                                                elementalResistanceDownLevel:
-                                                    event.target.value as EffectLevel,
-                                            }))
-                                        }}
-                                    >
-                                        <option value="small">小幅 20%</option>
-                                        <option value="medium">中幅 30%</option>
-                                        <option value="large">大幅 40%</option>
-                                    </select>
-                                </div>
-                            </div>
-                        )}
-                    </section>
-                    <section className="strength-v2-section strength-v2-enemy-section">
-                        <h2>敵人設定</h2>
-
-                        <p className="strength-v2-muted">
-                            新增敵人後，從資料庫選擇敵人。
-                            每個資料框代表一隻敵人，可以重複選擇相同敵人。
-                        </p>
-
-                        {enemySelections.map((item, index) => (
-                            <div
-                                className="strength-v2-setting-group strength-v2-enemy-item"
-                                key={item.key}
-                            >
-                                <div className="strength-v2-setting-row">
-                                    <h3>敵人 {index + 1}</h3>
-
-                                    <button
-                                        type="button"
-                                        onClick={() => {
-                                            setEnemySelections((prev) =>
-                                                prev.filter(
-                                                    (enemy) => enemy.key !== item.key,
-                                                ),
-                                            )
-                                        }}
-                                    >
-                                        刪除
-                                    </button>
-                                </div>
-
-                                <div className="strength-v2-equipment-field">
-                                    <select
-                                        id={`strength-v2-enemy-${item.key}`}
-                                        value={item.enemy?.id ?? ''}
-                                        onChange={(event) => {
-                                            const selectedMonster =
-                                                data.monsterData.find(
-                                                    (monster) =>
-                                                        monster.id === event.target.value,
-                                                )
-
-                                            setEnemySelections((prev) =>
-                                                prev.map((enemy) =>
-                                                    enemy.key === item.key
-                                                        ? {
-                                                            ...enemy,
-                                                            enemy: selectedMonster
-                                                                ? {
-                                                                    id: selectedMonster.id,
-                                                                    name: selectedMonster.name,
-                                                                    kind: selectedMonster.kind,
-                                                                    defenseType:
-                                                                        selectedMonster.defenseType,
-                                                                    maxHp: selectedMonster.maxHp,
-                                                                }
-                                                                : null,
-                                                        }
-                                                        : enemy,
-                                                ),
-                                            )
-                                        }}
-                                    >
-                                        <option value="">請選擇敵人</option>
-
-                                        {data.monsterData.map((monster) => (
-                                            <option
-                                                key={monster.id}
-                                                value={monster.id}
-                                            >
-                                                {monster.name}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                {item.enemy && (
-                                    <div className="strength-v2-result-stats">
-                                        <div className="strength-v2-result-stat">
-                                            <span>敵人種類</span>
-                                            <strong>
-                                                {getEnemyKindLabel(item.enemy.kind)}
-                                            </strong>
-                                        </div>
-
-                                        <div className="strength-v2-result-stat">
-                                            <span>防禦類型</span>
-                                            <strong>
-                                                {item.enemy.defenseType}
-                                            </strong>
-                                        </div>
-
-                                        <div className="strength-v2-result-stat">
-                                            <span>HP 上限</span>
-                                            <strong>
-                                                {item.enemy.maxHp === null
-                                                    ? '無限'
-                                                    : formatStat(item.enemy.maxHp)}
-                                            </strong>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setEnemySelections((prev) => [
-                                    ...prev,
-                                    {
-                                        key: nextEnemyKey,
-                                        enemy: null,
-                                    },
-                                ])
-
-                                setNextEnemyKey((prev) => prev + 1)
-                            }}
-                        >
-                            ＋ 新增敵人
-                        </button>
-                    </section>
-
-                    <section className="strength-v2-section">
-                        <h2>計算結果</h2>
-
-                        <p className="strength-v2-muted">
-                            每次更改條件都需要按下開始計算（重新計算）。
-                        </p>
-
-                        <div className="strength-v2-result-actions">
-                            <div className="strength-v2-result-summary">
-                                當前符合條件：{filteredCharacters.length} 名角色
-                            </div>
-
-                            <button
-                                type="button"
-                                className="strength-v2-calculate-button"
-                                onClick={() => {
-                                    setCalculationSnapshot({
-                                        filters: {
-                                            rarity: [...filters.rarity],
-                                            element: [...filters.element],
-                                            characterClass: [...filters.characterClass],
-                                            attackType: [...filters.attackType],
-                                        },
-
-                                        calculationMode,
-
-                                        skillLevel,
-                                        talentNode,
-
-                                        weaponQuality,
-                                        accessoryQuality,
-                                        hangingTraitDamageBonus,
-                                        autoApplyWandEffects,
-
-                                        treatSelfHpConditionAsMet,
-
-                                        remainingSeconds,
-                                        ultimateUses,
-
-                                        environmentEffects: { ...environmentEffects },
-
-                                        enemySelections: enemySelections.map((item) => ({
-                                            ...item,
-                                            enemy: item.enemy ? { ...item.enemy } : null,
-                                        })),
-                                    })
-
-                                    setHasCalculated(true)
-                                }}
-                            >
-                                {hasCalculated ? '重新計算' : '開始計算'}
-                            </button>
-                        </div>
-
-                        {/* 角色總計比較區 */}
-                        {calculatedCharacters.length > 0 && (
-                            <div className="strength-v2-comparison">
-
-                                <h3>總傷害／治療排行</h3>
-
-                                {/* 傷害／治療分頁 */}
-                                <div className="strength-v2-comparison-tabs">
-                                    <button
-                                        type="button"
-                                        className={
-                                            comparisonTab === 'damage'
-                                                ? 'is-active'
-                                                : ''
-                                        }
-                                        aria-pressed={comparisonTab === 'damage'}
-                                        onClick={() => setComparisonTab('damage')}
-                                    >
-                                        傷害
-                                    </button>
-
-                                    <button
-                                        type="button"
-                                        className={
-                                            comparisonTab === 'healing'
-                                                ? 'is-active'
-                                                : ''
-                                        }
-                                        aria-pressed={comparisonTab === 'healing'}
-                                        onClick={() => setComparisonTab('healing')}
-                                    >
-                                        治療
-                                    </button>
-                                </div>
-
-                                {/* 前幾名設定 */}
-                                <div className="strength-v2-comparison-setting">
-                                    <label htmlFor="strength-v2-comparison-top">
-                                        標記前幾名
-                                    </label>
-
-                                    <select
-                                        id="strength-v2-comparison-top"
-                                        value={
-                                            comparisonTab === 'damage'
-                                                ? damageTopCount
-                                                : healingTopCount
-                                        }
-                                        onChange={(event) => {
-                                            const value = Number(event.target.value)
-
-                                            if (comparisonTab === 'damage') {
-                                                setDamageTopCount(value)
-                                            } else {
-                                                setHealingTopCount(value)
-                                            }
-                                        }}
-                                    >
-                                        {[1, 2, 3, 4, 5].map((count) => (
-                                            <option key={count} value={count}>
-                                                前 {count} 名
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                {/* 角色比較清單 */}
-                                <div className="strength-v2-comparison-list">
-                                    {calculatedCharacters.map((item) => {
-                                        const value =
-                                            comparisonTab === 'damage'
-                                                ? item.damage.schedule?.totalDamage
-                                                : item.damage.schedule?.totalHealing
-
-                                        const isHighlighted =
-                                            highlightedCharacterIds.has(item.character.id)
-
-                                        const rarityClass =
-                                            RARITY_OPTIONS.find(
-                                                (option) =>
-                                                    option.value === item.character.rarity,
-                                            )?.className ?? ''
-
-                                        const elementClass =
-                                            ELEMENT_OPTIONS.find(
-                                                (option) =>
-                                                    option.value === item.character.element,
-                                            )?.className ?? ''
-
-                                        const classClass =
-                                            CLASS_OPTIONS.find(
-                                                (option) =>
-                                                    option.value === item.character.class,
-                                            )?.className ?? ''
-
-                                        return (
-                                            <div
-                                                className={`strength-v2-comparison-row ${isHighlighted ? 'is-highlighted' : ''
-                                                    }`}
-                                                key={item.character.id}
-                                                role="button"
-                                                tabIndex={0}
-                                                style={{ cursor: 'pointer' }}
-                                                onClick={() => scrollToCharacterDetails(item.character.id)}
-                                                onKeyDown={(event) => {
-                                                    if (event.key === 'Enter' || event.key === ' ') {
-                                                        event.preventDefault()
-                                                        scrollToCharacterDetails(item.character.id)
-                                                    }
-                                                }}
-                                            >
-                                                {/* 左側：角色名稱與標籤 */}
-                                                <div className="strength-v2-comparison-character">
-                                                    <strong>
-                                                        {item.character.name}
-                                                    </strong>
-
-                                                    <span className={`character-tag ${rarityClass}`}>
-                                                        {item.character.rarity}
-                                                    </span>
-
-                                                    <span className={`character-tag ${elementClass}`}>
-                                                        {item.character.element}
-                                                    </span>
-
-                                                    <span className={`character-tag ${classClass}`}>
-                                                        {item.character.class}
-                                                    </span>
-                                                </div>
-
-                                                {/* 右側：總傷害或總治療 */}
-                                                <strong className="strength-v2-comparison-value">
-                                                    {typeof value === 'number' &&
-                                                        Number.isFinite(value)
-                                                        ? Math.round(value).toLocaleString('zh-TW')
-                                                        : '無法計算'}
-                                                </strong>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                        )}
-
-                        
-
-                        {!hasCalculated ? null : calculatedCharacters.length === 0 ? (
-                            <div className="strength-v2-empty">
-                                沒有符合目前已套用篩選條件的角色。
-                            </div>
-                        ) : (
-                            <div className="strength-v2-result-list">
-                                {calculatedCharacters.map((item) => (
-                                    <article
-                                        className="strength-v2-result-character"
-                                        key={item.character.id}
-                                        id={`strength-v2-detail-${item.character.id}`}
-                                    >
-
-                                        <div className="strength-v2-result-heading">
-                                            <div>
-                                                <h3>{item.character.name}</h3>
-                                                <p>
-                                                    {item.character.rarity}／
-                                                    {item.character.element}／
-                                                    {item.character.class}／
-                                                    {item.character.attackType === 'physical'
-                                                        ? '物理'
-                                                        : item.character.attackType === 'magic'
-                                                            ? '魔法'
-                                                            : '攻擊類型未確認'}
-                                                    {item.character.maxBreakthroughTrait?.trim() && (
-                                                        <>／{item.character.maxBreakthroughTrait}</>
-                                                    )}
-                                                </p>
-                                            </div>
-
-                                            <span>
-                                                天賦計算至第 {item.effectiveNode} 節點
-                                            </span>
-                                        </div>
-
-                                        <details className="strength-v2-panel-details">
-                                            <summary>角色面板</summary>
-
-                                            <div className="strength-v2-panel-groups">
-                                                {/* 核心能力 */}
-                                                <section className="strength-v2-panel-group strength-v2-panel-group-primary">
-                                                    <h4>核心能力</h4>
-                                                    <div className="strength-v2-panel-group-stats">
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>
-                                                                {item.character.attackType === 'physical'
-                                                                    ? '物理攻擊'
-                                                                    : '魔法攻擊'}
-                                                            </span>
-                                                            <strong>
-                                                                {formatStat(
-                                                                    item.character.attackType === 'physical'
-                                                                        ? item.stats.physicalAttack
-                                                                        : item.stats.magicAttack
-                                                                )}
-                                                            </strong>
-                                                        </div>
-
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>治療</span>
-                                                            <strong>{formatStat(item.stats.healing)}</strong>
-                                                        </div>
-                                                    </div>
-                                                </section>
-
-                                                {/* 戰鬥屬性 */}
-                                                <section className="strength-v2-panel-group">
-                                                    <h4>戰鬥屬性</h4>
-                                                    <div className="strength-v2-panel-group-stats">
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>暴擊率</span>
-                                                            <strong>
-                                                                {formatStat(
-                                                                    typeof item.stats.criticalRate === 'number'
-                                                                        ? item.stats.criticalRate * 100
-                                                                        : item.stats.criticalRate
-                                                                )}%
-                                                            </strong>
-                                                        </div>
-
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>暴擊傷害</span>
-                                                            <strong>
-                                                                {formatStat(
-                                                                    typeof item.stats.criticalDamage === 'number'
-                                                                        ? item.stats.criticalDamage * 100
-                                                                        : item.stats.criticalDamage
-                                                                )}%
-                                                            </strong>
-                                                        </div>
-                                                    </div>
-                                                </section>
-
-                                                {/* 角色特性 */}
-                                                <section className="strength-v2-panel-group">
-                                                    <h4>角色特性</h4>
-                                                    <div className="strength-v2-panel-group-stats">
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>角色傷害特性</span>
-                                                            <strong>
-                                                                {formatStat(
-                                                                    calculateBreakthroughTraitDamageBonus(
-                                                                        item.character.maxBreakthroughTrait,
-                                                                        item.character.element ?? '',
-                                                                        item.character.attackType ?? '',
-                                                                    )
-                                                                )}%
-                                                            </strong>
-                                                        </div>
-
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>角色治療特性</span>
-                                                            <strong>
-                                                                {formatStat(
-                                                                    calculateBreakthroughTraitHealingBonus(
-                                                                        item.character.maxBreakthroughTrait,
-                                                                    )
-                                                                )}%
-                                                            </strong>
-                                                        </div>
-                                                    </div>
-                                                </section>
-
-                                                {/* 其他加成 */}
-                                                <section className="strength-v2-panel-group">
-                                                    <h4>其他加成</h4>
-                                                    <div className="strength-v2-panel-group-stats">
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>掛件傷害特性</span>
-                                                            <strong>{formatStat(item.hangingTraitDamageBonus)}%</strong>
-                                                        </div>
-
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>掛件治癒特性</span>
-                                                            <strong>{formatStat(item.hangingTraitHealingBonus)}%</strong>
-                                                        </div>
-
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>天賦傷害特性</span>
-                                                            <strong>
-                                                                {formatStat(item.additionalStats.attributeBoost ?? 0)}%
-                                                            </strong>
-                                                        </div>
-
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>武器傷害加成</span>
-                                                            <strong>
-                                                                {formatStat(
-                                                                    typeof item.weaponDamageBonus === 'number'
-                                                                        ? item.weaponDamageBonus * 100
-                                                                        : item.weaponDamageBonus
-                                                                )}%
-                                                            </strong>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
-                                        </details>
-
-                                        <div className="strength-v2-character-trait">
-                                            <strong>技能資訊</strong>
-
-                                            {[
-                                                {
-                                                    label: '必殺技',
-                                                    type: item.character.ultimate.type,
-                                                    info: {
-                                                        ...item.character.ultimate[
-                                                        item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                        ],
-                                                        effectText: item.damage.ultimate.skillEffects.effectText,
-                                                        cooldown: item.damage.ultimate.cooldown,
-                                                    },
-                                                    result: item.damage.ultimate,
-                                                    healing: item.damage.ultimate.healing,
-                                                    showCooldown: false,
-                                                    talentLabel:
-                                                        item.damage.ultimate.skillEffects.effectText !==
-                                                            (
-                                                                item.character.ultimate[
-                                                                    item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                                ].originalEffectText ??
-                                                                item.character.ultimate[
-                                                                    item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                                ].effectText
-                                                            )
-                                                            ? '（天賦15）'
-                                                            : '',
-                                                },
-                                                {
-                                                    label: '二技能',
-                                                    type: item.character.skill2.type,
-                                                    info: {
-                                                        ...item.character.skill2[
-                                                        item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                        ],
-                                                        effectText: item.damage.skill2.skillEffects.effectText,
-                                                        cooldown: item.damage.skill2.cooldown,
-                                                    },
-                                                    result: item.damage.skill2,
-                                                    healing: item.damage.skill2.healing,
-                                                    showCooldown: true,
-                                                    talentLabel:
-                                                        item.damage.skill2.skillEffects.effectText !==
-                                                            (
-                                                                item.character.skill2[
-                                                                    item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                                ].originalEffectText ??
-                                                                item.character.skill2[
-                                                                    item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                                ].effectText
-                                                            )
-                                                            ? '（天賦12）'
-                                                            : '',
-                                                },
-                                                {
-                                                    label: '一技能',
-                                                    type: item.character.skill1.type,
-                                                    info: {
-                                                        ...item.character.skill1[
-                                                        item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                        ],
-                                                        effectText: item.damage.skill1.skillEffects.effectText,
-                                                        cooldown: item.damage.skill1.cooldown,
-                                                    },
-                                                    result: item.damage.skill1,
-                                                    healing: item.damage.skill1.healing,
-                                                    showCooldown: true,
-                                                    talentLabel:
-                                                        item.damage.skill1.skillEffects.effectText !==
-                                                            (
-                                                                item.character.skill1[
-                                                                    item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                                ].originalEffectText ??
-                                                                item.character.skill1[
-                                                                    item.character.rarity === 'UR' ? skillLevel : 'max'
-                                                                ].effectText
-                                                            )
-                                                            ? '（天賦9）'
-                                                            : '',
-                                                },
-                                                {
-                                                    label: '普攻',
-                                                    type: '',
-                                                    info: null,
-                                                    result: item.damage.normalAttack,
-                                                    healing: null,
-                                                    showCooldown: false,
-                                                },
-                                            ].map((skill) => (
-                                                <div
-                                                    className="strength-v2-result-skill"
-                                                    key={skill.label}
-                                                >
-                                                    {/* 技能名稱與類型 */}
-                                                    <div className="strength-v2-skill-heading">
-                                                        <strong>{skill.label}</strong>
-
-                                                        {skill.type && (
-                                                            <span
-                                                                className={`strength-v2-skill-type-tag ${getSkillTypeClass(skill.type)}`}
-                                                            >
-                                                                {skill.type}
-                                                            </span>
-                                                        )}
-                                                    </div>
-
-                                                    {/* 技能基本資訊 */}
-                                                    <div className="strength-v2-skill-basic">
-                                                        <div className="strength-v2-result-stat">
-                                                            <span>技能倍率</span>
-                                                            <strong>
-                                                                {formatStat(skill.result.coefficient)}%
-                                                            </strong>
-                                                        </div>
-
-                                                        {skill.info && (
-                                                            <>
-                                                                {skill.showCooldown && (
-                                                                    <div className="strength-v2-result-stat">
-                                                                        <span>冷卻時間</span>
-                                                                        <strong>
-                                                                            {skill.info.cooldown
-                                                                                ? `${skill.info.cooldown} 秒`
-                                                                                : '尚未確認'}
-                                                                        </strong>
-                                                                    </div>
-                                                                )}
-
-                                                                <div className="strength-v2-skill-effect">
-                                                                    <span>技能效果</span>
-                                                                    <p>
-                                                                        {skill.info.effectText ??
-                                                                            skill.info.originalEffectText ??
-                                                                            '無特殊效果'}
-                                                                        {skill.talentLabel}
-                                                                    </p>
-                                                                </div>
-                                                            </>
-                                                        )}
-                                                    </div>
-
-                                                    {/* 傷害／治療計算明細 */}
-                                                    <details className="strength-v2-skill-calculation">
-                                                        <summary>計算明細</summary>
-
-                                                        <div className="strength-v2-result-stats">
-                                                            {skill.healing !== null ? (
-                                                                <div className="strength-v2-result-stat">
-                                                                    <span>治療量</span>
-                                                                    <strong>
-                                                                        {formatStat(skill.healing.healing)}
-                                                                    </strong>
-                                                                </div>
-                                                            ) : (
-                                                                <>
-                                                                    <div className="strength-v2-result-stat">
-                                                                        <span>普通傷害</span>
-                                                                        <strong>
-                                                                            {formatStat(skill.result.damage?.normalDamage)}
-                                                                        </strong>
-                                                                    </div>
-
-                                                                    <div className="strength-v2-result-stat">
-                                                                        <span>暴擊傷害</span>
-                                                                        <strong>
-                                                                            {formatStat(skill.result.damage?.criticalDamage)}
-                                                                        </strong>
-                                                                    </div>
-
-                                                                    <div className="strength-v2-result-stat">
-                                                                        <span>期望傷害</span>
-                                                                        <strong>
-                                                                            {formatStat(skill.result.damage?.expectedDamage)}
-                                                                        </strong>
-                                                                    </div>
-                                                                </>
-                                                            )}
-                                                        </div>
-                                                    </details>
-                                                </div>
-                                            ))}
-                                        </div>
-
-                                        {item.warnings.length > 0 && (
-                                            <div className="strength-v2-result-warnings">
-                                                <strong>此角色的資料提醒</strong>
-                                                <ul>
-                                                    {item.warnings.map((warning, index) => (
-                                                        <li key={`${item.character.id}-warning-${index}`}>
-                                                            {warning}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-                                    </article>
-                                ))}
-                            </div>
-                        )}
-                    </section>
-                </>
-            )}
+    loadData();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // 只依篩選條件取得角色名單；這個步驟不會執行傷害計算
+  const getFilteredCharacters = useCallback(
+    (selectedFilters: CharacterFilterSettings) => {
+      if (!data) return [];
+
+      const allCharacters = data.characterData.dataset.getAll();
+
+      return allCharacters.filter((character) => {
+        const matchesRarity =
+          selectedFilters.rarity.length === 0 ||
+          selectedFilters.rarity.some((value) => value === character.rarity);
+
+        const matchesElement =
+          selectedFilters.element.length === 0 ||
+          selectedFilters.element.some((value) => value === character.element);
+
+        const matchesClass =
+          selectedFilters.characterClass.length === 0 ||
+          selectedFilters.characterClass.some(
+            (value) => value === character.class,
+          );
+
+        const matchesAttackType =
+          selectedFilters.attackType.length === 0 ||
+          (character.attackType !== undefined &&
+            selectedFilters.attackType.some(
+              (value) => value === character.attackType,
+            ));
+
+        return (
+          matchesRarity && matchesElement && matchesClass && matchesAttackType
+        );
+      });
+    },
+    [data],
+  );
+
+  // 即時更新符合條件的人數，僅篩選名單，不計算角色傷害
+  const filteredCharacters = useMemo(
+    () => getFilteredCharacters(filters),
+    [getFilteredCharacters, filters],
+  );
+
+  // 將耗時的角色計算交給獨立執行緒，避免主畫面因大量角色搜尋而卡住。
+  useEffect(() => {
+    if (!data || !calculationSnapshot || !hasCalculated) {
+      return;
+    }
+
+    const appliedCharacters = getFilteredCharacters(
+      calculationSnapshot.filters,
+    );
+    const worker = new Worker(
+      new URL("./strengthCalculation.worker.ts", import.meta.url),
+      { type: "module" },
+    );
+
+    setCalculatedCharacters([]);
+    setCalculationWorkerErrors([]);
+    setCalculationProgress({
+      completed: 0,
+      total: appliedCharacters.length,
+    });
+    setIsCalculating(true);
+
+    worker.onmessage = (event: MessageEvent<CalculationWorkerResponse>) => {
+      const message = event.data;
+
+      if (message.type === "results") {
+        setCalculatedCharacters((previous) => [
+          ...previous,
+          ...message.results,
+        ]);
+      } else if (message.type === "progress") {
+        setCalculationProgress({
+          completed: message.completed,
+          total: message.total,
+        });
+      } else if (message.type === "character-error") {
+        setCalculationWorkerErrors((previous) => [
+          ...previous,
+          `${message.characterName}：${message.message}`,
+        ]);
+      } else if (message.type === "complete") {
+        setIsCalculating(false);
+        worker.terminate();
+      }
+    };
+
+    worker.onerror = (event) => {
+      setCalculationWorkerErrors((previous) => [
+        ...previous,
+        `計算工作執行失敗：${event.message || "未知錯誤"}`,
+      ]);
+      setIsCalculating(false);
+      worker.terminate();
+    };
+
+    worker.postMessage({
+      characters: appliedCharacters,
+      strengthBaseData: data.strengthBaseData,
+      snapshot: calculationSnapshot,
+    });
+
+    return () => {
+      worker.terminate();
+    };
+  }, [data, calculationSnapshot, getFilteredCharacters, hasCalculated]);
+
+  // 取得傷害比較區選中的兩名角色
+  const compareCharacterA =
+    calculatedCharacters.find(
+      (item) => item.character.id === compareCharacterAId,
+    ) ?? null;
+
+  const compareCharacterB =
+    calculatedCharacters.find(
+      (item) => item.character.id === compareCharacterBId,
+    ) ?? null;
+
+  // 依目前比較分頁，取得需要高亮的角色
+  const highlightedCharacterIds = useMemo(() => {
+    const topCount =
+      comparisonTab === "damage" ? damageTopCount : healingTopCount;
+
+    // 取得所有有效的比較數值
+    const scores = calculatedCharacters.flatMap((item) => {
+      const value =
+        comparisonTab === "damage"
+          ? item.damage.schedule?.totalDamage
+          : item.damage.schedule?.totalHealing;
+
+      if (typeof value !== "number" || !Number.isFinite(value)) {
+        return [];
+      }
+
+      return [
+        {
+          id: item.character.id,
+          value,
+        },
+      ];
+    });
+
+    if (scores.length === 0) {
+      return new Set<string>();
+    }
+
+    // 只用來判斷排名，不會改變原本角色排列順序
+    const sortedScores = scores.map((item) => item.value).sort((a, b) => b - a);
+
+    // 取得名次門檻
+    const cutoffIndex = Math.min(topCount - 1, sortedScores.length - 1);
+    const cutoffScore = sortedScores[cutoffIndex];
+
+    // 同分者全部納入，因此高亮數量可能超過設定名額
+    return new Set(
+      scores.filter((item) => item.value >= cutoffScore).map((item) => item.id),
+    );
+  }, [calculatedCharacters, comparisonTab, damageTopCount, healingTopCount]);
+
+  const formatStat = (value: unknown) => {
+    if (typeof value !== "number" || !Number.isFinite(value)) {
+      return "資料缺漏";
+    }
+
+    return Math.floor(value).toLocaleString("zh-TW");
+  };
+
+  // 整理排程中各技能對總傷害的期望貢獻
+  const getScheduleDamageBreakdown = (
+    item: (typeof calculatedCharacters)[number],
+  ) => {
+    const actionProbabilities = item.damage.schedule?.actionProbabilities ?? [];
+
+    const totals = {
+      normalAttack: 0,
+      skill1: 0,
+      skill2: 0,
+      ultimate: 0,
+    };
+
+    for (const action of actionProbabilities) {
+      totals[action.skillKey] += action.probability * action.expectedDamage;
+    }
+
+    return totals;
+  };
+
+  // 整理排程中各技能的期望使用次數
+  const getScheduleActionCounts = (
+    item: (typeof calculatedCharacters)[number],
+  ) => {
+    const actionProbabilities = item.damage.schedule?.actionProbabilities ?? [];
+
+    const totals = {
+      normalAttack: 0,
+      skill1: 0,
+      skill2: 0,
+      ultimate: 0,
+    };
+
+    for (const action of actionProbabilities) {
+      totals[action.skillKey] += action.probability;
+    }
+
+    return totals;
+  };
+
+  // 格式化期望使用次數，最多顯示兩位小數
+  const formatUses = (value: number) => {
+    return Number(value.toFixed(2)).toLocaleString("zh-TW");
+  };
+
+  // 點擊排名後，跳轉到對應角色名稱的開頭
+  const scrollToCharacterDetails = (characterId: string) => {
+    const target = document.getElementById(`strength-v2-detail-${characterId}`);
+
+    if (!target) return;
+
+    const characterName = target.querySelector("h3");
+
+    if (!characterName) return;
+
+    characterName.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  // 從角色詳細資料返回傷害排行。
+  const scrollToRanking = () => {
+    const ranking = document.getElementById("strength-v2-ranking");
+
+    ranking?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  return (
+    <div className="strength-v2-page">
+      {loading && (
+        <div className="strength-v2-message">正在載入角色與強度基準資料……</div>
+      )}
+
+      {!loading && error && (
+        <div className="strength-v2-error">
+          <h3>資料載入失敗</h3>
+          <p>{error}</p>
         </div>
-    )
+      )}
+
+      {!loading && !error && data && (
+        <>
+          <section className="strength-v2-section strength-v2-character-settings">
+            <h2>角色篩選與設定</h2>
+
+            {/* 角色篩選 */}
+            <div className="strength-v2-character-filters">
+              <p className="strength-v2-muted">
+                調整好篩選條件後，請至下方「計算結果」按下開始計算。每次更改條件都需重新計算。
+              </p>
+
+              <FilterGroup
+                title="稀有度"
+                options={RARITY_OPTIONS}
+                selected={filters.rarity}
+                onChange={(value) => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    rarity: toggleFilterValue(prev.rarity, value),
+                  }));
+                }}
+                onClear={() => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    rarity: [],
+                  }));
+                }}
+              />
+
+              <FilterGroup
+                title="屬性"
+                options={ELEMENT_OPTIONS}
+                selected={filters.element}
+                onChange={(value) => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    element: [value],
+                  }));
+                }}
+                onClear={() => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    element: [],
+                  }));
+                }}
+              />
+
+              <FilterGroup
+                title="職業"
+                showClear={false}
+                options={CLASS_OPTIONS}
+                selected={filters.characterClass}
+                onChange={(value) => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    characterClass: toggleFilterValue(
+                      prev.characterClass,
+                      value,
+                    ),
+                  }));
+                }}
+                onClear={() => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    characterClass: [],
+                  }));
+                }}
+              />
+
+              <FilterGroup
+                title="攻擊類型"
+                showClear={false}
+                options={ATTACK_TYPE_OPTIONS}
+                selected={filters.attackType}
+                onChange={(value) => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    attackType: [value],
+                  }));
+                }}
+                onClear={() => {
+                  setFilters((prev) => ({
+                    ...prev,
+                    attackType: [],
+                  }));
+                }}
+              />
+            </div>
+
+            {/* 角色技能與天賦 */}
+            <div className="strength-v2-character-options">
+              <div className="strength-v2-setting-group">
+                <h3>技能設定</h3>
+
+                <div className="strength-v2-setting-row">
+                  <label htmlFor="strength-v2-skill-level">UR技能等級</label>
+
+                  <select
+                    id="strength-v2-skill-level"
+                    value={skillLevel}
+                    onChange={(event) => {
+                      setSkillLevel(event.target.value as SkillLevelType);
+                    }}
+                  >
+                    <option value="initial">初始等級</option>
+                    <option value="max">最大等級</option>
+                  </select>
+                </div>
+
+                <p className="strength-v2-muted">
+                  此設定共用所有技能。其他角色一律使用最大技能等級。
+                </p>
+              </div>
+
+              <div className="strength-v2-setting-group">
+                <h3>天賦設定</h3>
+
+                <div className="strength-v2-setting-row">
+                  <label htmlFor="strength-v2-talent-node">天賦解鎖節點</label>
+
+                  <select
+                    id="strength-v2-talent-node"
+                    value={talentNode}
+                    onChange={(event) => {
+                      setTalentNode(Number(event.target.value));
+                    }}
+                  >
+                    <option value={3}>不額外解鎖</option>
+
+                    {TALENT_NODE_OPTIONS.map((node) => {
+                      const nodeEffects =
+                        data?.strengthBaseData.talentNodeBonuses.flatMap(
+                          (row) =>
+                            row.nodes.filter((effect) => effect.node === node),
+                        ) ?? [];
+
+                      const effectLabels = Array.from(
+                        new Set(
+                          nodeEffects
+                            .map((effect) => {
+                              const source = `${effect.stat ?? ""} ${effect.effectText ?? ""}`;
+                              const sign = /降低|減少|下降|decrease/i.test(
+                                source,
+                              )
+                                ? "−"
+                                : "";
+                              if (
+                                /物攻|魔攻|雙攻|物理攻擊|魔法攻擊|攻擊力|攻擊提升|physicalAttack|magicAttack|attack/i.test(
+                                  source,
+                                )
+                              )
+                                return `${sign}攻擊`;
+                              if (
+                                /物防|魔防|雙防|物理防禦|魔法防禦|防禦力|防禦提升|physicalDefense|magicDefense|defense/i.test(
+                                  source,
+                                )
+                              )
+                                return `${sign}防禦`;
+                              if (/速度|speed/i.test(source))
+                                return `${sign}速度`;
+                              if (/治療|治癒|healing/i.test(source))
+                                return `${sign}治療`;
+                              if (/暴擊率|爆擊|criticalRate/i.test(source))
+                                return `${sign}爆擊率`;
+                              if (
+                                /暴擊傷害|爆擊傷害|爆傷|criticalDamage/i.test(
+                                  source,
+                                )
+                              )
+                                return `${sign}暴擊傷害`;
+                              if (/屬性強化|elementDamage/i.test(source))
+                                return `${sign}屬性傷害`;
+                              if (/剋屬抵抗|resistance/i.test(source))
+                                return `${sign}剋屬抗性`;
+                              if (/生命|health|HP/i.test(source))
+                                return `${sign}生命`;
+                              if (/傷害|damage/i.test(source))
+                                return `${sign}傷害`;
+                              if (/異常抵抗|damage/i.test(source))
+                                return `${sign}異常抵抗`;
+                              if (/爆擊抵抗|damage/i.test(source))
+                                return `${sign}爆擊抵抗`;
+                              return "";
+                            })
+                            .filter(Boolean),
+                        ),
+                      );
+
+                      const manualEffectLabels: Partial<
+                        Record<number, string>
+                      > = {
+                        6: " （普攻）",
+                        9: " （一技能）",
+                        12: " （二技能）",
+                        15: " （必殺技）",
+                      };
+
+                      const effectSuffix =
+                        manualEffectLabels[node] ??
+                        (effectLabels.length > 0
+                          ? ` （${effectLabels.join("／")}）`
+                          : "");
+
+                      return (
+                        <option key={node} value={node}>
+                          天賦 {node}
+                          {effectSuffix}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+
+                <p className="strength-v2-muted">
+                  選擇節點若超出角色實際擁有的節點，
+                  會以該角色的最大節點來計算。
+                </p>
+              </div>
+              {/* 自身生命值條件 */}
+              <div className="strength-v2-conditional-rule">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={treatSelfHpConditionAsMet}
+                    onChange={(event) => {
+                      setTreatSelfHpConditionAsMet(event.target.checked);
+                    }}
+                  />
+                  將自身生命值條件視為成立
+                </label>
+
+                <p>開啟後，有生命條件的技能一律採用達成後的倍率。</p>
+              </div>
+            </div>
+
+            {/* 角色裝備設定 */}
+            <div className="strength-v2-character-equipment">
+              <h3>裝備與掛件設定</h3>
+
+              <div className="strength-v2-equipment-grid">
+                <div className="strength-v2-equipment-field">
+                  <label htmlFor="strength-v2-weapon-quality">武器品質</label>
+
+                  <select
+                    id="strength-v2-weapon-quality"
+                    value={weaponQuality}
+                    onChange={(event) => {
+                      setWeaponQuality(event.target.value as WeaponQuality);
+                    }}
+                  >
+                    <option value="gold">金色武器</option>
+                    <option value="rainbow">彩色武器</option>
+                  </select>
+                </div>
+
+                <div className="strength-v2-equipment-field">
+                  <label htmlFor="strength-v2-hanging-bonus">掛件特性</label>
+
+                  <select
+                    id="strength-v2-hanging-bonus"
+                    value={hangingTraitDamageBonus}
+                    onChange={(event) => {
+                      setHangingTraitDamageBonus(
+                        Number(event.target.value) as HangingTraitDamageBonus,
+                      );
+                    }}
+                  >
+                    <option value={15}>15%</option>
+                    <option value={10}>10%</option>
+                    <option value={8}>8%</option>
+                    <option value={5}>5%</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="strength-v2-conditional-rule">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={autoApplyWandEffects}
+                    onChange={(event) => {
+                      setAutoApplyWandEffects(event.target.checked);
+                    }}
+                  />
+                  是否將杖角色套用杖掛件的對應效果
+                </label>
+
+                <p>開啟後，物杖與魔杖會將掛件特性由傷害特性轉為治癒特性。</p>
+              </div>
+            </div>
+          </section>
+
+          {data.status.warnings.length > 0 && (
+            <section className="strength-v2-section">
+              <h2>資料檢查提醒</h2>
+
+              <p>目前有 {data.status.warnings.length} 項提醒</p>
+
+              <ul className="strength-v2-warning-list">
+                {data.status.warnings.map((warning, index) => (
+                  <li key={`${warning.source}-${index}`}>
+                    <strong>{warning.source}</strong>
+                    <p>{warning.message}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          <section className="strength-v2-section">
+            <h2>計算設定</h2>
+
+            {/* 計算模式 */}
+            <div className="strength-v2-setting-group">
+              <h3>計算模式</h3>
+
+              <div className="strength-v2-mode-options">
+                {CALCULATION_MODES.map((mode) => (
+                  <button
+                    key={mode.value}
+                    type="button"
+                    className={`strength-v2-mode-option ${
+                      calculationMode === mode.value ? "is-active" : ""
+                    }`}
+                    aria-pressed={calculationMode === mode.value}
+                    onClick={() => setCalculationMode(mode.value)}
+                  >
+                    {mode.label}
+                  </button>
+                ))}
+              </div>
+
+              <p className="strength-v2-muted">
+                {
+                  CALCULATION_MODES.find(
+                    (mode) => mode.value === calculationMode,
+                  )?.description
+                }
+              </p>
+            </div>
+
+            {/* 戰鬥排程設定 */}
+            <div className="strength-v2-setting-group">
+              <h3>戰鬥條件</h3>
+
+              <div className="strength-v2-setting-row">
+                <label htmlFor="strength-v2-remaining-seconds">
+                  第三波剩餘時間（秒）
+                </label>
+
+                <input
+                  id="strength-v2-remaining-seconds"
+                  type="number"
+                  min="0"
+                  step="1"
+                  value={remainingSeconds}
+                  onChange={(event) => {
+                    const value = Number(event.target.value);
+
+                    if (Number.isFinite(value) && value >= 0) {
+                      setRemainingSeconds(Math.floor(value));
+                    }
+                  }}
+                />
+              </div>
+
+              <div className="strength-v2-setting-row">
+                <label htmlFor="strength-v2-ultimate-uses">
+                  必殺技使用次數
+                </label>
+
+                <input
+                  id="strength-v2-ultimate-uses"
+                  type="number"
+                  min="0"
+                  step="1"
+                  placeholder="不限制"
+                  value={ultimateUses ?? ""}
+                  onChange={(event) => {
+                    const value = event.target.value;
+
+                    if (value === "") {
+                      setUltimateUses(null);
+                      return;
+                    }
+
+                    const number = Number(value);
+
+                    if (Number.isFinite(number) && number >= 0) {
+                      setUltimateUses(Math.floor(number));
+                    }
+                  }}
+                />
+              </div>
+
+              <p className="strength-v2-muted">
+                留空代表依必殺值累積自動計算，會計入技能與天賦提供的必殺值；
+                輸入數字則固定必殺技施放次數，不再依必殺值判斷。此設定套用至所有角色。
+              </p>
+            </div>
+
+            {/* 最大值模式專用環境效果 */}
+            {calculationMode === "maximum" && (
+              <div className="strength-v2-setting-group strength-v2-environment-settings">
+                <h3>環境效果</h3>
+
+                <p className="strength-v2-muted">
+                  每項效果會依照各自設定的持續時間與 CD 重複觸發。
+                </p>
+
+                {/* 攻擊提升 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={environmentEffects.attackIncrease.enabled}
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          attackIncrease: {
+                            ...prev.attackIncrease,
+                            enabled: event.target.checked,
+                          },
+                        }));
+                      }}
+                    />
+                    攻擊提升（大幅）
+                  </label>
+
+                  <label>
+                    持續時間
+                    <select
+                      value={environmentEffects.attackIncrease.durationSeconds}
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          attackIncrease: {
+                            ...prev.attackIncrease,
+                            durationSeconds: Number(event.target.value) as
+                              | 10
+                              | 15
+                              | 20,
+                          },
+                        }));
+                      }}
+                    >
+                      <option value={10}>10 秒</option>
+                      <option value={15}>15 秒</option>
+                      <option value={20}>20 秒</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    CD
+                    <input
+                      type="number"
+                      min="0.1"
+                      step="0.1"
+                      value={environmentEffects.attackIncrease.cooldownSeconds}
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        ) {
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            attackIncrease: {
+                              ...prev.attackIncrease,
+                              cooldownSeconds: value,
+                            },
+                          }));
+                        }
+                      }}
+                    />
+                    秒
+                  </label>
+                </div>
+
+                {/* 防禦降低 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={environmentEffects.defenseReduction.enabled}
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          defenseReduction: {
+                            ...prev.defenseReduction,
+                            enabled: event.target.checked,
+                          },
+                        }));
+                      }}
+                    />
+                    防禦降低（大幅）
+                  </label>
+
+                  <label>
+                    持續時間
+                    <select
+                      value={
+                        environmentEffects.defenseReduction.durationSeconds
+                      }
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          defenseReduction: {
+                            ...prev.defenseReduction,
+                            durationSeconds: Number(event.target.value) as
+                              | 15
+                              | 20,
+                          },
+                        }));
+                      }}
+                    >
+                      <option value={15}>15 秒</option>
+                      <option value={20}>20 秒</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    CD
+                    <input
+                      type="number"
+                      min="0.1"
+                      step="0.1"
+                      value={
+                        environmentEffects.defenseReduction.cooldownSeconds
+                      }
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        ) {
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            defenseReduction: {
+                              ...prev.defenseReduction,
+                              cooldownSeconds: value,
+                            },
+                          }));
+                        }
+                      }}
+                    />
+                    秒
+                  </label>
+                </div>
+
+                {/* 屬性傷害提升 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={
+                        environmentEffects.attributeDamageIncrease.enabled
+                      }
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          attributeDamageIncrease: {
+                            ...prev.attributeDamageIncrease,
+                            enabled: event.target.checked,
+                          },
+                        }));
+                      }}
+                    />
+                    屬性傷害提升
+                  </label>
+
+                  <select
+                    value={environmentEffects.attributeDamageIncrease.magnitude}
+                    disabled={
+                      !environmentEffects.attributeDamageIncrease.enabled
+                    }
+                    onChange={(event) => {
+                      setEnvironmentEffects((prev) => ({
+                        ...prev,
+                        attributeDamageIncrease: {
+                          ...prev.attributeDamageIncrease,
+                          magnitude: event.target.value as EffectLevel,
+                        },
+                      }));
+                    }}
+                  >
+                    <option value="small">小幅 20%</option>
+                    <option value="medium">中幅 40%</option>
+                    <option value="large">大幅 60%</option>
+                  </select>
+
+                  <label>
+                    持續時間
+                    <select
+                      value={
+                        environmentEffects.attributeDamageIncrease
+                          .durationSeconds
+                      }
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          attributeDamageIncrease: {
+                            ...prev.attributeDamageIncrease,
+                            durationSeconds: Number(event.target.value) as
+                              | 15
+                              | 20,
+                          },
+                        }));
+                      }}
+                    >
+                      <option value={15}>15 秒</option>
+                      <option value={20}>20 秒</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    CD
+                    <input
+                      type="number"
+                      min="0.1"
+                      step="0.1"
+                      value={
+                        environmentEffects.attributeDamageIncrease
+                          .cooldownSeconds
+                      }
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        ) {
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            attributeDamageIncrease: {
+                              ...prev.attributeDamageIncrease,
+                              cooldownSeconds: value,
+                            },
+                          }));
+                        }
+                      }}
+                    />
+                    秒
+                  </label>
+                </div>
+
+                {/* 屬性抗性降低 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={
+                        environmentEffects.attributeResistanceReduction.enabled
+                      }
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          attributeResistanceReduction: {
+                            ...prev.attributeResistanceReduction,
+                            enabled: event.target.checked,
+                          },
+                        }));
+                      }}
+                    />
+                    屬性抗性降低
+                  </label>
+
+                  <select
+                    value={
+                      environmentEffects.attributeResistanceReduction.magnitude
+                    }
+                    disabled={
+                      !environmentEffects.attributeResistanceReduction.enabled
+                    }
+                    onChange={(event) => {
+                      setEnvironmentEffects((prev) => ({
+                        ...prev,
+                        attributeResistanceReduction: {
+                          ...prev.attributeResistanceReduction,
+                          magnitude: event.target.value as EffectLevel,
+                        },
+                      }));
+                    }}
+                  >
+                    <option value="small">小幅 20%</option>
+                    <option value="medium">中幅 30%</option>
+                    <option value="large">大幅 40%</option>
+                  </select>
+
+                  <label>
+                    持續時間
+                    <select
+                      value={
+                        environmentEffects.attributeResistanceReduction
+                          .durationSeconds
+                      }
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          attributeResistanceReduction: {
+                            ...prev.attributeResistanceReduction,
+                            durationSeconds: Number(event.target.value) as
+                              | 15
+                              | 20,
+                          },
+                        }));
+                      }}
+                    >
+                      <option value={15}>15 秒</option>
+                      <option value={20}>20 秒</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    CD
+                    <input
+                      type="number"
+                      min="0.1"
+                      step="0.1"
+                      value={
+                        environmentEffects.attributeResistanceReduction
+                          .cooldownSeconds
+                      }
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        ) {
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            attributeResistanceReduction: {
+                              ...prev.attributeResistanceReduction,
+                              cooldownSeconds: value,
+                            },
+                          }));
+                        }
+                      }}
+                    />
+                    秒
+                  </label>
+                </div>
+              </div>
+            )}
+          </section>
+          <section className="strength-v2-section strength-v2-enemy-section">
+            <h2>敵人設定</h2>
+
+            <p className="strength-v2-muted">
+              新增敵人後，從資料庫選擇敵人。
+              每個資料框代表一隻敵人，可以重複選擇相同敵人。
+            </p>
+
+            {enemySelections.map((item, index) => (
+              <div
+                className="strength-v2-setting-group strength-v2-enemy-item"
+                key={item.key}
+              >
+                <div className="strength-v2-setting-row">
+                  <h3>敵人 {index + 1}</h3>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEnemySelections((prev) =>
+                        prev.filter((enemy) => enemy.key !== item.key),
+                      );
+                    }}
+                  >
+                    刪除
+                  </button>
+                </div>
+
+                <div className="strength-v2-equipment-field">
+                  <select
+                    id={`strength-v2-enemy-${item.key}`}
+                    value={item.enemy?.id ?? ""}
+                    onChange={(event) => {
+                      const selectedMonster = data.monsterData.find(
+                        (monster) => monster.id === event.target.value,
+                      );
+
+                      setEnemySelections((prev) =>
+                        prev.map((enemy) =>
+                          enemy.key === item.key
+                            ? {
+                                ...enemy,
+                                enemy: selectedMonster
+                                  ? {
+                                      id: selectedMonster.id,
+                                      name: selectedMonster.name,
+                                      kind: selectedMonster.kind,
+                                      defenseType: selectedMonster.defenseType,
+                                      maxHp: selectedMonster.maxHp,
+                                    }
+                                  : null,
+                              }
+                            : enemy,
+                        ),
+                      );
+                    }}
+                  >
+                    <option value="">請選擇敵人</option>
+
+                    {data.monsterData.map((monster) => (
+                      <option key={monster.id} value={monster.id}>
+                        {monster.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {item.enemy && (
+                  <div className="strength-v2-result-stats">
+                    <div className="strength-v2-result-stat">
+                      <span>敵人種類</span>
+                      <strong>{getEnemyKindLabel(item.enemy.kind)}</strong>
+                    </div>
+
+                    <div className="strength-v2-result-stat">
+                      <span>防禦類型</span>
+                      <strong>{item.enemy.defenseType}</strong>
+                    </div>
+
+                    <div className="strength-v2-result-stat">
+                      <span>HP 上限</span>
+                      <strong>
+                        {item.enemy.maxHp === null
+                          ? "無限"
+                          : formatStat(item.enemy.maxHp)}
+                      </strong>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <button
+              type="button"
+              onClick={() => {
+                setEnemySelections((prev) => [
+                  ...prev,
+                  {
+                    key: nextEnemyKey,
+                    enemy: null,
+                  },
+                ]);
+
+                setNextEnemyKey((prev) => prev + 1);
+              }}
+            >
+              ＋ 新增敵人
+            </button>
+          </section>
+
+          <section className="strength-v2-section">
+            <h2>計算結果</h2>
+
+            <p className="strength-v2-muted">
+              每次更改條件都需要按下開始計算（重新計算）。
+            </p>
+
+            <div className="strength-v2-result-actions">
+              <div className="strength-v2-result-summary">
+                當前符合條件：{filteredCharacters.length} 名角色
+              </div>
+
+              <button
+                type="button"
+                className="strength-v2-calculate-button"
+                onClick={() => {
+                  setCalculationSnapshot({
+                    filters: {
+                      rarity: [...filters.rarity],
+                      element: [...filters.element],
+                      characterClass: [...filters.characterClass],
+                      attackType: [...filters.attackType],
+                    },
+
+                    calculationMode,
+
+                    skillLevel,
+                    talentNode,
+
+                    weaponQuality,
+                    accessoryQuality,
+                    hangingTraitDamageBonus,
+                    autoApplyWandEffects,
+
+                    treatSelfHpConditionAsMet,
+
+                    remainingSeconds,
+                    ultimateUses,
+
+                    environmentEffects: { ...environmentEffects },
+
+                    enemySelections: enemySelections.map((item) => ({
+                      ...item,
+                      enemy: item.enemy ? { ...item.enemy } : null,
+                    })),
+                  });
+
+                  setHasCalculated(true);
+                }}
+              >
+                {hasCalculated ? "重新計算" : "開始計算"}
+              </button>
+            </div>
+
+            {isCalculating && (
+              <p className="strength-v2-calculation-progress" role="status">
+                正在背景計算角色：{calculationProgress.completed}／
+                {calculationProgress.total}
+              </p>
+            )}
+
+            {calculationWorkerErrors.length > 0 && (
+              <div className="strength-v2-result-warnings">
+                {calculationWorkerErrors.map((message, index) => (
+                  <p key={`${index}-${message}`}>{message}</p>
+                ))}
+              </div>
+            )}
+
+            {/* 角色總計比較區 */}
+            {calculatedCharacters.length > 0 && (
+              <div className="strength-v2-comparison" id="strength-v2-ranking">
+                <h3>總傷害／治療排行</h3>
+
+                {/* 傷害／治療分頁 */}
+                <div className="strength-v2-comparison-tabs">
+                  <button
+                    type="button"
+                    className={comparisonTab === "damage" ? "is-active" : ""}
+                    aria-pressed={comparisonTab === "damage"}
+                    onClick={() => setComparisonTab("damage")}
+                  >
+                    傷害
+                  </button>
+
+                  <button
+                    type="button"
+                    className={comparisonTab === "healing" ? "is-active" : ""}
+                    aria-pressed={comparisonTab === "healing"}
+                    onClick={() => setComparisonTab("healing")}
+                  >
+                    治療
+                  </button>
+                </div>
+
+                {/* 前幾名設定 */}
+                <div className="strength-v2-comparison-setting">
+                  <label htmlFor="strength-v2-comparison-top">標記前幾名</label>
+
+                  <select
+                    id="strength-v2-comparison-top"
+                    value={
+                      comparisonTab === "damage"
+                        ? damageTopCount
+                        : healingTopCount
+                    }
+                    onChange={(event) => {
+                      const value = Number(event.target.value);
+
+                      if (comparisonTab === "damage") {
+                        setDamageTopCount(value);
+                      } else {
+                        setHealingTopCount(value);
+                      }
+                    }}
+                  >
+                    {[1, 2, 3, 4, 5].map((count) => (
+                      <option key={count} value={count}>
+                        前 {count} 名
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* 角色比較清單 */}
+                <div className="strength-v2-comparison-list">
+                  {calculatedCharacters.map((item) => {
+                    const value =
+                      comparisonTab === "damage"
+                        ? item.damage.schedule?.totalDamage
+                        : item.damage.schedule?.totalHealing;
+
+                    const isHighlighted = highlightedCharacterIds.has(
+                      item.character.id,
+                    );
+
+                    const rarityClass =
+                      RARITY_OPTIONS.find(
+                        (option) => option.value === item.character.rarity,
+                      )?.className ?? "";
+
+                    const elementClass =
+                      ELEMENT_OPTIONS.find(
+                        (option) => option.value === item.character.element,
+                      )?.className ?? "";
+
+                    const classClass =
+                      CLASS_OPTIONS.find(
+                        (option) => option.value === item.character.class,
+                      )?.className ?? "";
+
+                    return (
+                      <div
+                        className={`strength-v2-comparison-row ${
+                          isHighlighted ? "is-highlighted" : ""
+                        }`}
+                        key={item.character.id}
+                        role="button"
+                        tabIndex={0}
+                        style={{ cursor: "pointer" }}
+                        onClick={() =>
+                          scrollToCharacterDetails(item.character.id)
+                        }
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            scrollToCharacterDetails(item.character.id);
+                          }
+                        }}
+                      >
+                        {/* 左側：角色名稱與標籤 */}
+                        <div className="strength-v2-comparison-character">
+                          <strong>{item.character.name}</strong>
+
+                          <span className={`character-tag ${rarityClass}`}>
+                            {item.character.rarity}
+                          </span>
+
+                          <span className={`character-tag ${elementClass}`}>
+                            {item.character.element}
+                          </span>
+
+                          <span className={`character-tag ${classClass}`}>
+                            {item.character.class}
+                          </span>
+                        </div>
+
+                        {/* 右側：總傷害或總治療 */}
+                        <strong className="strength-v2-comparison-value">
+                          {typeof value === "number" && Number.isFinite(value)
+                            ? Math.round(value).toLocaleString("zh-TW")
+                            : "無法計算"}
+                        </strong>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            {/* 角色傷害比較區 */}
+            {calculatedCharacters.length > 0 && (
+              <div
+                className="strength-v2-character-comparison"
+                id="strength-v2-character-comparison"
+              >
+                <h3>角色傷害比較</h3>
+
+                <p>選擇兩名角色，查看總傷害與各技能傷害貢獻的差異。</p>
+
+                {/* 角色選擇 */}
+                <div className="strength-v2-character-comparison-selects">
+                  <label>
+                    角色 A
+                    <select
+                      value={compareCharacterAId}
+                      onChange={(event) =>
+                        setCompareCharacterAId(event.target.value)
+                      }
+                    >
+                      <option value="">請選擇角色</option>
+
+                      {calculatedCharacters.map((item) => (
+                        <option
+                          key={item.character.id}
+                          value={item.character.id}
+                        >
+                          {item.character.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <label>
+                    角色 B
+                    <select
+                      value={compareCharacterBId}
+                      onChange={(event) =>
+                        setCompareCharacterBId(event.target.value)
+                      }
+                    >
+                      <option value="">請選擇角色</option>
+
+                      {calculatedCharacters.map((item) => (
+                        <option
+                          key={item.character.id}
+                          value={item.character.id}
+                        >
+                          {item.character.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+
+                {/* 比較結果 */}
+                {compareCharacterA && compareCharacterB ? (
+                  <div className="strength-v2-character-comparison-results">
+                    <div className="strength-v2-character-comparison-names">
+                      <strong>{compareCharacterA.character.name}</strong>
+                      <span>VS</span>
+                      <strong>{compareCharacterB.character.name}</strong>
+                    </div>
+
+                    <div className="strength-v2-character-comparison-table">
+                      {(() => {
+                        const countsA =
+                          getScheduleActionCounts(compareCharacterA);
+                        const countsB =
+                          getScheduleActionCounts(compareCharacterB);
+
+                        const totalUsesA = Object.values(countsA).reduce(
+                          (sum, value) => sum + value,
+                          0,
+                        );
+
+                        const totalUsesB = Object.values(countsB).reduce(
+                          (sum, value) => sum + value,
+                          0,
+                        );
+
+                        return [
+                          {
+                            label: "總傷害",
+                            valueA:
+                              compareCharacterA.damage.schedule?.totalDamage,
+                            valueB:
+                              compareCharacterB.damage.schedule?.totalDamage,
+                            usesA: totalUsesA,
+                            usesB: totalUsesB,
+                          },
+                          {
+                            label: "必殺技",
+                            valueA:
+                              getScheduleDamageBreakdown(compareCharacterA)
+                                .ultimate,
+                            valueB:
+                              getScheduleDamageBreakdown(compareCharacterB)
+                                .ultimate,
+                            usesA: countsA.ultimate,
+                            usesB: countsB.ultimate,
+                          },
+                          {
+                            label: "二技能",
+                            valueA:
+                              getScheduleDamageBreakdown(compareCharacterA)
+                                .skill2,
+                            valueB:
+                              getScheduleDamageBreakdown(compareCharacterB)
+                                .skill2,
+                            usesA: countsA.skill2,
+                            usesB: countsB.skill2,
+                          },
+                          {
+                            label: "一技能",
+                            valueA:
+                              getScheduleDamageBreakdown(compareCharacterA)
+                                .skill1,
+                            valueB:
+                              getScheduleDamageBreakdown(compareCharacterB)
+                                .skill1,
+                            usesA: countsA.skill1,
+                            usesB: countsB.skill1,
+                          },
+                          {
+                            label: "普通攻擊",
+                            valueA:
+                              getScheduleDamageBreakdown(compareCharacterA)
+                                .normalAttack,
+                            valueB:
+                              getScheduleDamageBreakdown(compareCharacterB)
+                                .normalAttack,
+                            usesA: countsA.normalAttack,
+                            usesB: countsB.normalAttack,
+                          },
+                        ].map((row) => {
+                          const valueA =
+                            typeof row.valueA === "number" &&
+                            Number.isFinite(row.valueA)
+                              ? row.valueA
+                              : null;
+
+                          const valueB =
+                            typeof row.valueB === "number" &&
+                            Number.isFinite(row.valueB)
+                              ? row.valueB
+                              : null;
+
+                          const difference =
+                            valueA !== null && valueB !== null
+                              ? valueA - valueB
+                              : null;
+
+                          return (
+                            <div
+                              className="strength-v2-character-comparison-row"
+                              key={row.label}
+                            >
+                              <span className="strength-v2-character-comparison-label">
+                                {row.label}
+                              </span>
+
+                              <div className="strength-v2-character-comparison-values">
+                                <strong
+                                  className={
+                                    difference !== null && difference > 0
+                                      ? "is-a-winner"
+                                      : ""
+                                  }
+                                >
+                                  <span className="strength-v2-comparison-damage-number">
+                                    {formatStat(valueA)}
+                                  </span>
+                                  {row.label !== "總傷害" && (
+                                    <span className="strength-v2-comparison-uses">
+                                      （{formatUses(row.usesA)}次）
+                                    </span>
+                                  )}
+                                </strong>
+
+                                {row.label === "總傷害" ? null : (
+                                  <span className="strength-v2-character-comparison-difference">
+                                    {difference === null
+                                      ? "無法比較"
+                                      : difference > 0
+                                        ? `${compareCharacterA.character.name} 高出 ${formatStat(Math.abs(difference))}`
+                                        : difference < 0
+                                          ? `${compareCharacterB.character.name} 高出 ${formatStat(Math.abs(difference))}`
+                                          : "兩名角色傷害相同"}
+                                  </span>
+                                )}
+
+                                <strong
+                                  className={
+                                    difference !== null && difference < 0
+                                      ? "is-b-winner"
+                                      : ""
+                                  }
+                                >
+                                  <span className="strength-v2-comparison-damage-number">
+                                    {formatStat(valueB)}
+                                  </span>
+                                  {row.label !== "總傷害" && (
+                                    <span className="strength-v2-comparison-uses">
+                                      （{formatUses(row.usesB)}次）
+                                    </span>
+                                  )}
+                                </strong>
+                              </div>
+                            </div>
+                          );
+                        });
+                      })()}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="strength-v2-empty">請先選擇兩名角色。</div>
+                )}
+              </div>
+            )}
+            {!hasCalculated ? null : calculatedCharacters.length === 0 ? (
+              <div className="strength-v2-empty">
+                沒有符合目前已套用篩選條件的角色。
+              </div>
+            ) : (
+              <div className="strength-v2-result-list">
+                {calculatedCharacters.map((item) => (
+                  <article
+                    className="strength-v2-result-character"
+                    key={item.character.id}
+                    id={`strength-v2-detail-${item.character.id}`}
+                  >
+                    <div className="strength-v2-result-heading">
+                      <div>
+                        <h3>{item.character.name}</h3>
+                        <p>
+                          {item.character.rarity}／{item.character.element}／
+                          {item.character.class}／
+                          {item.character.attackType === "physical"
+                            ? "物理"
+                            : item.character.attackType === "magic"
+                              ? "魔法"
+                              : "攻擊類型未確認"}
+                          {item.character.maxBreakthroughTrait?.trim() && (
+                            <>／{item.character.maxBreakthroughTrait}</>
+                          )}
+                        </p>
+                      </div>
+
+                      <span>天賦計算至第 {item.effectiveNode} 節點</span>
+                    </div>
+
+                    <div className="strength-v2-result-navigation">
+                      <button
+                        type="button"
+                        className="strength-v2-button strength-v2-back-ranking-button"
+                        onClick={scrollToRanking}
+                      >
+                        回到傷害排行
+                      </button>
+                    </div>
+                    <details className="strength-v2-panel-details">
+                      <summary>排程傷害拆解</summary>
+
+                      <div className="strength-v2-panel-groups">
+                        <section className="strength-v2-panel-group strength-v2-panel-group-primary">
+                          <h4>總傷害</h4>
+
+                          <div className="strength-v2-panel-group-stats">
+                            <div className="strength-v2-result-stat">
+                              <span>排名採用的排程總傷害</span>
+                              <strong>
+                                {formatStat(item.damage.schedule?.totalDamage)}
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>各技能貢獻合計</span>
+                              <strong>
+                                {formatStat(
+                                  Object.values(
+                                    getScheduleDamageBreakdown(item),
+                                  ).reduce((sum, value) => sum + value, 0),
+                                )}
+                              </strong>
+                            </div>
+                          </div>
+                        </section>
+
+                        <section className="strength-v2-panel-group">
+                          <h4>各技能傷害貢獻</h4>
+
+                          <div className="strength-v2-panel-group-stats">
+                            <div className="strength-v2-result-stat">
+                              <span>
+                                必殺技（
+                                {formatUses(
+                                  getScheduleActionCounts(item).ultimate,
+                                )}{" "}
+                                次）
+                              </span>
+                              <strong>
+                                {formatStat(
+                                  getScheduleDamageBreakdown(item).ultimate,
+                                )}
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>
+                                二技能（
+                                {formatUses(
+                                  getScheduleActionCounts(item).skill2,
+                                )}{" "}
+                                次）
+                              </span>
+                              <strong>
+                                {formatStat(
+                                  getScheduleDamageBreakdown(item).skill2,
+                                )}
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>
+                                一技能（
+                                {formatUses(
+                                  getScheduleActionCounts(item).skill1,
+                                )}{" "}
+                                次）
+                              </span>
+                              <strong>
+                                {formatStat(
+                                  getScheduleDamageBreakdown(item).skill1,
+                                )}
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>
+                                普通攻擊（
+                                {formatUses(
+                                  getScheduleActionCounts(item).normalAttack,
+                                )}{" "}
+                                次）
+                              </span>
+                              <strong>
+                                {formatStat(
+                                  getScheduleDamageBreakdown(item).normalAttack,
+                                )}
+                              </strong>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </details>
+
+                    <details className="strength-v2-panel-details">
+                      <summary>角色面板</summary>
+
+                      <div className="strength-v2-panel-groups">
+                        {/* 核心能力 */}
+                        <section className="strength-v2-panel-group strength-v2-panel-group-primary">
+                          <h4>核心能力</h4>
+                          <div className="strength-v2-panel-group-stats">
+                            <div className="strength-v2-result-stat">
+                              <span>
+                                {item.character.attackType === "physical"
+                                  ? "物理攻擊"
+                                  : "魔法攻擊"}
+                              </span>
+                              <strong>
+                                {formatStat(
+                                  item.character.attackType === "physical"
+                                    ? item.stats.physicalAttack
+                                    : item.stats.magicAttack,
+                                )}
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>治療</span>
+                              <strong>{formatStat(item.stats.healing)}</strong>
+                            </div>
+                          </div>
+                        </section>
+
+                        {/* 戰鬥屬性 */}
+                        <section className="strength-v2-panel-group">
+                          <h4>戰鬥屬性</h4>
+                          <div className="strength-v2-panel-group-stats">
+                            <div className="strength-v2-result-stat">
+                              <span>暴擊率</span>
+                              <strong>
+                                {formatStat(
+                                  typeof item.stats.criticalRate === "number"
+                                    ? item.stats.criticalRate * 100
+                                    : item.stats.criticalRate,
+                                )}
+                                %
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>暴擊傷害</span>
+                              <strong>
+                                {formatStat(
+                                  typeof item.stats.criticalDamage === "number"
+                                    ? item.stats.criticalDamage * 100
+                                    : item.stats.criticalDamage,
+                                )}
+                                %
+                              </strong>
+                            </div>
+                          </div>
+                        </section>
+
+                        {/* 角色特性 */}
+                        <section className="strength-v2-panel-group">
+                          <h4>角色特性</h4>
+                          <div className="strength-v2-panel-group-stats">
+                            <div className="strength-v2-result-stat">
+                              <span>角色傷害特性</span>
+                              <strong>
+                                {formatStat(
+                                  calculateBreakthroughTraitDamageBonus(
+                                    item.character.maxBreakthroughTrait,
+                                    item.character.element ?? "",
+                                    item.character.attackType ?? "",
+                                  ),
+                                )}
+                                %
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>角色治療特性</span>
+                              <strong>
+                                {formatStat(
+                                  calculateBreakthroughTraitHealingBonus(
+                                    item.character.maxBreakthroughTrait,
+                                  ),
+                                )}
+                                %
+                              </strong>
+                            </div>
+                          </div>
+                        </section>
+
+                        {/* 其他加成 */}
+                        <section className="strength-v2-panel-group">
+                          <h4>其他加成</h4>
+                          <div className="strength-v2-panel-group-stats">
+                            <div className="strength-v2-result-stat">
+                              <span>掛件傷害特性</span>
+                              <strong>
+                                {formatStat(item.hangingTraitDamageBonus)}%
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>掛件治癒特性</span>
+                              <strong>
+                                {formatStat(item.hangingTraitHealingBonus)}%
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>天賦傷害特性</span>
+                              <strong>
+                                {formatStat(
+                                  item.additionalStats.attributeBoost ?? 0,
+                                )}
+                                %
+                              </strong>
+                            </div>
+
+                            <div className="strength-v2-result-stat">
+                              <span>武器傷害加成</span>
+                              <strong>
+                                {formatStat(
+                                  typeof item.weaponDamageBonus === "number"
+                                    ? item.weaponDamageBonus * 100
+                                    : item.weaponDamageBonus,
+                                )}
+                                %
+                              </strong>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </details>
+
+                    <div className="strength-v2-character-trait">
+                      <strong>技能資訊</strong>
+
+                      {[
+                        {
+                          label: "必殺技",
+                          type: item.character.ultimate.type,
+                          info: {
+                            ...item.character.ultimate[
+                              item.character.rarity === "UR"
+                                ? skillLevel
+                                : "max"
+                            ],
+                            effectText:
+                              item.damage.ultimate.skillEffects.effectText,
+                            cooldown: item.damage.ultimate.cooldown,
+                          },
+                          result: item.damage.ultimate,
+                          healing: item.damage.ultimate.healing,
+                          showCooldown: false,
+                          talentLabel:
+                            item.damage.ultimate.skillEffects.effectText !==
+                            (item.character.ultimate[
+                              item.character.rarity === "UR"
+                                ? skillLevel
+                                : "max"
+                            ].originalEffectText ??
+                              item.character.ultimate[
+                                item.character.rarity === "UR"
+                                  ? skillLevel
+                                  : "max"
+                              ].effectText)
+                              ? "（天賦15）"
+                              : "",
+                        },
+                        {
+                          label: "二技能",
+                          type: item.character.skill2.type,
+                          info: {
+                            ...item.character.skill2[
+                              item.character.rarity === "UR"
+                                ? skillLevel
+                                : "max"
+                            ],
+                            effectText:
+                              item.damage.skill2.skillEffects.effectText,
+                            cooldown: item.damage.skill2.cooldown,
+                          },
+                          result: item.damage.skill2,
+                          healing: item.damage.skill2.healing,
+                          showCooldown: true,
+                          talentLabel:
+                            item.damage.skill2.skillEffects.effectText !==
+                            (item.character.skill2[
+                              item.character.rarity === "UR"
+                                ? skillLevel
+                                : "max"
+                            ].originalEffectText ??
+                              item.character.skill2[
+                                item.character.rarity === "UR"
+                                  ? skillLevel
+                                  : "max"
+                              ].effectText)
+                              ? "（天賦12）"
+                              : "",
+                        },
+                        {
+                          label: "一技能",
+                          type: item.character.skill1.type,
+                          info: {
+                            ...item.character.skill1[
+                              item.character.rarity === "UR"
+                                ? skillLevel
+                                : "max"
+                            ],
+                            effectText:
+                              item.damage.skill1.skillEffects.effectText,
+                            cooldown: item.damage.skill1.cooldown,
+                          },
+                          result: item.damage.skill1,
+                          healing: item.damage.skill1.healing,
+                          showCooldown: true,
+                          talentLabel:
+                            item.damage.skill1.skillEffects.effectText !==
+                            (item.character.skill1[
+                              item.character.rarity === "UR"
+                                ? skillLevel
+                                : "max"
+                            ].originalEffectText ??
+                              item.character.skill1[
+                                item.character.rarity === "UR"
+                                  ? skillLevel
+                                  : "max"
+                              ].effectText)
+                              ? "（天賦9）"
+                              : "",
+                        },
+                        {
+                          label: "普攻",
+                          type: "",
+                          info: null,
+                          result: item.damage.normalAttack,
+                          healing: null,
+                          showCooldown: false,
+                        },
+                      ].map((skill) => (
+                        <div
+                          className="strength-v2-result-skill"
+                          key={skill.label}
+                        >
+                          {/* 技能名稱與類型 */}
+                          <div className="strength-v2-skill-heading">
+                            <strong>{skill.label}</strong>
+
+                            {skill.type && (
+                              <span
+                                className={`strength-v2-skill-type-tag ${getSkillTypeClass(skill.type)}`}
+                              >
+                                {skill.type}
+                              </span>
+                            )}
+                          </div>
+
+                          {/* 技能基本資訊 */}
+                          <div className="strength-v2-skill-basic">
+                            <div className="strength-v2-result-stat">
+                              <span>技能倍率</span>
+                              <strong>
+                                {formatStat(skill.result.coefficient)}%
+                              </strong>
+                            </div>
+
+                            {skill.info && (
+                              <>
+                                {skill.showCooldown && (
+                                  <div className="strength-v2-result-stat">
+                                    <span>冷卻時間</span>
+                                    <strong>
+                                      {skill.info.cooldown
+                                        ? `${skill.info.cooldown} 秒`
+                                        : "尚未確認"}
+                                    </strong>
+                                  </div>
+                                )}
+
+                                <div className="strength-v2-skill-effect">
+                                  <span>技能效果</span>
+                                  <p>
+                                    {skill.info.effectText ||
+                                      skill.info.originalEffectText ||
+                                      "無"}
+                                    {skill.talentLabel}
+                                  </p>
+                                </div>
+                              </>
+                            )}
+                          </div>
+
+                          {/* 傷害／治療計算明細 */}
+                          <details className="strength-v2-skill-calculation">
+                            <summary>計算明細</summary>
+
+                            <div className="strength-v2-result-stats">
+                              {skill.healing !== null ? (
+                                <div className="strength-v2-result-stat">
+                                  <span>治療量</span>
+                                  <strong>
+                                    {formatStat(skill.healing.healing)}
+                                  </strong>
+                                </div>
+                              ) : (
+                                <>
+                                  <div className="strength-v2-result-stat">
+                                    <span>普通傷害</span>
+                                    <strong>
+                                      {formatStat(
+                                        skill.result.damage?.normalDamage,
+                                      )}
+                                    </strong>
+                                  </div>
+
+                                  <div className="strength-v2-result-stat">
+                                    <span>暴擊傷害</span>
+                                    <strong>
+                                      {formatStat(
+                                        skill.result.damage?.criticalDamage,
+                                      )}
+                                    </strong>
+                                  </div>
+
+                                  <div className="strength-v2-result-stat">
+                                    <span>期望傷害</span>
+                                    <strong>
+                                      {formatStat(
+                                        skill.result.damage?.expectedDamage,
+                                      )}
+                                    </strong>
+                                  </div>
+                                </>
+                              )}
+                            </div>
+                          </details>
+                        </div>
+                      ))}
+                    </div>
+
+                    {item.warnings.length > 0 && (
+                      <div className="strength-v2-result-warnings">
+                        <strong>此角色的資料提醒</strong>
+                        <ul>
+                          {item.warnings.map((warning, index) => (
+                            <li key={`${item.character.id}-warning-${index}`}>
+                              {warning}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </article>
+                ))}
+              </div>
+            )}
+          </section>
+        </>
+      )}
+    </div>
+  );
 }

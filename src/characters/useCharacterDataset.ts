@@ -53,15 +53,16 @@ function getMetadata(
     result: CharacterDataResult
 ): Omit<CharacterDataResult, 'dataset'> {
     return {
-        physicalCount: result.physicalCount,
-        magicCount: result.magicCount,
-        totalCount: result.totalCount,
-        warningCount: result.warningCount,
-        physicalUpdatedAt: result.physicalUpdatedAt,
-        magicUpdatedAt: result.magicUpdatedAt,
-        talentMultiplierUpdatedAt: result.talentMultiplierUpdatedAt,
-        talentMultiplierCount: result.talentMultiplierCount,
-    }
+      physicalCount: result.physicalCount,
+      magicCount: result.magicCount,
+      totalCount: result.totalCount,
+      warningCount: result.warningCount,
+      physicalUpdatedAt: result.physicalUpdatedAt,
+      magicUpdatedAt: result.magicUpdatedAt,
+      talentMultiplierUpdatedAt: result.talentMultiplierUpdatedAt,
+      talentMultiplierCount: result.talentMultiplierCount,
+      warningDetails: result.warningDetails,
+    };
 }
 
 export function useCharacterDataset(

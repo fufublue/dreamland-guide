@@ -16,6 +16,7 @@ import { getEffectiveTalentNode } from './talent'
 import type { TalentNodeSelection } from '../types'
 import {
     calculateAttackBonusPercent,
+    calculateAttributeDamageBonusPercent,
     calculateCriticalRateBonusPercent,
     calculateCriticalDamageBonusPercent,
     calculateEnemyDefenseReductionMultiplier,
@@ -49,6 +50,9 @@ export interface CharacterNormalAttackDamageInput {
     // 武器與掛件傷害加成，來源資料使用小數格式
     weaponDamageBonus?: number | null
     hangingTraitDamageBonus?: number | null
+
+    // 角色滿突破傷害特性，使用百分點格式（例如 10 代表 10%）
+    breakthroughTraitDamageBonus?: number | null
 }
 
 export interface CharacterNormalAttackDamageResult {
@@ -78,6 +82,7 @@ function getCharacterAttack(
 function getAdditionalDamageBonusPercent(
     weaponDamageBonus: number | null | undefined,
     hangingTraitDamageBonus: number | null | undefined,
+    breakthroughTraitDamageBonus: number | null | undefined,
 ): number {
     const weaponBonus =
         typeof weaponDamageBonus === 'number' &&
@@ -91,7 +96,13 @@ function getAdditionalDamageBonusPercent(
             ? hangingTraitDamageBonus
             : 0
 
-    return (weaponBonus + hangingBonus) * 100
+    const breakthroughBonus =
+        typeof breakthroughTraitDamageBonus === 'number' &&
+            Number.isFinite(breakthroughTraitDamageBonus)
+            ? breakthroughTraitDamageBonus
+            : 0
+
+    return (weaponBonus + hangingBonus) * 100 + breakthroughBonus
 }
 
 // 建立沒有傷害數值的結果
@@ -126,6 +137,7 @@ export function calculateCharacterNormalAttackDamage(
         activeEffects = [],
         weaponDamageBonus,
         hangingTraitDamageBonus,
+        breakthroughTraitDamageBonus,
     } = input
 
     const warnings: string[] = []
@@ -189,7 +201,7 @@ export function calculateCharacterNormalAttackDamage(
 
     // 計算角色自身效果帶來的敵方防禦降低倍率
     const enemyDefenseReductionModifiers =
-        mode === 'selfEffects' && character.attackType
+        (mode === 'selfEffects' || mode === 'maximum') && character.attackType
             ? getEnemyDefenseReductionModifiers(
                 activeModifiers,
                 character.attackType,
@@ -197,7 +209,7 @@ export function calculateCharacterNormalAttackDamage(
             : []
 
     const enemyDefenseReductionMultiplier =
-        mode === 'selfEffects' && character.attackType
+        (mode === 'selfEffects' || mode === 'maximum') && character.attackType
             ? calculateEnemyDefenseReductionMultiplier(
                 activeModifiers,
                 character.attackType,
@@ -214,21 +226,26 @@ export function calculateCharacterNormalAttackDamage(
     }
 
     const attackBonusPercent =
-        mode === 'selfEffects' && character.attackType
+        (mode === 'selfEffects' || mode === 'maximum') && character.attackType
             ? calculateAttackBonusPercent(
                 activeModifiers,
                 character.attackType,
             )
             : 0
 
+    const attributeDamageBonusPercent =
+        mode === 'selfEffects' || mode === 'maximum'
+            ? calculateAttributeDamageBonusPercent(activeModifiers)
+            : 0
+
     // 計算角色自身的暴擊率及暴擊傷害增減益
     const criticalRateBonusPercent =
-        mode === 'selfEffects'
+        (mode === 'selfEffects' || mode === 'maximum')
             ? calculateCriticalRateBonusPercent(activeModifiers)
             : 0
 
     const criticalDamageBonusPercent =
-        mode === 'selfEffects'
+        (mode === 'selfEffects' || mode === 'maximum')
             ? calculateCriticalDamageBonusPercent(activeModifiers)
             : 0
 
@@ -237,6 +254,7 @@ export function calculateCharacterNormalAttackDamage(
         getAdditionalDamageBonusPercent(
             weaponDamageBonus,
             hangingTraitDamageBonus,
+            breakthroughTraitDamageBonus,
         )
 
     // 普通攻擊固定攻擊第一隻敵人
@@ -251,6 +269,7 @@ export function calculateCharacterNormalAttackDamage(
         mode,
         environment,
         attackBonusPercent,
+        attributeDamageBonusPercent,
         damageBonusPercent: additionalDamageBonusPercent,
         criticalRateBonusPercent,
         criticalDamageBonusPercent,

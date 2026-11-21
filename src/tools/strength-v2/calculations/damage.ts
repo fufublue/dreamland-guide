@@ -54,12 +54,6 @@ const ENEMY_DEFENSE_TYPE_MULTIPLIERS = {
     }
 >
 
-const ATTRIBUTE_DAMAGE_MAGNITUDES = {
-    small: 20,
-    medium: 40,
-    large: 60,
-} as const
-
 export type ElementRelation =
     | 'advantage'
     | 'disadvantage'
@@ -101,6 +95,7 @@ export type DamageCalculationInput = {
     // 其他傷害加成，會與角色面板傷害加成相加
     // 例如武器、掛件及戰鬥中觸發的傷害加成
     attackBonusPercent?: number
+    attributeDamageBonusPercent?: number
     damageBonusPercent?: number
     criticalRateBonusPercent?: number
     criticalDamageBonusPercent?: number
@@ -277,25 +272,7 @@ export function getElementMultiplier(
     return ELEMENT_MULTIPLIERS[relation]
 }
 
-// ======================================================
-// 最大值模式環境效果
-// ======================================================
-
-function getEnvironmentAttributeDamageBonus(
-    mode: StrengthCalculationMode,
-    environment: MaximumModeEnvironment,
-): number {
-    if (
-        mode !== 'maximum' ||
-        !environment.attributeDamageIncrease.enabled
-    ) {
-        return 0
-    }
-
-    return ATTRIBUTE_DAMAGE_MAGNITUDES[
-        environment.attributeDamageIncrease.magnitude
-    ]
-}
+// 屬性傷害提升已統一由效果時間軸提供，避免外部條件與角色技能重複計算。
 
 // ======================================================
 // 傷害加成
@@ -449,10 +426,9 @@ export function calculateSkillDamage(
     // --------------------------------------------------
 
     const attributeDamageBonus =
-        getEnvironmentAttributeDamageBonus(
-            mode,
-            environment,
-        )
+        isValidNumber(input.attributeDamageBonusPercent)
+            ? input.attributeDamageBonusPercent
+            : 0
 
     const attributeDamageMultiplier =
         1 + attributeDamageBonus / 100
@@ -483,18 +459,6 @@ export function calculateSkillDamage(
     // --------------------------------------------------
     // 尚未確認的計算項目
     // --------------------------------------------------
-
-    if (mode === 'maximum' && environment.attackIncrease) {
-        warnings.push(
-            '最大值模式的攻擊提升數值尚未確認，暫未套用。',
-        )
-    }
-
-    if (mode === 'maximum' && environment.defenseReduction) {
-        warnings.push(
-            '最大值模式的防禦降低數值尚未確認，暫未套用。',
-        )
-    }
 
     if (
         mode === 'maximum' &&

@@ -25,6 +25,7 @@ import {
 
 import type { TimedEffect } from './effectTimeline'
 import {
+    calculateBreakthroughTraitDamageBonus,
     calculateBreakthroughTraitHealingBonus,
 } from './breakthroughTrait'
 
@@ -96,6 +97,15 @@ export function calculateCharacterDamage(
         scheduleSettings,
     } = input
 
+    // 取得角色滿突破傷害特性，依角色屬性及攻擊類型判斷適用加成
+    const breakthroughTraitDamageBonus =
+        calculateBreakthroughTraitDamageBonus(
+            character.maxBreakthroughTrait,
+            character.element,
+            character.attackType ?? '',
+        )
+
+
     // 普通攻擊固定攻擊第一隻敵人
     const priorityEnemy = enemies[0] ?? null
 
@@ -112,6 +122,7 @@ export function calculateCharacterDamage(
         activeEffects,
         weaponDamageBonus,
         hangingTraitDamageBonus,
+        breakthroughTraitDamageBonus,
     })
 
     // 取得角色突破治療特性
@@ -135,6 +146,7 @@ export function calculateCharacterDamage(
             activeEffects,
             weaponDamageBonus,
             hangingTraitDamageBonus,
+            breakthroughTraitDamageBonus,
             hangingTraitHealingBonus,
             breakthroughTraitHealingBonus,
             treatSelfHpConditionAsMet,
@@ -181,6 +193,7 @@ export function calculateCharacterDamage(
 
             weaponDamageBonus,
             hangingTraitDamageBonus,
+            breakthroughTraitDamageBonus,
 
             breakthroughTraitHealingBonus,
             hangingTraitHealingBonus,

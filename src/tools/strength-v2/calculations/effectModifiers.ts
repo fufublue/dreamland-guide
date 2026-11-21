@@ -238,6 +238,15 @@ function calculateEffectBonusPercent(
 /**
  * 計算角色暴擊率增減益。
  */
+export function calculateAttributeDamageBonusPercent(
+    modifiers: EffectModifier[],
+): number {
+    return calculateEffectBonusPercent(
+        modifiers,
+        'elementDamage',
+    )
+}
+
 export function calculateCriticalRateBonusPercent(
     modifiers: EffectModifier[],
 ): number {

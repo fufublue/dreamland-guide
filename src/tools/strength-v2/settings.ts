@@ -23,20 +23,38 @@ export const DEFAULT_CHARACTER_FILTERS: CharacterFilterSettings = {
 // ======================================================
 
 export const DEFAULT_ENVIRONMENT: MaximumModeEnvironment = {
-    attackIncrease: false,
+  // 攻擊提升：固定大幅
+  attackIncrease: {
+    enabled: true,
+    magnitude: "large",
+    durationSeconds: 10,
+    cooldownSeconds: 16,
+  },
 
-    defenseReduction: false,
+  // 防禦降低：固定大幅
+  defenseReduction: {
+    enabled: true,
+    magnitude: "large",
+    durationSeconds: 15,
+    cooldownSeconds: 16,
+  },
 
-    attributeDamageIncrease: {
-        enabled: false,
-        magnitude: 'medium',
-    },
+  // 屬性傷害提升
+  attributeDamageIncrease: {
+    enabled: false,
+    magnitude: "medium",
+    durationSeconds: 15,
+    cooldownSeconds: 16,
+  },
 
-    attributeResistanceReduction: {
-        enabled: false,
-        magnitude: 'medium',
-    },
-}
+  // 屬性抗性降低
+  attributeResistanceReduction: {
+    enabled: false,
+    magnitude: "medium",
+    durationSeconds: 15,
+    cooldownSeconds: 16,
+  },
+};
 
 
 // ======================================================
@@ -45,8 +63,8 @@ export const DEFAULT_ENVIRONMENT: MaximumModeEnvironment = {
 
 export const createDefaultStrengthSettings =
     (): StrengthCalculatorSettings => ({
-        // 預設使用只看係數模式
-        mode: 'coefficient',
+        // 預設使用最大值模式
+        mode: 'maximum',
 
         // 角色篩選
         filters: {
@@ -78,6 +96,14 @@ export const createDefaultStrengthSettings =
         // 最大值模式環境效果
         environment: {
             ...DEFAULT_ENVIRONMENT,
+
+            attackIncrease: {
+                ...DEFAULT_ENVIRONMENT.attackIncrease,
+            },
+
+            defenseReduction: {
+                ...DEFAULT_ENVIRONMENT.defenseReduction,
+            },
 
             attributeDamageIncrease: {
                 ...DEFAULT_ENVIRONMENT.attributeDamageIncrease,

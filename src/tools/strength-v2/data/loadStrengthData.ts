@@ -47,58 +47,59 @@ export type StrengthDataBundle = {
 // ======================================================
 
 export async function loadStrengthData(): Promise<StrengthDataBundle> {
-    // 同時載入角色資料、強度基準資料與敵人資料
-    const [
-        characterData,
-        rawStrengthBaseData,
-        rawMonsterData,
-    ] = await Promise.all([
-        loadCharacterDataset(),
-        fetchStrengthBaseData(),
-        fetchMonsterData(),
-    ])
+  // 同時載入角色資料、強度基準資料與敵人資料
+  const [characterData, rawStrengthBaseData, rawMonsterData] =
+    await Promise.all([
+      loadCharacterDataset(),
+      fetchStrengthBaseData(),
+      fetchMonsterData(),
+    ]);
 
-    // 將舊版基準資料轉接成新版型別
-    const adapted = adaptStrengthBaseData(rawStrengthBaseData)
+  // 將舊版基準資料轉接成新版型別
+  const adapted = adaptStrengthBaseData(rawStrengthBaseData);
 
-    // 將原始敵人資料轉換成計算器使用的格式
-    const monsterData = adaptMonsterData(rawMonsterData)
+  // 將原始敵人資料轉換成計算器使用的格式
+  const monsterData = adaptMonsterData(rawMonsterData);
 
-    const warnings: StrengthDataWarning[] = []
+  const warnings: StrengthDataWarning[] = [];
 
-    // 整理原始強度基準資料的警告
-    for (const warning of rawStrengthBaseData.warnings ?? []) {
-        warnings.push({
-            source: '強度基準資料',
-            message: warning,
-        })
-    }
+  // 整理原始強度基準資料的警告
+  for (const warning of rawStrengthBaseData.warnings ?? []) {
+    warnings.push({
+      source: "強度基準資料",
+      message: warning,
+    });
+  }
 
-    // 整理轉接過程發現的警告
-    for (const warning of adapted.warnings) {
-        warnings.push({
-            source: '強度基準資料轉接',
-            message: warning,
-        })
-    }
+  // 整理轉接過程發現的警告
+  for (const warning of adapted.warnings) {
+    warnings.push({
+      source: "強度基準資料轉接",
+      message: warning,
+    });
+  }
 
-    // 保留角色資料載入時的待確認狀態
-    if (characterData.warningCount > 0) {
-        warnings.push({
-            source: '角色資料',
-            message: `目前有 ${characterData.warningCount} 筆角色資料需要檢查。`,
-        })
-    }
+  // 整理 GAS 回傳的角色資料檢查明細
+  for (const warning of characterData.warningDetails) {
+    warnings.push({
+      source: `角色資料｜${warning.characterName}`,
+      characterId: warning.characterId,
+      message: [`工作表列數：第 ${warning.row} 列`, ...warning.issues].join(
+        "；",
+      ),
+    });
+  }
+ 
 
-    return {
-        characterData,
-        strengthBaseData: adapted.data,
-        monsterData,
+  return {
+    characterData,
+    strengthBaseData: adapted.data,
+    monsterData,
 
-        status: {
-            loading: false,
-            error: null,
-            warnings,
-        },
-    }
+    status: {
+      loading: false,
+      error: null,
+      warnings,
+    },
+  };
 }

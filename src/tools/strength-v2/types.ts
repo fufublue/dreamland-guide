@@ -141,27 +141,28 @@ export type TalentSettings = {
 // 最大值模式：環境效果
 // ======================================================
 
-export type EffectMagnitude = 'small' | 'medium' | 'large'
+export type EffectMagnitude = "small" | "medium" | "large";
 
 export type ConfigurableEnvironmentEffect = {
-    enabled: boolean
-    magnitude: EffectMagnitude
-}
+  enabled: boolean;
+  magnitude: EffectMagnitude;
+  durationSeconds: 10 |15 | 20;
+  cooldownSeconds: number;
+};
 
 export type MaximumModeEnvironment = {
-    // 大幅攻擊提升
-    attackIncrease: boolean
+  // 攻擊提升（固定大幅）
+  attackIncrease: ConfigurableEnvironmentEffect;
 
-    // 大幅防禦降低
-    defenseReduction: boolean
+  // 防禦降低（固定大幅）
+  defenseReduction: ConfigurableEnvironmentEffect;
 
-    // 屬性傷害提升
-    attributeDamageIncrease: ConfigurableEnvironmentEffect
+  // 屬性傷害提升
+  attributeDamageIncrease: ConfigurableEnvironmentEffect;
 
-    // 屬性抗性降低
-    attributeResistanceReduction: ConfigurableEnvironmentEffect
-}
-
+  // 屬性抗性降低
+  attributeResistanceReduction: ConfigurableEnvironmentEffect;
+};
 
 // ======================================================
 // 敵人設定

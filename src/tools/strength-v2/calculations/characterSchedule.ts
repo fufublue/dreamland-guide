@@ -31,6 +31,8 @@ import {
     type ScheduledSkillKey,
 } from './skillSchedule'
 
+import { getBreakthroughUltimateGaugeMultiplier } from "./breakthroughTrait";
+
 import type { EffectTimelineState } from './effectTimeline'
 
 type ElementRelation =
@@ -64,6 +66,9 @@ export interface CharacterSkillScheduleInput {
     // 武器與掛件傷害加成
     weaponDamageBonus?: number | null
     hangingTraitDamageBonus?: number | null
+
+    // 角色滿突破傷害特性，使用百分點格式（例如 10 代表 10%）
+    breakthroughTraitDamageBonus?: number | null
 
     // 是否將自身生命值條件視為成立
     treatSelfHpConditionAsMet?: boolean
@@ -124,323 +129,302 @@ function getExpectedDamage(
  * 全體技能則計算全部敵人並加總傷害。
  */
 export function createCharacterSkillSchedule(
-    input: CharacterSkillScheduleInput,
+  input: CharacterSkillScheduleInput,
 ): SkillScheduleResult {
-    const {
-        character,
-        normalAttackLevel,
-        skillLevel,
-        selectedNode,
-        stats,
-        enemies,
-        elementRelation,
-        mode,
-        environment,
-        speed,
-        remainingSeconds,
-        ultimateUses,
-        weaponDamageBonus,
-        hangingTraitDamageBonus,
-        treatSelfHpConditionAsMet = true,
-        initialEffectState,
-    } = input
+  const {
+    character,
+    normalAttackLevel,
+    skillLevel,
+    selectedNode,
+    stats,
+    enemies,
+    elementRelation,
+    mode,
+    environment,
+    speed,
+    remainingSeconds,
+    ultimateUses,
+    weaponDamageBonus,
+    hangingTraitDamageBonus,
+    treatSelfHpConditionAsMet = true,
+    initialEffectState,
+  } = input;
 
-    const warnings: string[] = []
+  const warnings: string[] = [];
+  // 每次普通攻擊或一般技能增加的基礎必殺值
+  const ultimateGaugePerAction = elementRelation === "advantage" ? 1500 : 1000;
+  const ultimateGaugeMultiplier = getBreakthroughUltimateGaugeMultiplier(
+    character.maxBreakthroughTrait,
+  );
 
-    // 普通攻擊固定使用第一隻敵人
-    const priorityEnemy = enemies[0] ?? null
+  // 普通攻擊固定使用第一隻敵人
+  const priorityEnemy = enemies[0] ?? null;
 
-    const skillEffectsCache = new Map<
-        SkillSlot,
-        EngineEffect[]
-    >()
+  const skillEffectsCache = new Map<SkillSlot, EngineEffect[]>();
 
-    /**
-     * 取得套用天賦後的技能效果。
-     *
-     * 使用快取，避免重複解析同一技能。
-     */
-    function getSkillEffects(
-        skillSlot: SkillSlot,
-    ): EngineEffect[] {
-        const cached = skillEffectsCache.get(skillSlot)
+  /**
+   * 取得套用天賦後的技能效果。
+   *
+   * 使用快取，避免重複解析同一技能。
+   */
+  function getSkillEffects(skillSlot: SkillSlot): EngineEffect[] {
+    const cached = skillEffectsCache.get(skillSlot);
 
-        if (cached) {
-            return cached
-        }
-
-        const result = getSkillEffectsWithTalent(
-            character,
-            skillSlot,
-            skillLevel,
-            selectedNode,
-        )
-
-        warnings.push(...result.warnings)
-
-        skillEffectsCache.set(
-            skillSlot,
-            result.effects,
-        )
-
-        return result.effects
+    if (cached) {
+      return cached;
     }
 
-    /**
-     * 計算普通攻擊傷害。
-     */
-    function calculateNormalAttack(
-        activeEffects: Parameters<
-            typeof calculateCharacterNormalAttackDamage
-        >[0]['activeEffects'],
-    ): number | null {
-        const result = calculateCharacterNormalAttackDamage({
-            character,
-            normalAttackLevel,
-            selectedNode,
-            stats,
-            enemy: priorityEnemy,
-            elementRelation,
-            mode,
-            environment,
-            activeEffects,
-            weaponDamageBonus,
-            hangingTraitDamageBonus,
-        })
+    const result = getSkillEffectsWithTalent(
+      character,
+      skillSlot,
+      skillLevel,
+      selectedNode,
+    );
 
-        warnings.push(...result.warnings)
+    warnings.push(...result.warnings);
 
-        return getExpectedDamage(result.damage)
-    }
+    skillEffectsCache.set(skillSlot, result.effects);
 
-    /**
-     * 計算指定技能的完整傷害及治療結果。
-     */
-    function calculateSkillResult(
-        skillSlot: SkillSlot,
-        activeEffects: Parameters<
-            typeof calculateCharacterSkillDamage
-        >[0]['activeEffects'],
-    ) {
-        const result = calculateCharacterSkillDamage({
-            character,
-            skillSlot,
-            skillLevel,
-            selectedNode,
-            stats,
-            enemies,
-            elementRelation,
-            mode,
-            environment,
-            activeEffects,
+    return result.effects;
+  }
 
-            weaponDamageBonus,
-            hangingTraitDamageBonus,
+  /**
+   * 計算普通攻擊傷害。
+   */
+  function calculateNormalAttack(
+    activeEffects: Parameters<
+      typeof calculateCharacterNormalAttackDamage
+    >[0]["activeEffects"],
+    activeEnvironment: MaximumModeEnvironment = environment,
+  ): number | null {
+    const result = calculateCharacterNormalAttackDamage({
+      character,
+      normalAttackLevel,
+      selectedNode,
+      stats,
+      enemy: priorityEnemy,
+      elementRelation,
+      mode,
+      environment: activeEnvironment,
+      activeEffects,
+      weaponDamageBonus,
+      hangingTraitDamageBonus,
+      breakthroughTraitDamageBonus: input.breakthroughTraitDamageBonus,
+    });
 
-            breakthroughTraitHealingBonus:
-                input.breakthroughTraitHealingBonus,
+    warnings.push(...result.warnings);
 
-            hangingTraitHealingBonus:
-                input.hangingTraitHealingBonus,
+    return getExpectedDamage(result.damage);
+  }
 
-            treatSelfHpConditionAsMet,
-        })
+  /**
+   * 計算指定技能的完整傷害及治療結果。
+   */
+  function calculateSkillResult(
+    skillSlot: SkillSlot,
+    activeEffects: Parameters<
+      typeof calculateCharacterSkillDamage
+    >[0]["activeEffects"],
+    activeEnvironment: MaximumModeEnvironment = environment,
+  ) {
+    const result = calculateCharacterSkillDamage({
+      character,
+      skillSlot,
+      skillLevel,
+      selectedNode,
+      stats,
+      enemies,
+      elementRelation,
+      mode,
+      environment: activeEnvironment,
+      activeEffects,
 
-        warnings.push(...result.warnings)
+      weaponDamageBonus,
+      hangingTraitDamageBonus,
+      breakthroughTraitDamageBonus: input.breakthroughTraitDamageBonus,
 
-        return result
-    }
+      breakthroughTraitHealingBonus: input.breakthroughTraitHealingBonus,
 
-    /**
-     * 取得技能的期望傷害。
-     */
-    function calculateSkill(
-        skillSlot: SkillSlot,
-        activeEffects: Parameters<
-            typeof calculateCharacterSkillDamage
-        >[0]['activeEffects'],
-    ): number | null {
-        const result = calculateSkillResult(
-            skillSlot,
-            activeEffects,
-        )
+      hangingTraitHealingBonus: input.hangingTraitHealingBonus,
 
-        return getExpectedDamage(result.damage)
-    }
+      treatSelfHpConditionAsMet,
+    });
 
-    // 取得技能冷卻時間。
-    const skill1EffectsResult = getSkillEffectsWithTalent(
-        character,
-        'skill1',
-        skillLevel,
-        selectedNode,
-    )
+    warnings.push(...result.warnings);
 
-    const skill2EffectsResult = getSkillEffectsWithTalent(
-        character,
-        'skill2',
-        skillLevel,
-        selectedNode,
-    )
+    return result;
+  }
 
-    warnings.push(
-        ...skill1EffectsResult.warnings,
-        ...skill2EffectsResult.warnings,
-    )
+  /**
+   * 取得技能的期望傷害。
+   */
+  function calculateSkill(
+    skillSlot: SkillSlot,
+    activeEffects: Parameters<
+      typeof calculateCharacterSkillDamage
+    >[0]["activeEffects"],
+    activeEnvironment: MaximumModeEnvironment = environment,
+  ): number | null {
+    const result = calculateSkillResult(
+      skillSlot,
+      activeEffects,
+      activeEnvironment,
+    );
 
-    skillEffectsCache.set(
-        'skill1',
-        skill1EffectsResult.effects,
-    )
+    return getExpectedDamage(result.damage);
+  }
 
-    skillEffectsCache.set(
-        'skill2',
-        skill2EffectsResult.effects,
-    )
+  // 取得技能冷卻時間。
+  const skill1EffectsResult = getSkillEffectsWithTalent(
+    character,
+    "skill1",
+    skillLevel,
+    selectedNode,
+  );
 
-    skillEffectsCache.set(
-        'ultimate',
-        getSkillEffects('ultimate'),
-    )
+  const skill2EffectsResult = getSkillEffectsWithTalent(
+    character,
+    "skill2",
+    skillLevel,
+    selectedNode,
+  );
 
-    // selfEffects 模式：動態計算每個行動時間點的傷害與治療。
-    if (mode === 'selfEffects') {
-        const schedule = createSkillSchedule({
-            speed,
-            remainingSeconds,
+  warnings.push(
+    ...skill1EffectsResult.warnings,
+    ...skill2EffectsResult.warnings,
+  );
 
-            normalAttackDamage: null,
-            skill1Damage: null,
-            skill2Damage: null,
-            ultimateDamage: null,
+  skillEffectsCache.set("skill1", skill1EffectsResult.effects);
 
-            skill1Cooldown: skill1EffectsResult.cooldown,
-            skill2Cooldown: skill2EffectsResult.cooldown,
+  skillEffectsCache.set("skill2", skill2EffectsResult.effects);
 
-            ultimateUses,
+  skillEffectsCache.set("ultimate", getSkillEffects("ultimate"));
 
-            initialEffectState,
-
-            calculateDamage: (
-                skillKey,
-                _actionTime,
-                activeEffects,
-            ) => {
-                if (skillKey === 'normalAttack') {
-                    return calculateNormalAttack(activeEffects)
-                }
-
-                const skillSlot = getSkillSlot(skillKey)
-
-                if (!skillSlot) {
-                    return null
-                }
-
-                return calculateSkill(
-                    skillSlot,
-                    activeEffects,
-                )
-            },
-
-            calculateHealing: (
-                skillKey,
-                _actionTime,
-                activeEffects,
-            ) => {
-                const skillSlot = getSkillSlot(skillKey)
-
-                if (!skillSlot) {
-                    return null
-                }
-
-                const result = calculateSkillResult(
-                    skillSlot,
-                    activeEffects,
-                )
-
-                return result.healing?.healing ?? null
-            },
-
-            getEffectsForSkill: skillKey => {
-                const skillSlot = getSkillSlot(skillKey)
-
-                if (!skillSlot) {
-                    return []
-                }
-
-                return getSkillEffects(skillSlot)
-            },
-        })
-
-        return {
-            ...schedule,
-            warnings: [
-                ...new Set([
-                    ...schedule.warnings,
-                    ...warnings,
-                ]),
-            ],
-        }
-    }
-
-    // coefficient、maximum 模式：使用固定傷害及治療計算。
-    const normalAttackDamage =
-        calculateNormalAttack([])
-
-    const skill1CalculationResult =
-        calculateSkillResult('skill1', [])
-
-    const skill2CalculationResult =
-        calculateSkillResult('skill2', [])
-
-    const ultimateCalculationResult =
-        calculateSkillResult('ultimate', [])
-
-    const skill1Damage =
-        getExpectedDamage(skill1CalculationResult.damage)
-
-    const skill2Damage =
-        getExpectedDamage(skill2CalculationResult.damage)
-
-    const ultimateDamage =
-        getExpectedDamage(ultimateCalculationResult.damage)
-
-    // 固定模式下，各技能的治療量
-    const healingValues: Record<
-        ScheduledSkillKey,
-        number | null
-    > = {
-        normalAttack: null,
-        skill1: skill1CalculationResult.healing?.healing ?? null,
-        skill2: skill2CalculationResult.healing?.healing ?? null,
-        ultimate: ultimateCalculationResult.healing?.healing ?? null,
-    }
-
+  // selfEffects、maximum 模式：動態計算每個行動時間點的傷害與治療。
+  if (mode === "selfEffects" || mode === "maximum") {
     const schedule = createSkillSchedule({
-        speed,
-        remainingSeconds,
+      speed,
+      remainingSeconds,
+      environment,
+      environmentEnabled: mode === "maximum",
 
-        normalAttackDamage,
-        skill1Damage,
-        skill2Damage,
-        ultimateDamage,
+      normalAttackDamage: null,
+      skill1Damage: null,
+      skill2Damage: null,
+      ultimateDamage: null,
 
-        skill1Cooldown: skill1EffectsResult.cooldown,
-        skill2Cooldown: skill2EffectsResult.cooldown,
+      skill1Cooldown: skill1EffectsResult.cooldown,
+      skill2Cooldown: skill2EffectsResult.cooldown,
 
-        ultimateUses,
+      ultimateUses,
+      ultimateGaugeMultiplier,
+      ultimateGaugePerAction,
 
-        calculateHealing: skillKey =>
-            healingValues[skillKey],
-    })
+      initialEffectState,
+
+      calculateDamage: (
+        skillKey,
+        _actionTime,
+        activeEffects,
+        activeEnvironment,
+      ) => {
+        if (skillKey === "normalAttack") {
+          return calculateNormalAttack(activeEffects, activeEnvironment);
+        }
+
+        const skillSlot = getSkillSlot(skillKey);
+
+        if (!skillSlot) {
+          return null;
+        }
+
+        return calculateSkill(skillSlot, activeEffects, activeEnvironment);
+      },
+
+      calculateHealing: (skillKey, _actionTime, activeEffects) => {
+        const skillSlot = getSkillSlot(skillKey);
+
+        if (!skillSlot) {
+          return null;
+        }
+
+        const result = calculateSkillResult(skillSlot, activeEffects);
+
+        return result.healing?.healing ?? null;
+      },
+
+      getEffectsForSkill: (skillKey) => {
+        const skillSlot = getSkillSlot(skillKey);
+
+        if (!skillSlot) {
+          return [];
+        }
+
+        return getSkillEffects(skillSlot);
+      },
+    });
 
     return {
-        ...schedule,
-        warnings: [
-            ...new Set([
-                ...schedule.warnings,
-                ...warnings,
-            ]),
-        ],
-    }
+      ...schedule,
+      warnings: [...new Set([...schedule.warnings, ...warnings])],
+    };
+  }
+
+  // coefficient 模式：使用固定傷害及治療計算。
+  const normalAttackDamage = calculateNormalAttack([]);
+
+  const skill1CalculationResult = calculateSkillResult("skill1", []);
+
+  const skill2CalculationResult = calculateSkillResult("skill2", []);
+
+  const ultimateCalculationResult = calculateSkillResult("ultimate", []);
+
+  const skill1Damage = getExpectedDamage(skill1CalculationResult.damage);
+
+  const skill2Damage = getExpectedDamage(skill2CalculationResult.damage);
+
+  const ultimateDamage = getExpectedDamage(ultimateCalculationResult.damage);
+
+  // 固定模式下，各技能的治療量
+  const healingValues: Record<ScheduledSkillKey, number | null> = {
+    normalAttack: null,
+    skill1: skill1CalculationResult.healing?.healing ?? null,
+    skill2: skill2CalculationResult.healing?.healing ?? null,
+    ultimate: ultimateCalculationResult.healing?.healing ?? null,
+  };
+
+  const schedule = createSkillSchedule({
+    speed,
+    remainingSeconds,
+    environment,
+    environmentEnabled: false,
+
+    normalAttackDamage,
+    skill1Damage,
+    skill2Damage,
+    ultimateDamage,
+
+    skill1Cooldown: skill1EffectsResult.cooldown,
+    skill2Cooldown: skill2EffectsResult.cooldown,
+
+    ultimateUses,
+    ultimateGaugeMultiplier,
+    ultimateGaugePerAction,
+
+    calculateHealing: (skillKey) => healingValues[skillKey],
+
+    getEffectsForSkill: (skillKey) => {
+      const skillSlot = getSkillSlot(skillKey);
+
+      if (!skillSlot) {
+        return [];
+      }
+
+      return getSkillEffects(skillSlot);
+    },
+  });
+  return {
+    ...schedule,
+    warnings: [...new Set([...schedule.warnings, ...warnings])],
+  };
 }

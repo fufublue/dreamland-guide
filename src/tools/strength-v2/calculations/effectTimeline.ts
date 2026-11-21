@@ -204,12 +204,43 @@ function isNonTimelineEffect(effect: EngineEffect): boolean {
 /**
  * 判斷兩個效果是否屬於同一類。
  *
- * 增益與減益分開處理。
- * 不同目標、不同屬性的效果也不會互相覆蓋。
- * 這樣後續的同類效果覆蓋及狀態合併，也會一併區分效果範圍。
+ * 依照效果種類建立共用群組：物攻、魔攻、屬性傷害、物防、魔防及各屬性抗性分開處理。
+ * 這些已確認需要共用覆蓋規則的效果，不因來源或範圍標記不同而拆成不同群組。
+ * 其他效果仍保留目標、範圍、動作、分類及屬性作為識別條件。
  */
 function createEffectKey(effect: EngineEffect): string {
     const attribute = effect.attribute || effect.category;
+
+    // 物攻與魔攻各自成組，外部攻擊提升可與角色技能互相覆蓋。
+    if (effect.category === 'attack' && effect.action === 'increase') {
+        if (attribute === '物攻') {
+            return 'attack|increase|physicalAttack';
+        }
+        if (attribute === '魔攻') {
+            return 'attack|increase|magicAttack';
+        }
+
+        // 屬性傷害提升為獨立群組，不與物攻、魔攻混在一起。
+        if (/屬性傷害$/.test(attribute) || /^[火水風地雷光暗](?:屬性)?傷害$/.test(attribute) || /^[火水風地雷光暗]傷$/.test(attribute)) {
+            return 'elementDamage|increase';
+        }
+    }
+
+    // 外部降防與角色技能降防依物防、魔防分開比較。
+    if (effect.category === 'defense' && effect.action === 'decrease') {
+        if (attribute === '物防') {
+            return 'defense|decrease|physicalDefense';
+        }
+        if (attribute === '魔防') {
+            return 'defense|decrease|magicDefense';
+        }
+
+        // 同一屬性的抗性降低可互相覆蓋；不同屬性不互相覆蓋。
+        const resistanceMatch = attribute.match(/^([火水風地雷光暗])(?:屬性)?(?:抗性|抗)$/);
+        if (resistanceMatch) {
+            return `elementResistance|decrease|${resistanceMatch[1]}`;
+        }
+    }
 
     return [
         effect.targetSide,
@@ -412,57 +443,78 @@ export function applyEffectsAtCast(
 
     const warnings: string[] = []
 
-    for (const effect of effects) {
+    const expandedEffects = effects.flatMap((effect) => {
+      if (
+        effect.category === 'attack' &&
+        effect.action === 'increase' &&
+        effect.attribute === '雙攻'
+      ) {
+        return [
+          { ...effect, id: `${effect.id}_physical`, attribute: '物攻' },
+          { ...effect, id: `${effect.id}_magic`, attribute: '魔攻' },
+        ];
+      }
 
-        // 即時效果不進入持續效果時間軸
-        if (isNonTimelineEffect(effect)) {
-            continue;
+      if (
+        effect.category === 'defense' &&
+        effect.action === 'decrease' &&
+        effect.attribute === '雙防'
+      ) {
+        return [
+          { ...effect, id: `${effect.id}_physical`, attribute: '物防' },
+          { ...effect, id: `${effect.id}_magic`, attribute: '魔防' },
+        ];
+      }
+
+      return [effect];
+    });
+
+    for (const effect of expandedEffects) {
+      // 即時效果不進入持續效果時間軸
+      if (isNonTimelineEffect(effect)) {
+        continue;
+      }
+      const durationResult = parseDuration(effect.duration);
+
+      if (durationResult.invalid) {
+        warnings.push(
+          `效果持續時間未提供或無法辨識：「${effect.duration || "空白"}」，此效果暫不加入時間軸。`,
+        );
+        continue;
+      }
+
+      const chance = parseEffectChance(effect.chance);
+
+      // 有標示機率但無法解析時，跳過此效果並留下警告。
+      if (chance === null) {
+        warnings.push(
+          `效果發動機率無法辨識：「${effect.chance}」，此效果暫不加入時間軸。`,
+        );
+        continue;
+      }
+      const nextStates: EffectTimelineState[] = [];
+
+      for (const state of currentStates) {
+        // 未發動分支。
+        if (chance < 1) {
+          nextStates.push({
+            activeEffects: [...state.activeEffects],
+            probability: state.probability * (1 - chance),
+          });
         }
-        const durationResult = parseDuration(effect.duration);
 
-        if (durationResult.invalid) {
-            warnings.push(
-                `效果持續時間未提供或無法辨識：「${effect.duration || '空白'}」，此效果暫不加入時間軸。`,
-            );
-            continue;
+        // 成功發動分支。
+        if (chance > 0) {
+          const appliedState = applySuccessfulEffect(state, effect, castTime);
+
+          nextStates.push({
+            activeEffects: appliedState.activeEffects,
+            probability: state.probability * chance,
+          });
         }
+      }
 
-        const chance = parseEffectChance(effect.chance);
-
-        // 有標示機率但無法解析時，跳過此效果並留下警告。
-        if (chance === null) {
-            warnings.push(
-                `效果發動機率無法辨識：「${effect.chance}」，此效果暫不加入時間軸。`,
-            );
-            continue;
-        }
-        const nextStates: EffectTimelineState[] = [];
-
-        for (const state of currentStates) {
-            // 未發動分支。
-            if (chance < 1) {
-                nextStates.push({
-                    activeEffects: [...state.activeEffects],
-                    probability: state.probability * (1 - chance),
-                });
-            }
-
-            // 成功發動分支。
-            if (chance > 0) {
-                const appliedState = applySuccessfulEffect(
-                    state,
-                    effect,
-                    castTime,
-                );
-
-                nextStates.push({
-                    activeEffects: appliedState.activeEffects,
-                    probability: state.probability * chance,
-                });
-            }
-        }
-
-        currentStates = mergeEffectTimelineStates(nextStates);
+      currentStates = mergeEffectTimelineStates(nextStates);
     }
 
     return {

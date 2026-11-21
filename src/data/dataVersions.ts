@@ -28,5 +28,5 @@ export const DATA_VERSIONS = {
   activityData: "6",
 
   // Google 試算表發布的敵人與技能 CSV
-  monsterCsv: "1",
+  monsterCsv: "2",
 } as const;
