@@ -211,6 +211,11 @@ function isNonTimelineEffect(effect: EngineEffect): boolean {
 function createEffectKey(effect: EngineEffect): string {
     const attribute = effect.attribute || effect.category;
 
+    // 速度增減益依動作共用群組，環境速度與角色技能速度互相覆蓋／刷新。
+    if (effect.category === 'speed' && attribute === '速度') {
+        return `speed|${effect.action}`;
+    }
+
     // 物攻與魔攻各自成組，外部攻擊提升可與角色技能互相覆蓋。
     if (effect.category === 'attack' && effect.action === 'increase') {
         if (attribute === '物攻') {

@@ -54,6 +54,14 @@ export const DEFAULT_ENVIRONMENT: MaximumModeEnvironment = {
     durationSeconds: 15,
     cooldownSeconds: 16,
   },
+
+  // 速度提升：預設關閉，避免改變既有預設計算結果
+  speedIncrease: {
+    enabled: false,
+    magnitude: "medium",
+    durationSeconds: 10,
+    cooldownSeconds: 16,
+  },
 };
 
 
@@ -111,6 +119,10 @@ export const createDefaultStrengthSettings =
 
             attributeResistanceReduction: {
                 ...DEFAULT_ENVIRONMENT.attributeResistanceReduction,
+            },
+
+            speedIncrease: {
+                ...DEFAULT_ENVIRONMENT.speedIncrease,
             },
         },
 

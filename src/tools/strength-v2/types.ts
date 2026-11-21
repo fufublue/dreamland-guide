@@ -162,6 +162,9 @@ export type MaximumModeEnvironment = {
 
   // 屬性抗性降低
   attributeResistanceReduction: ConfigurableEnvironmentEffect;
+
+  // 速度提升：只影響行動值累積速度
+  speedIncrease: ConfigurableEnvironmentEffect;
 };
 
 // ======================================================

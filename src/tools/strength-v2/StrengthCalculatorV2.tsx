@@ -269,6 +269,7 @@ export default function StrengthCalculatorV2() {
       attributeResistanceReduction: {
         ...DEFAULT_ENVIRONMENT.attributeResistanceReduction,
       },
+      speedIncrease: { ...DEFAULT_ENVIRONMENT.speedIncrease },
     }));
 
   // 篩選條件分成「正在編輯」與「已套用計算」兩份，避免每次點選都重新計算角色
@@ -1333,6 +1334,91 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             attributeResistanceReduction: {
                               ...prev.attributeResistanceReduction,
+                              cooldownSeconds: value,
+                            },
+                          }));
+                        }
+                      }}
+                    />
+                    秒
+                  </label>
+                </div>
+
+                {/* 速度提升 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={environmentEffects.speedIncrease.enabled}
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          speedIncrease: {
+                            ...prev.speedIncrease,
+                            enabled: event.target.checked,
+                          },
+                        }));
+                      }}
+                    />
+                    速度提升
+                  </label>
+
+                  <select
+                    value={environmentEffects.speedIncrease.magnitude}
+                    disabled={!environmentEffects.speedIncrease.enabled}
+                    onChange={(event) => {
+                      setEnvironmentEffects((prev) => ({
+                        ...prev,
+                        speedIncrease: {
+                          ...prev.speedIncrease,
+                          magnitude: event.target.value as EffectLevel,
+                        },
+                      }));
+                    }}
+                  >
+                    <option value="small">小幅 20%</option>
+                    <option value="medium">中幅 40%</option>
+                    <option value="large">大幅 60%</option>
+                  </select>
+
+                  <label>
+                    持續時間
+                    <select
+                      value={environmentEffects.speedIncrease.durationSeconds}
+                      onChange={(event) => {
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          speedIncrease: {
+                            ...prev.speedIncrease,
+                            durationSeconds: Number(event.target.value) as 10 | 15 | 20,
+                          },
+                        }));
+                      }}
+                    >
+                      <option value={10}>10 秒</option>
+                      <option value={15}>15 秒</option>
+                      <option value={20}>20 秒</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    CD
+                    <input
+                      type="number"
+                      min="0.1"
+                      step="0.1"
+                      value={environmentEffects.speedIncrease.cooldownSeconds}
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        ) {
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            speedIncrease: {
+                              ...prev.speedIncrease,
                               cooldownSeconds: value,
                             },
                           }));

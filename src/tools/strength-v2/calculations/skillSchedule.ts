@@ -183,6 +183,13 @@ function getActiveEnvironmentAtTime(
         actionTime,
       ),
     },
+    speedIncrease: {
+      ...environment.speedIncrease,
+      enabled: isEnvironmentEffectActive(
+        environment.speedIncrease,
+        actionTime,
+      ),
+    },
   };
 }
 
@@ -231,6 +238,16 @@ function getEnvironmentEffectSpecs(
       category: "attack",
       attribute: "屬性傷害",
       value: magnitudeValue(environment.attributeDamageIncrease.magnitude, {
+        small: 20, medium: 40, large: 60,
+      }),
+    },
+    {
+      id: "environment-speed-increase",
+      config: environment.speedIncrease,
+      action: "increase",
+      category: "speed",
+      attribute: "速度",
+      value: magnitudeValue(environment.speedIncrease.magnitude, {
         small: 20, medium: 40, large: 60,
       }),
     },
@@ -468,7 +485,8 @@ function getSpeedMultiplier(
   effects: TimedEffect[],
   actionTime: number,
 ): number {
-  let multiplier = 1;
+  let strongestIncrease = 0;
+  let strongestDecrease = 0;
 
   for (const timedEffect of effects) {
     const effect = timedEffect.effect;
@@ -489,7 +507,7 @@ function getSpeedMultiplier(
     }
 
     if (
-      timedEffect.appliedAt > actionTime ||
+      timedEffect.appliedAt > actionTime + EPSILON ||
       (timedEffect.expiresAt !== null && timedEffect.expiresAt <= actionTime + EPSILON)
     ) {
       continue;
@@ -500,15 +518,15 @@ function getSpeedMultiplier(
       continue;
     }
 
-    const effectMultiplier =
-      effect.action === "increase"
-        ? 1 + value / 100
-        : Math.max(0, 1 - value / 100);
-
-    multiplier *= effectMultiplier;
+    // 同類速度效果不相乘，依效果時間軸保留最高幅度並刷新持續時間。
+    if (effect.action === "increase") {
+      strongestIncrease = Math.max(strongestIncrease, value);
+    } else {
+      strongestDecrease = Math.max(strongestDecrease, value);
+    }
   }
 
-  return multiplier;
+  return (1 + strongestIncrease / 100) * Math.max(0, 1 - strongestDecrease / 100);
 }
 
 /**
@@ -519,6 +537,8 @@ function calculateNextActionTime(
   startTime: number,
   effectState: EffectTimelineState,
   baseSpeed: number | null,
+  environment: MaximumModeEnvironment,
+  environmentEnabled: boolean,
 ): number | null {
   if (
     baseSpeed === null ||
@@ -531,11 +551,18 @@ function calculateNextActionTime(
 
   let accumulatedGauge = 0;
   let cursor = startTime;
+  let currentEffectState = effectState;
   const targetGauge = ACTION_GAUGE_SPEED_CONSTANT;
-  const maxSegments = effectState.activeEffects.length + 2;
+  const speedEnvironmentSpec = environmentEnabled
+    ? getEnvironmentEffectSpecs(environment).find(
+        (spec) => spec.id === "environment-speed-increase" && spec.config.enabled,
+      ) ?? null
+    : null;
 
-  for (let segment = 0; segment < maxSegments; segment += 1) {
-    const activeSpeedEffects = effectState.activeEffects.filter((item) => {
+  // 每段只跨越角色速度效果到期點或環境速度觸發點。
+  // 環境效果在觸發時會套用至暫存時間軸，沿用同類效果取高值、刷新持續時間的規則。
+  for (let segment = 0; segment < 10000; segment += 1) {
+    const activeSpeedEffects = currentEffectState.activeEffects.filter((item) => {
       const effect = item.effect;
       return (
         effect.category === "speed" &&
@@ -549,19 +576,33 @@ function calculateNextActionTime(
     const multiplier = getSpeedMultiplier(activeSpeedEffects, cursor);
     const currentSpeed = baseSpeed * multiplier;
 
-    let nextExpiry = Number.POSITIVE_INFINITY;
+    let nextBoundary = Number.POSITIVE_INFINITY;
     for (const item of activeSpeedEffects) {
       if (item.expiresAt !== null && item.expiresAt > cursor + EPSILON) {
-        nextExpiry = Math.min(nextExpiry, item.expiresAt);
+        nextBoundary = Math.min(nextBoundary, item.expiresAt);
       }
     }
 
-    if (!Number.isFinite(nextExpiry)) {
+    let nextEnvironmentTrigger: number | null = null;
+    if (speedEnvironmentSpec) {
+      const cooldown = speedEnvironmentSpec.config.cooldownSeconds;
+      if (Number.isFinite(cooldown) && cooldown > 0) {
+        nextEnvironmentTrigger =
+          (Math.floor((cursor + EPSILON) / cooldown) + 1) * cooldown;
+        nextBoundary = Math.min(nextBoundary, nextEnvironmentTrigger);
+      }
+    }
+
+    if (!Number.isFinite(nextBoundary)) {
       if (currentSpeed <= 0) return null;
       return cursor + (targetGauge - accumulatedGauge) / currentSpeed;
     }
 
-    const segmentDuration = nextExpiry - cursor;
+    const segmentDuration = nextBoundary - cursor;
+    if (segmentDuration <= EPSILON) {
+      cursor = nextBoundary + EPSILON * 2;
+      continue;
+    }
 
     if (currentSpeed > 0) {
       const gaugeAvailable = currentSpeed * segmentDuration;
@@ -574,7 +615,24 @@ function calculateNextActionTime(
       accumulatedGauge += gaugeAvailable;
     }
 
-    cursor = nextExpiry;
+    cursor = nextBoundary;
+
+    // 到達環境速度觸發點時，立即更新暫存時間軸，保留已累積的行動值。
+    if (
+      speedEnvironmentSpec &&
+      nextEnvironmentTrigger !== null &&
+      Math.abs(cursor - nextEnvironmentTrigger) <= EPSILON
+    ) {
+      const applied = applyEffectsAtCast(
+        [currentEffectState],
+        [createEnvironmentEngineEffect(speedEnvironmentSpec)],
+        cursor,
+      );
+      if (applied.states.length > 0) {
+        currentEffectState =
+          mergeEffectTimelineStates(applied.states)[0] ?? currentEffectState;
+      }
+    }
   }
 
   return null;
@@ -820,6 +878,8 @@ export function createSkillSchedule(
       actionTime,
       state.effectState,
       input.speed,
+      input.environment,
+      input.environmentEnabled !== false,
     );
     const isFinalAction =
       nextGaugeTime === null ||
@@ -1104,6 +1164,8 @@ export function createSkillSchedule(
           actionTime,
           transition.state,
           input.speed,
+          input.environment,
+          input.environmentEnabled !== false,
         );
 
         let nextActionTime = actionTime;
@@ -1132,6 +1194,8 @@ export function createSkillSchedule(
             nextActionTime,
             nextEffectState,
             input.speed,
+            input.environment,
+            input.environmentEnabled !== false,
           );
         } else {
           nextActionPoints = 1;
@@ -1302,7 +1366,13 @@ export function createSkillSchedule(
     const result = search(0, {
       // 戰鬥開始時已有一次可用行動。
       actionPoints: 1,
-      nextActionTime: calculateNextActionTime(0, startingEffectState, input.speed),
+      nextActionTime: calculateNextActionTime(
+        0,
+        startingEffectState,
+        input.speed,
+        input.environment,
+        input.environmentEnabled !== false,
+      ),
       lastSkill1Cast: null,
       lastSkill2Cast: null,
       ultimateUses: 0,

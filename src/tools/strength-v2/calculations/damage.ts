@@ -315,244 +315,222 @@ function getDamageBonusMultiplier(
 // ======================================================
 
 export function calculateSkillDamage(
-    input: DamageCalculationInput,
+  input: DamageCalculationInput,
 ): SkillDamageResult {
-    const warnings: string[] = []
+  const warnings: string[] = [];
 
-    const {
-        skillKey,
-        stats,
-        attack,
-        attackType,
-        enemy,
-        elementRelation,
-        mode,
-        environment,
-        enemyDefenseReductionMultiplier = 1,
-        treatSelfHpConditionAsMet = true,
-    } = input
+  const {
+    skillKey,
+    stats,
+    attack,
+    attackType,
+    enemy,
+    elementRelation,
+    mode,
+    environment,
+    enemyDefenseReductionMultiplier = 1,
+    treatSelfHpConditionAsMet = true,
+  } = input;
 
-    // --------------------------------------------------
-    // 條件式技能倍率
-    // --------------------------------------------------
+  // --------------------------------------------------
+  // 條件式技能倍率
+  // --------------------------------------------------
 
-    const coefficient = getEffectiveCoefficient(
-        input.coefficient,
-        input.conditionalBonuses,
-        warnings,
-        treatSelfHpConditionAsMet,
-    )
+  const coefficient = getEffectiveCoefficient(
+    input.coefficient,
+    input.conditionalBonuses,
+    warnings,
+    treatSelfHpConditionAsMet,
+  );
 
-    // --------------------------------------------------
-    // 基本資料檢查
-    // --------------------------------------------------
+  // --------------------------------------------------
+  // 基本資料檢查
+  // --------------------------------------------------
 
-    if (!isValidNumber(attack) || attack < 0) {
-        warnings.push('角色攻擊力缺少有效數值。')
-    }
+  if (!isValidNumber(attack) || attack < 0) {
+    warnings.push("角色攻擊力缺少有效數值。");
+  }
 
-    if (
-        !isValidNumber(coefficient) ||
-        coefficient < 0
-    ) {
-        warnings.push('技能倍率缺少有效數值。')
-    }
+  if (!isValidNumber(coefficient) || coefficient < 0) {
+    warnings.push("技能倍率缺少有效數值。");
+  }
 
-    if (criticalRateMissing(stats)) {
-        warnings.push('暴擊率缺少有效數值。')
-    }
+  if (criticalRateMissing(stats)) {
+    warnings.push("暴擊率缺少有效數值。");
+  }
 
-    if (criticalDamageMissing(stats)) {
-        warnings.push('暴擊傷害缺少有效數值。')
-    }
+  if (criticalDamageMissing(stats)) {
+    warnings.push("暴擊傷害缺少有效數值。");
+  }
 
-    const criticalRate = getCriticalRate(
-        stats.criticalRate,
-    )
+  const criticalRate = getCriticalRate(stats.criticalRate);
 
-    const criticalMultiplier =
-        getCriticalMultiplier(stats.criticalDamage)
+  const criticalMultiplier = getCriticalMultiplier(stats.criticalDamage);
 
-    // 缺少核心資料時不產生傷害數字
-    if (
-        !isValidNumber(attack) ||
-        !isValidNumber(coefficient) ||
-        attack < 0 ||
-        coefficient < 0
-    ) {
-        return {
-            skillKey,
-            coefficient,
-            normalDamage: null,
-            criticalDamage: null,
-            expectedDamage: null,
-            criticalRate,
-            warnings,
-        }
-    }
-
-    // --------------------------------------------------
-    // 基礎傷害
-    // --------------------------------------------------
-
-    const baseDamage =
-        attack * (coefficient / 100)
-
-    // --------------------------------------------------
-    // 攻擊提升
-    // --------------------------------------------------
-
-    const attackBonus =
-        isValidNumber(input.attackBonusPercent)
-            ? input.attackBonusPercent
-            : 0
-
-    const attackMultiplier =
-        1 + attackBonus / 100
-
-    // --------------------------------------------------
-    // 傷害加成
-    // --------------------------------------------------
-
-    const damageBonusMultiplier =
-        getDamageBonusMultiplier(
-            stats,
-            input.damageBonusPercent,
-            warnings,
-        )
-
-    // --------------------------------------------------
-    // 最大值模式環境效果
-    // --------------------------------------------------
-
-    const attributeDamageBonus =
-        isValidNumber(input.attributeDamageBonusPercent)
-            ? input.attributeDamageBonusPercent
-            : 0
-
-    const attributeDamageMultiplier =
-        1 + attributeDamageBonus / 100
-
-    // --------------------------------------------------
-    // 屬性克制
-    // --------------------------------------------------
-
-    const elementMultiplier =
-        getElementMultiplier(elementRelation)
-
-    // --------------------------------------------------
-    // 敵人防禦類型
-    // --------------------------------------------------
-
-    const enemyDefenseTypeMultiplier =
-        getEnemyDefenseTypeMultiplier(
-            enemy,
-            attackType,
-        )
-
-    if (enemyDefenseTypeMultiplier === null) {
-        warnings.push(
-            '無法判斷角色攻擊類型或敵人防禦類型，防禦類型倍率暫未套用。',
-        )
-    }
-
-    // --------------------------------------------------
-    // 尚未確認的計算項目
-    // --------------------------------------------------
-
-    if (
-        mode === 'maximum' &&
-        environment.attributeResistanceReduction.enabled
-    ) {
-        warnings.push(
-            '敵方屬性抗性資料尚未建立，暫未套用抗性降低。',
-        )
-    }
-
-    if (enemy.maxHp === null && enemy.kind === 'minion') {
-        warnings.push(
-            '小怪缺少生命上限資料。',
-        )
-    }
-
-    // --------------------------------------------------
-    // 普通傷害
-    // --------------------------------------------------
-
-    const normalDamage =
-        baseDamage *
-        attackMultiplier *
-        damageBonusMultiplier *
-        attributeDamageMultiplier *
-        elementMultiplier *
-        (enemyDefenseTypeMultiplier ?? 1) *
-        enemyDefenseReductionMultiplier
-
-    // --------------------------------------------------
-    // 暴擊率與暴擊傷害技能效果
-    // --------------------------------------------------
-
-    const criticalRateBonus =
-        isValidNumber(input.criticalRateBonusPercent)
-            ? input.criticalRateBonusPercent
-            : 0
-
-    const criticalDamageBonus =
-        isValidNumber(input.criticalDamageBonusPercent)
-            ? input.criticalDamageBonusPercent
-            : 0
-
-    const effectiveCriticalRate =
-        criticalRate === null
-            ? null
-            : Math.min(
-                1,
-                Math.max(
-                    0,
-                    criticalRate *
-                    (1 + criticalRateBonus / 100),
-                ),
-            )
-
-    const effectiveCriticalMultiplier =
-        criticalMultiplier === null
-            ? null
-            : criticalMultiplier *
-            (1 + criticalDamageBonus / 100)
-
-    // --------------------------------------------------
-    // 暴擊傷害
-    // --------------------------------------------------
-
-    const criticalDamage =
-        effectiveCriticalMultiplier === null
-            ? null
-            : normalDamage * effectiveCriticalMultiplier
-
-    // --------------------------------------------------
-    // 期望傷害
-    // --------------------------------------------------
-
-    const expectedDamage =
-        effectiveCriticalRate === null ||
-            criticalDamage === null
-            ? null
-            : normalDamage * (1 - effectiveCriticalRate) +
-            criticalDamage * effectiveCriticalRate
-
-    // --------------------------------------------------
-    // 回傳結果
-    // --------------------------------------------------
-
+  // 缺少核心資料時不產生傷害數字
+  if (
+    !isValidNumber(attack) ||
+    !isValidNumber(coefficient) ||
+    attack < 0 ||
+    coefficient < 0
+  ) {
     return {
-        skillKey,
-        coefficient,
-        normalDamage,
-        criticalDamage,
-        expectedDamage,
-        criticalRate: effectiveCriticalRate,
-        warnings,
-    }
+      skillKey,
+      coefficient,
+      normalDamage: null,
+      criticalDamage: null,
+      expectedDamage: null,
+      criticalRate,
+      warnings,
+    };
+  }
+
+  // --------------------------------------------------
+  // 基礎傷害
+  // --------------------------------------------------
+
+  const baseDamage = attack * (coefficient / 100);
+
+  // --------------------------------------------------
+  // 攻擊提升
+  // --------------------------------------------------
+
+  const attackBonus = isValidNumber(input.attackBonusPercent)
+    ? input.attackBonusPercent
+    : 0;
+
+  const attackMultiplier = 1 + attackBonus / 100;
+
+  // --------------------------------------------------
+  // 傷害加成
+  // --------------------------------------------------
+
+  const damageBonusMultiplier = getDamageBonusMultiplier(
+    stats,
+    input.damageBonusPercent,
+    warnings,
+  );
+
+  // --------------------------------------------------
+  // 最大值模式環境效果
+  // --------------------------------------------------
+
+  // 環境及角色技能提供的屬性傷害加成
+  const environmentAttributeDamageBonus = isValidNumber(
+    input.attributeDamageBonusPercent,
+  )
+    ? input.attributeDamageBonusPercent
+    : 0;
+
+  // 天賦提供的屬性傷害加成（例如屬性強化 +5%）
+  const talentAttributeDamageBonus = isValidNumber(stats.attributeBoost)
+    ? stats.attributeBoost
+    : 0;
+
+  // 合併屬性傷害加成
+  const attributeDamageBonus =
+    environmentAttributeDamageBonus + talentAttributeDamageBonus;
+
+  const attributeDamageMultiplier = 1 + attributeDamageBonus / 100;
+
+  // --------------------------------------------------
+  // 屬性克制
+  // --------------------------------------------------
+
+  const elementMultiplier = getElementMultiplier(elementRelation);
+
+  // --------------------------------------------------
+  // 敵人防禦類型
+  // --------------------------------------------------
+
+  const enemyDefenseTypeMultiplier = getEnemyDefenseTypeMultiplier(
+    enemy,
+    attackType,
+  );
+
+  if (enemyDefenseTypeMultiplier === null) {
+    warnings.push("無法判斷角色攻擊類型或敵人防禦類型，防禦類型倍率暫未套用。");
+  }
+
+  // --------------------------------------------------
+  // 尚未確認的計算項目
+  // --------------------------------------------------
+
+  if (mode === "maximum" && environment.attributeResistanceReduction.enabled) {
+    warnings.push("敵方屬性抗性資料尚未建立，暫未套用抗性降低。");
+  }
+
+  if (enemy.maxHp === null && enemy.kind === "minion") {
+    warnings.push("小怪缺少生命上限資料。");
+  }
+
+  // --------------------------------------------------
+  // 普通傷害
+  // --------------------------------------------------
+
+  const normalDamage =
+    baseDamage *
+    attackMultiplier *
+    damageBonusMultiplier *
+    attributeDamageMultiplier *
+    elementMultiplier *
+    (enemyDefenseTypeMultiplier ?? 1) *
+    enemyDefenseReductionMultiplier;
+
+  // --------------------------------------------------
+  // 暴擊率與暴擊傷害技能效果
+  // --------------------------------------------------
+
+  const criticalRateBonus = isValidNumber(input.criticalRateBonusPercent)
+    ? input.criticalRateBonusPercent
+    : 0;
+
+  const criticalDamageBonus = isValidNumber(input.criticalDamageBonusPercent)
+    ? input.criticalDamageBonusPercent
+    : 0;
+
+  const effectiveCriticalRate =
+    criticalRate === null
+      ? null
+      : Math.min(1, Math.max(0, criticalRate * (1 + criticalRateBonus / 100)));
+
+  const effectiveCriticalMultiplier =
+    criticalMultiplier === null
+      ? null
+      : criticalMultiplier * (1 + criticalDamageBonus / 100);
+
+  // --------------------------------------------------
+  // 暴擊傷害
+  // --------------------------------------------------
+
+  const criticalDamage =
+    effectiveCriticalMultiplier === null
+      ? null
+      : normalDamage * effectiveCriticalMultiplier;
+
+  // --------------------------------------------------
+  // 期望傷害
+  // --------------------------------------------------
+
+  const expectedDamage =
+    effectiveCriticalRate === null || criticalDamage === null
+      ? null
+      : normalDamage * (1 - effectiveCriticalRate) +
+        criticalDamage * effectiveCriticalRate;
+
+  // --------------------------------------------------
+  // 回傳結果
+  // --------------------------------------------------
+
+  return {
+    skillKey,
+    coefficient,
+    normalDamage,
+    criticalDamage,
+    expectedDamage,
+    criticalRate: effectiveCriticalRate,
+    warnings,
+  };
 }
 
 // ======================================================

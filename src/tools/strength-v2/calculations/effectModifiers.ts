@@ -369,19 +369,23 @@ export function calculateEnemyDefenseReductionMultiplier(
         defenseType,
     );
 
-    let totalMultiplier = 1;
-
-    for (const modifier of defenseModifiers) {
-        const measuredMultiplier =
-            EMPIRICAL_DEFENSE_REDUCTION_MULTIPLIERS[modifier.value];
-
-        // 尚無實測資料的降防幅度，不擅自套用倍率
-        if (measuredMultiplier === undefined) {
-            return null;
-        }
-
-        totalMultiplier *= measuredMultiplier;
+    if (defenseModifiers.length === 0) {
+        return 1;
     }
 
-    return totalMultiplier;
+    // 同一種防禦能力的降防效果不相乘：
+    // 雙防降低與單一物防／魔防降低同時存在時，取較高幅度。
+    const strongestReduction = Math.max(
+        ...defenseModifiers.map((modifier) => modifier.value),
+    );
+
+    const measuredMultiplier =
+        EMPIRICAL_DEFENSE_REDUCTION_MULTIPLIERS[strongestReduction];
+
+    // 尚無實測資料的降防幅度，不擅自套用倍率
+    if (measuredMultiplier === undefined) {
+        return null;
+    }
+
+    return measuredMultiplier;
 }
