@@ -66,6 +66,8 @@ function getSkillTypeClass(type: string): string {
       return "skill-type-all-healing";
     case "單體回血":
       return "skill-type-single-healing";
+    case "增益效果":
+      return "skill-type-buff";
     default:
       return "";
   }
@@ -270,6 +272,7 @@ export default function StrengthCalculatorV2() {
         ...DEFAULT_ENVIRONMENT.attributeResistanceReduction,
       },
       speedIncrease: { ...DEFAULT_ENVIRONMENT.speedIncrease },
+      ultimateGaugeIncrease: { ...DEFAULT_ENVIRONMENT.ultimateGaugeIncrease },
     }));
 
   // 篩選條件分成「正在編輯」與「已套用計算」兩份，避免每次點選都重新計算角色
@@ -1390,7 +1393,10 @@ export default function StrengthCalculatorV2() {
                           ...prev,
                           speedIncrease: {
                             ...prev.speedIncrease,
-                            durationSeconds: Number(event.target.value) as 10 | 15 | 20,
+                            durationSeconds: Number(event.target.value) as
+                              | 10
+                              | 15
+                              | 20,
                           },
                         }));
                       }}
@@ -1419,6 +1425,80 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             speedIncrease: {
                               ...prev.speedIncrease,
+                              cooldownSeconds: value,
+                            },
+                          }));
+                        }
+                      }}
+                    />
+                    秒
+                  </label>
+                </div>
+
+                {/* 必殺槽增加：開場立即觸發，之後依 CD 重複增加 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={environmentEffects.ultimateGaugeIncrease.enabled}
+                      onChange={(event) =>
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          ultimateGaugeIncrease: {
+                            ...prev.ultimateGaugeIncrease,
+                            enabled: event.target.checked,
+                          },
+                        }))
+                      }
+                    />
+                    必殺槽增加
+                  </label>
+                  <label>
+                    增加量
+                    <select
+                      value={
+                        environmentEffects.ultimateGaugeIncrease.percentage
+                      }
+                      disabled={
+                        !environmentEffects.ultimateGaugeIncrease.enabled
+                      }
+                      onChange={(event) =>
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          ultimateGaugeIncrease: {
+                            ...prev.ultimateGaugeIncrease,
+                            percentage: Number(event.target.value) as 20 | 40,
+                          },
+                        }))
+                      }
+                    >
+                      <option value={20}>20%</option>
+                      <option value={40}>40%</option>
+                    </select>
+                  </label>
+                  <label>
+                    CD
+                    <input
+                      type="number"
+                      min="0.1"
+                      step="0.1"
+                      value={
+                        environmentEffects.ultimateGaugeIncrease.cooldownSeconds
+                      }
+                      disabled={
+                        !environmentEffects.ultimateGaugeIncrease.enabled
+                      }
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        ) {
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            ultimateGaugeIncrease: {
+                              ...prev.ultimateGaugeIncrease,
                               cooldownSeconds: value,
                             },
                           }));
@@ -2253,20 +2333,6 @@ export default function StrengthCalculatorV2() {
                           result: item.damage.ultimate,
                           healing: item.damage.ultimate.healing,
                           showCooldown: false,
-                          talentLabel:
-                            item.damage.ultimate.skillEffects.effectText !==
-                            (item.character.ultimate[
-                              item.character.rarity === "UR"
-                                ? skillLevel
-                                : "max"
-                            ].originalEffectText ??
-                              item.character.ultimate[
-                                item.character.rarity === "UR"
-                                  ? skillLevel
-                                  : "max"
-                              ].effectText)
-                              ? "（天賦15）"
-                              : "",
                         },
                         {
                           label: "二技能",
@@ -2284,20 +2350,6 @@ export default function StrengthCalculatorV2() {
                           result: item.damage.skill2,
                           healing: item.damage.skill2.healing,
                           showCooldown: true,
-                          talentLabel:
-                            item.damage.skill2.skillEffects.effectText !==
-                            (item.character.skill2[
-                              item.character.rarity === "UR"
-                                ? skillLevel
-                                : "max"
-                            ].originalEffectText ??
-                              item.character.skill2[
-                                item.character.rarity === "UR"
-                                  ? skillLevel
-                                  : "max"
-                              ].effectText)
-                              ? "（天賦12）"
-                              : "",
                         },
                         {
                           label: "一技能",
@@ -2315,20 +2367,6 @@ export default function StrengthCalculatorV2() {
                           result: item.damage.skill1,
                           healing: item.damage.skill1.healing,
                           showCooldown: true,
-                          talentLabel:
-                            item.damage.skill1.skillEffects.effectText !==
-                            (item.character.skill1[
-                              item.character.rarity === "UR"
-                                ? skillLevel
-                                : "max"
-                            ].originalEffectText ??
-                              item.character.skill1[
-                                item.character.rarity === "UR"
-                                  ? skillLevel
-                                  : "max"
-                              ].effectText)
-                              ? "（天賦9）"
-                              : "",
                         },
                         {
                           label: "普攻",
@@ -2358,12 +2396,14 @@ export default function StrengthCalculatorV2() {
 
                           {/* 技能基本資訊 */}
                           <div className="strength-v2-skill-basic">
-                            <div className="strength-v2-result-stat">
-                              <span>技能倍率</span>
-                              <strong>
-                                {formatStat(skill.result.coefficient)}%
-                              </strong>
-                            </div>
+                            {skill.type !== "增益效果" && (
+                              <div className="strength-v2-result-stat">
+                                <span>技能倍率</span>
+                                <strong>
+                                  {formatStat(skill.result.coefficient)}%
+                                </strong>
+                              </div>
+                            )}
 
                             {skill.info && (
                               <>
@@ -2381,10 +2421,29 @@ export default function StrengthCalculatorV2() {
                                 <div className="strength-v2-skill-effect">
                                   <span>技能效果</span>
                                   <p>
-                                    {skill.info.effectText ||
-                                      skill.info.originalEffectText ||
-                                      "無"}
-                                    {skill.talentLabel}
+                                    {(skill.result as any).skillEffects?.effectLines?.length > 0
+                                      ? (skill.result as any).skillEffects.effectLines.map(
+                                          (line: {
+                                            text: string;
+                                            source: "skill" | "talent";
+                                            talentNode?: number;
+                                          },
+                                          index: number,
+                                        ) => (
+                                          <span
+                                            className="strength-v2-skill-effect-line"
+                                            key={`${skill.label}-${index}`}
+                                          >
+                                            {line.text}
+                                            {line.source === "talent" && line.talentNode
+                                              ? `（天賦${line.talentNode}）`
+                                              : ""}
+                                          </span>
+                                        ),
+                                      )
+                                      : skill.info.effectText ||
+                                        skill.info.originalEffectText ||
+                                        "無"}
                                   </p>
                                 </div>
                               </>
@@ -2396,42 +2455,45 @@ export default function StrengthCalculatorV2() {
                             <summary>計算明細</summary>
 
                             <div className="strength-v2-result-stats">
-                              {skill.healing !== null ? (
+                              {skill.result.damage &&
+                                (skill.result.damage.normalDamage !== null ||
+                                  skill.result.damage.criticalDamage !== null ||
+                                  skill.result.damage.expectedDamage !==
+                                    null) && (
+                                  <>
+                                    <div className="strength-v2-result-stat">
+                                      <span>普通傷害</span>
+                                      <strong>
+                                        {formatStat(
+                                          skill.result.damage?.normalDamage,
+                                        )}
+                                      </strong>
+                                    </div>
+                                    <div className="strength-v2-result-stat">
+                                      <span>暴擊傷害</span>
+                                      <strong>
+                                        {formatStat(
+                                          skill.result.damage?.criticalDamage,
+                                        )}
+                                      </strong>
+                                    </div>
+                                    <div className="strength-v2-result-stat">
+                                      <span>期望傷害</span>
+                                      <strong>
+                                        {formatStat(
+                                          skill.result.damage?.expectedDamage,
+                                        )}
+                                      </strong>
+                                    </div>
+                                  </>
+                                )}
+                              {skill.healing !== null && (
                                 <div className="strength-v2-result-stat">
                                   <span>治療量</span>
                                   <strong>
                                     {formatStat(skill.healing.healing)}
                                   </strong>
                                 </div>
-                              ) : (
-                                <>
-                                  <div className="strength-v2-result-stat">
-                                    <span>普通傷害</span>
-                                    <strong>
-                                      {formatStat(
-                                        skill.result.damage?.normalDamage,
-                                      )}
-                                    </strong>
-                                  </div>
-
-                                  <div className="strength-v2-result-stat">
-                                    <span>暴擊傷害</span>
-                                    <strong>
-                                      {formatStat(
-                                        skill.result.damage?.criticalDamage,
-                                      )}
-                                    </strong>
-                                  </div>
-
-                                  <div className="strength-v2-result-stat">
-                                    <span>期望傷害</span>
-                                    <strong>
-                                      {formatStat(
-                                        skill.result.damage?.expectedDamage,
-                                      )}
-                                    </strong>
-                                  </div>
-                                </>
                               )}
                             </div>
                           </details>

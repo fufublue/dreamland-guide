@@ -20,11 +20,18 @@ const elementClassMap: Record<string, string> = {
 
 function getSkillTypeClass(type: string): string {
     switch (type) {
-        case '全體攻擊': return 'skill-type-all-attack'
-        case '單體攻擊': return 'skill-type-single-attack'
-        case '全體回血': return 'skill-type-all-healing'
-        case '單體回血': return 'skill-type-single-healing'
-        default: return ''
+      case "全體攻擊":
+        return "skill-type-all-attack";
+      case "單體攻擊":
+        return "skill-type-single-attack";
+      case "全體回血":
+        return "skill-type-all-healing";
+      case "單體回血":
+        return "skill-type-single-healing";
+      case "增益效果":
+        return "skill-type-buff";
+      default:
+        return "";
     }
 }
 

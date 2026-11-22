@@ -101,7 +101,6 @@ workerScope.onmessage = (event) => {
         selectedNode: selectedTalentNode,
         stats: {
           ...result.stats,
-          damageBonus: null,
           attributeBoost: result.additionalStats.attributeBoost ?? null,
           attributeResistance:
             result.additionalStats.attributeResistance ?? null,

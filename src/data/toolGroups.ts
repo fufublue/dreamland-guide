@@ -51,6 +51,12 @@ export const toolGroups: ToolGroup[] = [
                 description: "計算及比較角色的戰鬥表現",
                 icon: "strength-calculator.svg",
             },
+            {
+                id: "specified-comparison",
+                title: "指定比較",
+                description: "自行選擇兩位角色及各自條件，比較戰鬥表現",
+                icon: "指定比較.svg",
+            },
         ],
     },
 ];

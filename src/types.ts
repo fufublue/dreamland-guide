@@ -29,7 +29,8 @@ export type ToolId =
     | "function-search"
     | "physical-characters"
     | "magic-characters"
-    | "strength-calculator";
+    | "strength-calculator"
+    | "specified-comparison";
 
 export interface ToolItem {
     id: ToolId;

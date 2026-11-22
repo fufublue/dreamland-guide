@@ -23,6 +23,11 @@ export const DEFAULT_CHARACTER_FILTERS: CharacterFilterSettings = {
 // ======================================================
 
 export const DEFAULT_ENVIRONMENT: MaximumModeEnvironment = {
+  ultimateGaugeIncrease: {
+    enabled: false,
+    percentage: 20,
+    cooldownSeconds: 15,
+  },
   // 攻擊提升：固定大幅
   attackIncrease: {
     enabled: true,
@@ -104,6 +109,7 @@ export const createDefaultStrengthSettings =
         // 最大值模式環境效果
         environment: {
             ...DEFAULT_ENVIRONMENT,
+            ultimateGaugeIncrease: { ...DEFAULT_ENVIRONMENT.ultimateGaugeIncrease },
 
             attackIncrease: {
                 ...DEFAULT_ENVIRONMENT.attackIncrease,

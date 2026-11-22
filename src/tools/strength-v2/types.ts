@@ -150,7 +150,17 @@ export type ConfigurableEnvironmentEffect = {
   cooldownSeconds: number;
 };
 
+export type UltimateGaugeEnvironmentEffect = {
+  enabled: boolean;
+  /** 每次觸發增加的必殺槽百分比 */
+  percentage: 20 | 40;
+  /** 開場 0 秒立即觸發，之後每隔此秒數觸發 */
+  cooldownSeconds: number;
+};
+
 export type MaximumModeEnvironment = {
+  // 必殺槽增加：開場立即觸發，之後依 CD 重複觸發
+  ultimateGaugeIncrease: UltimateGaugeEnvironmentEffect;
   // 攻擊提升（固定大幅）
   attackIncrease: ConfigurableEnvironmentEffect;
 
@@ -285,7 +295,6 @@ export type CharacterCombatStats = {
 
     counterElementResistance: NullableNumber
 
-    damageBonus: NullableNumber
     attributeBoost: NullableNumber
     attributeResistance: NullableNumber
 

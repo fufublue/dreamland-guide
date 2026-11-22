@@ -13,10 +13,10 @@
  */
 export const DATA_VERSIONS = {
   // GAS：角色資料（物理與魔法共用同一個版本）
-  characterData: "2",
+  characterData: "1",
 
   // GAS：卡池資料
-  poolData: "2",
+  poolData: "1",
 
   // GAS：強度計算基準資料
   strengthBaseData: "1",
@@ -25,8 +25,8 @@ export const DATA_VERSIONS = {
   talentMultiplierData: "1",
 
   // Google 試算表發布的活動 CSV（圖片由舊 JSON 依活動名稱與開始日期配對）
-  activityData: "6",
+  activityData: "1",
 
   // Google 試算表發布的敵人與技能 CSV
-  monsterCsv: "2",
+  monsterCsv: "1",
 } as const;

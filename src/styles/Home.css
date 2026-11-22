@@ -308,3 +308,94 @@
     background-clip: text;
     color: transparent;
 }
+/* ===== 首頁資料版本資訊 ===== */
+
+.data-version-section {
+    margin-top: 38px;
+    padding: 20px 22px 16px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+}
+
+.data-version-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.data-version-heading h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 650;
+    letter-spacing: 0.3px;
+}
+
+.data-version-heading > span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.data-version-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.data-version-item {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 9px;
+    background: var(--surface-soft);
+}
+
+.data-version-label {
+    min-width: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.data-version-number {
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.data-version-note {
+    margin: 13px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+    .data-version-section {
+        margin-top: 30px;
+        padding: 17px 16px 14px;
+    }
+
+    .data-version-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .data-version-item {
+        padding: 9px 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .data-version-grid {
+        grid-template-columns: 1fr;
+    }
+}

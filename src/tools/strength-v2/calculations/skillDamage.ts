@@ -437,7 +437,7 @@ export function calculateCharacterSkillDamage(
             ? calculateCriticalDamageBonusPercent(activeModifiers)
             : 0
 
-    // 武器與掛件傷害加成相加
+    // 彙總武器、掛件及角色滿突破特性傷害加成
     const additionalDamageBonusPercent =
         getAdditionalDamageBonusPercent(
             weaponDamageBonus,
@@ -550,7 +550,7 @@ export function calculateCharacterSkillDamage(
                 environment,
                 attackBonusPercent,
                 attributeDamageBonusPercent,
-                damageBonusPercent: additionalDamageBonusPercent,
+                additionalDamageBonusPercent: additionalDamageBonusPercent,
                 criticalRateBonusPercent,
                 criticalDamageBonusPercent,
                 enemyDefenseReductionMultiplier:

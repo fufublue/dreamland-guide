@@ -1,7 +1,7 @@
 import { ACTION_GAUGE_SPEED_CONSTANT, parseCooldownSeconds } from "./ranking";
 
 import type { EngineEffect } from "../../../engine/types/effect";
-import type { MaximumModeEnvironment } from "../types";
+import type { ConfigurableEnvironmentEffect, MaximumModeEnvironment } from "../types";
 
 import {
   applyEffectsAtCast,
@@ -127,8 +127,40 @@ interface SearchResult {
 
 const EPSILON = 1e-9;
 
+/**
+ * 必殺槽環境條件：開場 0 秒立即觸發，之後每經過一個 CD 再觸發。
+ * fromTime 不含起點、toTime 包含終點；initial=true 時包含 t=0。
+ */
+export function applyUltimateGaugeEnvironmentTriggers(
+  gauge: number,
+  environment: MaximumModeEnvironment,
+  fromTime: number,
+  toTime: number,
+  multiplier: number,
+  initial = false,
+): number {
+  const effect = environment.ultimateGaugeIncrease;
+  if (!effect?.enabled || !Number.isFinite(toTime) || toTime < 0) return gauge;
+
+  const cooldown = effect.cooldownSeconds;
+  let triggerCount = 0;
+
+  if (!Number.isFinite(cooldown) || cooldown <= 0) {
+    triggerCount = initial ? 1 : 0;
+  } else {
+    const throughTo = Math.floor((toTime + EPSILON) / cooldown) + 1;
+    const beforeOrAtFrom = initial
+      ? 0
+      : Math.floor((Math.max(0, fromTime) + EPSILON) / cooldown) + 1;
+    triggerCount = Math.max(0, throughTo - beforeOrAtFrom);
+  }
+
+  const points = triggerCount * effect.percentage * 100 * multiplier;
+  return Math.min(10000, Math.max(0, gauge + points));
+}
+
 function isEnvironmentEffectActive(
-  effect: MaximumModeEnvironment[keyof MaximumModeEnvironment],
+  effect: ConfigurableEnvironmentEffect,
   actionTime: number,
 ): boolean {
   if (!effect.enabled || !Number.isFinite(actionTime) || actionTime < 0) {
@@ -190,12 +222,13 @@ function getActiveEnvironmentAtTime(
         actionTime,
       ),
     },
+    ultimateGaugeIncrease: { ...environment.ultimateGaugeIncrease },
   };
 }
 
 type EnvironmentEffectSpec = {
   id: string;
-  config: MaximumModeEnvironment[keyof MaximumModeEnvironment];
+  config: ConfigurableEnvironmentEffect;
   action: EngineEffect["action"];
   category: EngineEffect["category"];
   attribute: string;
@@ -206,7 +239,7 @@ function getEnvironmentEffectSpecs(
   environment: MaximumModeEnvironment,
 ): EnvironmentEffectSpec[] {
   const magnitudeValue = (
-    magnitude: MaximumModeEnvironment[keyof MaximumModeEnvironment]["magnitude"],
+    magnitude: ConfigurableEnvironmentEffect["magnitude"],
     values: Record<string, number>,
   ) => values[magnitude] ?? 0;
 
@@ -1203,6 +1236,16 @@ export function createSkillSchedule(
         }
 
         // 每個機率分支各自重新最佳化後續技能順序。
+        const gaugeAtNextAction = tracksUltimateGauge && input.environmentEnabled !== false
+          ? applyUltimateGaugeEnvironmentTriggers(
+              transition.ultimateGauge,
+              input.environment,
+              actionTime,
+              nextActionTime,
+              input.ultimateGaugeMultiplier,
+            )
+          : tracksUltimateGauge ? transition.ultimateGauge : 0;
+
         const futureResult =
           remainingActionPoints === 0 &&
           (nextGaugeTimeForBranch === null ||
@@ -1218,7 +1261,7 @@ export function createSkillSchedule(
                 ...nextStateBase,
                 actionPoints: nextActionPoints,
                 nextActionTime: nextGaugeTime,
-                ultimateGauge: tracksUltimateGauge ? transition.ultimateGauge : 0,
+                ultimateGauge: gaugeAtNextAction,
                 effectState: nextEffectState,
               });
 
@@ -1298,10 +1341,21 @@ export function createSkillSchedule(
               state.nextActionTime,
             );
 
+      const waitedGauge = input.ultimateUses === null && input.environmentEnabled !== false
+        ? applyUltimateGaugeEnvironmentTriggers(
+            state.ultimateGauge,
+            input.environment,
+            actionTime,
+            state.nextActionTime,
+            input.ultimateGaugeMultiplier,
+          )
+        : input.ultimateUses === null ? state.ultimateGauge : 0;
+
       const waitResult = search(state.nextActionTime, {
         ...state,
         actionPoints: 2,
         nextActionTime: null,
+        ultimateGauge: waitedGauge,
         effectState: waitedEffectState,
       });
 
@@ -1376,10 +1430,22 @@ export function createSkillSchedule(
       lastSkill1Cast: null,
       lastSkill2Cast: null,
       ultimateUses: 0,
-      ultimateGauge: Math.min(
-        10000,
-        (7000 + assumedReceivedAttacks * 500) * input.ultimateGaugeMultiplier,
-      ),
+      ultimateGauge: input.environmentEnabled === false
+        ? Math.min(
+            10000,
+            (7000 + assumedReceivedAttacks * 500) * input.ultimateGaugeMultiplier,
+          )
+        : applyUltimateGaugeEnvironmentTriggers(
+            Math.min(
+              10000,
+              (7000 + assumedReceivedAttacks * 500) * input.ultimateGaugeMultiplier,
+            ),
+            input.environment,
+            0,
+            0,
+            input.ultimateGaugeMultiplier,
+            true,
+          ),
       effectState: startingEffectState,
       hasExited: false,
     });

@@ -92,11 +92,10 @@ export type DamageCalculationInput = {
     environment: MaximumModeEnvironment
 
     // 攻擊力提升，獨立計算
-    // 其他傷害加成，會與角色面板傷害加成相加
-    // 例如武器、掛件及戰鬥中觸發的傷害加成
+    // 已確認來源的其他傷害加成，例如武器、掛件、角色滿突破特性及戰鬥效果
     attackBonusPercent?: number
     attributeDamageBonusPercent?: number
-    damageBonusPercent?: number
+    additionalDamageBonusPercent?: number
     criticalRateBonusPercent?: number
     criticalDamageBonusPercent?: number
 
@@ -281,31 +280,16 @@ export function getElementMultiplier(
 /**
  * 傷害加成統一採加算：
  *
- * 角色面板傷害加成
- * + 武器傷害加成
- * + 掛件傷害特性
- * + 其他適用的傷害加成
- *
- * 最後只轉換成一個乘數，避免重複乘算。
+ * 武器、掛件、角色滿突破特性及其他已確認來源的傷害加成，
+ * 由上游彙總後統一轉換成一個乘數，避免重複乘算。
  */
-function getDamageBonusMultiplier(
-    stats: CharacterCombatStats,
+function getAdditionalDamageMultiplier(
     additionalDamageBonus: number | undefined,
-    warnings: string[],
 ): number {
-    let totalDamageBonus = 0
-
-    if (isValidNumber(stats.damageBonus)) {
-        totalDamageBonus += stats.damageBonus
-    } else {
-        warnings.push(
-            '角色面板傷害加成缺少有效數值，暫未納入。',
-        )
-    }
-
-    if (isValidNumber(additionalDamageBonus)) {
-        totalDamageBonus += additionalDamageBonus
-    }
+    // 只整合已知且有來源的傷害加成。
+    const totalDamageBonus = isValidNumber(additionalDamageBonus)
+        ? additionalDamageBonus
+        : 0
 
     return 1 + totalDamageBonus / 100
 }
@@ -405,10 +389,8 @@ export function calculateSkillDamage(
   // 傷害加成
   // --------------------------------------------------
 
-  const damageBonusMultiplier = getDamageBonusMultiplier(
-    stats,
-    input.damageBonusPercent,
-    warnings,
+  const additionalDamageMultiplier = getAdditionalDamageMultiplier(
+    input.additionalDamageBonusPercent,
   );
 
   // --------------------------------------------------
@@ -471,7 +453,7 @@ export function calculateSkillDamage(
   const normalDamage =
     baseDamage *
     attackMultiplier *
-    damageBonusMultiplier *
+    additionalDamageMultiplier *
     attributeDamageMultiplier *
     elementMultiplier *
     (enemyDefenseTypeMultiplier ?? 1) *

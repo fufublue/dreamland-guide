@@ -7,6 +7,7 @@ import ChallengeTicketConverter from "../tools/ChallengeTicketConverter";
 import FunctionSearch from "../tools/FunctionSearch";
 import CharacterSearch from "../tools/CharacterSearch";
 import StrengthCalculatorV2 from "../tools/strength-v2/StrengthCalculatorV2";
+import SpecifiedComparison from "../tools/strength-v2/SpecifiedComparison";
 
 interface ToolContentProps {
     toolId: ToolId;
@@ -36,6 +37,9 @@ export default function ToolContent({
 
         case "strength-calculator":
             return <StrengthCalculatorV2 />;
+
+        case "specified-comparison":
+            return <SpecifiedComparison />;
 
         default:
             return (

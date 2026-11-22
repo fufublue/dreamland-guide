@@ -10,6 +10,7 @@ import type { EngineTalentRule } from '../../../engine/types/talent'
 
 import { parseEffectText } from '../../../engine/parser/effectParser'
 import { parseCalculationData } from '../../../engine/parser/calculationParser'
+import { splitEffectText } from '../../../engine/parser/textNormalizer'
 
 import type { TalentNodeSelection } from '../types'
 import { getEffectiveTalentNode } from './talent'
@@ -17,8 +18,15 @@ import { getEffectiveTalentNode } from './talent'
 export type SkillSlot = 'skill1' | 'skill2' | 'ultimate'
 export type SkillLevel = 'initial' | 'max'
 
+export type SkillEffectLine = {
+    text: string
+    source: 'skill' | 'talent'
+    talentNode?: number
+}
+
 export type SkillEffectsResult = {
     effects: EngineEffect[]
+    effectLines: SkillEffectLine[]
     calculations: EngineCalculation[]
     cooldown: string
     effectText: string
@@ -143,6 +151,24 @@ function applyRuleToText(
                 /\d+(?:\.\d+)?秒/g,
             ) ?? []
 
+            // 明確寫出「所有效果」時，代表同一技能中的每一項效果
+            // 都要修改持續時間，不應要求整段文字只有一個秒數。
+            if (/所有效果|全部效果/.test(rule.originalText)) {
+                if (matches.length === 0) {
+                    return {
+                        text,
+                        reviewRequired: true,
+                        reviewIssues: ['找不到可替換的持續時間'],
+                    }
+                }
+
+                return {
+                    text: text.replace(/\d+(?:\.\d+)?秒/g, replacement),
+                    reviewRequired: false,
+                    reviewIssues: [],
+                }
+            }
+
             if (matches.length !== 1) {
                 return {
                     text,
@@ -225,45 +251,24 @@ function applyCooldownRule(
 /**
  * 重新解析技能效果及計算資料。
  *
- * 原技能效果與天賦新增效果分開解析，
- * 最後再合併成同一份效果清單。
+ * 每一項效果保留自己的來源：原始技能效果為 skill，
+ * 被天賦修改或由天賦新增的效果為 talent。
  */
 function refreshSkillLevel(
     level: EngineSkillLevel,
-    skillEffectText: string,
-    talentEffectTexts: string[],
+    effectLines: SkillEffectLine[],
     skillType: string,
     cooldown: string,
     extraReviewIssues: string[],
 ): SkillEffectsResult {
-    const skillEffects = parseEffectText(
-        skillEffectText,
-        'skill',
+    const effects = effectLines.flatMap(line =>
+        parseEffectText(line.text, line.source),
     )
 
-    const talentEffects = talentEffectTexts.flatMap(text => {
-        let effectText = text.trim()
-
-        // 移除可能存在的「效果」前綴，
-        // 保留天賦新增效果的「加」字。
-        effectText = effectText.replace(/^效果\s*/, '')
-
-        return effectText
-            ? parseEffectText(effectText, 'talent')
-            : []
-    })
-
-    const effectText = [
-        skillEffectText,
-        ...talentEffectTexts,
-    ]
+    const effectText = effectLines
+        .map(line => line.text)
         .filter(text => text.trim().length > 0)
         .join('；')
-
-    const effects = [
-        ...skillEffects,
-        ...talentEffects,
-    ]
 
     const calculations = parseCalculationData(
         level.coefficient,
@@ -281,6 +286,7 @@ function refreshSkillLevel(
 
     return {
         effects,
+        effectLines,
         calculations,
         cooldown,
         effectText,
@@ -290,6 +296,50 @@ function refreshSkillLevel(
             uniqueReviewIssues.length > 0 ||
             effects.some(effect => effect.reviewRequired) ||
             calculations.some(item => item.reviewRequired),
+    }
+}
+
+/**
+ * 將單一天賦規則套用至效果清單。
+ *
+ * 一般修改仍要求能唯一定位修改目標；只有規則明確寫出
+ * 「所有效果／全部效果」時，才會逐項修改所有符合的效果。
+ */
+function applyRuleToEffectLines(
+    effectLines: SkillEffectLine[],
+    rule: EngineTalentRule,
+): {
+    effectLines: SkillEffectLine[]
+    reviewIssues: string[]
+} {
+    const combinedText = effectLines.map(line => line.text).join('；')
+    const result = applyRuleToText(combinedText, rule)
+
+    if (result.reviewRequired) {
+        return {
+            effectLines,
+            reviewIssues: result.reviewIssues,
+        }
+    }
+
+    const updatedTexts = splitEffectText(result.text)
+    const updatedLines = effectLines.map((line, index) => {
+        const updatedText = updatedTexts[index] ?? line.text
+
+        if (updatedText === line.text) {
+            return line
+        }
+
+        return {
+            text: updatedText,
+            source: 'talent' as const,
+            talentNode: rule.node,
+        }
+    })
+
+    return {
+        effectLines: updatedLines,
+        reviewIssues: [],
     }
 }
 
@@ -314,10 +364,14 @@ export function getSkillEffectsWithTalent(
     const originalSkillEffectText =
         level.originalEffectText ?? level.effectText
 
-    let skillEffectText = originalSkillEffectText
+    let effectLines: SkillEffectLine[] = splitEffectText(
+        originalSkillEffectText,
+    ).map(text => ({
+        text,
+        source: 'skill',
+    }))
     let cooldown = level.cooldown
 
-    const talentEffectTexts: string[] = []
     const extraReviewIssues: string[] = []
 
     // 依照角色實際天賦頁數，取得可計算的最大節點
@@ -356,7 +410,11 @@ export function getSkillEffectsWithTalent(
                     continue
                 }
 
-                talentEffectTexts.push(rule.replacement.trim())
+                effectLines.push({
+                    text: rule.replacement.trim().replace(/^效果\s*/, ''),
+                    source: 'talent',
+                    talentNode: rule.node,
+                })
                 continue
             }
 
@@ -372,13 +430,14 @@ export function getSkillEffectsWithTalent(
                 continue
             }
 
-            // 其他修改作用於原技能效果文字
-            const result = applyRuleToText(
-                skillEffectText,
+            // 其他修改逐項作用於原技能效果；只有被修改的項目
+            // 會標記為天賦來源，未變動的項目保留原始來源。
+            const result = applyRuleToEffectLines(
+                effectLines,
                 rule,
             )
 
-            skillEffectText = result.text
+            effectLines = result.effectLines
             extraReviewIssues.push(...result.reviewIssues)
         }
     }
@@ -392,8 +451,7 @@ export function getSkillEffectsWithTalent(
 
     return refreshSkillLevel(
         level,
-        skillEffectText,
-        talentEffectTexts,
+        effectLines,
         skill.type,
         cooldown,
         extraReviewIssues,

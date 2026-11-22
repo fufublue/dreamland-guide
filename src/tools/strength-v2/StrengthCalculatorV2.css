@@ -2327,6 +2327,10 @@
   overflow-wrap: anywhere;
 }
 
+.strength-v2-skill-effect-line {
+  display: block;
+}
+
 /* 手機版 */
 @media (max-width: 600px) {
   .strength-v2-skill-basic {

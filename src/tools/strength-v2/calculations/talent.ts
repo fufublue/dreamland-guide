@@ -230,7 +230,15 @@ export function calculateTalentStats(
             continue
         }
 
-        const bonus = row.value
+        const rawBonus = row.value;
+
+        // 屬性強化需要使用百分點：API 的 0.05 代表 5%。
+        const bonus =
+          field === "attributeBoost" &&
+          row.unit === "percent" &&
+          Math.abs(rawBonus) <= 1
+            ? rawBonus * 100
+            : rawBonus;
 
         if (field in stats) {
             const key = field as keyof CharacterBaseStats
@@ -264,6 +272,7 @@ export function calculateTalentStats(
             `${character.name} 只有 ${pageCount} 頁天賦，已自動以第 ${effectiveNode} 節點計算。`,
         )
     }
+    
 
     return {
         stats,

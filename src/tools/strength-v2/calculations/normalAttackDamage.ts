@@ -56,10 +56,11 @@ export interface CharacterNormalAttackDamageInput {
 }
 
 export interface CharacterNormalAttackDamageResult {
-    skillKey: StrengthSkillKey
-    coefficient: number | null
-    damage: SkillDamageResult
-    warnings: string[]
+  skillKey: StrengthSkillKey;
+  coefficient: number | null;
+  damage: SkillDamageResult;
+  enemy: StrengthEnemySettings | null;
+  warnings: string[];
 }
 
 // 取得角色對應的攻擊力
@@ -170,14 +171,12 @@ export function calculateCharacterNormalAttackDamage(
         )
 
         return {
-            skillKey: 'normalAttack',
-            coefficient,
-            damage: createEmptyDamageResult(
-                coefficient,
-                warnings,
-            ),
-            warnings,
-        }
+          skillKey: "normalAttack",
+          coefficient,
+          enemy,
+          damage: createEmptyDamageResult(coefficient, warnings),
+          warnings,
+        };
     }
 
     if (talent6Bonus > 0) {
@@ -249,7 +248,7 @@ export function calculateCharacterNormalAttackDamage(
             ? calculateCriticalDamageBonusPercent(activeModifiers)
             : 0
 
-    // 武器與掛件傷害加成相加
+    // 彙總武器、掛件及角色滿突破特性傷害加成
     const additionalDamageBonusPercent =
         getAdditionalDamageBonusPercent(
             weaponDamageBonus,
@@ -270,7 +269,7 @@ export function calculateCharacterNormalAttackDamage(
         environment,
         attackBonusPercent,
         attributeDamageBonusPercent,
-        damageBonusPercent: additionalDamageBonusPercent,
+        additionalDamageBonusPercent: additionalDamageBonusPercent,
         criticalRateBonusPercent,
         criticalDamageBonusPercent,
         enemyDefenseReductionMultiplier:
@@ -280,9 +279,10 @@ export function calculateCharacterNormalAttackDamage(
     warnings.push(...damage.warnings)
 
     return {
-        skillKey: 'normalAttack',
-        coefficient,
-        damage,
-        warnings: [...new Set(warnings)],
-    }
+      skillKey: "normalAttack",
+      coefficient,
+      enemy,
+      damage,
+      warnings: [...new Set(warnings)],
+    };
 }

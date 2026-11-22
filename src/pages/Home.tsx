@@ -2,6 +2,7 @@
 import type { NavigationItem, PageId } from "../types";
 import PageHeader from "../components/PageHeader";
 import Icon from "../components/Icon";
+import DataVersionInfo from "../components/DataVersionInfo";
 
 interface HomeProps {
     navigation: NavigationItem[];
@@ -72,6 +73,8 @@ export default function Home({
                     ))}
                 </div>
             </section>
+
+            <DataVersionInfo />
         </div>
     );
 }
