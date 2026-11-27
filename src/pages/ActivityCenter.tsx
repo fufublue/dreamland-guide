@@ -421,27 +421,15 @@ export default function ActivityCenter({ icon }: ActivityCenterProps) {
               throw new Error("CSV 缺少必要的活動欄位");
             }
 
-            // 依照活動名稱、類型與日期配對圖片，不再依賴工作表列號
+            // 以活動名稱配對圖片，不依賴試算表列號或日期。
+            // 活動整列移動後，圖片仍會跟著相同活動名稱。
             const normalizeMatchValue = (value: string) =>
               value.trim().replace(/\s+/g, " ");
-
-            const getMatchKey = (
-              event: Pick<
-                ActivityEvent,
-                "name" | "type" | "startDate" | "endDate"
-              >,
-            ) =>
-              JSON.stringify([
-                normalizeMatchValue(event.name),
-                normalizeMatchValue(event.type),
-                normalizeMatchValue(event.startDate),
-                normalizeMatchValue(event.endDate),
-              ]);
 
             const legacyMap = new Map<string, ActivityEvent[]>();
 
             legacyData.events.forEach((event) => {
-              const key = getMatchKey(event);
+              const key = normalizeMatchValue(event.name);
               const matched = legacyMap.get(key) ?? [];
               matched.push(event);
               legacyMap.set(key, matched);
@@ -468,18 +456,10 @@ export default function ActivityCenter({ icon }: ActivityCenterProps) {
               const startDate = dateParts[0];
               const endDate = dateParts[1] || startDate;
 
-              const rerun = getValue("復刻情況");
-              const matchKey = getMatchKey({
-                name,
-                type,
-                startDate,
-                endDate,
-              });
+              const legacyId = `row-${rowIndex + 3}`;
+              const matchKey = normalizeMatchValue(name);
               const matchedEvents = legacyMap.get(matchKey);
               const legacyEvent = matchedEvents?.shift();
-
-              // 活動 ID 仍保留原本列號規則，只有圖片配對改用活動內容
-              const legacyId = `row-${rowIndex + 3}`;
 
               const csvLink = getValue("連結");
 
@@ -490,7 +470,7 @@ export default function ActivityCenter({ icon }: ActivityCenterProps) {
                 startDate,
                 endDate,
                 dateText,
-                rerun,
+                rerun: getValue("復刻情況"),
                 images: legacyEvent?.images
                   ? {
                       pool1: resolveImagePath(legacyEvent.images.pool1),
