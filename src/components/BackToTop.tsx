@@ -79,7 +79,7 @@ export default function BackToTop({
             alignItems: "center",
             justifyContent: "center",
             lineHeight: 1,
-            transform: "translateY(0px)",
+            transform: "translateY(-1px)",
           }}
         >
           ↑
