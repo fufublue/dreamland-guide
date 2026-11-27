@@ -25,7 +25,7 @@ export const DATA_VERSIONS = {
   talentMultiplierData: "2",
 
   // Google 試算表發布的活動 CSV（圖片由舊 JSON 依活動名稱與開始日期配對）
-  activityData: "3",
+  activityData: "2",
 
   // Google 試算表發布的敵人與技能 CSV
   monsterCsv: "2",
