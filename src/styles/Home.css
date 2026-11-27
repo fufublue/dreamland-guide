@@ -17,7 +17,6 @@
 
 /* 裝飾文字 */
 .welcome-section::after {
-    content: "夢";
     position: absolute;
     right: 55px;
     top: 50%;
