@@ -202,6 +202,64 @@ function isNonTimelineEffect(effect: EngineEffect): boolean {
 }
 
 /**
+ * 判斷是否為「清除全體狀態下降」這種廣域清除效果。
+ * 只針對明確解析成 clear + 狀態下降的效果，避免改變既有單項清除規則。
+ */
+function isClearAllStatusDownEffect(effect: EngineEffect): boolean {
+    return (
+        effect.action === 'clear' &&
+        /狀態下降/.test(effect.attribute || effect.originalText || '')
+    );
+}
+
+/**
+ * 判斷一項既有效果是否屬於指定清除效果可移除的負面效果。
+ * - 能力下降：action = decrease
+ * - 有害狀態：控制效果或持續傷害
+ * - 清除我方時，包含作用於我方全體及自身的效果
+ * - 不移除正面增益，也不移除敵方效果
+ */
+function shouldRemoveByStatusDownClear(
+    activeEffect: TimedEffect,
+    clearEffect: EngineEffect,
+): boolean {
+    const targetMatches =
+        clearEffect.targetSide === 'ally'
+            ? activeEffect.effect.targetSide === 'ally' ||
+              activeEffect.effect.targetSide === 'self'
+            : clearEffect.targetSide === 'self'
+                ? activeEffect.effect.targetSide === 'self'
+                : false;
+
+    if (!targetMatches) return false;
+
+    const effect = activeEffect.effect;
+    const isAttributeDecrease = effect.action === 'decrease';
+    const isHarmfulStatus =
+        effect.category === 'control' ||
+        effect.category === 'damageOverTime' ||
+        (
+            effect.category === 'special' &&
+            /有害狀態/.test(effect.attribute || effect.originalText || '')
+        );
+
+    return isAttributeDecrease || isHarmfulStatus;
+}
+
+/** 成功發動廣域狀態清除後，移除符合條件的既有效果。 */
+function applySuccessfulStatusDownClear(
+    state: EffectTimelineState,
+    clearEffect: EngineEffect,
+): EffectTimelineState {
+    return {
+        activeEffects: state.activeEffects.filter(
+            item => !shouldRemoveByStatusDownClear(item, clearEffect),
+        ),
+        probability: state.probability,
+    };
+}
+
+/**
  * 判斷兩個效果是否屬於同一類。
  *
  * 依照效果種類建立共用群組：物攻、魔攻、屬性傷害、物防、魔防及各屬性抗性分開處理。
@@ -475,7 +533,43 @@ export function applyEffectsAtCast(
     });
 
     for (const effect of expandedEffects) {
-      // 即時效果不進入持續效果時間軸
+      // 廣域狀態清除是即時效果，但成功發動時需要實際移除時間軸中的負面效果。
+      if (isClearAllStatusDownEffect(effect)) {
+        const chance = parseEffectChance(effect.chance);
+
+        if (chance === null) {
+          warnings.push(
+            `效果發動機率無法辨識：「${effect.chance}」，此清除效果暫不執行。`,
+          );
+          continue;
+        }
+
+        const nextStates: EffectTimelineState[] = [];
+
+        for (const state of currentStates) {
+          // 清除未發動的分支：保留原狀態。
+          if (chance < 1) {
+            nextStates.push({
+              activeEffects: [...state.activeEffects],
+              probability: state.probability * (1 - chance),
+            });
+          }
+
+          // 清除成功的分支：移除我方能力下降及有害狀態。
+          if (chance > 0) {
+            const clearedState = applySuccessfulStatusDownClear(state, effect);
+            nextStates.push({
+              activeEffects: clearedState.activeEffects,
+              probability: state.probability * chance,
+            });
+          }
+        }
+
+        currentStates = mergeEffectTimelineStates(nextStates);
+        continue;
+      }
+
+      // 其他即時效果不進入持續效果時間軸。
       if (isNonTimelineEffect(effect)) {
         continue;
       }

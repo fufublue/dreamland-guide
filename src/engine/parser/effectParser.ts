@@ -117,6 +117,7 @@ const attributeMap: Record<string, EffectCategory> = {
     '退場': 'special',
     '有害狀態': 'special',
     '屬性下降': 'special',
+    '狀態下降': 'special',
 }
 
 
@@ -531,9 +532,20 @@ function parseSingleEffect(
         attribute: attributeInfo.attribute,
 
         searchableCategories:
-            attributeInfo.category === 'unknown'
-                ? ['unknown']
-                : [attributeInfo.category],
+            /狀態下降/.test(normalized) && action === 'clear'
+                ? [
+                    'attack',
+                    'defense',
+                    'speed',
+                    'elementDamage',
+                    'criticalRate',
+                    'criticalDamage',
+                    'control',
+                    'damageOverTime',
+                ]
+                : attributeInfo.category === 'unknown'
+                    ? ['unknown']
+                    : [attributeInfo.category],
 
         magnitude,
         value,

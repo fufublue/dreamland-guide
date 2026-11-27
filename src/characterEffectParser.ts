@@ -267,6 +267,7 @@ const CATEGORY_ALIASES: Record<string, EffectCategory[]> = {
     黑暗: ['darkness'],
     中毒: ['poison'],
     有害狀態: ['harmfulStatus'],
+    狀態下降: ['attributeDown', 'harmfulStatus'],
 
     屬性下降: ['attributeDown'],
     嘲諷: ['taunt'],
@@ -660,6 +661,11 @@ function parseCategories(
 
     if (/有害狀態/.test(text)) {
         categories.push('harmfulStatus')
+    }
+
+    // 「狀態下降」是統稱，同時涵蓋能力下降與有害狀態。
+    if (/狀態下降/.test(text)) {
+        categories.push('attributeDown', 'harmfulStatus')
     }
 
     // 屬性抗性

@@ -1,4 +1,5 @@
 import { DATA_VERSIONS } from "../data/dataVersions";
+declare const __DATA_VERSION_DATE__: string;
 
 type DataVersionItem = {
     label: string;
@@ -14,26 +15,27 @@ const dataVersionItems: DataVersionItem[] = [
     { label: "怪物與技能資料", version: DATA_VERSIONS.monsterCsv },
 ];
 
+
 export default function DataVersionInfo() {
     return (
-        <section className="data-version-section" aria-label="資料版本資訊">
-            <div className="data-version-heading">
-                <h2>資料版本資訊</h2>
-                <span>目前網站設定</span>
-            </div>
+      <section className="data-version-section" aria-label="資料版本資訊">
+        <div className="data-version-heading">
+          <h2>資料版本資訊</h2>
+          <span>最後更新：{__DATA_VERSION_DATE__.replace(/-/g, "/")}</span>
+        </div>
 
-            <div className="data-version-grid">
-                {dataVersionItems.map((item) => (
-                    <div className="data-version-item" key={item.label}>
-                        <span className="data-version-label">{item.label}</span>
-                        <strong className="data-version-number">v{item.version}</strong>
-                    </div>
-                ))}
+        <div className="data-version-grid">
+          {dataVersionItems.map((item) => (
+            <div className="data-version-item" key={item.label}>
+              <span className="data-version-label">{item.label}</span>
+              <strong className="data-version-number">v{item.version}</strong>
             </div>
+          ))}
+        </div>
 
-            <p className="data-version-note">
-                資料版本更新時，網站會依各資料來源的快取設定重新取得資料。
-            </p>
-        </section>
+        <p className="data-version-note">
+          資料版本更新時，網站會依各資料來源的快取設定重新取得資料。
+        </p>
+      </section>
     );
 }
