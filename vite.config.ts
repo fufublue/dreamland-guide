@@ -26,7 +26,7 @@ export default defineConfig({
 
       manifest: {
         name: "夢樂園資料站",
-        short_name: "夢樂園",
+        short_name: "夢樂園資料站",
         description: "夢樂園遊戲資料與實用工具整理站",
         lang: "zh-TW",
         theme_color: "#ffffff",
@@ -47,12 +47,6 @@ export default defineConfig({
             sizes: "512x512",
             type: "image/png",
             purpose: "any",
-          },
-          {
-            src: "pwa-maskable-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "maskable",
           },
         ],
       },
