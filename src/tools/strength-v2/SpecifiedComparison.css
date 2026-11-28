@@ -896,3 +896,299 @@
   border-color: rgba(50, 155, 145, 0.3);
   background: rgba(50, 155, 145, 0.10);
 }
+/* 本次新增：敵人排序與額外環境減益列 */
+.specified-enemy-item[draggable="true"] {
+  cursor: grab;
+}
+.specified-enemy-item.is-dragging {
+  opacity: 0.48;
+  border-style: dashed;
+}
+.specified-enemy-drag-handle {
+  display: inline-block;
+  margin-right: 4px;
+  color: var(--muted);
+  cursor: grab;
+  user-select: none;
+}
+.specified-custom-env-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.specified-custom-env-list h5 {
+  margin: 0;
+  color: var(--text);
+  font-size: 13px;
+}
+.specified-custom-env-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.specified-custom-env-row > * {
+  min-width: 0;
+}
+.specified-custom-env-row .specified-env-toggle {
+  min-width: 52px;
+}
+.specified-custom-env-row input[type="number"] {
+  width: 76px;
+}
+.specified-env-row select,
+.specified-env-row input[type="number"] {
+  opacity: 1;
+}
+.specified-env-editor small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* 環境效果：條件盡量維持單列；窄螢幕可橫向捲動，不將欄位拆成多行。 */
+.specified-env-editor {
+  overflow-x: auto;
+}
+.specified-env-row {
+  min-width: 660px;
+  grid-template-columns:
+    minmax(125px, 1.15fr)
+    minmax(70px, 0.65fr)
+    minmax(90px, 0.85fr)
+    minmax(105px, 0.9fr)
+    minmax(105px, 0.9fr)
+    minmax(135px, 1.15fr);
+}
+.specified-custom-env-list {
+  min-width: 660px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.specified-custom-env-list > .strength-v2-button {
+  align-self: flex-start;
+  width: fit-content;
+}
+.specified-custom-env-row {
+  display: grid;
+  grid-template-columns:
+    minmax(125px, 1.15fr)
+    minmax(70px, 0.65fr)
+    minmax(90px, 0.85fr)
+    minmax(105px, 0.9fr)
+    minmax(105px, 0.9fr)
+    minmax(135px, 1.15fr)
+    auto;
+  min-width: 760px;
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+}
+.specified-custom-env-row > select {
+  min-width: 0;
+  width: 100%;
+}
+.specified-custom-env-row > button {
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .specified-env-row,
+  .specified-custom-env-row {
+    grid-template-columns:
+      minmax(125px, 1.15fr)
+      minmax(70px, 0.65fr)
+      minmax(90px, 0.85fr)
+      minmax(105px, 0.9fr)
+      minmax(105px, 0.9fr)
+      minmax(135px, 1.15fr);
+  }
+}
+
+/* 環境效果：目標範圍需要換行時，從幅度欄位下方開始排列。 */
+.specified-env-editor {
+  overflow-x: auto;
+}
+.specified-env-row {
+  min-width: 560px;
+  grid-template-columns:
+    minmax(135px, 1.25fr)
+    minmax(80px, 0.75fr)
+    minmax(105px, 0.95fr)
+    minmax(110px, 0.95fr);
+  grid-auto-rows: minmax(34px, auto);
+}
+.specified-env-target-controls {
+  grid-column: 2 / -1;
+  grid-row: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  min-width: 0;
+}
+.specified-env-target-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.specified-env-target-controls select {
+  min-width: 100px;
+}
+.specified-custom-env-list {
+  min-width: 560px;
+}
+.specified-custom-env-row {
+  min-width: 560px;
+  grid-template-columns:
+    minmax(135px, 1.25fr)
+    minmax(80px, 0.75fr)
+    minmax(105px, 0.95fr)
+    minmax(110px, 0.95fr);
+}
+.specified-custom-env-row .specified-env-target-controls {
+  grid-column: 2 / -1;
+  grid-row: 2;
+}
+.specified-custom-env-row > .specified-env-delete-button {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  min-height: 30px;
+  padding: 4px 11px;
+  border: 1px solid rgba(216, 121, 121, 0.35);
+  border-radius: 7px;
+  background: rgba(216, 121, 121, 0.08);
+  color: #d87979;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.specified-custom-env-row > .specified-env-delete-button:hover {
+  border-color: #d87979;
+  background: rgba(216, 121, 121, 0.16);
+}
+@media (max-width: 600px) {
+  .specified-env-row,
+  .specified-custom-env-row {
+    min-width: 560px;
+    grid-template-columns:
+      minmax(135px, 1.25fr)
+      minmax(80px, 0.75fr)
+      minmax(105px, 0.95fr)
+      minmax(110px, 0.95fr);
+  }
+}
+
+/* 1128v2：指定比較的環境條件改為自適應換行，不產生水平捲軸。 */
+.specified-env-editor {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.specified-env-row {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(72px, 0.75fr)
+    minmax(92px, 0.95fr)
+    minmax(96px, 0.95fr);
+  grid-auto-rows: minmax(32px, auto);
+  column-gap: 8px;
+  row-gap: 6px;
+}
+.specified-env-row > *,
+.specified-env-row label,
+.specified-env-row select,
+.specified-env-row input[type="number"] {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.specified-env-target-controls {
+  grid-column: 2 / -1;
+  grid-row: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+.specified-env-target-controls label {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.specified-env-target-controls select {
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+}
+.specified-custom-env-list {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.specified-custom-env-row {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(72px, 0.75fr)
+    minmax(92px, 0.95fr)
+    minmax(96px, 0.95fr);
+  grid-auto-rows: minmax(32px, auto);
+  column-gap: 8px;
+  row-gap: 6px;
+}
+.specified-custom-env-row > select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.specified-custom-env-row .specified-env-target-controls {
+  grid-column: 2 / -1;
+  grid-row: 2;
+}
+.specified-custom-env-row > .specified-env-delete-button {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  align-self: center;
+}
+@media (max-width: 600px) {
+  .specified-env-row,
+  .specified-custom-env-row {
+    min-width: 0;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+  .specified-env-row .specified-env-toggle {
+    grid-column: 1 / -1;
+  }
+  .specified-env-target-controls,
+  .specified-custom-env-row .specified-env-target-controls {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .specified-custom-env-row > .specified-env-delete-button {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}

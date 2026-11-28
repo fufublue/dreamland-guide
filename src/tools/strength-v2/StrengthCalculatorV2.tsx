@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { loadStrengthData } from "./data/loadStrengthData";
+import { loadTaiwanReleasedCharacterNames } from "./data/taiwanCharacterFilter";
 import { DEFAULT_CHARACTER_FILTERS, DEFAULT_ENVIRONMENT } from "./settings";
 import { calculateCharacterStats } from "./calculations/characterStats";
 import { calculateCharacterDamage } from "./calculations/characterDamage";
@@ -17,6 +18,7 @@ import type {
   StrengthEnemySettings,
   SkillLevelType,
   MaximumModeEnvironment,
+  CustomEnemyEnvironmentEffect,
 } from "./types";
 import {
   calculateBreakthroughTraitDamageBonus,
@@ -210,7 +212,7 @@ const CALCULATION_MODES: {
   },
   {
     value: "maximum",
-    label: "最大值",
+    label: "自行模擬環境",
     description: "使用者自行設定環境效果，依各自持續時間與 CD 觸發。",
   },
 ];
@@ -221,12 +223,35 @@ export default function StrengthCalculatorV2() {
   const [data, setData] = useState<StrengthData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showTaiwanOnly, setShowTaiwanOnly] = useState(false);
+  const [taiwanReleasedCharacterNames, setTaiwanReleasedCharacterNames] =
+    useState<Set<string>>(() => new Set());
+  const [taiwanFilterLoading, setTaiwanFilterLoading] = useState(true);
+  const [taiwanFilterError, setTaiwanFilterError] = useState<string | null>(
+    null,
+  );
+  const [taiwanFilterUnmatchedCount, setTaiwanFilterUnmatchedCount] =
+    useState(0);
   // 敵人設定
   const [enemySelections, setEnemySelections] = useState<EnemySelectionItem[]>(
     [],
   );
 
   const [nextEnemyKey, setNextEnemyKey] = useState(1);
+  const [draggedEnemyKey, setDraggedEnemyKey] = useState<number | null>(null);
+
+  const reorderEnemy = (fromKey: number, toKey: number) => {
+    if (fromKey === toKey) return;
+    setEnemySelections((previous) => {
+      const fromIndex = previous.findIndex((item) => item.key === fromKey);
+      const toIndex = previous.findIndex((item) => item.key === toKey);
+      if (fromIndex < 0 || toIndex < 0) return previous;
+      const next = [...previous];
+      const [moved] = next.splice(fromIndex, 1);
+      next.splice(toIndex, 0, moved);
+      return next;
+    });
+  };
 
   // 計算模式
   const [calculationMode, setCalculationMode] =
@@ -272,12 +297,17 @@ export default function StrengthCalculatorV2() {
         ...DEFAULT_ENVIRONMENT.attributeResistanceReduction,
       },
       speedIncrease: { ...DEFAULT_ENVIRONMENT.speedIncrease },
+      criticalRateIncrease: { ...DEFAULT_ENVIRONMENT.criticalRateIncrease! },
+      criticalDamageIncrease: {
+        ...DEFAULT_ENVIRONMENT.criticalDamageIncrease!,
+      },
+      customEnemyEffects: [],
       ultimateGaugeIncrease: { ...DEFAULT_ENVIRONMENT.ultimateGaugeIncrease },
     }));
 
   // 篩選條件分成「正在編輯」與「已套用計算」兩份，避免每次點選都重新計算角色
   const [filters, setFilters] = useState<CharacterFilterSettings>(() => ({
-    rarity: [...DEFAULT_CHARACTER_FILTERS.rarity],
+    rarity: ["UR"],
     element: [...DEFAULT_CHARACTER_FILTERS.element],
     characterClass: [...DEFAULT_CHARACTER_FILTERS.characterClass],
     attackType: [...DEFAULT_CHARACTER_FILTERS.attackType],
@@ -342,6 +372,41 @@ export default function StrengthCalculatorV2() {
     }
 
     loadData();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // 讀取台服已推出角色名單；這份名單只控制結果顯示，不參與角色計算。
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadTaiwanCharacterFilter() {
+      try {
+        setTaiwanFilterLoading(true);
+        setTaiwanFilterError(null);
+
+        const result = await loadTaiwanReleasedCharacterNames();
+
+        if (!cancelled) {
+          setTaiwanReleasedCharacterNames(result.characterNames);
+          setTaiwanFilterUnmatchedCount(result.unmatchedCharacterCount);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setTaiwanFilterError(
+            err instanceof Error ? err.message : "台服角色名單讀取失敗。",
+          );
+        }
+      } finally {
+        if (!cancelled) {
+          setTaiwanFilterLoading(false);
+        }
+      }
+    }
+
+    loadTaiwanCharacterFilter();
 
     return () => {
       cancelled = true;
@@ -457,14 +522,28 @@ export default function StrengthCalculatorV2() {
     };
   }, [data, calculationSnapshot, getFilteredCharacters, hasCalculated]);
 
+  // 台服開關只篩選已完成的計算結果。
+  // SSR、SR、R 一律保留，只有 UR 依照台服推出進度篩選。
+  const visibleCalculatedCharacters = useMemo(
+    () =>
+      showTaiwanOnly
+        ? calculatedCharacters.filter(
+            (item) =>
+              item.character.rarity !== "UR" ||
+              taiwanReleasedCharacterNames.has(item.character.name),
+          )
+        : calculatedCharacters,
+    [calculatedCharacters, showTaiwanOnly, taiwanReleasedCharacterNames],
+  );
+
   // 取得傷害比較區選中的兩名角色
   const compareCharacterA =
-    calculatedCharacters.find(
+    visibleCalculatedCharacters.find(
       (item) => item.character.id === compareCharacterAId,
     ) ?? null;
 
   const compareCharacterB =
-    calculatedCharacters.find(
+    visibleCalculatedCharacters.find(
       (item) => item.character.id === compareCharacterBId,
     ) ?? null;
 
@@ -474,7 +553,7 @@ export default function StrengthCalculatorV2() {
       comparisonTab === "damage" ? damageTopCount : healingTopCount;
 
     // 取得所有有效的比較數值
-    const scores = calculatedCharacters.flatMap((item) => {
+    const scores = visibleCalculatedCharacters.flatMap((item) => {
       const value =
         comparisonTab === "damage"
           ? item.damage.schedule?.totalDamage
@@ -507,7 +586,12 @@ export default function StrengthCalculatorV2() {
     return new Set(
       scores.filter((item) => item.value >= cutoffScore).map((item) => item.id),
     );
-  }, [calculatedCharacters, comparisonTab, damageTopCount, healingTopCount]);
+  }, [
+    visibleCalculatedCharacters,
+    comparisonTab,
+    damageTopCount,
+    healingTopCount,
+  ]);
 
   const formatStat = (value: unknown) => {
     if (typeof value !== "number" || !Number.isFinite(value)) {
@@ -1057,8 +1141,8 @@ export default function StrengthCalculatorV2() {
                     CD
                     <input
                       type="number"
-                      min="0.1"
-                      step="0.1"
+                      min="1"
+                      step="1"
                       value={environmentEffects.attackIncrease.cooldownSeconds}
                       onChange={(event) => {
                         const value = Number(event.target.value);
@@ -1071,7 +1155,7 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             attackIncrease: {
                               ...prev.attackIncrease,
-                              cooldownSeconds: value,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
                             },
                           }));
                         }
@@ -1100,6 +1184,76 @@ export default function StrengthCalculatorV2() {
                     防禦降低（大幅）
                   </label>
 
+                  <div className="strength-v2-env-target-controls">
+                    <label>
+                      目標
+                      <select
+                        value={
+                          environmentEffects.defenseReduction.targetScope ??
+                          "all"
+                        }
+                        onChange={(event) =>
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            defenseReduction: {
+                              ...prev.defenseReduction,
+                              targetScope: event.target.value as
+                                | "all"
+                                | "specific",
+                              targetEnemyId:
+                                event.target.value === "all"
+                                  ? null
+                                  : (prev.defenseReduction.targetEnemyId ??
+                                    (String(
+                                      enemySelections.find(
+                                        (entry) => entry.enemy,
+                                      )?.key ?? "",
+                                    ) ||
+                                      null)),
+                            },
+                          }))
+                        }
+                      >
+                        <option value="all">全體</option>
+                        <option value="specific">指定敵人</option>
+                      </select>
+                    </label>
+                    {environmentEffects.defenseReduction.targetScope ===
+                      "specific" &&
+                      enemySelections.some((entry) => entry.enemy) && (
+                        <label>
+                          指定敵人
+                          <select
+                            value={
+                              environmentEffects.defenseReduction
+                                .targetEnemyId ?? ""
+                            }
+                            onChange={(event) =>
+                              setEnvironmentEffects((prev) => ({
+                                ...prev,
+                                defenseReduction: {
+                                  ...prev.defenseReduction,
+                                  targetEnemyId: event.target.value || null,
+                                },
+                              }))
+                            }
+                          >
+                            <option value="">選擇敵人</option>
+                            {enemySelections.map((entry, index) =>
+                              entry.enemy ? (
+                                <option
+                                  key={entry.key}
+                                  value={String(entry.key)}
+                                >
+                                  {entry.enemy.name}（敵人 {index + 1}）
+                                </option>
+                              ) : null,
+                            )}
+                          </select>
+                        </label>
+                      )}
+                  </div>
+
                   <label>
                     持續時間
                     <select
@@ -1127,8 +1281,8 @@ export default function StrengthCalculatorV2() {
                     CD
                     <input
                       type="number"
-                      min="0.1"
-                      step="0.1"
+                      min="1"
+                      step="1"
                       value={
                         environmentEffects.defenseReduction.cooldownSeconds
                       }
@@ -1143,7 +1297,7 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             defenseReduction: {
                               ...prev.defenseReduction,
-                              cooldownSeconds: value,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
                             },
                           }));
                         }
@@ -1176,9 +1330,6 @@ export default function StrengthCalculatorV2() {
 
                   <select
                     value={environmentEffects.attributeDamageIncrease.magnitude}
-                    disabled={
-                      !environmentEffects.attributeDamageIncrease.enabled
-                    }
                     onChange={(event) => {
                       setEnvironmentEffects((prev) => ({
                         ...prev,
@@ -1222,8 +1373,8 @@ export default function StrengthCalculatorV2() {
                     CD
                     <input
                       type="number"
-                      min="0.1"
-                      step="0.1"
+                      min="1"
+                      step="1"
                       value={
                         environmentEffects.attributeDamageIncrease
                           .cooldownSeconds
@@ -1239,7 +1390,7 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             attributeDamageIncrease: {
                               ...prev.attributeDamageIncrease,
-                              cooldownSeconds: value,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
                             },
                           }));
                         }
@@ -1270,12 +1421,80 @@ export default function StrengthCalculatorV2() {
                     屬性抗性降低
                   </label>
 
+                  <div className="strength-v2-env-target-controls">
+                    <label>
+                      目標
+                      <select
+                        value={
+                          environmentEffects.attributeResistanceReduction
+                            .targetScope ?? "all"
+                        }
+                        onChange={(event) =>
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            attributeResistanceReduction: {
+                              ...prev.attributeResistanceReduction,
+                              targetScope: event.target.value as
+                                | "all"
+                                | "specific",
+                              targetEnemyId:
+                                event.target.value === "all"
+                                  ? null
+                                  : (prev.attributeResistanceReduction
+                                      .targetEnemyId ??
+                                    (String(
+                                      enemySelections.find(
+                                        (entry) => entry.enemy,
+                                      )?.key ?? "",
+                                    ) ||
+                                      null)),
+                            },
+                          }))
+                        }
+                      >
+                        <option value="all">全體</option>
+                        <option value="specific">指定敵人</option>
+                      </select>
+                    </label>
+                    {environmentEffects.attributeResistanceReduction
+                      .targetScope === "specific" &&
+                      enemySelections.some((entry) => entry.enemy) && (
+                        <label>
+                          指定敵人
+                          <select
+                            value={
+                              environmentEffects.attributeResistanceReduction
+                                .targetEnemyId ?? ""
+                            }
+                            onChange={(event) =>
+                              setEnvironmentEffects((prev) => ({
+                                ...prev,
+                                attributeResistanceReduction: {
+                                  ...prev.attributeResistanceReduction,
+                                  targetEnemyId: event.target.value || null,
+                                },
+                              }))
+                            }
+                          >
+                            <option value="">選擇敵人</option>
+                            {enemySelections.map((entry, index) =>
+                              entry.enemy ? (
+                                <option
+                                  key={entry.key}
+                                  value={String(entry.key)}
+                                >
+                                  {entry.enemy.name}（敵人 {index + 1}）
+                                </option>
+                              ) : null,
+                            )}
+                          </select>
+                        </label>
+                      )}
+                  </div>
+
                   <select
                     value={
                       environmentEffects.attributeResistanceReduction.magnitude
-                    }
-                    disabled={
-                      !environmentEffects.attributeResistanceReduction.enabled
                     }
                     onChange={(event) => {
                       setEnvironmentEffects((prev) => ({
@@ -1320,8 +1539,8 @@ export default function StrengthCalculatorV2() {
                     CD
                     <input
                       type="number"
-                      min="0.1"
-                      step="0.1"
+                      min="1"
+                      step="1"
                       value={
                         environmentEffects.attributeResistanceReduction
                           .cooldownSeconds
@@ -1337,7 +1556,7 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             attributeResistanceReduction: {
                               ...prev.attributeResistanceReduction,
-                              cooldownSeconds: value,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
                             },
                           }));
                         }
@@ -1368,7 +1587,6 @@ export default function StrengthCalculatorV2() {
 
                   <select
                     value={environmentEffects.speedIncrease.magnitude}
-                    disabled={!environmentEffects.speedIncrease.enabled}
                     onChange={(event) => {
                       setEnvironmentEffects((prev) => ({
                         ...prev,
@@ -1411,8 +1629,8 @@ export default function StrengthCalculatorV2() {
                     CD
                     <input
                       type="number"
-                      min="0.1"
-                      step="0.1"
+                      min="1"
+                      step="1"
                       value={environmentEffects.speedIncrease.cooldownSeconds}
                       onChange={(event) => {
                         const value = Number(event.target.value);
@@ -1425,7 +1643,7 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             speedIncrease: {
                               ...prev.speedIncrease,
-                              cooldownSeconds: value,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
                             },
                           }));
                         }
@@ -1459,9 +1677,6 @@ export default function StrengthCalculatorV2() {
                       value={
                         environmentEffects.ultimateGaugeIncrease.percentage
                       }
-                      disabled={
-                        !environmentEffects.ultimateGaugeIncrease.enabled
-                      }
                       onChange={(event) =>
                         setEnvironmentEffects((prev) => ({
                           ...prev,
@@ -1480,13 +1695,10 @@ export default function StrengthCalculatorV2() {
                     CD
                     <input
                       type="number"
-                      min="0.1"
-                      step="0.1"
+                      min="1"
+                      step="1"
                       value={
                         environmentEffects.ultimateGaugeIncrease.cooldownSeconds
-                      }
-                      disabled={
-                        !environmentEffects.ultimateGaugeIncrease.enabled
                       }
                       onChange={(event) => {
                         const value = Number(event.target.value);
@@ -1499,7 +1711,7 @@ export default function StrengthCalculatorV2() {
                             ...prev,
                             ultimateGaugeIncrease: {
                               ...prev.ultimateGaugeIncrease,
-                              cooldownSeconds: value,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
                             },
                           }));
                         }
@@ -1507,6 +1719,431 @@ export default function StrengthCalculatorV2() {
                     />
                     秒
                   </label>
+                </div>
+                {/* 暴擊率提升 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={
+                        environmentEffects.criticalRateIncrease?.enabled ??
+                        false
+                      }
+                      onChange={(event) =>
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          criticalRateIncrease: {
+                            ...prev.criticalRateIncrease!,
+                            enabled: event.target.checked,
+                          },
+                        }))
+                      }
+                    />
+                    暴擊率提升
+                  </label>
+                  <select
+                    value={
+                      environmentEffects.criticalRateIncrease?.magnitude ??
+                      "medium"
+                    }
+                    onChange={(event) =>
+                      setEnvironmentEffects((prev) => ({
+                        ...prev,
+                        criticalRateIncrease: {
+                          ...prev.criticalRateIncrease!,
+                          magnitude: event.target.value as EffectLevel,
+                        },
+                      }))
+                    }
+                  >
+                    <option value="small">20%</option>
+                    <option value="medium">30%</option>
+                    <option value="large">40%</option>
+                  </select>
+                  <label>
+                    持續時間{" "}
+                    <select
+                      value={
+                        environmentEffects.criticalRateIncrease
+                          ?.durationSeconds ?? 10
+                      }
+                      onChange={(event) =>
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          criticalRateIncrease: {
+                            ...prev.criticalRateIncrease!,
+                            durationSeconds: Number(event.target.value) as
+                              | 10
+                              | 15
+                              | 20,
+                          },
+                        }))
+                      }
+                    >
+                      <option value={10}>10 秒</option>
+                      <option value={15}>15 秒</option>
+                      <option value={20}>20 秒</option>
+                    </select>
+                  </label>
+                  <label>
+                    CD{" "}
+                    <input
+                      type="number"
+                      min="1"
+                      step="1"
+                      value={
+                        environmentEffects.criticalRateIncrease
+                          ?.cooldownSeconds ?? 16
+                      }
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        )
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            criticalRateIncrease: {
+                              ...prev.criticalRateIncrease!,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
+                            },
+                          }));
+                      }}
+                    />{" "}
+                    秒
+                  </label>
+                </div>
+
+                {/* 暴擊傷害提升 */}
+                <div className="strength-v2-environment-row">
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={
+                        environmentEffects.criticalDamageIncrease?.enabled ??
+                        false
+                      }
+                      onChange={(event) =>
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          criticalDamageIncrease: {
+                            ...prev.criticalDamageIncrease!,
+                            enabled: event.target.checked,
+                          },
+                        }))
+                      }
+                    />
+                    暴擊傷害提升
+                  </label>
+                  <select
+                    value={
+                      environmentEffects.criticalDamageIncrease?.magnitude ??
+                      "medium"
+                    }
+                    onChange={(event) =>
+                      setEnvironmentEffects((prev) => ({
+                        ...prev,
+                        criticalDamageIncrease: {
+                          ...prev.criticalDamageIncrease!,
+                          magnitude: event.target.value as EffectLevel,
+                        },
+                      }))
+                    }
+                  >
+                    <option value="small">40%</option>
+                    <option value="medium">60%</option>
+                    <option value="large">80%</option>
+                  </select>
+                  <label>
+                    持續時間{" "}
+                    <select
+                      value={
+                        environmentEffects.criticalDamageIncrease
+                          ?.durationSeconds ?? 10
+                      }
+                      onChange={(event) =>
+                        setEnvironmentEffects((prev) => ({
+                          ...prev,
+                          criticalDamageIncrease: {
+                            ...prev.criticalDamageIncrease!,
+                            durationSeconds: Number(event.target.value) as
+                              | 10
+                              | 15
+                              | 20,
+                          },
+                        }))
+                      }
+                    >
+                      <option value={10}>10 秒</option>
+                      <option value={15}>15 秒</option>
+                      <option value={20}>20 秒</option>
+                    </select>
+                  </label>
+                  <label>
+                    CD{" "}
+                    <input
+                      type="number"
+                      min="1"
+                      step="1"
+                      value={
+                        environmentEffects.criticalDamageIncrease
+                          ?.cooldownSeconds ?? 16
+                      }
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+                        if (
+                          event.target.value !== "" &&
+                          Number.isFinite(value) &&
+                          value > 0
+                        )
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            criticalDamageIncrease: {
+                              ...prev.criticalDamageIncrease!,
+                              cooldownSeconds: Math.max(1, Math.round(value)),
+                            },
+                          }));
+                      }}
+                    />{" "}
+                    秒
+                  </label>
+                </div>
+
+                {/* 可自行新增的敵方減益效果 */}
+                <div className="strength-v2-custom-environment-list">
+                  <button
+                    type="button"
+                    className="strength-v2-button"
+                    onClick={() =>
+                      setEnvironmentEffects((prev) => ({
+                        ...prev,
+                        customEnemyEffects: [
+                          ...(prev.customEnemyEffects ?? []),
+                          {
+                            id: `custom-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                            type: "defenseReduction",
+                            enabled: true,
+                            magnitude: "medium",
+                            durationSeconds: 15,
+                            cooldownSeconds: 16,
+                            targetScope: "all",
+                            targetEnemyId: null,
+                          },
+                        ],
+                      }))
+                    }
+                  >
+                    ＋ 新增減益效果
+                  </button>
+                  {(environmentEffects.customEnemyEffects ?? []).map((item) => (
+                    <div
+                      className="strength-v2-environment-row strength-v2-custom-environment-row"
+                      key={item.id}
+                    >
+                      <select
+                        aria-label="效果類型"
+                        value={item.type}
+                        onChange={(event) =>
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            customEnemyEffects: (
+                              prev.customEnemyEffects ?? []
+                            ).map((effect) =>
+                              effect.id === item.id
+                                ? {
+                                    ...effect,
+                                    type: event.target
+                                      .value as CustomEnemyEnvironmentEffect["type"],
+                                  }
+                                : effect,
+                            ),
+                          }))
+                        }
+                      >
+                        <option value="defenseReduction">防禦降低</option>
+                        <option value="attributeResistanceReduction">
+                          屬性抗性降低
+                        </option>
+                      </select>
+                      <label>
+                        幅度
+                        <select
+                          value={item.magnitude}
+                          onChange={(event) =>
+                            setEnvironmentEffects((prev) => ({
+                              ...prev,
+                              customEnemyEffects: (
+                                prev.customEnemyEffects ?? []
+                              ).map((effect) =>
+                                effect.id === item.id
+                                  ? {
+                                      ...effect,
+                                      magnitude: event.target
+                                        .value as CustomEnemyEnvironmentEffect["magnitude"],
+                                    }
+                                  : effect,
+                              ),
+                            }))
+                          }
+                        >
+                          <option value="small">20%</option>
+                          <option value="medium">30%</option>
+                          <option value="large">40%</option>
+                        </select>
+                      </label>
+                      <label>
+                        持續時間
+                        <select
+                          value={item.durationSeconds}
+                          onChange={(event) =>
+                            setEnvironmentEffects((prev) => ({
+                              ...prev,
+                              customEnemyEffects: (
+                                prev.customEnemyEffects ?? []
+                              ).map((effect) =>
+                                effect.id === item.id
+                                  ? {
+                                      ...effect,
+                                      durationSeconds: Number(
+                                        event.target.value,
+                                      ) as 15 | 20,
+                                    }
+                                  : effect,
+                              ),
+                            }))
+                          }
+                        >
+                          <option value={15}>15 秒</option>
+                          <option value={20}>20 秒</option>
+                        </select>
+                      </label>
+                      <label>
+                        CD
+                        <input
+                          type="number"
+                          min="1"
+                          step="1"
+                          value={item.cooldownSeconds}
+                          onChange={(event) => {
+                            const value = Number(event.target.value);
+                            if (
+                              event.target.value !== "" &&
+                              Number.isFinite(value) &&
+                              value > 0
+                            ) {
+                              setEnvironmentEffects((prev) => ({
+                                ...prev,
+                                customEnemyEffects: (
+                                  prev.customEnemyEffects ?? []
+                                ).map((effect) =>
+                                  effect.id === item.id
+                                    ? {
+                                        ...effect,
+                                        cooldownSeconds: Math.max(
+                                          1,
+                                          Math.round(value),
+                                        ),
+                                      }
+                                    : effect,
+                                ),
+                              }));
+                            }
+                          }}
+                        />
+                        秒
+                      </label>
+                      <div className="strength-v2-env-target-controls">
+                        <label>
+                          目標
+                          <select
+                            value={item.targetScope}
+                            onChange={(event) =>
+                              setEnvironmentEffects((prev) => ({
+                                ...prev,
+                                customEnemyEffects: (
+                                  prev.customEnemyEffects ?? []
+                                ).map((effect) =>
+                                  effect.id === item.id
+                                    ? {
+                                        ...effect,
+                                        targetScope: event.target.value as
+                                          | "all"
+                                          | "specific",
+                                        targetEnemyId:
+                                          event.target.value === "all"
+                                            ? null
+                                            : (effect.targetEnemyId ??
+                                              (String(
+                                                enemySelections.find(
+                                                  (entry) => entry.enemy,
+                                                )?.key ?? "",
+                                              ) ||
+                                                null)),
+                                      }
+                                    : effect,
+                                ),
+                              }))
+                            }
+                          >
+                            <option value="all">全體</option>
+                            <option value="specific">指定敵人</option>
+                          </select>
+                        </label>
+                        {item.targetScope === "specific" &&
+                          enemySelections.some((entry) => entry.enemy) && (
+                            <label>
+                              敵人
+                              <select
+                                value={item.targetEnemyId ?? ""}
+                                onChange={(event) =>
+                                  setEnvironmentEffects((prev) => ({
+                                    ...prev,
+                                    customEnemyEffects: (
+                                      prev.customEnemyEffects ?? []
+                                    ).map((effect) =>
+                                      effect.id === item.id
+                                        ? {
+                                            ...effect,
+                                            targetEnemyId:
+                                              event.target.value || null,
+                                          }
+                                        : effect,
+                                    ),
+                                  }))
+                                }
+                              >
+                                <option value="">選擇敵人</option>
+                                {enemySelections.map((entry, index) =>
+                                  entry.enemy ? (
+                                    <option
+                                      key={entry.key}
+                                      value={String(entry.key)}
+                                    >
+                                      {entry.enemy.name}（敵人 {index + 1}）
+                                    </option>
+                                  ) : null,
+                                )}
+                              </select>
+                            </label>
+                          )}
+                      </div>
+                      <button
+                        type="button"
+                        className="strength-v2-env-delete-button"
+                        onClick={() =>
+                          setEnvironmentEffects((prev) => ({
+                            ...prev,
+                            customEnemyEffects: (
+                              prev.customEnemyEffects ?? []
+                            ).filter((effect) => effect.id !== item.id),
+                          }))
+                        }
+                      >
+                        刪除
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -1521,11 +2158,35 @@ export default function StrengthCalculatorV2() {
 
             {enemySelections.map((item, index) => (
               <div
-                className="strength-v2-setting-group strength-v2-enemy-item"
+                className={`strength-v2-setting-group strength-v2-enemy-item ${draggedEnemyKey === item.key ? "is-dragging" : ""}`}
                 key={item.key}
+                draggable
+                onDragStart={(event) => {
+                  setDraggedEnemyKey(item.key);
+                  event.dataTransfer.effectAllowed = "move";
+                  event.dataTransfer.setData("text/plain", String(item.key));
+                }}
+                onDragOver={(event) => event.preventDefault()}
+                onDrop={(event) => {
+                  event.preventDefault();
+                  const fromKey = Number(
+                    event.dataTransfer.getData("text/plain"),
+                  );
+                  if (Number.isFinite(fromKey)) reorderEnemy(fromKey, item.key);
+                  setDraggedEnemyKey(null);
+                }}
+                onDragEnd={() => setDraggedEnemyKey(null)}
               >
                 <div className="strength-v2-setting-row">
-                  <h3>敵人 {index + 1}</h3>
+                  <h3>
+                    <span
+                      className="strength-v2-enemy-drag-handle"
+                      aria-hidden="true"
+                    >
+                      ⠿
+                    </span>{" "}
+                    敵人 {index + 1}
+                  </h3>
 
                   <button
                     type="button"
@@ -1716,107 +2377,156 @@ export default function StrengthCalculatorV2() {
                   </button>
                 </div>
 
-                {/* 前幾名設定 */}
+                {/* 排名標記與台服角色顯示設定 */}
                 <div className="strength-v2-comparison-setting">
-                  <label htmlFor="strength-v2-comparison-top">標記前幾名</label>
+                  <div className="strength-v2-top-count-setting">
+                    <label htmlFor="strength-v2-comparison-top">
+                      標記前幾名
+                    </label>
 
-                  <select
-                    id="strength-v2-comparison-top"
-                    value={
-                      comparisonTab === "damage"
-                        ? damageTopCount
-                        : healingTopCount
-                    }
-                    onChange={(event) => {
-                      const value = Number(event.target.value);
-
-                      if (comparisonTab === "damage") {
-                        setDamageTopCount(value);
-                      } else {
-                        setHealingTopCount(value);
+                    <select
+                      id="strength-v2-comparison-top"
+                      value={
+                        comparisonTab === "damage"
+                          ? damageTopCount
+                          : healingTopCount
                       }
-                    }}
-                  >
-                    {[1, 2, 3, 4, 5].map((count) => (
-                      <option key={count} value={count}>
-                        前 {count} 名
-                      </option>
-                    ))}
-                  </select>
+                      onChange={(event) => {
+                        const value = Number(event.target.value);
+
+                        if (comparisonTab === "damage") {
+                          setDamageTopCount(value);
+                        } else {
+                          setHealingTopCount(value);
+                        }
+                      }}
+                    >
+                      {[1, 2, 3, 4, 5].map((count) => (
+                        <option key={count} value={count}>
+                          前 {count} 名
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="strength-v2-taiwan-filter-setting">
+                    <span className="strength-v2-taiwan-filter-label">
+                      只顯示台服已推出UR
+                    </span>
+                    <button
+                      type="button"
+                      className={`strength-v2-toggle-switch ${showTaiwanOnly ? "is-active" : ""}`}
+                      role="switch"
+                      aria-checked={showTaiwanOnly}
+                      aria-label="只顯示台服已推出角色"
+                      disabled={
+                        taiwanFilterLoading || Boolean(taiwanFilterError)
+                      }
+                      onClick={() => setShowTaiwanOnly((previous) => !previous)}
+                    >
+                      <span className="strength-v2-toggle-switch-thumb" />
+                    </button>
+                  </div>
                 </div>
+
+                {taiwanFilterError && (
+                  <p
+                    className="strength-v2-taiwan-filter-message"
+                    role="status"
+                  >
+                    台服角色篩選暫時無法使用：{taiwanFilterError}
+                  </p>
+                )}
+                {!taiwanFilterLoading &&
+                  !taiwanFilterError &&
+                  taiwanFilterUnmatchedCount > 0 && (
+                    <p
+                      className="strength-v2-taiwan-filter-message"
+                      role="status"
+                    >
+                      有 {taiwanFilterUnmatchedCount}{" "}
+                      名角色尚未能對應活動推出日期，開啟篩選時會先隱藏這些角色。
+                    </p>
+                  )}
 
                 {/* 角色比較清單 */}
                 <div className="strength-v2-comparison-list">
-                  {calculatedCharacters.map((item) => {
-                    const value =
-                      comparisonTab === "damage"
-                        ? item.damage.schedule?.totalDamage
-                        : item.damage.schedule?.totalHealing;
+                  {visibleCalculatedCharacters.length === 0 ? (
+                    <div className="strength-v2-empty">
+                      目前沒有符合顯示條件的角色。
+                    </div>
+                  ) : (
+                    visibleCalculatedCharacters.map((item) => {
+                      const value =
+                        comparisonTab === "damage"
+                          ? item.damage.schedule?.totalDamage
+                          : item.damage.schedule?.totalHealing;
 
-                    const isHighlighted = highlightedCharacterIds.has(
-                      item.character.id,
-                    );
+                      const isHighlighted = highlightedCharacterIds.has(
+                        item.character.id,
+                      );
 
-                    const rarityClass =
-                      RARITY_OPTIONS.find(
-                        (option) => option.value === item.character.rarity,
-                      )?.className ?? "";
+                      const rarityClass =
+                        RARITY_OPTIONS.find(
+                          (option) => option.value === item.character.rarity,
+                        )?.className ?? "";
 
-                    const elementClass =
-                      ELEMENT_OPTIONS.find(
-                        (option) => option.value === item.character.element,
-                      )?.className ?? "";
+                      const elementClass =
+                        ELEMENT_OPTIONS.find(
+                          (option) => option.value === item.character.element,
+                        )?.className ?? "";
 
-                    const classClass =
-                      CLASS_OPTIONS.find(
-                        (option) => option.value === item.character.class,
-                      )?.className ?? "";
+                      const classClass =
+                        CLASS_OPTIONS.find(
+                          (option) => option.value === item.character.class,
+                        )?.className ?? "";
 
-                    return (
-                      <div
-                        className={`strength-v2-comparison-row ${
-                          isHighlighted ? "is-highlighted" : ""
-                        }`}
-                        key={item.character.id}
-                        role="button"
-                        tabIndex={0}
-                        style={{ cursor: "pointer" }}
-                        onClick={() =>
-                          scrollToCharacterDetails(item.character.id)
-                        }
-                        onKeyDown={(event) => {
-                          if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            scrollToCharacterDetails(item.character.id);
+                      return (
+                        <div
+                          className={`strength-v2-comparison-row ${
+                            isHighlighted ? "is-highlighted" : ""
+                          }`}
+                          key={item.character.id}
+                          role="button"
+                          tabIndex={0}
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            scrollToCharacterDetails(item.character.id)
                           }
-                        }}
-                      >
-                        {/* 左側：角色名稱與標籤 */}
-                        <div className="strength-v2-comparison-character">
-                          <strong>{item.character.name}</strong>
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              scrollToCharacterDetails(item.character.id);
+                            }
+                          }}
+                        >
+                          {/* 左側：角色名稱與標籤 */}
+                          <div className="strength-v2-comparison-character">
+                            <strong>{item.character.name}</strong>
 
-                          <span className={`character-tag ${rarityClass}`}>
-                            {item.character.rarity}
-                          </span>
+                            <span className={`character-tag ${rarityClass}`}>
+                              {item.character.rarity}
+                            </span>
 
-                          <span className={`character-tag ${elementClass}`}>
-                            {item.character.element}
-                          </span>
+                            <span className={`character-tag ${elementClass}`}>
+                              {item.character.element}
+                            </span>
 
-                          <span className={`character-tag ${classClass}`}>
-                            {item.character.class}
-                          </span>
+                            <span className={`character-tag ${classClass}`}>
+                              {item.character.class}
+                            </span>
+                          </div>
+
+                          {/* 右側：總傷害或總治療 */}
+                          <strong className="strength-v2-comparison-value">
+                            {typeof value === "number" && Number.isFinite(value)
+                              ? Math.round(value).toLocaleString("zh-TW")
+                              : "無法計算"}
+                          </strong>
                         </div>
-
-                        {/* 右側：總傷害或總治療 */}
-                        <strong className="strength-v2-comparison-value">
-                          {typeof value === "number" && Number.isFinite(value)
-                            ? Math.round(value).toLocaleString("zh-TW")
-                            : "無法計算"}
-                        </strong>
-                      </div>
-                    );
-                  })}
+                      );
+                    })
+                  )}
                 </div>
               </div>
             )}
@@ -1842,7 +2552,7 @@ export default function StrengthCalculatorV2() {
                     >
                       <option value="">請選擇角色</option>
 
-                      {calculatedCharacters.map((item) => (
+                      {visibleCalculatedCharacters.map((item) => (
                         <option
                           key={item.character.id}
                           value={item.character.id}
@@ -1856,14 +2566,14 @@ export default function StrengthCalculatorV2() {
                   <label>
                     角色 B
                     <select
-                      value={compareCharacterBId}
+                      value={compareCharacterB?.character.id ?? ""}
                       onChange={(event) =>
                         setCompareCharacterBId(event.target.value)
                       }
                     >
                       <option value="">請選擇角色</option>
 
-                      {calculatedCharacters.map((item) => (
+                      {visibleCalculatedCharacters.map((item) => (
                         <option
                           key={item.character.id}
                           value={item.character.id}
@@ -2044,9 +2754,13 @@ export default function StrengthCalculatorV2() {
               <div className="strength-v2-empty">
                 沒有符合目前已套用篩選條件的角色。
               </div>
+            ) : visibleCalculatedCharacters.length === 0 ? (
+              <div className="strength-v2-empty">
+                目前沒有符合顯示條件的角色。
+              </div>
             ) : (
               <div className="strength-v2-result-list">
-                {calculatedCharacters.map((item) => (
+                {visibleCalculatedCharacters.map((item) => (
                   <article
                     className="strength-v2-result-character"
                     key={item.character.id}
@@ -2421,26 +3135,31 @@ export default function StrengthCalculatorV2() {
                                 <div className="strength-v2-skill-effect">
                                   <span>技能效果</span>
                                   <p>
-                                    {(skill.result as any).skillEffects?.effectLines?.length > 0
-                                      ? (skill.result as any).skillEffects.effectLines.map(
-                                          (line: {
-                                            text: string;
-                                            source: "skill" | "talent";
-                                            talentNode?: number;
-                                          },
-                                          index: number,
-                                        ) => (
-                                          <span
-                                            className="strength-v2-skill-effect-line"
-                                            key={`${skill.label}-${index}`}
-                                          >
-                                            {line.text}
-                                            {line.source === "talent" && line.talentNode
-                                              ? `（天賦${line.talentNode}）`
-                                              : ""}
-                                          </span>
-                                        ),
-                                      )
+                                    {(skill.result as any).skillEffects
+                                      ?.effectLines?.length > 0
+                                      ? (
+                                          skill.result as any
+                                        ).skillEffects.effectLines.map(
+                                          (
+                                            line: {
+                                              text: string;
+                                              source: "skill" | "talent";
+                                              talentNode?: number;
+                                            },
+                                            index: number,
+                                          ) => (
+                                            <span
+                                              className="strength-v2-skill-effect-line"
+                                              key={`${skill.label}-${index}`}
+                                            >
+                                              {line.text}
+                                              {line.source === "talent" &&
+                                              line.talentNode
+                                                ? `（天賦${line.talentNode}）`
+                                                : ""}
+                                            </span>
+                                          ),
+                                        )
                                       : skill.info.effectText ||
                                         skill.info.originalEffectText ||
                                         "無"}

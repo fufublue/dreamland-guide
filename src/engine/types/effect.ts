@@ -70,6 +70,9 @@ export interface EngineEffect {
     targetSide: EffectTargetSide
     range: EffectRange
 
+    /** 最大值模式環境減益可指定單一敵人實例。 */
+    targetEnemyId?: string | null
+
     category: EffectCategory
 
     // 例如：物攻、魔攻、速度、火抗、風傷

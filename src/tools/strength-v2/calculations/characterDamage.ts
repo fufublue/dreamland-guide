@@ -73,6 +73,8 @@ export interface CharacterDamageInput {
     scheduleSettings?: {
         remainingSeconds: number
         ultimateUses: number | null
+        initialSkill1CooldownElapsedSeconds?: number | null
+        initialSkill2CooldownElapsedSeconds?: number | null
     }
 }
 

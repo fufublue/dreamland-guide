@@ -20,7 +20,9 @@ import {
     calculateCriticalRateBonusPercent,
     calculateCriticalDamageBonusPercent,
     calculateEnemyDefenseReductionMultiplier,
+    calculateEnemyAttributeResistanceReductionMultiplier,
     getEnemyDefenseReductionModifiers,
+    getModifiersForEnemy,
     convertTimedEffectsToModifiers,
 } from './effectModifiers'
 
@@ -195,10 +197,12 @@ export function calculateCharacterNormalAttackDamage(
     }
 
     // 只在角色自帶增減益模式計算角色自身效果
-    const activeModifiers =
-        convertTimedEffectsToModifiers(activeEffects)
+    const activeModifiers = getModifiersForEnemy(
+        convertTimedEffectsToModifiers(activeEffects),
+        enemy.id,
+    )
 
-    // 計算角色自身效果帶來的敵方防禦降低倍率
+    // 計算目前優先目標受到的敵方防禦降低倍率
     const enemyDefenseReductionModifiers =
         (mode === 'selfEffects' || mode === 'maximum') && character.attackType
             ? getEnemyDefenseReductionModifiers(
@@ -214,6 +218,10 @@ export function calculateCharacterNormalAttackDamage(
                 character.attackType,
             )
             : 1
+    const enemyAttributeResistanceReductionMultiplier =
+        mode === 'selfEffects' || mode === 'maximum'
+            ? calculateEnemyAttributeResistanceReductionMultiplier(activeModifiers)
+            : 1
 
     if (
         enemyDefenseReductionModifiers.length > 0 &&
@@ -222,6 +230,10 @@ export function calculateCharacterNormalAttackDamage(
         warnings.push(
             '敵方防禦降低效果的倍率尚未建立，暫未套用。',
         )
+    }
+
+    if (enemyAttributeResistanceReductionMultiplier === null) {
+        warnings.push('敵方屬性抗性降低效果倍率尚未建立，暫未套用。')
     }
 
     const attackBonusPercent =
@@ -273,7 +285,8 @@ export function calculateCharacterNormalAttackDamage(
         criticalRateBonusPercent,
         criticalDamageBonusPercent,
         enemyDefenseReductionMultiplier:
-            enemyDefenseReductionMultiplier ?? 1,
+            (enemyDefenseReductionMultiplier ?? 1) *
+            (enemyAttributeResistanceReductionMultiplier ?? 1),
     })
 
     warnings.push(...damage.warnings)

@@ -31,6 +31,10 @@ export interface SkillScheduleInput {
   skill1Cooldown: string | null;
   skill2Cooldown: string | null;
 
+  /** 第三波開始前，距離進入第三波還有幾秒時預先施放。 */
+  initialSkill1CooldownElapsedSeconds?: number | null;
+  initialSkill2CooldownElapsedSeconds?: number | null;
+
   ultimateUses: number | null;
   ultimateGaugeMultiplier: number;
   ultimateGaugePerAction: number;
@@ -223,6 +227,23 @@ function getActiveEnvironmentAtTime(
       ),
     },
     ultimateGaugeIncrease: { ...environment.ultimateGaugeIncrease },
+    criticalRateIncrease: environment.criticalRateIncrease
+      ? {
+          ...environment.criticalRateIncrease,
+          enabled: isEnvironmentEffectActive(environment.criticalRateIncrease, actionTime),
+        }
+      : undefined,
+    criticalDamageIncrease: environment.criticalDamageIncrease
+      ? {
+          ...environment.criticalDamageIncrease,
+          enabled: isEnvironmentEffectActive(environment.criticalDamageIncrease, actionTime),
+        }
+      : undefined,
+    // 自訂減益列只要存在就代表啟用，不再提供獨立啟用開關。
+    customEnemyEffects: environment.customEnemyEffects?.map((effect) => ({
+      ...effect,
+      enabled: isEnvironmentEffectActive({ ...effect, enabled: true }, actionTime),
+    })),
   };
 }
 
@@ -233,6 +254,7 @@ type EnvironmentEffectSpec = {
   category: EngineEffect["category"];
   attribute: string;
   value: number;
+  targetEnemyId?: string | null;
 };
 
 function getEnvironmentEffectSpecs(
@@ -263,6 +285,10 @@ function getEnvironmentEffectSpecs(
       value: magnitudeValue(environment.defenseReduction.magnitude, {
         small: 20, medium: 30, large: 40,
       }),
+      targetEnemyId:
+        environment.defenseReduction.targetScope === "specific"
+          ? environment.defenseReduction.targetEnemyId ?? "__no-enemy-selected__"
+          : null,
     },
     {
       id: "environment-attribute-damage-increase",
@@ -286,17 +312,79 @@ function getEnvironmentEffectSpecs(
     },
   ];
 
-  for (const element of ["火", "水", "風", "地", "雷", "光", "暗"]) {
+  // 屬性抗性降低視為獨立的防禦面向，不區分物理／魔法，也不逐一檢查元素。
+  specs.push({
+    id: "environment-attribute-resistance-reduction",
+    config: environment.attributeResistanceReduction,
+    action: "decrease",
+    category: "defense",
+    attribute: "屬性抗性",
+    value: magnitudeValue(environment.attributeResistanceReduction.magnitude, {
+      small: 20, medium: 30, large: 40,
+    }),
+    targetEnemyId:
+      environment.attributeResistanceReduction.targetScope === "specific"
+        ? environment.attributeResistanceReduction.targetEnemyId ?? "__no-enemy-selected__"
+        : null,
+  });
+
+  const criticalRate = environment.criticalRateIncrease;
+  if (criticalRate) {
     specs.push({
-      id: `environment-${element}-resistance-reduction`,
-      config: environment.attributeResistanceReduction,
-      action: "decrease",
-      category: "defense",
-      attribute: `${element}屬性抗性`,
-      value: magnitudeValue(environment.attributeResistanceReduction.magnitude, {
+      id: "environment-critical-rate-increase",
+      config: criticalRate,
+      action: "increase",
+      category: "criticalRate",
+      attribute: "暴擊率",
+      value: magnitudeValue(criticalRate.magnitude, {
         small: 20, medium: 30, large: 40,
       }),
     });
+  }
+
+  const criticalDamage = environment.criticalDamageIncrease;
+  if (criticalDamage) {
+    specs.push({
+      id: "environment-critical-damage-increase",
+      config: criticalDamage,
+      action: "increase",
+      category: "criticalDamage",
+      attribute: "暴擊傷害",
+      value: magnitudeValue(criticalDamage.magnitude, {
+        small: 40, medium: 60, large: 80,
+      }),
+    });
+  }
+
+  for (const custom of environment.customEnemyEffects ?? []) {
+    const targetEnemyId = custom.targetScope === "specific"
+      ? custom.targetEnemyId ?? "__no-enemy-selected__"
+      : null;
+    if (custom.type === "defenseReduction") {
+      specs.push({
+        id: `custom-${custom.id}-defense-reduction`,
+        config: { ...custom, enabled: true },
+        action: "decrease",
+        category: "defense",
+        attribute: "雙防",
+        value: magnitudeValue(custom.magnitude, {
+          small: 20, medium: 30, large: 40,
+        }),
+        targetEnemyId,
+      });
+    } else {
+      specs.push({
+        id: `custom-${custom.id}-attribute-resistance-reduction`,
+        config: { ...custom, enabled: true },
+        action: "decrease",
+        category: "defense",
+        attribute: "屬性抗性",
+        value: magnitudeValue(custom.magnitude, {
+          small: 20, medium: 30, large: 40,
+        }),
+        targetEnemyId,
+      });
+    }
   }
 
   return specs;
@@ -310,7 +398,8 @@ function createEnvironmentEngineEffect(
     id: spec.id,
     action: spec.action,
     targetSide: spec.action === "increase" ? "ally" : "enemy",
-    range: "all",
+    range: spec.targetEnemyId ? "single" : "all",
+    targetEnemyId: spec.targetEnemyId ?? null,
     category: spec.category,
     attribute: spec.attribute,
     searchableCategories: [spec.category],
@@ -1427,8 +1516,16 @@ export function createSkillSchedule(
         input.environment,
         input.environmentEnabled !== false,
       ),
-      lastSkill1Cast: null,
-      lastSkill2Cast: null,
+      lastSkill1Cast:
+        input.initialSkill1CooldownElapsedSeconds === null ||
+        input.initialSkill1CooldownElapsedSeconds === undefined
+          ? null
+          : -Math.max(0, input.initialSkill1CooldownElapsedSeconds),
+      lastSkill2Cast:
+        input.initialSkill2CooldownElapsedSeconds === null ||
+        input.initialSkill2CooldownElapsedSeconds === undefined
+          ? null
+          : -Math.max(0, input.initialSkill2CooldownElapsedSeconds),
       ultimateUses: 0,
       ultimateGauge: input.environmentEnabled === false
         ? Math.min(

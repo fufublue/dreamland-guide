@@ -25,6 +25,7 @@ export interface EffectModifier {
     action: 'increase' | 'decrease'
     targetSide: EngineEffect['targetSide']
     range: EngineEffect['range']
+    targetEnemyId?: string | null
 
     attribute: string
     value: number
@@ -135,6 +136,7 @@ export function convertTimedEffectsToModifiers(
             action: effect.action,
             targetSide: effect.targetSide,
             range: effect.range,
+            targetEnemyId: effect.targetEnemyId ?? null,
 
             attribute: effect.attribute || effect.category,
             value,
@@ -316,6 +318,20 @@ export function calculateAttackBonusPercentAtTime(
     )
 }
 
+
+/** 取得指定敵人實際受到的效果；未指定敵人的效果視為全體效果。 */
+export function getModifiersForEnemy(
+    modifiers: EffectModifier[],
+    enemyId: string,
+): EffectModifier[] {
+    return modifiers.filter(
+        (modifier) =>
+            modifier.targetEnemyId === null ||
+            modifier.targetEnemyId === undefined ||
+            modifier.targetEnemyId === enemyId,
+    )
+}
+
 export function getEnemyDefenseReductionModifiers(
     modifiers: EffectModifier[],
     defenseType: 'physical' | 'magic',
@@ -360,32 +376,38 @@ const EMPIRICAL_DEFENSE_REDUCTION_MULTIPLIERS: Record<number, number> = {
 
 // 計算敵方降防帶來的實測傷害倍率
 //最終傷害 = 基礎傷害\times加攻倍率\times降防倍率
+function calculateEmpiricalEnemyReductionMultiplier(
+    reductionModifiers: EffectModifier[],
+): number | null {
+    if (reductionModifiers.length === 0) {
+        return 1;
+    }
+
+    // 同一防禦面向的多筆降低效果不相乘，沿用既有規則取最高幅度。
+    const strongestReduction = Math.max(
+        ...reductionModifiers.map((modifier) => modifier.value),
+    );
+    return EMPIRICAL_DEFENSE_REDUCTION_MULTIPLIERS[strongestReduction] ?? null;
+}
+
 export function calculateEnemyDefenseReductionMultiplier(
     modifiers: EffectModifier[],
     defenseType: 'physical' | 'magic',
 ): number | null {
-    const defenseModifiers = getEnemyDefenseReductionModifiers(
-        modifiers,
-        defenseType,
+    return calculateEmpiricalEnemyReductionMultiplier(
+        getEnemyDefenseReductionModifiers(modifiers, defenseType),
     );
+}
 
-    if (defenseModifiers.length === 0) {
-        return 1;
-    }
-
-    // 同一種防禦能力的降防效果不相乘：
-    // 雙防降低與單一物防／魔防降低同時存在時，取較高幅度。
-    const strongestReduction = Math.max(
-        ...defenseModifiers.map((modifier) => modifier.value),
+/** 屬性抗性是獨立防禦面向，沿用防禦降低的實測換算，不區分物理／魔法。 */
+export function calculateEnemyAttributeResistanceReductionMultiplier(
+    modifiers: EffectModifier[],
+): number | null {
+    const resistanceModifiers = modifiers.filter(
+        (modifier) =>
+            modifier.targetSide === 'enemy' &&
+            modifier.action === 'decrease' &&
+            modifier.kind === 'elementResistance',
     );
-
-    const measuredMultiplier =
-        EMPIRICAL_DEFENSE_REDUCTION_MULTIPLIERS[strongestReduction];
-
-    // 尚無實測資料的降防幅度，不擅自套用倍率
-    if (measuredMultiplier === undefined) {
-        return null;
-    }
-
-    return measuredMultiplier;
+    return calculateEmpiricalEnemyReductionMultiplier(resistanceModifiers);
 }

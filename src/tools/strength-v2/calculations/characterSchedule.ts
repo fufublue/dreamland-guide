@@ -62,6 +62,8 @@ export interface CharacterSkillScheduleInput {
     speed: number | null
     remainingSeconds: number
     ultimateUses: number | null
+    initialSkill1CooldownElapsedSeconds?: number | null
+    initialSkill2CooldownElapsedSeconds?: number | null
 
     // 武器與掛件傷害加成
     weaponDamageBonus?: number | null
@@ -315,6 +317,8 @@ export function createCharacterSkillSchedule(
 
       skill1Cooldown: skill1EffectsResult.cooldown,
       skill2Cooldown: skill2EffectsResult.cooldown,
+      initialSkill1CooldownElapsedSeconds: input.initialSkill1CooldownElapsedSeconds,
+      initialSkill2CooldownElapsedSeconds: input.initialSkill2CooldownElapsedSeconds,
 
       ultimateUses,
       ultimateGaugeMultiplier,
@@ -406,6 +410,8 @@ export function createCharacterSkillSchedule(
 
     skill1Cooldown: skill1EffectsResult.cooldown,
     skill2Cooldown: skill2EffectsResult.cooldown,
+    initialSkill1CooldownElapsedSeconds: input.initialSkill1CooldownElapsedSeconds,
+    initialSkill2CooldownElapsedSeconds: input.initialSkill2CooldownElapsedSeconds,
 
     ultimateUses,
     ultimateGaugeMultiplier,

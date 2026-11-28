@@ -65,7 +65,7 @@ workerScope.onmessage = (event) => {
   const { characters, strengthBaseData, snapshot } = event.data;
 
   const enemies = snapshot.enemySelections.flatMap((item) =>
-    item.enemy ? [item.enemy] : [],
+    item.enemy ? [{ ...item.enemy, id: String(item.key) }] : [],
   );
 
   const batch: CalculatedCharacterItem[] = [];

@@ -269,6 +269,19 @@ function applySuccessfulStatusDownClear(
 function createEffectKey(effect: EngineEffect): string {
     const attribute = effect.attribute || effect.category;
 
+    // 使用者新增的自訂環境列各自保留時間軸，不因同類效果而互相覆蓋。
+    if (effect.id.startsWith('custom-')) {
+        return `custom|${effect.id}|${effect.targetEnemyId ?? "all"}`;
+    }
+
+    // 暴擊率與暴擊傷害效果各自保留，後續由傷害公式以乘算方式合併。
+    if (effect.category === 'criticalRate' && effect.action === 'increase') {
+        return `criticalRate|${effect.id}`;
+    }
+    if (effect.category === 'criticalDamage' && effect.action === 'increase') {
+        return `criticalDamage|${effect.id}`;
+    }
+
     // 速度增減益依動作共用群組，環境速度與角色技能速度互相覆蓋／刷新。
     if (effect.category === 'speed' && attribute === '速度') {
         return `speed|${effect.action}`;
@@ -292,16 +305,16 @@ function createEffectKey(effect: EngineEffect): string {
     // 外部降防與角色技能降防依物防、魔防分開比較。
     if (effect.category === 'defense' && effect.action === 'decrease') {
         if (attribute === '物防') {
-            return 'defense|decrease|physicalDefense';
+            return `defense|decrease|physicalDefense|${effect.targetEnemyId ?? "all"}`;
         }
         if (attribute === '魔防') {
-            return 'defense|decrease|magicDefense';
+            return `defense|decrease|magicDefense|${effect.targetEnemyId ?? "all"}`;
         }
 
         // 同一屬性的抗性降低可互相覆蓋；不同屬性不互相覆蓋。
         const resistanceMatch = attribute.match(/^([火水風地雷光暗])(?:屬性)?(?:抗性|抗)$/);
         if (resistanceMatch) {
-            return `elementResistance|decrease|${resistanceMatch[1]}`;
+            return `elementResistance|decrease|${resistanceMatch[1]}|${effect.targetEnemyId ?? "all"}`;
         }
     }
 
@@ -311,6 +324,7 @@ function createEffectKey(effect: EngineEffect): string {
         effect.action,
         effect.category,
         attribute,
+        effect.targetEnemyId ?? "all",
     ].join('|');
 }
 

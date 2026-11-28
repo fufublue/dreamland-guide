@@ -42,6 +42,8 @@ export const DEFAULT_ENVIRONMENT: MaximumModeEnvironment = {
     magnitude: "large",
     durationSeconds: 15,
     cooldownSeconds: 16,
+    targetScope: "all",
+    targetEnemyId: null,
   },
 
   // 屬性傷害提升
@@ -58,6 +60,8 @@ export const DEFAULT_ENVIRONMENT: MaximumModeEnvironment = {
     magnitude: "medium",
     durationSeconds: 15,
     cooldownSeconds: 16,
+    targetScope: "all",
+    targetEnemyId: null,
   },
 
   // 速度提升：預設關閉，避免改變既有預設計算結果
@@ -67,6 +71,19 @@ export const DEFAULT_ENVIRONMENT: MaximumModeEnvironment = {
     durationSeconds: 10,
     cooldownSeconds: 16,
   },
+  criticalRateIncrease: {
+    enabled: false,
+    magnitude: "medium",
+    durationSeconds: 10,
+    cooldownSeconds: 16,
+  },
+  criticalDamageIncrease: {
+    enabled: false,
+    magnitude: "medium",
+    durationSeconds: 10,
+    cooldownSeconds: 16,
+  },
+  customEnemyEffects: [],
 };
 
 
@@ -130,6 +147,13 @@ export const createDefaultStrengthSettings =
             speedIncrease: {
                 ...DEFAULT_ENVIRONMENT.speedIncrease,
             },
+            criticalRateIncrease: {
+                ...DEFAULT_ENVIRONMENT.criticalRateIncrease!,
+            },
+            criticalDamageIncrease: {
+                ...DEFAULT_ENVIRONMENT.criticalDamageIncrease!,
+            },
+            customEnemyEffects: [],
         },
 
         // 敵人由使用者自行新增

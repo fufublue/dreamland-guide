@@ -310,8 +310,6 @@ export function calculateSkillDamage(
     attackType,
     enemy,
     elementRelation,
-    mode,
-    environment,
     enemyDefenseReductionMultiplier = 1,
     treatSelfHpConditionAsMet = true,
   } = input;
@@ -437,10 +435,6 @@ export function calculateSkillDamage(
   // --------------------------------------------------
   // 尚未確認的計算項目
   // --------------------------------------------------
-
-  if (mode === "maximum" && environment.attributeResistanceReduction.enabled) {
-    warnings.push("敵方屬性抗性資料尚未建立，暫未套用抗性降低。");
-  }
 
   if (enemy.maxHp === null && enemy.kind === "minion") {
     warnings.push("小怪缺少生命上限資料。");

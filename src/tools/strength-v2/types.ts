@@ -77,19 +77,19 @@ export type StrengthCalculationMode =
     | 'maximum'
 
 export const STRENGTH_CALCULATION_MODES = [
-    {
-        value: 'coefficient',
-        label: '只看係數',
-    },
-    {
-        value: 'selfEffects',
-        label: '角色自帶增減益效果',
-    },
-    {
-        value: 'maximum',
-        label: '最大值',
-    },
-] as const
+  {
+    value: "coefficient",
+    label: "只看係數",
+  },
+  {
+    value: "selfEffects",
+    label: "角色自帶增減益效果",
+  },
+  {
+    value: "maximum",
+    label: "自行模擬環境",
+  },
+] as const;
 
 
 // ======================================================
@@ -143,11 +143,28 @@ export type TalentSettings = {
 
 export type EffectMagnitude = "small" | "medium" | "large";
 
+export type EnvironmentTargetScope = "all" | "specific";
+
 export type ConfigurableEnvironmentEffect = {
   enabled: boolean;
   magnitude: EffectMagnitude;
-  durationSeconds: 10 |15 | 20;
+  durationSeconds: 10 | 15 | 20;
   cooldownSeconds: number;
+  /** 敵方減益效果的目標範圍；增益效果固定作用於我方。 */
+  targetScope?: EnvironmentTargetScope;
+  /** 指定目標敵人的實例 ID。 */
+  targetEnemyId?: string | null;
+};
+
+export type CustomEnemyEnvironmentEffect = {
+  id: string;
+  type: "defenseReduction" | "attributeResistanceReduction";
+  enabled: boolean;
+  magnitude: EffectMagnitude;
+  durationSeconds: 15 | 20;
+  cooldownSeconds: number;
+  targetScope: EnvironmentTargetScope;
+  targetEnemyId: string | null;
 };
 
 export type UltimateGaugeEnvironmentEffect = {
@@ -175,6 +192,13 @@ export type MaximumModeEnvironment = {
 
   // 速度提升：只影響行動值累積速度
   speedIncrease: ConfigurableEnvironmentEffect;
+
+  // 暴擊相關環境增益
+  criticalRateIncrease?: ConfigurableEnvironmentEffect;
+  criticalDamageIncrease?: ConfigurableEnvironmentEffect;
+
+  // 使用者額外新增的敵方減益列
+  customEnemyEffects?: CustomEnemyEnvironmentEffect[];
 };
 
 // ======================================================

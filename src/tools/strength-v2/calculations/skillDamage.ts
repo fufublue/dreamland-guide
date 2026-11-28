@@ -25,7 +25,9 @@ import {
     calculateCriticalRateBonusPercent,
     calculateCriticalDamageBonusPercent,
     calculateEnemyDefenseReductionMultiplier,
+    calculateEnemyAttributeResistanceReductionMultiplier,
     getEnemyDefenseReductionModifiers,
+    getModifiersForEnemy,
     convertTimedEffectsToModifiers,
 } from './effectModifiers'
 import type { TimedEffect } from './effectTimeline'
@@ -387,32 +389,7 @@ export function calculateCharacterSkillDamage(
     const activeModifiers =
         convertTimedEffectsToModifiers(activeEffects)
 
-    // 計算角色自身效果帶來的敵方防禦降低倍率
-    const enemyDefenseReductionModifiers =
-        (mode === 'selfEffects' || mode === 'maximum') && character.attackType
-            ? getEnemyDefenseReductionModifiers(
-                activeModifiers,
-                character.attackType,
-            )
-            : []
-
-    const enemyDefenseReductionMultiplier =
-        (mode === 'selfEffects' || mode === 'maximum') && character.attackType
-            ? calculateEnemyDefenseReductionMultiplier(
-                activeModifiers,
-                character.attackType,
-            )
-            : 1
-
-    if (
-        enemyDefenseReductionModifiers.length > 0 &&
-        enemyDefenseReductionMultiplier === null
-    ) {
-        warnings.push(
-            '敵方防禦降低效果的倍率尚未建立，暫未套用。',
-        )
-    }
-
+    // 我方攻擊及暴擊增益對角色本身生效；敵方減益則在逐隻敵人計算時依目標 ID 篩選。
     const attackBonusPercent =
         (mode === 'selfEffects' || mode === 'maximum') && character.attackType
             ? calculateAttackBonusPercent(
@@ -426,7 +403,6 @@ export function calculateCharacterSkillDamage(
             ? calculateAttributeDamageBonusPercent(activeModifiers)
             : 0
 
-    // 計算角色自身的暴擊率及暴擊傷害增減益
     const criticalRateBonusPercent =
         (mode === 'selfEffects' || mode === 'maximum')
             ? calculateCriticalRateBonusPercent(activeModifiers)
@@ -536,6 +512,43 @@ export function calculateCharacterSkillDamage(
     // 對每一隻目標敵人分別計算傷害
     const enemyDamages: CharacterSkillEnemyDamageResult[] =
         targetEnemies.map(enemy => {
+            const enemyModifiers = getModifiersForEnemy(activeModifiers, enemy.id)
+            const enemyDefenseReductionModifiers =
+                (mode === 'selfEffects' || mode === 'maximum') && character.attackType
+                    ? getEnemyDefenseReductionModifiers(
+                        enemyModifiers,
+                        character.attackType,
+                    )
+                    : []
+            const enemyDefenseReductionMultiplier =
+                (mode === 'selfEffects' || mode === 'maximum') && character.attackType
+                    ? calculateEnemyDefenseReductionMultiplier(
+                        enemyModifiers,
+                        character.attackType,
+                    )
+                    : 1
+            const enemyAttributeResistanceReductionMultiplier =
+                mode === 'selfEffects' || mode === 'maximum'
+                    ? calculateEnemyAttributeResistanceReductionMultiplier(enemyModifiers)
+                    : 1
+
+            if (
+                enemyDefenseReductionModifiers.length > 0 &&
+                enemyDefenseReductionMultiplier === null
+            ) {
+                warnings.push(
+                    `${enemy.name}的敵方防禦降低效果倍率尚未建立，暫未套用。`,
+                )
+            }
+
+            if (
+                enemyAttributeResistanceReductionMultiplier === null
+            ) {
+                warnings.push(
+                    `${enemy.name}的屬性抗性降低效果倍率尚未建立，暫未套用。`,
+                )
+            }
+
             const damage = calculateSkillDamage({
                 skillKey: skillSlot as DamageSkillKey,
                 stats,
@@ -554,7 +567,8 @@ export function calculateCharacterSkillDamage(
                 criticalRateBonusPercent,
                 criticalDamageBonusPercent,
                 enemyDefenseReductionMultiplier:
-                    enemyDefenseReductionMultiplier ?? 1,
+                    (enemyDefenseReductionMultiplier ?? 1) *
+                    (enemyAttributeResistanceReductionMultiplier ?? 1),
             })
 
             return {
@@ -566,7 +580,9 @@ export function calculateCharacterSkillDamage(
     // 整理所有敵人的傷害加總
     const damage = combineEnemyDamageResults(
         skillSlot as DamageSkillKey,
-        enemyDamages.map(result => result.damage),
+        [...enemyDamages]
+            .sort((a, b) => a.enemy.id.localeCompare(b.enemy.id))
+            .map(result => result.damage),
         coefficient,
     )
 

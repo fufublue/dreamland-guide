@@ -9,6 +9,7 @@ import type {
   CharacterElement,
   CharacterRarity,
   ConfigurableEnvironmentEffect,
+  CustomEnemyEnvironmentEffect,
   HangingTraitDamageBonus,
   MaximumModeEnvironment,
   SkillLevelType,
@@ -39,6 +40,8 @@ type SideSettings = {
   treatSelfHpConditionAsMet: boolean;
   remainingSeconds: number;
   ultimateUses: number | null;
+  skill1PreCastSeconds: number | null;
+  skill2PreCastSeconds: number | null;
   environment: MaximumModeEnvironment;
 };
 type SideResult = {
@@ -46,6 +49,7 @@ type SideResult = {
   skillLevel: SkillLevelType;
   stats: ReturnType<typeof calculateCharacterStats>;
   damage: ReturnType<typeof calculateCharacterDamage>;
+  remainingSeconds: number;
 };
 
 const cloneEnvironment = (): MaximumModeEnvironment => ({
@@ -58,6 +62,9 @@ const cloneEnvironment = (): MaximumModeEnvironment => ({
     ...DEFAULT_ENVIRONMENT.attributeResistanceReduction,
   },
   speedIncrease: { ...DEFAULT_ENVIRONMENT.speedIncrease },
+  criticalRateIncrease: { ...DEFAULT_ENVIRONMENT.criticalRateIncrease! },
+  criticalDamageIncrease: { ...DEFAULT_ENVIRONMENT.criticalDamageIncrease! },
+  customEnemyEffects: (DEFAULT_ENVIRONMENT.customEnemyEffects ?? []).map((item) => ({ ...item })),
 });
 
 function createSideSettings(): SideSettings {
@@ -72,6 +79,8 @@ function createSideSettings(): SideSettings {
     treatSelfHpConditionAsMet: true,
     remainingSeconds: 50,
     ultimateUses: null,
+    skill1PreCastSeconds: null,
+    skill2PreCastSeconds: null,
     environment: cloneEnvironment(),
   };
 }
@@ -173,16 +182,8 @@ const ENVIRONMENT_EFFECTS: {
 }[] = [
   { key: "attackIncrease", title: "攻擊提升", durations: [10, 15, 20] },
   { key: "defenseReduction", title: "防禦降低", durations: [15, 20] },
-  {
-    key: "attributeDamageIncrease",
-    title: "屬性傷害提升",
-    durations: [15, 20],
-  },
-  {
-    key: "attributeResistanceReduction",
-    title: "屬性抗性降低",
-    durations: [15, 20],
-  },
+  { key: "attributeDamageIncrease", title: "屬性傷害提升", durations: [15, 20] },
+  { key: "attributeResistanceReduction", title: "屬性抗性降低", durations: [15, 20] },
   { key: "speedIncrease", title: "速度提升", durations: [10, 15, 20] },
 ];
 
@@ -205,21 +206,73 @@ function formatNumber(value: number | null | undefined): string {
 
 function EnvironmentEditor({
   environment,
+  enemies,
   onChange,
 }: {
   environment: MaximumModeEnvironment;
+  enemies: StrengthEnemySettings[];
   onChange: (next: MaximumModeEnvironment) => void;
 }) {
   const updateEffect = (
     key: (typeof ENVIRONMENT_EFFECTS)[number]["key"],
     patch: Partial<ConfigurableEnvironmentEffect>,
-  ) => onChange({ ...environment, [key]: { ...environment[key], ...patch } });
+  ) => onChange({ ...environment, [key]: { ...environment[key]!, ...patch } });
+
+  const magnitudeOptions = (key: (typeof ENVIRONMENT_EFFECTS)[number]["key"]) => {
+    if (key === "defenseReduction" || key === "attributeResistanceReduction") {
+      return ["small", "medium", "large"].map((value, index) => ({ value, label: `${[20, 30, 40][index]}%` }));
+    }
+    return ["small", "medium", "large"].map((value, index) => ({ value, label: `${[20, 40, 60][index]}%` }));
+  };
+
+  const renderTargetControls = (
+    key: "defenseReduction" | "attributeResistanceReduction",
+    effect: ConfigurableEnvironmentEffect,
+  ) => (
+    <div className="specified-env-target-controls">
+      <label>
+        目標
+        <select
+          value={effect.targetScope ?? "all"}
+          onChange={(event) => updateEffect(key, {
+            targetScope: event.target.value as "all" | "specific",
+            targetEnemyId: event.target.value === "all" ? null : effect.targetEnemyId ?? enemies[0]?.id ?? null,
+          })}
+        >
+          <option value="all">全體</option>
+          <option value="specific">指定敵人</option>
+        </select>
+      </label>
+      {effect.targetScope === "specific" && enemies.length > 0 && (
+        <label>
+          敵人
+          <select
+            value={effect.targetEnemyId ?? ""}
+            onChange={(event) => updateEffect(key, { targetEnemyId: event.target.value || null })}
+          >
+            <option value="">選擇敵人</option>
+            {enemies.map((enemy, index) => <option key={enemy.id} value={enemy.id}>{enemy.name}（敵人 {index + 1}）</option>)}
+          </select>
+        </label>
+      )}
+    </div>
+  );
+
+  const updateCustom = (id: string, patch: Partial<CustomEnemyEnvironmentEffect>) => {
+    onChange({
+      ...environment,
+      customEnemyEffects: (environment.customEnemyEffects ?? []).map((item) =>
+        item.id === id ? { ...item, ...patch } : item,
+      ),
+    });
+  };
 
   return (
     <div className="specified-env-editor">
       <h4>環境條件</h4>
       {ENVIRONMENT_EFFECTS.map(({ key, title, durations }) => {
-        const effect = environment[key];
+        const effect = environment[key]!;
+        const isFixed = key === "attackIncrease" || key === "defenseReduction";
         return (
           <div className="specified-env-row" key={key}>
             <label className="specified-env-toggle">
@@ -232,12 +285,11 @@ function EnvironmentEditor({
               />
               {title}
             </label>
-            {key === "attackIncrease" || key === "defenseReduction" ? (
+            {isFixed ? (
               <span className="specified-env-fixed">固定大幅</span>
             ) : (
               <select
                 value={effect.magnitude}
-                disabled={!effect.enabled}
                 onChange={(event) =>
                   updateEffect(key, {
                     magnitude: event.target
@@ -245,16 +297,17 @@ function EnvironmentEditor({
                   })
                 }
               >
-                <option value="small">小幅</option>
-                <option value="medium">中幅</option>
-                <option value="large">大幅</option>
+                {magnitudeOptions(key).map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
               </select>
             )}
             <label>
               持續
               <select
                 value={effect.durationSeconds}
-                disabled={!effect.enabled}
                 onChange={(event) =>
                   updateEffect(key, {
                     durationSeconds: Number(event.target.value) as 10 | 15 | 20,
@@ -272,21 +325,26 @@ function EnvironmentEditor({
               CD{" "}
               <input
                 type="number"
-                min="0.1"
-                step="0.1"
-                disabled={!effect.enabled}
+                min="1"
+                step="1"
                 value={effect.cooldownSeconds}
                 onChange={(event) => {
                   const value = Number(event.target.value);
                   if (event.target.value && Number.isFinite(value) && value > 0)
-                    updateEffect(key, { cooldownSeconds: value });
+                    updateEffect(key, {
+                      cooldownSeconds: Math.max(1, Math.round(value)),
+                    });
                 }}
               />{" "}
               秒
             </label>
+            {(key === "defenseReduction" ||
+              key === "attributeResistanceReduction") &&
+              renderTargetControls(key, effect)}
           </div>
         );
       })}
+
       <div className="specified-env-row">
         <label className="specified-env-toggle">
           <input
@@ -306,7 +364,6 @@ function EnvironmentEditor({
         </label>
         <select
           value={environment.ultimateGaugeIncrease.percentage}
-          disabled={!environment.ultimateGaugeIncrease.enabled}
           onChange={(event) =>
             onChange({
               ...environment,
@@ -324,9 +381,8 @@ function EnvironmentEditor({
           CD{" "}
           <input
             type="number"
-            min="0.1"
-            step="0.1"
-            disabled={!environment.ultimateGaugeIncrease.enabled}
+            min="1"
+            step="1"
             value={environment.ultimateGaugeIncrease.cooldownSeconds}
             onChange={(event) => {
               const value = Number(event.target.value);
@@ -335,13 +391,253 @@ function EnvironmentEditor({
                   ...environment,
                   ultimateGaugeIncrease: {
                     ...environment.ultimateGaugeIncrease,
-                    cooldownSeconds: value,
+                    cooldownSeconds: Math.max(1, Math.round(value)),
                   },
                 });
             }}
           />{" "}
           秒
         </label>
+      </div>
+
+      {(["criticalRateIncrease", "criticalDamageIncrease"] as const).map(
+        (key) => {
+          const effect = environment[key]!;
+          const isCriticalRate = key === "criticalRateIncrease";
+          const title = isCriticalRate ? "暴擊率提升" : "暴擊傷害提升";
+          const values = isCriticalRate ? [20, 30, 40] : [40, 60, 80];
+          return (
+            <div className="specified-env-row" key={key}>
+              <label className="specified-env-toggle">
+                <input
+                  type="checkbox"
+                  checked={effect.enabled}
+                  onChange={(event) =>
+                    onChange({
+                      ...environment,
+                      [key]: { ...effect, enabled: event.target.checked },
+                    })
+                  }
+                />
+                {title}
+              </label>
+              <select
+                value={effect.magnitude}
+                onChange={(event) =>
+                  onChange({
+                    ...environment,
+                    [key]: {
+                      ...effect,
+                      magnitude: event.target
+                        .value as ConfigurableEnvironmentEffect["magnitude"],
+                    },
+                  })
+                }
+              >
+                {(["small", "medium", "large"] as const).map((value, index) => (
+                  <option key={value} value={value}>
+                    {values[index]}%
+                  </option>
+                ))}
+              </select>
+              <label>
+                持續{" "}
+                <select
+                  value={effect.durationSeconds}
+                  onChange={(event) =>
+                    onChange({
+                      ...environment,
+                      [key]: {
+                        ...effect,
+                        durationSeconds: Number(event.target.value) as
+                          | 10
+                          | 15
+                          | 20,
+                      },
+                    })
+                  }
+                >
+                  <option value={10}>10 秒</option>
+                  <option value={15}>15 秒</option>
+                  <option value={20}>20 秒</option>
+                </select>
+              </label>
+              <label>
+                CD{" "}
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  value={effect.cooldownSeconds}
+                  onChange={(event) => {
+                    const value = Number(event.target.value);
+                    if (
+                      event.target.value &&
+                      Number.isFinite(value) &&
+                      value > 0
+                    )
+                      onChange({
+                        ...environment,
+                        [key]: {
+                          ...effect,
+                          cooldownSeconds: Math.max(1, Math.round(value)),
+                        },
+                      });
+                  }}
+                />{" "}
+                秒
+              </label>
+            </div>
+          );
+        },
+      )}
+
+      <div className="specified-custom-env-list">
+        <button
+          type="button"
+          className="strength-v2-button"
+          onClick={() =>
+            onChange({
+              ...environment,
+              customEnemyEffects: [
+                ...(environment.customEnemyEffects ?? []),
+                {
+                  id: `custom-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                  type: "defenseReduction",
+                  enabled: true,
+                  magnitude: "medium",
+                  durationSeconds: 15,
+                  cooldownSeconds: 16,
+                  targetScope: "all",
+                  targetEnemyId: null,
+                },
+              ],
+            })
+          }
+        >
+          ＋ 新增減益效果
+        </button>
+        {(environment.customEnemyEffects ?? []).map((item) => (
+          <div
+            className="specified-env-row specified-custom-env-row"
+            key={item.id}
+          >
+            <select
+              aria-label="效果類型"
+              value={item.type}
+              onChange={(event) =>
+                updateCustom(item.id, {
+                  type: event.target
+                    .value as CustomEnemyEnvironmentEffect["type"],
+                })
+              }
+            >
+              <option value="defenseReduction">防禦降低</option>
+              <option value="attributeResistanceReduction">屬性抗性降低</option>
+            </select>
+            <label>
+              幅度
+              <select
+                value={item.magnitude}
+                onChange={(event) =>
+                  updateCustom(item.id, {
+                    magnitude: event.target
+                      .value as CustomEnemyEnvironmentEffect["magnitude"],
+                  })
+                }
+              >
+                <option value="small">20%</option>
+                <option value="medium">30%</option>
+                <option value="large">40%</option>
+              </select>
+            </label>
+            <label>
+              持續{" "}
+              <select
+                value={item.durationSeconds}
+                onChange={(event) =>
+                  updateCustom(item.id, {
+                    durationSeconds: Number(event.target.value) as 15 | 20,
+                  })
+                }
+              >
+                <option value={15}>15 秒</option>
+                <option value={20}>20 秒</option>
+              </select>
+            </label>
+            <label>
+              CD{" "}
+              <input
+                type="number"
+                min="1"
+                step="1"
+                value={item.cooldownSeconds}
+                onChange={(event) => {
+                  const value = Number(event.target.value);
+                  if (event.target.value && Number.isFinite(value) && value > 0)
+                    updateCustom(item.id, {
+                      cooldownSeconds: Math.max(1, Math.round(value)),
+                    });
+                }}
+              />{" "}
+              秒
+            </label>
+            <div className="specified-env-target-controls">
+              <label>
+                目標{" "}
+                <select
+                  value={item.targetScope}
+                  onChange={(event) =>
+                    updateCustom(item.id, {
+                      targetScope: event.target.value as "all" | "specific",
+                      targetEnemyId:
+                        event.target.value === "all"
+                          ? null
+                          : (item.targetEnemyId ?? enemies[0]?.id ?? null),
+                    })
+                  }
+                >
+                  <option value="all">全體</option>
+                  <option value="specific">指定敵人</option>
+                </select>
+              </label>
+              {item.targetScope === "specific" && enemies.length > 0 && (
+                <label>
+                  敵人{" "}
+                  <select
+                    value={item.targetEnemyId ?? ""}
+                    onChange={(event) =>
+                      updateCustom(item.id, {
+                        targetEnemyId: event.target.value || null,
+                      })
+                    }
+                  >
+                    <option value="">選擇敵人</option>
+                    {enemies.map((enemy, index) => (
+                      <option key={enemy.id} value={enemy.id}>
+                        {enemy.name}（敵人 {index + 1}）
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+            </div>
+            <button
+              className="specified-env-delete-button"
+              type="button"
+              onClick={() =>
+                onChange({
+                  ...environment,
+                  customEnemyEffects: (
+                    environment.customEnemyEffects ?? []
+                  ).filter((entry) => entry.id !== item.id),
+                })
+              }
+            >
+              刪除
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -447,6 +743,7 @@ function SidePanel({
   side,
   settings,
   characters,
+  enemies,
   onChange,
   onCopyFromOther,
 }: {
@@ -454,6 +751,7 @@ function SidePanel({
   side: string;
   settings: SideSettings;
   characters: EngineCharacter[];
+  enemies: StrengthEnemySettings[];
   onChange: (patch: Partial<SideSettings>) => void;
   onCopyFromOther: () => void;
 }) {
@@ -486,14 +784,13 @@ function SidePanel({
           >
             <option value="coefficient">只看係數</option>
             <option value="selfEffects">角色自帶增減益效果</option>
-            <option value="maximum">最大值</option>
+            <option value="maximum">自行模擬環境</option>
           </select>
         </label>
         <label>
           UR 技能等級
           <select
             value={settings.skillLevel}
-            
             onChange={(event) =>
               onChange({ skillLevel: event.target.value as SkillLevelType })
             }
@@ -506,7 +803,6 @@ function SidePanel({
           天賦解鎖節點
           <select
             value={settings.talentNode}
-            
             onChange={(event) =>
               onChange({ talentNode: Number(event.target.value) })
             }
@@ -603,10 +899,49 @@ function SidePanel({
             }
           />
         </label>
+        <label>
+          二技能：第三波前施放時間點（秒）
+          <input
+            type="number"
+            min={settings.remainingSeconds}
+            step="1"
+            placeholder="不預先施放"
+            value={settings.skill2PreCastSeconds ?? ""}
+            onChange={(event) =>
+              onChange({
+                skill2PreCastSeconds:
+                  event.target.value === ""
+                    ? null
+                    : Math.max(0, Math.round(Number(event.target.value) || 0)),
+              })
+            }
+          />
+          <small>例如計算時間為 50 秒，填入 57 表計算開始前 7 秒施放。</small>
+        </label>
+        <label>
+          一技能：第三波前施放時間點（秒）
+          <input
+            type="number"
+            min={settings.remainingSeconds}
+            step="1"
+            placeholder="不預先施放"
+            value={settings.skill1PreCastSeconds ?? ""}
+            onChange={(event) =>
+              onChange({
+                skill1PreCastSeconds:
+                  event.target.value === ""
+                    ? null
+                    : Math.max(0, Math.round(Number(event.target.value) || 0)),
+              })
+            }
+          />
+          <small>例如計算時間為 50 秒，填入 57 表計算開始前 7 秒施放。</small>
+        </label>
       </div>
       {settings.mode === "maximum" && (
         <EnvironmentEditor
           environment={settings.environment}
+          enemies={enemies}
           onChange={(environment) => onChange({ environment })}
         />
       )}
@@ -748,7 +1083,7 @@ function ResultPanel({
                   className="specified-schedule-item"
                   key={`${index}-${action.actionTime}-${action.skillKey}`}
                 >
-                  <span>{formatNumber(action.actionTime)} 秒</span>
+                  <span>{formatNumber(Math.max(0, result.remainingSeconds - action.actionTime))} 秒</span>
                   <strong>
                     {
                       {
@@ -1128,6 +1463,7 @@ export default function SpecifiedComparison() {
     { key: number; enemyId: string }[]
   >([]);
   const [nextEnemyKey, setNextEnemyKey] = useState(1);
+  const [draggedEnemyKey, setDraggedEnemyKey] = useState<number | null>(null);
   const [characterFilters, setCharacterFilters] = useState<{
     rarity: CharacterRarity[];
     element: CharacterElement[];
@@ -1203,7 +1539,7 @@ export default function SpecifiedComparison() {
     () =>
       enemySelections.flatMap((selection) => {
         const enemy = enemies.find((item) => item.id === selection.enemyId);
-        return enemy ? [{ ...enemy }] : [];
+        return enemy ? [{ ...enemy, id: String(selection.key) }] : [];
       }),
     [enemySelections, enemies],
   );
@@ -1211,6 +1547,20 @@ export default function SpecifiedComparison() {
   const updateSide = (side: SideKey, patch: Partial<SideSettings>) => {
     const setter = side === "left" ? setLeft : setRight;
     setter((previous) => ({ ...previous, ...patch }));
+    setResults({ left: null, right: null });
+  };
+
+  const reorderEnemy = (fromKey: number, toKey: number) => {
+    if (fromKey === toKey) return;
+    setEnemySelections((previous) => {
+      const fromIndex = previous.findIndex((item) => item.key === fromKey);
+      const toIndex = previous.findIndex((item) => item.key === toKey);
+      if (fromIndex < 0 || toIndex < 0) return previous;
+      const next = [...previous];
+      const [moved] = next.splice(fromIndex, 1);
+      next.splice(toIndex, 0, moved);
+      return next;
+    });
     setResults({ left: null, right: null });
   };
 
@@ -1266,6 +1616,14 @@ export default function SpecifiedComparison() {
       scheduleSettings: {
         remainingSeconds: settings.remainingSeconds,
         ultimateUses: settings.ultimateUses,
+        initialSkill1CooldownElapsedSeconds:
+          settings.skill1PreCastSeconds === null
+            ? null
+            : Math.max(0, Math.round(settings.skill1PreCastSeconds - settings.remainingSeconds)),
+        initialSkill2CooldownElapsedSeconds:
+          settings.skill2PreCastSeconds === null
+            ? null
+            : Math.max(0, Math.round(settings.skill2PreCastSeconds - settings.remainingSeconds)),
       },
     });
     return {
@@ -1273,6 +1631,7 @@ export default function SpecifiedComparison() {
       skillLevel: selectedSkillLevel,
       stats: statResult,
       damage,
+      remainingSeconds: settings.remainingSeconds,
     };
   };
 
@@ -1309,6 +1668,9 @@ export default function SpecifiedComparison() {
           ...from.environment.attributeResistanceReduction,
         },
         speedIncrease: { ...from.environment.speedIncrease },
+        criticalRateIncrease: { ...from.environment.criticalRateIncrease! },
+        criticalDamageIncrease: { ...from.environment.criticalDamageIncrease! },
+        customEnemyEffects: (from.environment.customEnemyEffects ?? []).map((item) => ({ ...item })),
       },
     };
     if (to === "left") setLeft(copy);
@@ -1426,17 +1788,31 @@ export default function SpecifiedComparison() {
       <section className="strength-v2-section strength-v2-enemy-section specified-enemy-section">
         <h2>共用敵人設定</h2>
         <p className="strength-v2-muted">
-          新增敵人後，從資料庫選擇敵人。每個資料框代表一隻敵人，可以重複選擇相同敵人；左右兩側使用相同敵人組合。
+          新增敵人後，從資料庫選擇敵人。每個資料框代表一隻敵人，可以重複選擇相同敵人；可拖曳調整順序，第一隻敵人是單體攻擊優先目標，全體攻擊仍會命中所有敵人。左右兩側使用相同敵人組合。
         </p>
         {enemySelections.map((item, index) => {
           const enemy = enemies.find((entry) => entry.id === item.enemyId);
           return (
             <div
-              className="strength-v2-setting-group strength-v2-enemy-item"
+              className={`strength-v2-setting-group strength-v2-enemy-item ${draggedEnemyKey === item.key ? "is-dragging" : ""}`}
               key={item.key}
+              draggable
+              onDragStart={(event) => {
+                setDraggedEnemyKey(item.key);
+                event.dataTransfer.effectAllowed = "move";
+                event.dataTransfer.setData("text/plain", String(item.key));
+              }}
+              onDragOver={(event) => event.preventDefault()}
+              onDrop={(event) => {
+                event.preventDefault();
+                const fromKey = Number(event.dataTransfer.getData("text/plain"));
+                if (Number.isFinite(fromKey)) reorderEnemy(fromKey, item.key);
+                setDraggedEnemyKey(null);
+              }}
+              onDragEnd={() => setDraggedEnemyKey(null)}
             >
               <div className="strength-v2-setting-row">
-                <h3>敵人 {index + 1}</h3>
+                <h3><span className="specified-enemy-drag-handle" aria-hidden="true">⠿</span> 敵人 {index + 1}</h3>
                 <button
                   type="button"
                   onClick={() =>
@@ -1513,6 +1889,7 @@ export default function SpecifiedComparison() {
           side="左側"
           settings={left}
           characters={filteredCharacters}
+          enemies={selectedEnemies}
           onChange={(patch) => updateSide("left", patch)}
           onCopyFromOther={() => copySettings(right, "left")}
         />
@@ -1521,6 +1898,7 @@ export default function SpecifiedComparison() {
           side="右側"
           settings={right}
           characters={filteredCharacters}
+          enemies={selectedEnemies}
           onChange={(patch) => updateSide("right", patch)}
           onCopyFromOther={() => copySettings(left, "right")}
         />
