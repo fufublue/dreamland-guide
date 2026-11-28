@@ -1,6 +1,6 @@
 {
   "success": true,
-  "updatedAt": "2026-11-28T04:01:30.060Z",
+  "updatedAt": "2026-11-28T08:29:47.966Z",
   "count": 129,
   "events": [
     {
@@ -12,10 +12,10 @@
       "name": "馬戲團魅影",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axFntTKqvpQEpaeJxFfAk81KQKT6yWF_x-JNgZSjmWs38GkFqT9gCgdecK825HIpJpGNUc4Tb94S1egykf78F9iAy5eX7ItT7hZEOx0zyJ2LafyySQJqboFfYj_7iZjykWZb9c_lFDJfA2ulqRWzDemgdaddA7O-cgWldHrDZeRuGTi=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayuUUuKPSGWjAoocGYJ6hWRQAaqVv-omXz4xKJhxHJZsQgflYofEnvFnUBBsoDdoN2FqhSD_wl2OfQ7RVJnqsIEmTcVlDty5ibbeBdinb1T0vVhPBux4nAaEm1TUasYhz1u08E79gVh7cGjBRr0bOHRaK1cAK45I7VeguxM0IICqbps=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax56BilFIrwu7WX-OM8zD_E2Zqqe7aeArLiXTa1DWgha01Lg1Y-VS7FwaObWAKwFtvGHFhFg5eGIoGRDhO8gsOZup-uLhExLue9VuM4HYaqekNfH7VW1kG7yk8dweODRjjPFkLNM0YOKCDRE6OwZXzM2JP44bWTbAgdjVQ1RluKF-pJ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "ssr": "https://docs.google.com/sheets-images-rt/ADdU-awpj5FCDEexrgb174LEG2zWVAR_CocqRHt9PsX8kHkp-8pHyEtxZvkY7PVLIutXKo7tENzhbqEzDzR_WytuS8gQgAjc9_GztHHO0zku4MLQ-T3n70xAcTVJ05apJRaXKFJLpL9ky-nVFhG4YoQYoUta59IsftxZyCoVfHGVNLEdIg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awfStbSwFnUH-M3lhUH15v2PvMLRa3TuRPRx27kUl5FFxAlm9XIpawpxK7UU5nPShFXJ8DLEuvjgkQwT_0fF95J1XFz7HKv2nd7W9Hp0Iym_qREZNzbCdx4sWFcMyEmL7dwr_7Iv_N7GYtVvEMzQyD6GNuI5zlTXRLIg2p40j7MBcSd=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azW4p4nkhYi_iUWCXkDL3RyTgErX0bAtrsk6C0b_qjTAY7WRw7gE6IQgBd48qjc4G6HpsuoS1yfLm9Fz8PFWvLW0ChadPzJHG7rIw9KXB1tRGvdNbZrmvZamaI2sTgL3wPyOTmEYu1ClAEA1k5kLrTPW4Bwi7TVinwKPBtdIN0H_Agi=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azJqyfp8yXPq2sqrabZgWN12FeLmzdRr24C6PjyK7o4QFtLa2JwMSmZBGZf0dt3Gluch2BPNXcFw4hH5qWiH4ctphTBJ4BYG2q3nuHrDks6ExdvxLc-qz8GPP8b0Kp_FDHWkKwQyQZoAh8ioCkpWSogNiiizF7ZVcGlCI3e8BX2AMzI=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "ssr": "https://docs.google.com/sheets-images-rt/ADdU-azvKB6kGlsEn6eZlMoHjk3i-UPmVUofuOYAb9dGs7bU9dVlOvtbaOnyyzlYQmX078ziwx7_1Xw_UAQKCahbCo8wEG4eBEgjqLgVuqAw0s1r8mmebTPjU2aff6bzJ4lyVNqtR-pYDaf9XtNDlAk0wWrlp7WrosADkmU5qp4M_lwDMQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -29,9 +29,9 @@
       "name": "輕曳的砂礫",
       "type": "主線劇情",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awg9i7lwib6fVqQR_jssOCVeSAFMFyuf6AGQ0eoDiD1A5eqLQB3DXI-_V5F1eTXhS4cMxQyE9r7GDeFdKvEOC9XBoLGhBxEjydcuM-zTSe77m0ub6UA0UdvFmtY1nz_-7PkTB2cXslFGTJ1mcmWVG5o_kF7bbSH2XK9BI1On_LU4npH=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axJ1z96E-BKZ6Ad1leBDW5JS7hH6n_VlcBWnnCN3ea4cu6NSEeEcKffelUR19I7-0KkajLqaHrKvtyVFaw54lqOhSq970-NSXlty2zB4FMlBhDNMhN8xZfAWMfGjV1JOBNoyG2AvTqA8s1222P_v5-2UnWLqhAhnaQ2pJuougskSTKR=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "ssr": "https://docs.google.com/sheets-images-rt/ADdU-axSQlb1GIkLMUFHOUjLS7Mf3Vs4Uht57ZG8oiNZ2fJW_nrcrAOBZ8NtPQ0pDk2rLiP9_1gIrwvpIISUT72CdzFyhaLzGlFpttouBAVZyexqoUDoJ7nY8BFvYJfnrJ1_OT4lRC011bGdf8-JuDbVWrFgLfcs6W0YglKd2nVq0Fcygw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awy9SBFbVUxx75_RGdTtYPmmbPk_8x3Ff1IokWTjEP-bgQhgH61r9hxXPZ9kDdpjsxwP0I0PbJNrcDa2GVRV6zw3JuZ6HBAPKGronJ7mdLhqxumGRM2VDlKLpj3b3Y5r-XCawa3s4nbk3dsBAENuzuNnDZofF8qjjf6NwrxjLxNG_Ha=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-az6z8iAJ_xXqJEFp7z2aAUVZAJSLH3EOPN8tOThrh2VcrPhcwGPOqdeIxy3M3Jkv5gqH8m-Y2NpWPlHCG2vhL9NwK_5azcrA2lfYpykxGiePFelUJKBCClK9nlXa1WM7Ppg1EwYBd17cj9DRqCoTjUy1C7RNSlNtwGqlxTSzDLFnF2J=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "ssr": "https://docs.google.com/sheets-images-rt/ADdU-azxuaj54Di48HNO0N7jLLhuTm6vuW827RGZiLFNwnLKNfxjReG8jHtk7RMltx9zeAK0zhOsHmSgJvImBeTLWg946BA6WdwXr8F4_sXmWq22TlBMRAnFM8qR575n9P6Lya5m6A3g3A7miHe7_4eyddewBmAz05Fbzm4a6AghEf_BAg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -45,9 +45,9 @@
       "name": "夜鶯邀約\n午夜的朦朧會談",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awUNHZvUXbAa-cC5dJK90p1rsrVI-2TszwAUjfIqRurZe62_G7PpDbentDxyv1X5OomhbKK1hlI09ir1M3sPeghwrJbHs8-tjZMai3Xv6gbK4cNlI-4O1EM-KX1XUbgVd3Wv2P4j58rJqMhEt2gz7iD2NqU3zEMlfCF3j2a6Pu22k_u=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aynq2ffVodLmuf4zLNp_ShCyh7kKcM_lgpCKOZK3YBlGfrLiDhdRD43gRBvMgjyRtNk6Qt2K45sDJ6GwV8jdmUiK6C7jYDVb1XTUepTZn_aOwivnJRt3GcOxBQ13rjsAFOilZvNm2cewzksSEFgPaX2FdqipyBy9luStDtTl1SxLw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aybYaGEbVXjay5At-BCDJi4rRIS_a6J-JfM1x9p6LyJyJpkgV1v361X9LraBcaojdUclhosYd-3kctedaYKpzfSL7v44qyqjx7LaTliVTeOmB0zvp1XL5VI6qYXaAzYZ_CN9ZEeMSw6dL5U5eptFR5ahGP3cBjhLm6sCG8NDiHYELdX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axDea1biBT2h6TXIMSOcTirLtfHNpzN_uYIfVgfl4hrjd0q92I1NLQgtH93h41_tqxIsePLtRxeVKSPPHDk_tSXVPBhuSuUdevq6NTQl_CWIYOtxiLIkGFXFpS6gEtOcjQLw2f6lYmTYb8UsKgepuo_E7O86WtoI3ANNs9TCJ7GaZwM=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aziC_KfIOMh_tCkungVW6GhK9EGWDA1mNMEXO6YUb4Wgu_XaNmjTLX7lDDE4bHAAQl1RiRiEa4d1XukkHtJSUCdvDlA7Au-5fClX0cEATk0vP04ErVKtD6fSRo7AHepS3-KRtxw5BHecjzbijPjZjaY6SIk0W4Zg2tq0D5Ljtxd9Q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-az3SQ7gBNH6TKf2ctzxXxdf9PRvF9JQtoV7vGGYS6AVlVBBGBe-6-VxxMcznV5HzhvmVJXmj9XzFgOkDTci4ke1-pd--vIDbCOSBgVHI74g48415PrpPu5OJ_I4LbVx9cV-8sj0AHhqScVbXf0TqVwXLmOIAfdvoNt1Yxa_4UfwokAK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -61,9 +61,9 @@
       "name": "初夏！\n黃金沙灘與水上樂園",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azr8C2eUO5dXtceetugTRRvf3Oye0MHD1UyyX2WdAx5Nguhg6ONUF4Om18T0Icch70H_ZOb8_qOfJOZSB1Sm99qdqM6OW2v8s_8qDpVKLyxzr0KR7OEylUUDgKwoZtf8y7tbEx2YU7HBM9YxR3ev0_6QVSGxgR_9YfQekqtS5EB1PWa=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay4kNxrGNJMRS3DMPTRXQ0KVMIe_cn23tyP8KMWVFzBOI12KgJnnT3Ol0MJiQoYRQG3IEa432A1BWexgCZDzqW6dbjZAdqALlfoF2Paf8eNSNN-L9FJbmBtjezwZX4gy1aqprLCpMTo_Rw3mamDnu-VmOwptk8dTe5VMX7jbtRsW2DC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azSz6SvKOYDffRaLBCTcVuGoeFxhPBIWy4r0YYupONa774meUI2uE9Byv1M8dMjpLeEJ0uLOyrQQLx4c4b6uJkdnL2ipc5XKQ45JxngTO5WK-UTUop1_n37VGm8JVugBQHpmRxcDY3suTe-4c1mdMZ8DxIs-aHmnlHn5CqsYy2QdGxp=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayuTF0NceqTr5MsoshhYBW2_7Vtp1n__u8sU7AHnuFGsPIz1JbhhYG6P7Hz_l1XTlQD5QGhefkUn_uM93uV5M__qVHeAvReW-Q7qK28CfXhYgz80S4SPM_cRui8_6njV4fBvndBhsYJ3r58RinSAJ7Ft5McKdkYZeHFH_Ms0SpT3rZs=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axLiDehV9ftewzbAlNEOkcH3xvN6n_Dce_tCLEkjSzj3MCTbzZ5YAI29L6ZCMN6CmXa5U8gGfbAzRpnf5YpHj3d6W9LAHYr398qbaNy6H_JhoWqVeyZmYdSlUKGMQwbmrCBW99WZZWHl8T1ZOMncuzny6ONxcNUuX7raJItpjvQ3PY_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azCTAqhTkFvagtsO22MJeTtqZ1V4c_zuPmTiQ-5B-NA_AEENkUDnUdu-nyMPBnqqISPnzxTO9iTnXkHyjmAVRMhtqS1Ha9oxPuPKSACDOtLT98Sgk1TD2HYmNxA8eANkxP8Jqc0afG57L7-C3fuiil5xhqI2vcfBSmPtn-x9sQvWhBK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -77,9 +77,9 @@
       "name": "盛夏！\n湛藍海岸與水槍激戰",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax974EtopzyQF0Ns4MnDQ7oUadYfx_ylpCc6CTFvunNZEykLFGoM7FfiWlDBuz9DN9RNExEVT5AZ-90mhZK9bjYxV5gNTijjqTD_syWz-NQ1jD35kgcZckqZPLFM_PN9VqUGGPfB_gvGF_KXmG8byeltmGcI49Ctq36unApG2-7dR2L=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azCqxZ-MECFu_zkYXmbVMHbAzM1hF_LfVdcAaGUGXdREvJIpP1FcAhNy1QFUpkPjCYk5-UYq27JlwJ82kegynzyQUFLfYFz3dCB_FqTqzHEjBE_1pnh7W9AQ7eeVR6ZkWKhiK3kQ6uXbdmJvmXSgW9Z4fIrigKoxMr5ZysKmhqP0dgA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azYGiy5uPeG99IaWaFs5zuiAiP4sqjWjAphcn1gdhWx1b4GQUcWwOPJ6CGYrzMHvfsGE2h0pzXNidJvuBhVopzy25YJkv2pvVdzghzrJK6U6QO6TF4Syfn080vVAlWaUNbn6nA63-eJ1nIJcF6rFzY2Ou2pmp6fYWFQVAHUYVwzcC-Y=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aysFWWB-qcHP4Swv7hHl_iCBOhk1NQM_GLombwH96hrmYuEr-kgdVTsrA0KLHusf-2c_cEdEk3rTG17qcYai1koMmvXgEYhQ_MxnYWTLpCDUYHbAoH78necWKM9E99AqMRBBh0QaGgUXFOUDZi4e1GUwXaU6UU0eKKPY6AuwyJxpofB=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aw7pEA4GXtEMqweRNozoKz1BulMy4u_Hbu6lZqMxq4xVgT7OpUqv-wtl-j-p6-YM0S0YuT06PvKu0EMNh2BWgBj6hL4xchEgZPrA7OtsNBb4BhSr_Fhr3PTWHsYFVlxqVoTTLVKfj7LV1t8NhfWQ3QWV069O75nc02grsuv89TJgSda=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awFbaoR22CW4sN2rJ_rBA8zpbDkvT-U9jgA5fdtNQN4-iunhZZJ47eX5NasaAtQJEj41evahRoKHM18ux7K4Q5agf9e69MMi-5fnc6lTGfTm7rzobDeAqt-KQJZQeUaNrV8wBXxkW7VDltqVq6q0n1tRgl5jaB0HdM_go_kc0bHgad-=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -93,7 +93,7 @@
       "name": "特別邀約\n可可迪",
       "type": "特別邀約",
       "images": {
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axFR51orjwbj38XJVPo1x6MK1TDBqLvTdrKgbJn1jjD0nSt21sx2xks4rNR0Q9MN3igG0h_wJnxe68eEqS040F57kyW_CAsjdVyIOBK39ZhdRAzB-e8K7MKjKzveGYJmurvI_GF0ic32g0_kwrfLMwfNs9_QcNMZ8UXUTM_i_nk6ht7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axP_CvTjyWucEmNGBSAT5zhM-Ru7CHWPmYTEO5gpZGG3NRp65_3miurBE6Z9X_HVk2Oh4O3EtgkhYzeMJ75MfdF5m608WHKR62rDgxSwI71LoV93IpadC6Q_vBUTFvNLx3eZFc8sNQy5EiPuYIzUEdA9h4d7pDnYCatTSjthveOmULg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -107,9 +107,9 @@
       "name": "聚光燈下的懸案",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az7tR72KbjKNqto1826D_Q_ZImU_UZuccSSsMrfHP6LPUlmLed1TpELD0l_wsz8hfyi642u62BHlCULfqh_EMvI5KbRlcUV2gtAcCkuPwg_n2V8ErEl8M5EGHSCRz9cdu6aHQTtmaKOoeafqBFd_EDijMIgHD4fHsri1i1wsPECmnX6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azNKHPy-8YB0d7383UC5duxQF6OYAb1A-KjyumSO5hD8jcr73-roiC6ONauvGRrIMSOTCzoS2MIKCYkJPghzmPNPNB4yhLymHXAbaWYfA-Pw9W0Gn4HeZpQwm3HNxx3hUyvlTV_tI3PaQ9TOMxc6CYmThl18alBSmybIXtxRFd6zmap=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awQdulacdCYEopfxkHR4kRPk5eIyPPwbpJwoXtWFZXTDNMqmUaxoU_n28oxYAyX-EHkBiJcLOxM4w2YG-F0dumjzSCgxNypxv9Q4bIi_gd02qkFzrxVlI1R8QBTVAzAO9N46lIgq1YcykuhTQO8x1PioxJkmL0qKZvEZN2KqtcIThv1=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awU9icHPghykHzICsxGxP4xGB7DYw5c0x4QkZO-Yq7K3byvGtJGoKDfGklHAlu6GOs1BTUafLetzsXlKsqwMnOrlX93NaS0L-pOLJFz2gSbG6eM5CeiDzhS_ZuOMDWHO6f7U7MA01OH7tzELcbaEco-YEtQUQk2R6HTLOkVFQcaex9I=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axmGxiJRZolZxDwoB3n1Hdta6Xmv5TxdW7qp39_GnQKi4o-ZHTI0uQ8nAQCRhwGK4DjGkBdPxisTo4TI612CowFKsFTB3jZafxi-prrB9ef2XiKr6FLcwu70XJD-uetyjdr5YELlNV9ayCKwBlI-TB2tjUW-mkpnySt-0fQksXk-2dR=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aynGlT7Jjkr88vHermp_5IP8xj_Mz7RyWE5LZJbibcp1_8U20B0zp_YQwiyy_EyJmQjI5Yk-1kteqOwLpXZnvGJ5QuDgMaetrl-MHkGM9Tt4GOlEQf-1b2i9tF2SF-vMMbtxrRo6xUInzVwcOYDQ2IiwQ9tp9pr2FJAOUJanPzqEu1m=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -123,8 +123,8 @@
       "name": "深淵的獄火",
       "type": "主線劇情",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax0B-3EDI3cywKttGOG9ixdGh1RVCMVncYyfeXELOEBhp7mguQqQpNaWuNnLrjnilbIe4UvI8J-YtnpUO5sG0xonKBRW74EyMElCXLI7jbQ3bbe2YsCg2D9LDpqjUVUFKwx9_8uuP7EGXA4YflNUHpeY7VqluhzY8ntEUSruNiSMWcs=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azzV1Fu9oKtF5PDYaC1vbSJH6appemjzxQg8GnwSpCdVLi7n_m01WuTxbSXIwKtuzq7cJYwi-9s84oDaQOKK4-HesGj-tV6GzVPnI6Y0zD1xCbin7KNHimYSvlf9bueOlssg39mXRsJsQkJYFHAStiWkc_mBW0u4CoNdAhmAiMFQCfn=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay8QHdcmT7jCp1JpRIn_AkWYOKy-UrZE9djhu0I6lOulHpLEd2nJBiiAyK82EUjoUshtE1Gk2MkrkzRQE4QhmNOW1T2hzPrzjPUr9eq8nKvvIqfVOpGp2h06ptKlANYrjMdTzMxWXbnPe8cT7-VNOijZh9CmpN8inSY1TMPWShrnrWc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azEd_2Qur550e80l1gjbuVxvHtZkQDCSraoaNrXI5qAHdq142Wnl8x3kDPY2nVAWQ-E9d0MqJHSLlzz1H1WvFuOgi-Dr9PrswnJTh8TH1_HsAfm_PkD5vEW4Y_p8v8HUioZNt00HaQ7hYRIesRmRURqmAryKDzzGU2BlrPyVlAbvYey=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -138,7 +138,7 @@
       "name": "特別邀約\n京彥",
       "type": "特別邀約",
       "images": {
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azRuKp9Ut56BSYx3ZUJTkAgCzcU_zbte6QrsgIJ7XqzQsh-1_Rwt-yksa94g6waUUQYSWrV23imFTkcUmoY4IrXlI1nP8wRhOPoRjjw6j2U7qJ4pgnMXY9sTitQAAcbfjPVgW4Nk8lkXG-EY1IxMabmhjtYDEspGFngp5NUMvTtK8OM=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ay9321orOyplQU8oexFPzNm85k2IIS9oP60aJYfv1ArRh-X-8pd6aOuCHzDF-zSzEcwIwJmQCRv7Gs9-NsAo4pNREjEbBYFmEMRGvfSvqL9iCzLFD9uWjLiHUwDnaFiM0CSY_4OujstFTwx_sig0KeOMhSxnp5AHL04DBVfdjmiwV_Z=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -152,9 +152,9 @@
       "name": "夜鶯邀約\n雨夜的特別營業",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aytNc61sbXM1dCKPYytTcyLzSqk-itwciBKxaR6_JgNntWAF9r4cZy3ZM-NDBWOyr9GmUf6ZYX_U6TS3RQCEgFLt-pGAuFReGuons6cEdVe7exsS9iw8IsiTeYGUkYs3s-AROBsYk23Yro3FbeOqjwJQ364WzxHtP50TA7J58DGsA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aw5KEiPAD2X3wwAdC9mdHuHVDLZSMiPukXQb_gkkjWAuhJXz5b_hZmcYaQ62gg6muX3MBWCRuVuxo04ag9humWiJAXvfrXn567fcm9IU8GRoSu8G2Ie0FKoi2b5_SGXPWd42VRc8RGrbNUMe_RbsAGXT-u-akWYa4QSEktmU6e6k18s=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awfYvAx0ze5oWBaPeP12W72OdjadLgbWgQydspWrwAoPA4teDLqC_zl6QDTtS7usmqdz08HKa0qS-Nd72EnMFZqsSsWKJ7T_8JDHINs6oBGzlM6anQ9IWvSLEcVoTHGtQAqN0YOO0VRc7KhoKF57GkH76Y6s6-TQH1ghF5QNWb0uA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axSKJ1VFr6sin98scFbfm6myeNbVmuBrW2GEeBorNBdXVpBToJlWPcKcaPKnKh85sNw5hYhzhhM1mHqMySLiY3MHlkdJftMEHqceD-X0Iae0oD-flxH3btCHw2Sjt78W4OTG7ZNyEQuZgPIhMZOGkptCqV6wTKANdWrtbfiAnqvpQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azvDlN9Lciqlyxmv2JHX1pDwmyVj1Qa7rKjfqbNA1x7aVJVgHzYM7k5MsCT4z0cUQwwq5ENnTjUm5NsKIQUJqsH737fJU-P6Jw5LeJTo0XurA-6rzz8pD1X1Lb12pIfT5hCg6gLq-RrvSlHdxGnXaN-4qsygYUAwrwZEaPf15AJpN8l=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awfQcGi7sl5PeuM6zt22fhh-QvXvkx2j2JLUXii-HpcwbHs1d28596mM0FmT9Dv_g3iHAtw4jkOT4A1yK-Y8cd_nEMu26Q5pnB1dyEqIgLr14qYZv_KaMZ51y0XFxmcfPOWZDXTCMCCmUQvIy5SiZGPSmsabv30NWehFfDzHv_vAQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -168,9 +168,9 @@
       "name": "冥府的渡船",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axBW0GJzdMJ6fWIshT3hYXjJrm9hU1MKgXzO_osumhFppSLEu-6iAuXjuVp546DPGpp_9gUfD9Id9Bulad7pmf_ZQ3HlQj24hJ8YzyeNUO8xg5sirOGJntIYwrNwKq4pWMDLvS7OxXSQo1iXSvN7MYpvCovbCWF_Jqu5Qm8TFLxg95k=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aypyckExaM1Y0Cpl9RcDflwtRDA2yvMDkvh9GHOuzwJoplYnWF_Lh_oCtGI-d54OJJcY7EuMgZYd8osW-Ls0F22o9zb8xgiYd7zloInsOIItBNGHXzvOuRm4rUYQFjrmHckJa0H2NO_yra65r_MFi9XIyba3-3inMyXyV35tiaEN_ZC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awEug6iziT5NtHBK3rhqPPdgR9N8hJgJHbLM81Z0zqxL-ibsKi2mWObzweWa7gnZLwUvDYQ5xMvKirztKvl9GTWs1OsWs3uL_Ncs9w6YaghLdG2QdTMkZGZyiRWdoy1LtplyJo9Ui5aHu7pfEbUqmt-nKSY4U5pOsSF4sD1ThtELfzv=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axtmin2pTZU4dHnvxuOp8uGHLAnVnZ_Ce1xKArHfxsFKGzTPsdGoZ2543uRpffR9TFIvRLIsnf4zKktV2cq3xyM8LmMZuPSTIZWPl6c65FQ0_mDlZN0rG6ffW072TwZGdghOmUVV2gBuEuz9qgi32sNk1puPEwsihc3M61bTJu_ndcf=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awiedZEkYMOd8sLredH3Vgm7TdAP8TEKsZnLf7lF82M2yXhYpazV5w4zzd260ZbdoXhuEo2QgaUW39WM9OcezMGC9pRXi2O0z99RqCuGCcM1U8a_WUh6E3eK2cGDC9SIXD7HXs4U56Y6z_NLD7oh3CX8Sp9dL741-VrB7Lk01vNtaIQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awPO_-oZv7sJwrLlDOdXRckrMJQjpBw_Yw9aWZAuCGVts4XojVEQDjk5GaUk7MlSIFe8X5wDlWHpcPSHD8YoO_Q0v9HoUZgC6qZbpmSDDAkUKJT0-oxq41ErDEReFrrr5eZj42WQRzQYRytmv-CwjII4GEhDAN3cLilmO1K-JRDd9k6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -184,9 +184,9 @@
       "name": "風雪中的\n溫泉鄉",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay09K1jRrayT9KQ387_zvMwzd8ZiUCKp-9vNE8qm_z_iVJxYd7r8rfBSQTK0nKX_F5W80m3M2W8rPnSHI5C9bIjUK13tMNDCO68Z1cQ60ikgOy6oYuAxPq_9apYAJCloZRVkqIcy-wSMx24RYpCQvq9a7rXQmlb-KwRQLqZsdy2iOtP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayqKXJxeEUeYEHW_NthX6Ivy7WOpvHYQChA3Tqm2TpCjVkw2rXDm6HcK0V-tSdJlVa7fF9ldujkwwA4CdvZozaVG_8dF8M3B0Z6EoBQ256ntTH8HYIUjWxPisRX_KUIPJ9Ws0IlTd9xPK-OxzRKPPwjZZdYO-Y2tQAvI1s5gK3PMnhr=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axZG9cZN33Y367BCY-I5DJNJtFbqgIVfsTqtu3a8sk9JMY8ehmTunvmo0G2iSEOZRPOtjND358UmGMvS0laKHn-czctVZ_pqp4lSkEydqEQGR9R618F40TSsk4TW5X1_5sOtqFnVl0ST5WaPSnm9riB0kXSEZe2PZgA5pmjK3lNPTZ7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axZcGWWqLYKzJDaI3yvZ74W6X8pEkWwqqHf7k6oTF5Cy_DTwCYAkfyThL_2nMUrFbyqLsUCTIqluod2aWDCP6oQsiR6GCjXIf_twuln_GYNr1Uke1cFqHbPD6_Gg6znlyXrS5DCuwMcquo-SrJVn246CLDuWVDNfM7xSJP_L7aRK43j=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awtbMv9ecQ1ZKJwTUbcb2XukczVw5zIM-v5TelWPKYYMQjLMXGy8ZnPa7HImob7XoNQT-oSZF7zGWpXHHiKc2blZ3zaOPT9qM8UND0Fg0FwmzAQtj5cVwZUuih8dPBHnZH6GEtRVnQLCVjKoYFXocYUnRxg3V5ZS_plYY3Hz_EHofgZ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azfH-Pwt3AdyE7-VnLw3N_o8C42S7rZpYBU3qM0K2d6XvRK8Pq9foBYFH2tfQmz1afqvl7WG_wBzHoiOUainRVCOzVmF5JSOFiTwiP7lNFYFlmBV-jEySDgkuj8NNd-2DEHkzQOC_gaB-6VcVOUdV47cq8NTRJGH4ZkyMvAZVQNwbF1=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -200,7 +200,7 @@
       "name": "特別邀約\n斯絨",
       "type": "特別邀約",
       "images": {
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axNnyChfUZV_CFXbSxdPfp8zjU0zZiI8khHez1JKlLDN9gb8O9q2ATi7ORjx5vvsRDYScDAU1MM0rZjibu6sOtniy5CGGvz08CThdPlqENQ-_83dO87IEzWdrwKSMqZjviSXS1ReThVtRUAiDTweJrz4dM5wGlEKfYt9z9Es6JW_sAx=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azXyWlqBBTACT_T1sS8qQHGzXWaVyf1ft5_s7hmAjhqCSmrSBvJ8NkYt_yYNoRSdgj2cogCdYng4r7RhSSqwYI1Z0j4Vr9lu6DbPxBjK6eD9eFUDf5Gc4BuR2QW-i1n2v_gtUfRcwnh6PH52Y9yKtKysvOIrKpQzUtqex8rRYU5yGt5=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -214,9 +214,9 @@
       "name": "冬日的花車大遊行",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw-q8nDiBa8DXprUClgvniryHEguUagIjm2L-EQ6Wdj63UUBBivQVLLk8EvjajD7hHQpHuOnnbX0I0EnbHRTCtAe0RtKMWW5EI_AyvE-MoInvXSJRXStyNwx4xygu98So2waueU_vERBKPTc6MkdF9npSHm0blWqriEbt5ff0AMK2k6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axTh2kiAu0E_AvA9NBXLorC2iz-U4ehVmTIi-QDmEf9cnuhuJwXaaa2wqhiZ3AsRwMH8dhAfAdog5vxu2Dz_8Y7uAHfrgAkxh8s7crmJpwtXAT-6H_UmCbYS5TQOvgEaccpfXScI7cOCn9oT9d_dkIHmjcJTOndBveP6-GnVFi924jq=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axmztJIem4Bz4GvEAnO_xuRa7EghyyT_6muvS0vfnf6swlWUL7fVyqph21Cq41EsqWX6Re5jvT0rZVIiDVPD6HbPMC3kwIrR7R53cvfo93ZMa7jrxmP86eja6WVn5yVPFdjpgkqO_rHgvCkPnsf2y1O1NIysBV0UvXQbH3i5ufK2fNm=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azJjof3g3wsjjCIhhyDG5iiRh7FIxRFiN0iF5g230MQgtpAD_yST6EgO9Nfl0jneeutDjQTf_nHU003t9DUjyuOE2oImbQpmYcSeliL5X3iHjh9DKEKPBYoHy3AP5vTI_KYUTwmU42pXeCbxWyr_QXj8JllOPaJkgnKXz7WkrvbhY4k=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayVSo6FdpKsG1aCM37FE5VYYkfFfIJ0i-Z0jhyb1KDJMJidjnfWkTqgN1-l4XP11-IaPRhw6yELI6kJ2AgPcJmaH7Vkj6PntQN95KS3Gp7TmEUdukUySi6jBC9iK4yU2POMTPqRN6fEpX_hQWGkLpKfGFA0tMZcH96AYulmkacKT0-g=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax8ak86l5iCofGfzMefgHnS5wBxQ5WT1LAm5-ht4-cAURn_OARe7dh15Tp3-R1KUuqc5ayENZK5eixFczQ-oBJma1cLAEuQhQGQ_blpiK1rEPhmW3ZQVsh-DiZbTQlLinGS1ttwiO8V-oTKK_siRqKkrQqTesJny-12XXecWN_HOFHj=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -230,8 +230,8 @@
       "name": "權杖的棺匣",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awcLN-vwcXlxvQgwQpRx8XVtB9tmMaj3oHm8qFKNC2SoyJ_iDkDbfj9cqAaTOr2Z5gIa-M0fIcJWPfLXchYatIEFR_CUhn3ME-QZ3WSIl1auY0CHQkf1usXWZn8t_vm9yEceIU7jZA8yvpzE5JNGVkp5D5COrBHG7P8giZn6urIs2Q_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayerIv7P-JG6WPpexoqmlRDxCXtfktOHjopniOlTksAotDbpZ2cEjNSO2FuwViFk-0qbAwaWeVFI-RH49koOR10nLe2qMojg2-WfHdtWrswpf_3VQq9UMUCMQV7bEe2eGF1GyAsObIIN3Q_UKhBoQyIu0FT3i3DOyk_NdMIHpv6E8VK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az6_UHV9-dEBNjoNuU2MQuAu3bqpcGMh9iL0y65czAWUFRp9ESEkpmNkRuGcYeWFaYSkTyeR6HtAjm1qULYe9zpTnGx2JypQ0M1L1I8SG7cvoSxgX0oZ6a1wB8y_AIRu9xqq7hKwRnoVmUUZOIZE3mA3qMdOJkmg7bY8I874zs40wfh=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aybFqqKlFs8c4OyXYOmA7XyStu8aTObCs7hA1ZxzedBwuWGSlMbNJtbWY_5FyPsSzyiUc6a-dgLfnkGvbHZD-m6W-r40wRpPTQin0S9M5CIJ-hF1zEyGC7boYkLyn47F9dnKYHMa40RRdAni-tLUC8zuWXzwXX-H6GGUKdOSkzVJvSr=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -245,9 +245,9 @@
       "name": "青草牧場",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw5XqqajVmIZeTGZixGLa0yJHR5pS9rnGN_P9K4zzyvel6FcZTb4Yj8m-6kSoWWPRaj6FU96ATnx-y2m8urs7ka5uE4IKbUzBJbRASlDh7aHfJCGeUuNU8mYDFiynz_WLUtOiDwG0UKN6pNWtZvF-fY1bzD0BK0d5qHnHiwSTrVrQ2o=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aznnOqTgq34INsrrqrNexx41QnvQiQQ_pkZbuJ1azyGz3hmhFftGBdPnyto135ZsUABR1sqarGB6NMt3Tnu364KrX4tn27d2COFwrFisqKPtVjtNViIZht9fTUKeDMBN92zoY4TN-wG88qub94WHksTi3WQ-oTZFoEQzsLHyZiwIDLw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayuvyQX2CkfyUHuCqiTlrZSDN42nuqX8KKTU7m3tL8hDLeZD4Em38txfIPVqCnvozji7iO4q9cwONVVJJeP2elZF9gYhOFVVbEjbfg6IkRk69O3ycLPI1ZwaV66zbDDfpewAio-tTCxYjsfQsuWqycDWqFxutP-slQZaR12cdL-BY89=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axmKfd1c-lehuMgjFyIVTHk7koTorh8yf90w2e5rPfVWrmIYI22wibMzEZUB59L7MNWU7Wcxrf2d4lR63cuFUFtPnqCBIDaZa3pivsW8E3HhYT11lFvNJZf__tMPmx8kxiVVxVFCiKJaz9YT6Lqxv9wasRwWBr_ZUQPiuaC7URouane=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayfGVsi8aBuqh0UTnO4D6jmiquTsGfwUNjDZOUnalFgVdO7AbPAd84rCMVLSu93a9imoEEzS9ONQTd5duji7brNpplmozQXAMXy-lUxJiBuxk0hsO9KvbOlcQqkPdJjDsUknCk2n1OkXSpuDAgVJfNUsIZHM_gR-g4e3alvSdajEBwE=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awJ-epnttRwshDKcx8e1VVE7ldMY_2tWuVwaqErFlHxNo0xFZv9wLQYBVJBHYgS20e_FWdRcegjyfZ25GQkPcUvZbDL8F48EHTk15_-oGc-PKWPwmnhMBRLPibYWpsO3d29wZ8L6OW9Qrde-CptRSHY0tau0nbJC2r49U1k8_C8Hdpg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -261,10 +261,10 @@
       "name": "馬戲團魅影",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axFntTKqvpQEpaeJxFfAk81KQKT6yWF_x-JNgZSjmWs38GkFqT9gCgdecK825HIpJpGNUc4Tb94S1egykf78F9iAy5eX7ItT7hZEOx0zyJ2LafyySQJqboFfYj_7iZjykWZb9c_lFDJfA2ulqRWzDemgdaddA7O-cgWldHrDZeRuGTi=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayuUUuKPSGWjAoocGYJ6hWRQAaqVv-omXz4xKJhxHJZsQgflYofEnvFnUBBsoDdoN2FqhSD_wl2OfQ7RVJnqsIEmTcVlDty5ibbeBdinb1T0vVhPBux4nAaEm1TUasYhz1u08E79gVh7cGjBRr0bOHRaK1cAK45I7VeguxM0IICqbps=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax56BilFIrwu7WX-OM8zD_E2Zqqe7aeArLiXTa1DWgha01Lg1Y-VS7FwaObWAKwFtvGHFhFg5eGIoGRDhO8gsOZup-uLhExLue9VuM4HYaqekNfH7VW1kG7yk8dweODRjjPFkLNM0YOKCDRE6OwZXzM2JP44bWTbAgdjVQ1RluKF-pJ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "ssr": "https://docs.google.com/sheets-images-rt/ADdU-awpj5FCDEexrgb174LEG2zWVAR_CocqRHt9PsX8kHkp-8pHyEtxZvkY7PVLIutXKo7tENzhbqEzDzR_WytuS8gQgAjc9_GztHHO0zku4MLQ-T3n70xAcTVJ05apJRaXKFJLpL9ky-nVFhG4YoQYoUta59IsftxZyCoVfHGVNLEdIg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awfStbSwFnUH-M3lhUH15v2PvMLRa3TuRPRx27kUl5FFxAlm9XIpawpxK7UU5nPShFXJ8DLEuvjgkQwT_0fF95J1XFz7HKv2nd7W9Hp0Iym_qREZNzbCdx4sWFcMyEmL7dwr_7Iv_N7GYtVvEMzQyD6GNuI5zlTXRLIg2p40j7MBcSd=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azW4p4nkhYi_iUWCXkDL3RyTgErX0bAtrsk6C0b_qjTAY7WRw7gE6IQgBd48qjc4G6HpsuoS1yfLm9Fz8PFWvLW0ChadPzJHG7rIw9KXB1tRGvdNbZrmvZamaI2sTgL3wPyOTmEYu1ClAEA1k5kLrTPW4Bwi7TVinwKPBtdIN0H_Agi=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azJqyfp8yXPq2sqrabZgWN12FeLmzdRr24C6PjyK7o4QFtLa2JwMSmZBGZf0dt3Gluch2BPNXcFw4hH5qWiH4ctphTBJ4BYG2q3nuHrDks6ExdvxLc-qz8GPP8b0Kp_FDHWkKwQyQZoAh8ioCkpWSogNiiizF7ZVcGlCI3e8BX2AMzI=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "ssr": "https://docs.google.com/sheets-images-rt/ADdU-azvKB6kGlsEn6eZlMoHjk3i-UPmVUofuOYAb9dGs7bU9dVlOvtbaOnyyzlYQmX078ziwx7_1Xw_UAQKCahbCo8wEG4eBEgjqLgVuqAw0s1r8mmebTPjU2aff6bzJ4lyVNqtR-pYDaf9XtNDlAk0wWrlp7WrosADkmU5qp4M_lwDMQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -278,9 +278,9 @@
       "name": "夜鶯邀約\n月夜的微醺夢鄉",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awc0dFxYwRypSFE68irvMsLZ-8PXd27g0WLe7STwJKuNJFxL-DLPMON3E9Bco53qtNyZGKe1NRv9ZsKjBJItk1kGFaJsJVbQunamiMkAgazO21YbhwGNNRaAAomDlsZpjNX2HvDkK4t3SnYdb4zsbBxi68vY5CfkerudLDopXdXIhu7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ax7aLn4WlYnXUdhPasA6HCmNv63re5pgAd1srNXD8dW4TA9_1whrn7I76PqVQoudr7iyLgzdMVInda4u7Gn1PD2GEfqe9BB01nCCFizd5j3bPEQxy8PAjNcMfVAHIyCOZ9Xr8kODrHr9od17-7ScFxwkNaDZVz67-5wvhCvMYiTIfkd=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axSB2LUG9wP9u2rv8vbrTf9TdmV1xkeTcdPWO8geXSQXvtfGN6-ESjBRU3HQDeYZMQtWskcWIVvkMYT51PFGQ9oSk7svqaa2hjUtZ7CRydB2UK37wjPrAGr1nDIl3Lg-n8AmWnHUQPfL5iASnAIec_JUY3JW2RqOYYUV_QiFJXoaZmx=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axIqMGmn60WanE3nybKhPVqeVU5MQGN3fur3ilUUxpRdYA1Bp3mAe2vsQkeuoW3V6Eb2AzNoILH-o9quoAIWXghzNEJZyxHB2tZRFhnCW113snWAUJhQ8psN9PKprWWSPiw7-uxNNoAfIzUhItx6fJGsMrDi7qUqM2zyOGs__Q55IWc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awLzskNJ1mxcXLPGvBmgH1VhVATfZgvwvdI39mt8P9hQQHAolSO4upmrOUdziFoStDkI9B9RKv6hZnxxw_5nVj1AUCe7Y7SBJpmcQSqFXW2J372gJQhuA9J9lD3PL5R8VbfdQE3D6QxuNUQYVtmOQidka1v24fkDNfpj7Q86C37-Dx-=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayGmAIWK5O7mlvStWXs1GEevrcw7RFegILPycs1J4eMXMwwZWjJY8_z-VdIitUkNjF2fY68TBGrJI0F-XEt5UzixEdYW9lkJONoQmfjtFbNc6rU5AdJjwIaL2OzldYqP9wcGw2b2yiDHca65ULvLA-_x2vdmrrJfkJcn7pJH-_1xijn=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -294,9 +294,9 @@
       "name": "夜鶯邀約\n午夜的朦朧會談",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awUNHZvUXbAa-cC5dJK90p1rsrVI-2TszwAUjfIqRurZe62_G7PpDbentDxyv1X5OomhbKK1hlI09ir1M3sPeghwrJbHs8-tjZMai3Xv6gbK4cNlI-4O1EM-KX1XUbgVd3Wv2P4j58rJqMhEt2gz7iD2NqU3zEMlfCF3j2a6Pu22k_u=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aynq2ffVodLmuf4zLNp_ShCyh7kKcM_lgpCKOZK3YBlGfrLiDhdRD43gRBvMgjyRtNk6Qt2K45sDJ6GwV8jdmUiK6C7jYDVb1XTUepTZn_aOwivnJRt3GcOxBQ13rjsAFOilZvNm2cewzksSEFgPaX2FdqipyBy9luStDtTl1SxLw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aybYaGEbVXjay5At-BCDJi4rRIS_a6J-JfM1x9p6LyJyJpkgV1v361X9LraBcaojdUclhosYd-3kctedaYKpzfSL7v44qyqjx7LaTliVTeOmB0zvp1XL5VI6qYXaAzYZ_CN9ZEeMSw6dL5U5eptFR5ahGP3cBjhLm6sCG8NDiHYELdX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axDea1biBT2h6TXIMSOcTirLtfHNpzN_uYIfVgfl4hrjd0q92I1NLQgtH93h41_tqxIsePLtRxeVKSPPHDk_tSXVPBhuSuUdevq6NTQl_CWIYOtxiLIkGFXFpS6gEtOcjQLw2f6lYmTYb8UsKgepuo_E7O86WtoI3ANNs9TCJ7GaZwM=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aziC_KfIOMh_tCkungVW6GhK9EGWDA1mNMEXO6YUb4Wgu_XaNmjTLX7lDDE4bHAAQl1RiRiEa4d1XukkHtJSUCdvDlA7Au-5fClX0cEATk0vP04ErVKtD6fSRo7AHepS3-KRtxw5BHecjzbijPjZjaY6SIk0W4Zg2tq0D5Ljtxd9Q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-az3SQ7gBNH6TKf2ctzxXxdf9PRvF9JQtoV7vGGYS6AVlVBBGBe-6-VxxMcznV5HzhvmVJXmj9XzFgOkDTci4ke1-pd--vIDbCOSBgVHI74g48415PrpPu5OJ_I4LbVx9cV-8sj0AHhqScVbXf0TqVwXLmOIAfdvoNt1Yxa_4UfwokAK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -310,8 +310,8 @@
       "name": "滿月的鬼謠",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax-TP7fnaaOPuDq4bWbylgFKmT68c_eS4qHSkoMHw15sJFrsuP_ciOqL2K78KUy7lfRXEAHbQcbiF1BssnSdpdJDbEAm8zQ-ptvkVqx3fijhNP_7UdECYr07ng304MGGjXfekVdU_T7MiLjJc5a2SrayXBVuVS_99eHyQ3auZsh_0uM=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axJpZOWEP5_hf5Db89FMly5hhAI9ts9W8HtQc5MN-nA63J3WUsh7pzGROFsVZ6VQpN_CHm_ICpw9vrlcaezhsgTdwyhMQFeZslD2dvIq6a3Oac2FMrgG6ByezCMDz-2Wme0YQl1yUO86WoBOFkuurB3KoTYSLaqirnz01Hd5ApspQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azO8HfjZ8_tgKd38s8SHgkQEXUA6ZlvWW14vk6GiexrqatYkTUkjNPx-XmPpyh1f5zhRzOaDTToBMMq6PGgblmEUEx27ejeVh4pGD25So3lmt_gEw-y236K1RhMYtFUCZuqtSroVUElGlGrOZDnY7eOIhKte2LIJzVR4ckk6bqPY8iC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax0WLCi4r8m8LvQNHNYJ0Q-I9mkAfsbdwima2CnBS4s_JOqabDn4inNQtFWFd_8MkKYcjWobtysLWZHftSgL-qrN4LzD3fkOdHxRMOErklX9EghbhwU-cFZ7dI3vmCPbUjKA-ApgUyABEmiTQaRrp6AOuaoBn5f_CbtiG2enIGcGA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -325,9 +325,9 @@
       "name": "初夏！\n黃金沙灘與水上樂園",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azr8C2eUO5dXtceetugTRRvf3Oye0MHD1UyyX2WdAx5Nguhg6ONUF4Om18T0Icch70H_ZOb8_qOfJOZSB1Sm99qdqM6OW2v8s_8qDpVKLyxzr0KR7OEylUUDgKwoZtf8y7tbEx2YU7HBM9YxR3ev0_6QVSGxgR_9YfQekqtS5EB1PWa=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay4kNxrGNJMRS3DMPTRXQ0KVMIe_cn23tyP8KMWVFzBOI12KgJnnT3Ol0MJiQoYRQG3IEa432A1BWexgCZDzqW6dbjZAdqALlfoF2Paf8eNSNN-L9FJbmBtjezwZX4gy1aqprLCpMTo_Rw3mamDnu-VmOwptk8dTe5VMX7jbtRsW2DC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azYiZNCrpicmUZclq0LivtLfr6JdTb69p_EoXC8Gzrf3wM-bUugNlUKhLVvjF1V51Z61eUgZcGQjZE0y2UMoAAp38T3cTLiOrMFVlrBLcSWP2aKOuAaRzCrc1ki2sCHEBHytp_31y844GAY2iY1ZoNMRsd0Bb6wM7l41mQ54sdpAt3o=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayuTF0NceqTr5MsoshhYBW2_7Vtp1n__u8sU7AHnuFGsPIz1JbhhYG6P7Hz_l1XTlQD5QGhefkUn_uM93uV5M__qVHeAvReW-Q7qK28CfXhYgz80S4SPM_cRui8_6njV4fBvndBhsYJ3r58RinSAJ7Ft5McKdkYZeHFH_Ms0SpT3rZs=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axLiDehV9ftewzbAlNEOkcH3xvN6n_Dce_tCLEkjSzj3MCTbzZ5YAI29L6ZCMN6CmXa5U8gGfbAzRpnf5YpHj3d6W9LAHYr398qbaNy6H_JhoWqVeyZmYdSlUKGMQwbmrCBW99WZZWHl8T1ZOMncuzny6ONxcNUuX7raJItpjvQ3PY_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azCTAqhTkFvagtsO22MJeTtqZ1V4c_zuPmTiQ-5B-NA_AEENkUDnUdu-nyMPBnqqISPnzxTO9iTnXkHyjmAVRMhtqS1Ha9oxPuPKSACDOtLT98Sgk1TD2HYmNxA8eANkxP8Jqc0afG57L7-C3fuiil5xhqI2vcfBSmPtn-x9sQvWhBK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -341,9 +341,9 @@
       "name": "學院的試卷風暴",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awqjgfGPRcaplMRzu60ryUa18v9KBtfz9bcAXyny2HpxYEklxVRLufan5DQy5Iu0bpLkrhiBHkcKo784BNBeWnYfBNr0cuY67_MFOD4f7YjGTpwKJUAlXtSI1NuWVPiIgGXbqQvT06YEPrtKLQLats1S1P_mlIrfnttBQgT4P5xfpXS=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axsbPI0ISvVG8E4ia_kFhx-Z55T0o_fQ9ERRPHA94b14r6TDvfh9L9hsiiqDBZTYrIe1IGl6y0SqxxDS24xlBA_XJMm8NKostoH027qpZt3sUXuptbDBiLbWVY6vLmfejfegOarlSnXKfwfbXfxIdzkmVKdMx42dwAm0EKZYPQtPsON=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-az9Mtlguybat3XHjjQxvUhngeTURI3gDiiiqE_IyazsZmYIs_BSBZhVk-wrpgHCMp4F6lbvTWEMBxx3H_djgd7LDJeJCUnwqzR9qL-frHfDBPeeLhkCJnssaNpCGxXCcRceDtIXwNoZ3eVgMGd7uDfRG-8KzMzXwPzXWx_1OPyMJ9aQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azdIFeUpEsAeCYqGXAP51xc-BePVuZS3Uu51GBKroCeLb0fq_KEcQf_v2-Q-ku6Ok7G_s70y80jhChHT2VAcCCfrP85Gb-0cTJhB4OtJDifMIh1UP6eYRVrQDNC_v2JulHNQ38pAktSz3BP46apy2wYVH-yGNE6CCUet_nqM5IhO_1W=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axn-t0c4-y-QHkJMZAU0QbdRSlXJkBFpK17MLAJpjIX2iTd8cibzQCcqbnn35WtG7bwQAsqhu7v33MAtgkxkwlU35pYdNs5LO_gq9R7bAuARyUclTsuhcTDBQMS36sk1JWlN8qQNo6WxzFiY6pOaGdEgNjneSBg14OFkXyEs8qUrt7b=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azpAlT05Ta-ST3_CycBiit33MdB_1SDcd61P4YI1Pv1O1GgoE5YB5aPQL1ULo29nPJkvGug_tP_Y0NnuSxx76aGEFW_ChvsFLU399hPAkzb3Fj0GMlPnUko1DmAhs5zBJnzn09kt8GcjFggRczb0PVuam26IjUWMyMjEtaZbDUrgJh8=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -357,7 +357,7 @@
       "name": "專屬時刻\n雷塞爾",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axklgynjcB9qKMK2NKfdCNTbbIlNkq1VDPYnsvF1wBHRxR-jDmzk7-7lf3iaYNTyEALjQzFMJQxfYvNCpfnVNSv6mO2T9X7N-VAPz8o79N9JeYX2unsqkOqZK14PEFs9uMfByhZWbBqSBxNDKAP6WK6piyDAv1NkTJfhG5QkZCbM4Xu=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axRf1-7GvaEYiDBDoCjt5ZR76_wQ-TACpg90MbvN5DBcQQLNPDYnSbc9fKpfhuRwHCEXHMRoFS9_q5_7ESGTcMmrX6_LVd_437JCzeOylPqFInX9iQkbTBKzqhnlerFutkS-Z-tXGtzNUfGWbQk4BpWSqlo1_rJIEC2WZzGtvoNnrnJ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -371,9 +371,9 @@
       "name": "盛夏！\n湛藍海岸與水槍激戰",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax974EtopzyQF0Ns4MnDQ7oUadYfx_ylpCc6CTFvunNZEykLFGoM7FfiWlDBuz9DN9RNExEVT5AZ-90mhZK9bjYxV5gNTijjqTD_syWz-NQ1jD35kgcZckqZPLFM_PN9VqUGGPfB_gvGF_KXmG8byeltmGcI49Ctq36unApG2-7dR2L=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azCqxZ-MECFu_zkYXmbVMHbAzM1hF_LfVdcAaGUGXdREvJIpP1FcAhNy1QFUpkPjCYk5-UYq27JlwJ82kegynzyQUFLfYFz3dCB_FqTqzHEjBE_1pnh7W9AQ7eeVR6ZkWKhiK3kQ6uXbdmJvmXSgW9Z4fIrigKoxMr5ZysKmhqP0dgA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azYGiy5uPeG99IaWaFs5zuiAiP4sqjWjAphcn1gdhWx1b4GQUcWwOPJ6CGYrzMHvfsGE2h0pzXNidJvuBhVopzy25YJkv2pvVdzghzrJK6U6QO6TF4Syfn080vVAlWaUNbn6nA63-eJ1nIJcF6rFzY2Ou2pmp6fYWFQVAHUYVwzcC-Y=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aysFWWB-qcHP4Swv7hHl_iCBOhk1NQM_GLombwH96hrmYuEr-kgdVTsrA0KLHusf-2c_cEdEk3rTG17qcYai1koMmvXgEYhQ_MxnYWTLpCDUYHbAoH78necWKM9E99AqMRBBh0QaGgUXFOUDZi4e1GUwXaU6UU0eKKPY6AuwyJxpofB=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aw7pEA4GXtEMqweRNozoKz1BulMy4u_Hbu6lZqMxq4xVgT7OpUqv-wtl-j-p6-YM0S0YuT06PvKu0EMNh2BWgBj6hL4xchEgZPrA7OtsNBb4BhSr_Fhr3PTWHsYFVlxqVoTTLVKfj7LV1t8NhfWQ3QWV069O75nc02grsuv89TJgSda=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awFbaoR22CW4sN2rJ_rBA8zpbDkvT-U9jgA5fdtNQN4-iunhZZJ47eX5NasaAtQJEj41evahRoKHM18ux7K4Q5agf9e69MMi-5fnc6lTGfTm7rzobDeAqt-KQJZQeUaNrV8wBXxkW7VDltqVq6q0n1tRgl5jaB0HdM_go_kc0bHgad-=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -387,7 +387,7 @@
       "name": "專屬時刻\n沙菲",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax-f0WBd-a4qTlRws408fDgRtkkYQ1h_r4b8XLLRx9VC2Kfey6gRXLPbOPrN6HvbwNeMkPdIeEHXD3rmIhKzAz01YpYxnal5TSUFOtcJRZkUq1papPpRSQ1G_nqJqaq1mEF_jWLevYIemDyXAHxhCmBIX5DiYOCI8V9kpzFo_UmDvJ8=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayKJcb_STe9WyqtnYMPogsc3Jr4lCaVpthTUdjntyF5wS0Bz4hkmwIh37cghD7ZttU0ZhpEiIlAtxfa3Qsen0GBIns4v3jOWLX_O6b4een6unNqSZRSjCGcQ1vz0YG5l1Zu_YHII2L0HPyaQQZsgq4UU7iBzsboO2kayn0NKVD4mW7q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -401,7 +401,7 @@
       "name": "星辰的高塔",
       "type": "主線劇情",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axjgB_20Skh5BFyY9Ef5VbWi5vQKlenR-S-rwY7Dl366stnZiEHuOLJSuReNfvzmAXFgVXZOUf45Byha68ULqewUGZkjtg1T9hTUgEW-HEPYeS_99KjVMCljKsZaSZ6QhJ1DleotJMWAOOIW0yWaTHuLvNxe3Ik7Q5aFCdbv3Y4OEh4=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awxb3KR-D67Y9cjDqCbeR0ratzL9qULAvR0z9X-WnUKMQ_n7Ts_aO2HC45_Wey-wLiWGOWxNmLh_E0xLbAGfAhpMb53XbTBLv0zTXgC0pccOt1075_qczBxWGOdUfbr5M6ErY6jDidm9cv2VmmMJAjm0Wj-fYu4OtpGwV2NNKkS6sl4=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -415,7 +415,7 @@
       "name": "專屬時刻\n默狄厄",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azfnY02C79Uchj-9BNIfSi5aN0cmwrvUf8-Cl_iGAILGNbV_AGGybSANX8aE7bYVtXSOh4ppv26smfA-M0Pt4yiOI406Yul-m-Iqmg_1Le1of7kHp27UosCjSictQqQHcp8d_WKmkwARfawg2fHdIKm0njq11OB3LOJlCOv9pg7iGLo=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awyR6qhu-wdlsBR8B8GkDvSQ4kOF5i7RpR74ref_Os8i-7twYabLe5YMh77fmJGjyWhSOvTKaKcxIG1ffC4b74LydOyI71zMPcgymqeiKUcp5AsqajQlxjXxPJAlIEYIJZ2t4NXC6Tr86ZNI1Sovdoq7JdUHcXRl8NVJOKUVFga7vY3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -429,9 +429,9 @@
       "name": "驚奇！\n熱帶海島與竊竊私語",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayvnddRrbVu1E5dKceBGVairOBHn2173sG0S7x6uFKZzdxyzEwp7wgidq-toh0iExTacPPppCVVqLEl5_GXY69th0qkfeSnEqK30QNpNPPjwzi9jU7aPccOuucY0tovaC1E2fUNST_ZgjvfWde-jYpSVq2pWftill2LYZ2MyUUq_A=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axDJWyg5eAFOk8VGnuXaU66dazwTZzpbENFHkOboAQFPnoqYg9JssOFO0SDno0-PENqIMvouN1jhDUS6QEqImcWc_p_4tO7FDK8wm899lTZLxuVMliCdHYoCPorVYq1k9vxmgJD7pvOHYsHhvPjLs_neHpj17tbGRfofunGATzbYZFQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax-pe76ckegk35OvPWk5Vlw9Jy1mCgTfDMD7Dp7eeX_gz_J2O7pjdZg57pttioD6-njYrSoPYIzokALiY8gjl_xq60IIhOoMWyjzJ4sBBlSpElHKEAtP4IaEVIWAKJruZsVceXMjNJZp-169b0txv35Jrn8NMm1nl-rCormZCu81UWt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awa16Oryxjscla-2QcpoYr6OIs5o8OuosV-atAE58xmrZM72KuHfPA2_jz60bsn3HI2vTuDR0loNhlp7tm92ZcB7178xJLXJcfJoPgr9fr9EdJ5b0Wg_F6iMGIw7oUjocqD54pzDQh9oXyhvfAiYcNa9KA8gA7rPXdgIIq4fHGxjQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aygygZYCiF5LmAv4-Ni58iQswNAGLResDO8XgJZ9ZcBMPQK_jtAgO3gk3WQqJFpUUDS8NpmGlMD1w17afDVJpgxc-Mkqc4IZ7y_688PgFXg6X_VTqn2TQh_q03cpwdzzHh6NbBvni39TRGrIhaAwzRawiTb5RR5jcW1oP9nf1SBMTnf=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azUS_JM3IpM30nH1TEp918tjWjeGdJ5ZClLJ-bjLkQZq3ckG-HcS6d_yrbGuZ5uxp_hIPQp-nra6tjdvcwqWXeXAEiiCnWQOqwH6zbVaKAQNGuCij0WXzEWtEhPit1j9I_wBVfEQi5ZtmnB2ETpbcIDOmxPL_42MfBZdo1M2_i8nIKi=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -445,9 +445,9 @@
       "name": "聚光燈下的懸案",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azAfYknr_Mtr9ceh0a6yIxwUvkfNzVpViEfrxmMZoveJMKftNUh781ELxjuvj8CKrsDl9GKrIXbDENbhLzkI0xid8OQ6OxU0lPZ5DzwjAw-_3H9k0uHWectWuR_pKNWVkjGdAgN8pErDMFMzVAe_tOHPkSSwweOc89zawZzgj4AA5UI=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azNKHPy-8YB0d7383UC5duxQF6OYAb1A-KjyumSO5hD8jcr73-roiC6ONauvGRrIMSOTCzoS2MIKCYkJPghzmPNPNB4yhLymHXAbaWYfA-Pw9W0Gn4HeZpQwm3HNxx3hUyvlTV_tI3PaQ9TOMxc6CYmThl18alBSmybIXtxRFd6zmap=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awQdulacdCYEopfxkHR4kRPk5eIyPPwbpJwoXtWFZXTDNMqmUaxoU_n28oxYAyX-EHkBiJcLOxM4w2YG-F0dumjzSCgxNypxv9Q4bIi_gd02qkFzrxVlI1R8QBTVAzAO9N46lIgq1YcykuhTQO8x1PioxJkmL0qKZvEZN2KqtcIThv1=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awU9icHPghykHzICsxGxP4xGB7DYw5c0x4QkZO-Yq7K3byvGtJGoKDfGklHAlu6GOs1BTUafLetzsXlKsqwMnOrlX93NaS0L-pOLJFz2gSbG6eM5CeiDzhS_ZuOMDWHO6f7U7MA01OH7tzELcbaEco-YEtQUQk2R6HTLOkVFQcaex9I=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axmGxiJRZolZxDwoB3n1Hdta6Xmv5TxdW7qp39_GnQKi4o-ZHTI0uQ8nAQCRhwGK4DjGkBdPxisTo4TI612CowFKsFTB3jZafxi-prrB9ef2XiKr6FLcwu70XJD-uetyjdr5YELlNV9ayCKwBlI-TB2tjUW-mkpnySt-0fQksXk-2dR=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aynGlT7Jjkr88vHermp_5IP8xj_Mz7RyWE5LZJbibcp1_8U20B0zp_YQwiyy_EyJmQjI5Yk-1kteqOwLpXZnvGJ5QuDgMaetrl-MHkGM9Tt4GOlEQf-1b2i9tF2SF-vMMbtxrRo6xUInzVwcOYDQ2IiwQ9tp9pr2FJAOUJanPzqEu1m=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -461,7 +461,7 @@
       "name": "專屬時刻\n奇琪蒂",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay1yonu27tISVk2S2WM5oYgqYLfQu056b2cxNFRJYnAx1ZjbzjXMcWc3GLH1lYqyBrF0pm1olTQa0CCF3LbkR0RqoTIF9h6LRao-JVGSYHI7nDMCtyNfvamImMyCI56BCrPCLjuv6rkeCkbgkGs9RYwIjnb8L7giXs0jMtK-i1dIA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axl-hgIXI-DKmv-l-g2Tp82QfMq-WM09EwgKFaEkUBnO2H_nNXTaKTQvL-6akNqkWtgYTGYeL2n05JBE68HeqEyAFl2o2BqaOhX4-qPpLWLCTS5dgNIjD929yxazEO7-zAwPh6lWmQyFWk3j2AKKu3ql_yB_-oFwjgWl4-gzm8ISQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -475,9 +475,9 @@
       "name": "夜鶯邀約\n幻夜的熱沙盛夏",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awuQDG7o9Gfe3O9w-f4xql29cEi0RK3EqEAEW4pIyRO5s6HVH0dmSuaCIoVM5JRaM8vB7U7FtP_ZYL8uhq_Nbe2UTObmY-YIKPNO9BGwhFqv_mMVwKu6w_TmKN434tQR6sc2WkGT_xeAFpVCYMJAEK5SHeBEcMALSYfxmRIKhQY3sxA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axuLSqvTU4G7RI7IOfXGjv0tmgf27MJzh3loLr_ptQnni6y30xgwhKk39OuOUQZkRknSz-luZS1zyTm2wjSom3cJwH8v6NLECSTY81_heJIGWtLMc1RWc_s8YpZnI-1biFuXCAlTdlIvsQbhrCvL3HE92ViW_ANKD1s7LmtgWtGDGl_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axTx4YPlTFL-Yh9Xmim-XV3d7XdK0wsatViypufajQLUPQMi98ZjysU_jO8-sVqYoO3q_oZuaaNqNU9HFnx_G3WMprYsrYFPT0N6M9BojsXdU62RCnmwdBa4AoIrZHbAajkJjtkMT_5gNoDyTg5ZKnHSPSpo8tEWSOLSNM_9Sxbcw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayLtYLDcYicm792lnstZBLnil2oUEi_DXw3UnA_VymC7vy3AwSJ6JzHwhmZ0a_jT9XfM1DS_O76DEJPM_WvqjhWH0V3RerZdauKfQ4Mw_3G4WrNci7D61PiShzmQcs_ma3rXOB-ryPu9I2TVO4jc7fu2SDs8ahbNE9jJWKxmvTas6wX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awHSrGPqWXo23EdNi6Qr6AJUpZB_pTRXm_mbC9FGHYDPsJ-V6L7Rst1WCvInxLfsX0HutW22QEHs6dB4Bv2PboKjWuOF5vb2Se_5Ixq9587fsxuWXTjLeHb1HIGI2egb_C-NK42jKvo9aDG4xdqwvLvUjlh9Hsapa9zMGNV2CEo7MdA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azA_-eXA0QbDYhcCktLsixOPYxiwy27G0KDNJoh7uURjecexu-HNU3wv5qEpeoylLVAAM2qTxjfNdzublKXgB7IokswIWPpYSkDhjdzhLLTRdKkOaOaXOcPMdGNL3Yh7lgkV4gkcUlxWJ6rRP4HiSP7U3gqK1Xe3QMkEqWDPRtpbQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -491,7 +491,7 @@
       "name": "專屬時刻\n伊斯雷爾",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awPxwF7sLX5vc46p7lNydwZmGIgXLJyVh3Yt4VjZGy-sT0UWBQvLOTKbE2Sg1HSHO3ENW6pajOlGGR--yVWUOS1U3SO31G55btUyI2KnhD3-MrGtR3Wrdz4qoX1ICiK31UAYhTgk9q-nxIN_n13JMwvnxkoop2SnKUl4tnyZ-EGXirq=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axvegMWK87sHxf9KvYsMf7-LzAJrNUhDAU83BwX6fApqTplByzjdbAJE2gLZlB852O2h_KyX-xG6Gn957lQqv3ly7XMaNlvHkPuVTt5lNJ9-Bx1gQe0CNK7FC5UV6pJW77xCrYfjin5qkl2XtCLZDy6siSO-qSEfr5-XbwKZPiMuJFe=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -505,10 +505,10 @@
       "name": "夜鶯邀約\n雨夜的特別營業",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aytNc61sbXM1dCKPYytTcyLzSqk-itwciBKxaR6_JgNntWAF9r4cZy3ZM-NDBWOyr9GmUf6ZYX_U6TS3RQCEgFLt-pGAuFReGuons6cEdVe7exsS9iw8IsiTeYGUkYs3s-AROBsYk23Yro3FbeOqjwJQ364WzxHtP50TA7J58DGsA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aw5KEiPAD2X3wwAdC9mdHuHVDLZSMiPukXQb_gkkjWAuhJXz5b_hZmcYaQ62gg6muX3MBWCRuVuxo04ag9humWiJAXvfrXn567fcm9IU8GRoSu8G2Ie0FKoi2b5_SGXPWd42VRc8RGrbNUMe_RbsAGXT-u-akWYa4QSEktmU6e6k18s=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awfYvAx0ze5oWBaPeP12W72OdjadLgbWgQydspWrwAoPA4teDLqC_zl6QDTtS7usmqdz08HKa0qS-Nd72EnMFZqsSsWKJ7T_8JDHINs6oBGzlM6anQ9IWvSLEcVoTHGtQAqN0YOO0VRc7KhoKF57GkH76Y6s6-TQH1ghF5QNWb0uA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-awSWPQ7b-th-vub58chcPXhxgKrdiyok_23c2EM6iewzubsUydvwuTFZTLKyuSjP2x_v-T-3q0iUBqUxuDcJahDcHQQHn8idABVM4T7skW2YUwObd6gxf6ah_nwVpuyXmFcrbBvycFZXPQz6JDk60uoOUNGY2MZURKfUV0JDb0m_v8l=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axSKJ1VFr6sin98scFbfm6myeNbVmuBrW2GEeBorNBdXVpBToJlWPcKcaPKnKh85sNw5hYhzhhM1mHqMySLiY3MHlkdJftMEHqceD-X0Iae0oD-flxH3btCHw2Sjt78W4OTG7ZNyEQuZgPIhMZOGkptCqV6wTKANdWrtbfiAnqvpQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azvDlN9Lciqlyxmv2JHX1pDwmyVj1Qa7rKjfqbNA1x7aVJVgHzYM7k5MsCT4z0cUQwwq5ENnTjUm5NsKIQUJqsH737fJU-P6Jw5LeJTo0XurA-6rzz8pD1X1Lb12pIfT5hCg6gLq-RrvSlHdxGnXaN-4qsygYUAwrwZEaPf15AJpN8l=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awfQcGi7sl5PeuM6zt22fhh-QvXvkx2j2JLUXii-HpcwbHs1d28596mM0FmT9Dv_g3iHAtw4jkOT4A1yK-Y8cd_nEMu26Q5pnB1dyEqIgLr14qYZv_KaMZ51y0XFxmcfPOWZDXTCMCCmUQvIy5SiZGPSmsabv30NWehFfDzHv_vAQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-awX2ZGIZIUeARZzOgefus4j6Oqj0pTUUauCWHMuM12alsyCBn5B0LiOOipErr_K1fP2kmHFR273S9IZ_OiFYrZRRnFJa2lwQjUcGY0PoBb_3zR-nFnoQNSw1put0sXe0eb6VfeseRX1OM1LhmXAQVQomVDUkf1UKX9g7l8MnkLm_9E_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -522,7 +522,7 @@
       "name": "專屬時刻\n獠夜[妖魎驚魂]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aylRog0rumYAGRWoNI1ZQFVh-hDawndpafcXesyJLcX9_hhL9MOyvNYV8Wu2zMn7CVG1IW7yO9szo-gSVfG8Kh-pZSqXrk4t9wDwKH1EHHU9lcIuBXzy5_b2IBgE28zfuRS0WvQig9-j5JnxeT3T62iKhEji8lcgVmv0WBaxQFuMWmS=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw_llykTbYHOrMwCSrt_L9oCm_gneaQtRm8gP-gGYMlTQdfXsJuH6hI9XL8QTsksfpKIce3ejTFjQI9K55Caj4nUiqMBXNZJWRdR2bvmDRdPiONW0J_N1XVieBLUZLB6KY4BuVze1TM8wynRZMSGBrNC9o5rYuANIqdHLwi-QNXpS91=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -536,9 +536,9 @@
       "name": "玻利西亞的寶石",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awQNnOQwn4frvKbzgsr7_VvJizMdqr7op0q_qQ-xbBfJaGBBpU90yxbdNtFMSFmkaYIeGc4nuTQZhzDKHJZ6CDao83ivKJKMoKSAv6u-DlfVPxzD54JV-wp9BBAEpnZocy-cX3CAGzOovKvYQrA6QusyfCr8Tx95D7hXSWeVWOb6A=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay-a2-Pmbayr9xBnHmnZX9Rj2Mp2_p7_A9UymDOoNhx8zbUZAN9VmWNkIpT5DjlfJfZYbaR4qQMPtdm5fuwN4wH1vMzuCwUgqPcUMQT8KpDm4J_5ph80J18jVl4Xq9vP7dOIlkPPtms0gckZe1ZVm9LHR3zvusZcavIS0kTByvjcA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awciDnFsSkZTvfJS_nQxDwl_RzLfMDzYunLfa9VAYE37ThT1kKg5c_8JhfshRcEmqUxxSEzDIYCnzxxj_yy3-1QW5pCAD02gf_Nooz5_rvxTSaKbYkrnBda4_-k1moMHrq6hcU3yTzE3NjTS3yR_5J2Vd5MLUJIqDHeI4i0SFxMcg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayk2Na6Eia1x3eijBMbxPURsVj87lrv-U508i9nn3jJwOaYVJPurr1DxaxkqdCquWYINFBYRpnLqmSVyRVchDTw1jZooUm2PnlB1kdj2b1WKOAkWAx6FP-bx_N6mT-9f64zKZhgxxczDfPVAyHEzE6WUSwFwCjQCuGCQ_ySuzlpTQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayfCjz7JnHmtOx4_Po0-Yjpo-z_dJWzt8Kfxx9Gd8QwdCX0UzyE1XJOda9PPlfIKK-waPQ3v68i-CwA6rfuXq0jAtf6tJSRrhmbuXheovZUWwS5AYd7-UeqitPG_yqaEa5E5m3NLzvYZDIObl9zjHxTLznzryRCMbg__xYoSxWyTA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-az8rndF33xhAnPHlXR5NUWqnFPvxkJPb_FGcsoaDjZ0MOQmoKXUM0dBEVn--xbyJvPLw97ezCJoZepi499qw6C8Itik7ABeGgZ7KYzvlzxzQbBOuwC8gNPgsN5hijS1n6TOoKOz3w8mRzidYR_xeZweb5gXJuByRbypAeBaM0GUMw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -552,7 +552,7 @@
       "name": "專屬時刻\n恩貝爾[輪盤籌碼]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axYNnMzQS6gOag68YQ8Fujt2Ad_OEPG7iQXoDYH12-d3KapwW5ZKpF-QRrNXupd_pRzu8rDw-ZqWsiRK31SJbPWbn8i-9Z5hid1seN0Wu6gkuTLwBl4bYpOJtfe-RVEaklIpRzv4tXMl0ORtL58mXRi5gXhaXiv1DvjeNHYiEeA6tEE=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayO79r5u-6eEfm_MlVVIyKd13vAxs_7qmV2GoJY8AO5XYkLW0D95oMNpCLtnlSXqEVaX7Mp6VrnLh2ovTdpXU0TLclfi0sTb-KwTXxTz6JRok-Z2gla7qFxLh5FhR-C6IUs_M6g2kKIUyJASREv37kT-MiVqJzq0VwfSvBgox420E0X=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -566,10 +566,10 @@
       "name": "冥府的渡船",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayvDVmDYkI12x7D21TLtzcR6udPslMNY89OiW2P23gG7aay9pEtC-p3KxkJNtn9o9twazmgzvFuWk62m7Jb_zEPz3Kpeisok9n9ft2gQgkAfYexeVyXt7fOZmuiikotV1h7hMRioKdYcNrmtBc1iavozkEhkWqEAxzdedD465q-3xHc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aypyckExaM1Y0Cpl9RcDflwtRDA2yvMDkvh9GHOuzwJoplYnWF_Lh_oCtGI-d54OJJcY7EuMgZYd8osW-Ls0F22o9zb8xgiYd7zloInsOIItBNGHXzvOuRm4rUYQFjrmHckJa0H2NO_yra65r_MFi9XIyba3-3inMyXyV35tiaEN_ZC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awEug6iziT5NtHBK3rhqPPdgR9N8hJgJHbLM81Z0zqxL-ibsKi2mWObzweWa7gnZLwUvDYQ5xMvKirztKvl9GTWs1OsWs3uL_Ncs9w6YaghLdG2QdTMkZGZyiRWdoy1LtplyJo9Ui5aHu7pfEbUqmt-nKSY4U5pOsSF4sD1ThtELfzv=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-az0Lkj1UXs0F0UZCYsiWNiY0h2Tgl-nAqkTfat0cFxQ034UNhMUae911KVDxq_GLFCYYRS-3drIrkCsLnV6jOjq9AV3T97vsB7FcZfZuZG_IEoqOjmU0OjdTWDDLet-rB1oKwRFswTsyxpjL6VbtFbb8bCTeswUgkhHONvVNzp92XMa=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azqX--jzBQr7oOl2d3OG1l_f6t-paQaEgjWw_pS3Qj_odxPOEh8j6o9MKeENBxdZOnk5yWOlBRq90u_wWTssEQwSc7g7N2-9myaylAEme7yauUIdm2I6U4MZwdMHShb2x0_TvXSL7pgzS25Tc_-4-7PxtPD3m_mEmBhO2LVllm4JYNt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awiedZEkYMOd8sLredH3Vgm7TdAP8TEKsZnLf7lF82M2yXhYpazV5w4zzd260ZbdoXhuEo2QgaUW39WM9OcezMGC9pRXi2O0z99RqCuGCcM1U8a_WUh6E3eK2cGDC9SIXD7HXs4U56Y6z_NLD7oh3CX8Sp9dL741-VrB7Lk01vNtaIQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awPO_-oZv7sJwrLlDOdXRckrMJQjpBw_Yw9aWZAuCGVts4XojVEQDjk5GaUk7MlSIFe8X5wDlWHpcPSHD8YoO_Q0v9HoUZgC6qZbpmSDDAkUKJT0-oxq41ErDEReFrrr5eZj42WQRzQYRytmv-CwjII4GEhDAN3cLilmO1K-JRDd9k6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-azMD_1DF_pnZtaywv2xp_eu-QSitxywHPzPLZNQQbu_VspcVSf27ofiTQbhf4l48ttFt6RBYQmADSHZUZPX3AYyrLL851TD7Y4uyiiKigXH2BNHZYTwGxNC42YMwFtiYaK4LedW2YQs10CcZ98YB4P-7vC-RxzK99kd33B1afKvr9JQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -583,7 +583,7 @@
       "name": "專屬時刻\n德米安[純白誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayxFj8r9SMdyHW_RIKlzON1DGfuRDtXiM7-AVis8RdgjkjXl-4Gqw_TmF17lQ-dzkw_S9czCDwQH2RmAhwaqqmBqyKPet5hzVeG164WRCT86zu9zu9pqS7rw4wrX9spzTzYgzUBeqHV4cWYW-LR6trPkJP7xC8piylBJVi_zM5ynuG-=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axuvxzWonw0an1v8qXrFtI3xgL68xAgbqcoxva6JpFcThz-12r8gPXmiEiEPQj7g_B213MmFs_azgIhjyuVJljjN_qrhTTk86Ir3UtwsVo37oXq0Ttm-TGQzNA-bMS-5tFfBF8-5mDaoAvjmXKwFINcNBc4ECKXvuBYs6eWa6n4HMxY=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -597,7 +597,7 @@
       "name": "特別邀約\n可可迪",
       "type": "特別邀約",
       "images": {
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axFR51orjwbj38XJVPo1x6MK1TDBqLvTdrKgbJn1jjD0nSt21sx2xks4rNR0Q9MN3igG0h_wJnxe68eEqS040F57kyW_CAsjdVyIOBK39ZhdRAzB-e8K7MKjKzveGYJmurvI_GF0ic32g0_kwrfLMwfNs9_QcNMZ8UXUTM_i_nk6ht7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axP_CvTjyWucEmNGBSAT5zhM-Ru7CHWPmYTEO5gpZGG3NRp65_3miurBE6Z9X_HVk2Oh4O3EtgkhYzeMJ75MfdF5m608WHKR62rDgxSwI71LoV93IpadC6Q_vBUTFvNLx3eZFc8sNQy5EiPuYIzUEdA9h4d7pDnYCatTSjthveOmULg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -611,7 +611,7 @@
       "name": "第一期時光的馬車\n（自選池）",
       "type": "時光馬車",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axmKSyx9oQ4PzByWOuUVGjLRJyTpsFJCpP1gJW-QN-2ZnGstqLlkl9VRsoWXnBy4Kk5vrUyVHwp8_Q30VoOpDIR3-SF_i1535eayRtum8eE1gdM_h7QeVT5Tt7nafu1nZlJbajAxQuzo6OGCcnvtEivD-wsMr7uJd7y2Z2ysx0YoCKt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayTHDT-EEEna-3Pz5lmVpf0DQtBRLQYErXtBWp6-h9jcQtI3d5DlH7tT_u3uKKfFZCsrWNGZU9Unpbd9o9-h2OdXfW5RzI9DSMhUDhmLNgJX-jmytNzyvgnHIv2lBSjSCRZgHyShdidPKmptIic-egj6JaxKmFNV3IObTmmfNjUPlJT=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "限定角收錄至\n雨夜的特別營業",
       "link": "https://www.bilibili.com/read/cv40542153/?plat_id=5&share_from=article&share_medium=android&share_plat=android&share_session_id=01de30bd-61e0-4fe8-8ced-a22948f9f8b0&share_source=COPY&share_tag=s_i&timestamp=1761453063&unique_k=pgRCIE6&opus_fallback=1"
@@ -625,9 +625,9 @@
       "name": "罪惡山莊的鑰匙",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azqueTK-DkzSLQVzn7flA2UsZEkzkjKdpDvigi3HkIf4pa-ryuESpAQ1XsWeGoPBgAy2adhzVHJm3O1M_CDf3O24aIHNJsGVD-y1SOPK_scfcbS34vgZRPCios_c6IPLlGk6ZTFIa0K2AhLqZw0IWUIU7YANyxJ2KMCndiNSWy6mUau=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayP11YnCdJ__5_1HXNFZu5jZfV3Nq8ZbnCN6zYnAhMOdzsyON8GHWnVQ_6N01_U8dz_W0Cyc4gOyz3nVunplxT6NPDf6SaIDu2by4Pq4gkfcJOuPdoR1vKR-wS1TYV9XwrIiHn5iSGY9N0PznMkXkghnT9a0_LyNIypNmXkOojWE7Ie=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axBarLokIpoKrAM0c3gI3y3xsoRAJHK7b-HH2MvzzZeiQaK6tEBEiBAribrTkWNejk7jegiT4S5D9Tfm1I59uz-Ap56l0SwO8XUuBIowH7MeXAPGaxVXJVuYFZ7AblrviSTv60hAW4wV9Z29wEufc-XgJEbcWu9e7DtH_kmKqKtsEmk=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awlAy1xw1J0dw_OjcovgbkntYXqze4pcwPAKw07RGz90tPNxkKkBUg4C3pZV0j_kMw3FtcRqqZ6egPCxvC03Qz8l8phiK9PCWb9GRjbfQabhog8rYZZyjcw6o3q0G799YnzeyXHTUP7ciL1ia6CYzJEco3feH2Zmlq0HRAm36EFMXzh=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azZXQU9BwAKWCA9U_x3kL0BPQEi3eFv9LS3vGcgZ_7HEPY7GE1IMupmJUYNsNIjs9JHhvcDnEYW8yE0ivVfchdfOmo1kHvvDOZ1fqytGKBASbXXZ7M6f8-ZMmvUnKb4w_eM6zC0mdj9zqajLew4r20QFq6x1gmbPXDmByX3e297Zl-O=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axvrMyOh7lyn0goHX48kZpMd2Q103m0KPFNp34t5GScietaQLJtKRzqcmZGxd7cFZuaW6M9X_buPkQGbZSIjejVCOW-uRbTkrJsswEw3q5KvINrOht8GMvK5xIr09TbsUTcmlylvSndw4tRdqLoEmli6EjiZqfmNUSxoT8KXIJBJ0da=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -641,8 +641,8 @@
       "name": "綺念邂逅\n沙菲",
       "type": "綺念邂逅",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awLSK8ou_wIs4l7M5SDrZpplvE0Pbeyao2orG-04-bR9xs5oMPlIvuHST7Er-G-QRDcpWQcpWmMLI0Osw3W5uj4zL1fysGRpT1SCqjzjyahZMIDIM5eL8s8sUrkL-Lw5M6SCqW93oE9HUXQ_z7A2t376Z22326BjAh0om2bcyrP9eTU=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-azwCCsB_TOEtskI9nc5NX9DCNd7818jex7WwZGE_ts_PRVJvXTmfqmLM8Z7ES_nYk9ti_LcwF4FGgYP-yAlW17PkmLz0vMjl64Sk5k7vlGMYsCKkNT60AlykcAOTGZkbKfCTA9wRLlukmNNWEpk4hoehfpkqqowRF_V8EGgR696R3mR=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az-XzaUMUubsKaHIJyuysr3vVWdo1zNaKNeJEpTTH1qrq6P04KYRFnblmjXWKf5aDuJwlAvxJ5mnJulSausKgb-0zjJneJX0yNruNWSc_pOenHGIWWRzd-YK9JGPtOCHGeJ3gIgg3Tam0012XwgBY2soRXoIm4Q0NjkjB_Udmjly0YK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-ayasUzHnEBVHbRrlxLfTnAPibTB2PDIe0tiIlAH7yzpwOMHfYGBY7a6k4DRKUg_tUvFjNHFENlRsDA3cVOhh_0in1oyy7zNLTelxFlQRO31rQS9-ZF8OObcXK5axsEn8rmxhvQlfbLKlzl5aC6FKlVDS8AooUfwXINwAWzsnQE5pbo-=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -656,9 +656,9 @@
       "name": "風雪中的溫泉鄉",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay09K1jRrayT9KQ387_zvMwzd8ZiUCKp-9vNE8qm_z_iVJxYd7r8rfBSQTK0nKX_F5W80m3M2W8rPnSHI5C9bIjUK13tMNDCO68Z1cQ60ikgOy6oYuAxPq_9apYAJCloZRVkqIcy-wSMx24RYpCQvq9a7rXQmlb-KwRQLqZsdy2iOtP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayqKXJxeEUeYEHW_NthX6Ivy7WOpvHYQChA3Tqm2TpCjVkw2rXDm6HcK0V-tSdJlVa7fF9ldujkwwA4CdvZozaVG_8dF8M3B0Z6EoBQ256ntTH8HYIUjWxPisRX_KUIPJ9Ws0IlTd9xPK-OxzRKPPwjZZdYO-Y2tQAvI1s5gK3PMnhr=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axZG9cZN33Y367BCY-I5DJNJtFbqgIVfsTqtu3a8sk9JMY8ehmTunvmo0G2iSEOZRPOtjND358UmGMvS0laKHn-czctVZ_pqp4lSkEydqEQGR9R618F40TSsk4TW5X1_5sOtqFnVl0ST5WaPSnm9riB0kXSEZe2PZgA5pmjK3lNPTZ7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axZcGWWqLYKzJDaI3yvZ74W6X8pEkWwqqHf7k6oTF5Cy_DTwCYAkfyThL_2nMUrFbyqLsUCTIqluod2aWDCP6oQsiR6GCjXIf_twuln_GYNr1Uke1cFqHbPD6_Gg6znlyXrS5DCuwMcquo-SrJVn246CLDuWVDNfM7xSJP_L7aRK43j=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awtbMv9ecQ1ZKJwTUbcb2XukczVw5zIM-v5TelWPKYYMQjLMXGy8ZnPa7HImob7XoNQT-oSZF7zGWpXHHiKc2blZ3zaOPT9qM8UND0Fg0FwmzAQtj5cVwZUuih8dPBHnZH6GEtRVnQLCVjKoYFXocYUnRxg3V5ZS_plYY3Hz_EHofgZ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azfH-Pwt3AdyE7-VnLw3N_o8C42S7rZpYBU3qM0K2d6XvRK8Pq9foBYFH2tfQmz1afqvl7WG_wBzHoiOUainRVCOzVmF5JSOFiTwiP7lNFYFlmBV-jEySDgkuj8NNd-2DEHkzQOC_gaB-6VcVOUdV47cq8NTRJGH4ZkyMvAZVQNwbF1=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -672,7 +672,7 @@
       "name": "專屬時刻\n雪柾[冰雪白影]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayfD0_CHB3sdw2QslXFNBKgb72qCt5F1kWEtzcbERWfa0DOtqe9xnZsGpNkrtjwAdryUuHmSQhbAs8FZIJpsn7c6cy9gBoA3zdpXIptXLGuwClN2ubQg3-ngiBDSNoxW7f6HUEgHFutMNqctWQf76sct0Wma8iZLiqCV-D__wxfdvkn=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awIWN9eFWzqTmMitGEHOkLPb87vAIojF_d_WzHyLwIli69r6JUAmhxYDNCDMHn9SP9p1-GzxCnbvBys7kGle06YWJWFMIXblmX9g93AJDo-oFUntdVG1SaIx9U1onoYAWViA0B7VNw9L_JHv5WCHxzGDC005ppclBtq_Mj_fXbwxU6X=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -686,10 +686,10 @@
       "name": "冬日的花車大遊行",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw-q8nDiBa8DXprUClgvniryHEguUagIjm2L-EQ6Wdj63UUBBivQVLLk8EvjajD7hHQpHuOnnbX0I0EnbHRTCtAe0RtKMWW5EI_AyvE-MoInvXSJRXStyNwx4xygu98So2waueU_vERBKPTc6MkdF9npSHm0blWqriEbt5ff0AMK2k6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axTh2kiAu0E_AvA9NBXLorC2iz-U4ehVmTIi-QDmEf9cnuhuJwXaaa2wqhiZ3AsRwMH8dhAfAdog5vxu2Dz_8Y7uAHfrgAkxh8s7crmJpwtXAT-6H_UmCbYS5TQOvgEaccpfXScI7cOCn9oT9d_dkIHmjcJTOndBveP6-GnVFi924jq=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axmztJIem4Bz4GvEAnO_xuRa7EghyyT_6muvS0vfnf6swlWUL7fVyqph21Cq41EsqWX6Re5jvT0rZVIiDVPD6HbPMC3kwIrR7R53cvfo93ZMa7jrxmP86eja6WVn5yVPFdjpgkqO_rHgvCkPnsf2y1O1NIysBV0UvXQbH3i5ufK2fNm=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-az6ZeD_WQNi8j7IaFfb5B0qCsEK7dGLE_Qglo01nwxpjmZVX6BFSyeOFqZSCfx36bfqwUCvHe4taUf9L0HwF7vxAxlK7fozo6Vd1KPODaW7MgUVEljAeQ3LGIA3Nr4EI7GGDuQH9vvDCMqVVDxwS_pkr5R6bxDJ-6-J0ULWieFRlQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azJjof3g3wsjjCIhhyDG5iiRh7FIxRFiN0iF5g230MQgtpAD_yST6EgO9Nfl0jneeutDjQTf_nHU003t9DUjyuOE2oImbQpmYcSeliL5X3iHjh9DKEKPBYoHy3AP5vTI_KYUTwmU42pXeCbxWyr_QXj8JllOPaJkgnKXz7WkrvbhY4k=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayVSo6FdpKsG1aCM37FE5VYYkfFfIJ0i-Z0jhyb1KDJMJidjnfWkTqgN1-l4XP11-IaPRhw6yELI6kJ2AgPcJmaH7Vkj6PntQN95KS3Gp7TmEUdukUySi6jBC9iK4yU2POMTPqRN6fEpX_hQWGkLpKfGFA0tMZcH96AYulmkacKT0-g=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax8ak86l5iCofGfzMefgHnS5wBxQ5WT1LAm5-ht4-cAURn_OARe7dh15Tp3-R1KUuqc5ayENZK5eixFczQ-oBJma1cLAEuQhQGQ_blpiK1rEPhmW3ZQVsh-DiZbTQlLinGS1ttwiO8V-oTKK_siRqKkrQqTesJny-12XXecWN_HOFHj=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-ay7sS2lEpOhjrluMaLIDqKmdckSJb87impfRW321uNmSYnwab5iknCsxuGrrNU5nuW6pokqIKG4WzbSOkc3TaHX8KJC9qUPY1q3KqFoWjKNwm1ufDd138N4KeA6-3rQkSfLXD_EgpJCfkzKGiBNZSyd7azAdOBPIx9vXUreriDNiQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -703,7 +703,7 @@
       "name": "特別邀約\n格倫亞",
       "type": "特別邀約",
       "images": {
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axM5eS2k_1GMzLeScWw1w_OSLgQe8ToMcsSJjqG86vSkbaWqUwIHSGIkpFxizGZW3jyEw6ZtItfIMCe8_PTz2CUCTpDfsIbxs0kpioIUSLmrTYeLGFriGWM0MbcjAZBiv5piuxKPBZ9eAXw0JNUyXqwQKM4yhxWIXMSKBZ8MhqFrJpq=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awFg1KXl53449Wknfca8uxxxz2qFXm_kg0CeiSENYNdaTtjhmJ2fb6hAWVv1R1GQu921MhoRaDu7kL83MNV35AHdWlNPkTJjaIKgBrnYk4K4MDzY1dWAVzlCS7TJ4Ml0V6Y0tzXmNQANCTtygetw6bnaiR73ZT382HDzTzXNn0Jx0um=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -717,7 +717,7 @@
       "name": "綺念邂逅\n奇琪蒂",
       "type": "綺念邂逅",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awQtUtrEH06YBDKlnOr08xJ_mYjZYdopwEDisuQozpepszH_OUsyB5tiRviqaZDLBKPPoTMigfzIknXW8qyvx-IKo-p0sPdeM7qB9JIeon40zUB9cr_YRhlcs-CGC9sb9_uNfnrfIOb9iy1PryqgNqZcDHnJD4rRob-WbhJY9DN8vhK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azrB2PVRIBUQ177J1dbh6FbT9DpDcP-F6X3kRbLdEU0weQ51bceABwfV-U1rOCfinO0JD82FEYb6lI6iBTqJ9AxrK0JixMu9456AhhjHL2ZvdDQNS9kRYo1-4JerL-oapNTyM3h4HpWHjuEm7GYa1_kbhRsrOZxdgrnZcQGVO3IuBly=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -731,8 +731,8 @@
       "name": "專屬時刻\n瑟琉[青緲仙逸]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awIFYlWP25G3TzQcY-7KhAjynkiyUduh5wrn-HkRDpTH5Nm3MF9bo0t7uzxa6yJy3jX0K-Ls_aVvYoDTxeXTIMd5Fbsc5ldBAYbNx2goawqPtK-G_R909DQDcLK9Bm2YDjiO-kN9aO0HJbEOLf0q9CK26QJamuapVIJeTWt6JMpiV52=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-axi1HF4-QZYVJkjgXl-HVeBVjDWMSz2v_YalfVsqKpbTjKxjVO3j4e_PKjzIrTgazNJ12VIIYkXttgTX6sNtd26E9J4ai1UFyC6Yml7818m7yfmtJ__GqMLxClcXbWtMz3jpGc0bsPl-T3V1ddIZ2W38Ak5h_mtp2gMTA0eFu5bMG3L=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax_b4ZkFbI8R7DGSGh_MuORICJH0g__ds-15_A8xGCbaAK-OlryqJmlz4lnmDACY7al0f9LbcecjRmfjIQ52d6_0XPQqjLdzAbNKpm1M-zp6MIwLPjDXBkbZUvTZUDM5UAoYsmnG3gN0uZQ_-np4zaTiF4cRLZ6UNObTxGu-48mKtVX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-axGTbb_yU9VhGD86OycXttormU4JXMbk6YRwp529HU29cMyagJpZsTXS7WPcicwJyjjemrG0BjFH0wGdR3hLbvCk9MmVpdvjQSqeeFAd8JkHrG0r1JhEDD_9kkLJwxIc4ZuMguKKBhi4jQkJT_Z-Q7fv7XjmBIMkSrG-yLBImayypK2=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -746,10 +746,10 @@
       "name": "成為偶像",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayewiAQBeK5dVTpESDlpLM8SXdTnJrS8Iuj0Qtkm_4YwFCRcPfCgQz0oWmLTO5FVbntC2etFYmuazabCtIB99BjR0SLE6MgipbdK0_Lx7yu5mIHwKFSeWCsy_rSVsmDVV0_IwQGJFBrluXq5XQB4j14La4sJ76ym7E-G1Jz5lRwEB4Z=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayvOZ-9znQOHGPja6M8BJM3PcznqjBYi3vfkywfJGnYz6cqtPPoyE1bry0kFAOoQbdOQKWoM50OdKKa9klEYzaY081TWXND1Dlf61LP1VZisftJsWH2rN_ltnrIhFUUhk1t9e0eK9tinOgnROCMJjuUnq8bEJQFTSnElKlAxe_BrN3I=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayHSmucSyPrCm5HTryqEb5TmFxOugQLHVIoUPueaWVp4Sql7SOdUzwTjwgfw8mAbrU6Fxt_irk55YtDZnagCWMVdGgJFDUb_6_LDlrrIsKsZ26LuFod6aKRiPNN7dcHvSX6D5dZA4S0kU70GeHaCbfRAcjbmQ1lV_Cw_T-_v1kP84Ew=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-awiAkDCih1nBPyq-b4Y3Tv28wSW9VBpLNVZic-pJSeliov2k_yWNQ7kAQNsXquocGMlZ36gEuEKEIEa9Fyr7gquTvI-nintFav9W2didL1q3qLmuaSv_pSa29YCtUFN3x57FOmTewh9c-k0fJAcsZyGIatVE_wMc2T1gWjz_pjaFtPl=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azbw8BhDrnI8qrcYnEO2ebpk5UNns7zOO0tkP1-R6y8ACDrhIt32qPGgLBvigDjx4OHGHAhaaV-UDkt0pXxuY56gggGIJ72uM6n_zeImCeT1nAY05A1c6_3zxO5A69WVwCU7orGoPgjP042Qok1UXmo-ItxbuJjEP4My2EwrntL67iY=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azNRW07DYBOJk8tj8zLz3aqAg2CtoxC4QgPvMaKYtaJOsYyFK6VGnw3uyL5zYkXwMxo1j10z5PiNRbwQSC7TPvOgtGqz44_tkhjK7UpFBVjPoT3YVbQqKKw2lsp87M7o2stIE8RxGee2xZhJY3nz_EYzkWIN4nBgJQCkp_7aZ7XbLe0=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awRgIK4W7xI0_6pJyvrP5kxECvdm8QMW4j1XsR83jDnSzQQTEzaptxaYUHFOA7Bq3hIYiRb0Jzyew6cW9gKoxIEJY0Pj5l6YgRYT94dxnkgbrSCUkc8-HoZ4lxyAJNLY6f_D7Iiua_rYgsol9KV5LkHseDMaFhY_L35H6X1VvlsWTkA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-axPoIZeM9-W95bVjXJ1BWvJC8TV-N0zUxQIsp8TZsbzq2K3djUWmomIAQe0zovegm7qaHt1ftq_bKAsHfKtPAyeaWvC2WIvo7wqEQTbKLxTOTnwPAM-pxAifhd7OTSQfo2RQM5hTHhaJG4ZkYVyOGAOoo9KymT-rtarFfI8u9Ksrc3G=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -763,7 +763,7 @@
       "name": "綺念邂逅\n維恩",
       "type": "綺念邂逅",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azEQ6KxaIez_nE3n4FzB4iRVNM4Es-0f2_sFCwUexbGj2Y4defRgvYyJ5Fo7FiQKXRH9-iepfP7TScS_baZc-Q6y-jJpyRqOXjkxM6Vr6EtDG-dG5P4w5940MaGIlN6MGepXFes80yGqMqt-MCqqUxln2fFbBnNcIHyWxoyxtkJPQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awwwdHX2ajLFneOi_pakhyRu6ePTH7xYg6x8XCC3zfrYLHNm-aNYoMCTVhhXuKA7uzgbYOPZ1qDdxOr7lItnCuwYcQkaBkxLGWxH1UbDuDKiWzbloH4DvCPMRvWZgbGZgVAgFUThTNDm1-IBT5kcYmI7Lk4ojX1TrB2HkGjITo_-g=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -777,7 +777,7 @@
       "name": "專屬時刻\n以剎[風雪散時]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axdClR2dvRFP68z3xUQzr_V7sCI4ou-YOt8jH9DF_9QC7QRSe4ek_6TFgqAExw99MXAucRfLv4sIWnhNA4ApLNNKc2iop1kca9Xb-kr1aE0_HtUa9BfPgM4m9KRwKUDsfXW-0ZnaYvYxdKDv-KqfdWuf9btFrPLk7dddrKQ6WfN1eRI=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayUtVYXPs_ECaycWYjj1tX99-rDB5NpigRu70CO8YG5rH8Gl9FI2TGXGtWCZDHwAWc1k_B1JBCBNyr-VK-lWSu0k3CNZ2RYw2JEI_HvLpqTAKUOLQwjcgCvLR3671STyzEKAyHoMLtiktqAIgIdg-uvFcnWFjgzlMrnrh4MDkPr1ZY9=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -791,9 +791,9 @@
       "name": "權杖的棺匣",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awcLN-vwcXlxvQgwQpRx8XVtB9tmMaj3oHm8qFKNC2SoyJ_iDkDbfj9cqAaTOr2Z5gIa-M0fIcJWPfLXchYatIEFR_CUhn3ME-QZ3WSIl1auY0CHQkf1usXWZn8t_vm9yEceIU7jZA8yvpzE5JNGVkp5D5COrBHG7P8giZn6urIs2Q_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayerIv7P-JG6WPpexoqmlRDxCXtfktOHjopniOlTksAotDbpZ2cEjNSO2FuwViFk-0qbAwaWeVFI-RH49koOR10nLe2qMojg2-WfHdtWrswpf_3VQq9UMUCMQV7bEe2eGF1GyAsObIIN3Q_UKhBoQyIu0FT3i3DOyk_NdMIHpv6E8VK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-ayRcrOJ0htE0BAUAZe4bEvjlDnL0Mf6Ryt4yZlqlFrGE6iPD0nkQWppGoJzP57T_6gxO4V1wKLAR7RsnvkbGvEd1z3EYFOJRLBEq1lZ5ShBRn18y06PFAzcQRcDGXDpyTQa4YiS9OkePOmUeTSoCQjP5fBSOBi9qUBcPsdfvd2Z2xVH=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az6_UHV9-dEBNjoNuU2MQuAu3bqpcGMh9iL0y65czAWUFRp9ESEkpmNkRuGcYeWFaYSkTyeR6HtAjm1qULYe9zpTnGx2JypQ0M1L1I8SG7cvoSxgX0oZ6a1wB8y_AIRu9xqq7hKwRnoVmUUZOIZE3mA3qMdOJkmg7bY8I874zs40wfh=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aybFqqKlFs8c4OyXYOmA7XyStu8aTObCs7hA1ZxzedBwuWGSlMbNJtbWY_5FyPsSzyiUc6a-dgLfnkGvbHZD-m6W-r40wRpPTQin0S9M5CIJ-hF1zEyGC7boYkLyn47F9dnKYHMa40RRdAni-tLUC8zuWXzwXX-H6GGUKdOSkzVJvSr=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-azSyyy5b0XZ56D8CQob6Okhno2QSdiljlfrgg0HKX4YLCrLqIpvE7e87BOoDr-30RqdqHIpj51_KnofAHIIu0mD5n5Mu8ViiUYO8AjHKzH6YZGmRdBsrkWhuwDD4Djf6P9UVY65IrFZK_uj85yvGLvX3-LOpiXVJsyr8wu-pR1fKBHm=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -807,7 +807,7 @@
       "name": "綺念邂逅\n路亞",
       "type": "綺念邂逅",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayZ1YuwVGDPJz6qmjx_igg-3-cOrxClsDOt_w65JDtA7DfQbManCczqeDk3g-dl_3slSRBB74CP7vJgZo2oc7zYdg20AC4MvqzbOpNElorshSRsXYwhFqPBvQhWM1wSNCUvx_JnxG8rei-4qIVlqnBUF2IfhIREK1tQStjnJfUURfVQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azSVojggnt4ObE7OCYmk6NPFSXujpr3VtINUxoro5ZkAe4yAcB0FwOVozRJIuu7QNc3Hwp_q-fONuyjLlLmehcW3WQShoISV7sMk8UpCQRBVtLDArhTjCxe2vAi4f7cwQ0Hptmf6BCalzdy7aNE-41Vg3nRgw-4WAT6Sd9Cl3AqaGyz=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -821,10 +821,10 @@
       "name": "夜鶯邀約\n暗夜的心跳迷夢",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw5JEtt3qreFNYbhTk4JOOug5TIzl4FuN3Md-cqANTs_gcswiZvYePWrSoAz8UhpJ9sbtK6vYHPg3DLGPgQ3-17IcjGW_q6tnodMOdkGkl0wk1F3MFRDbN6643GfVz4f-oQyhDJyb3Q9G7_uxnXopZLDE4sD7NsFZqvjHj-n6gncoME=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axHClnCfJLYlkDeEtVZaN8kZrNQqZ2Wn03kgSwcrbXmUWihD28yI_kUMSTNXupYzDNN0t1RZ83Q8NuPWiQiMTkbUQ0eaK_RJSNlZnrEDdrOmchtu5ukAwfpLBFfodKXCo1AmlEp3fMunTFYetX4TJdbin10rMt-EfqoxLSzSR3H2deS=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax74Yflcri4EPqfCbKtSBmfA6C-pPuGZ_f25IOk9GfntvLwDNQaj5bABZGGt3s0vp1R7eOjM_NW8wPDAaqMtG3TY7VC86oeZ_RvG8vMZQYjRbvQvG5DEGuy5kstVe0kgNcGHtgy3limJ9eKHnYuVo_5xSTvGPBm8AbLhMBwYWVRddvL=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-ayEuetQTQf6n6pt-LlCtxj5VeIMnRV0tggNaZQKweMzwCCHhvdx3j2kOMJmpmsfCXtHVnYV21tamBQr8gEzjy8lxTa_WS23tyJzGs44tKPazLktnKopIcillY0FLxM9beC3A4-pZxhF8Dbi3lrWsVpKBJF_MI5qCSDrW3M-5xwebk0E=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayWKOZ4G4xnSH35NxuCmHsNIZAZ-QVF-PI9pBX2Tr--e1Fj9-aDnLZ9viywkwGKEgcpD7cyzBpU7t52dVSjuzE8--n0Csias7XjkfKCKwDLzJUvoTnANrxtWVzQn9EDdjVNunayJOx_lljwzFAMNf66wMc2KQshkhG_M9XPcRh-r2dH=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awxMQQgZXT0SFiROFtW3K8TmdImTIy9c-rZ-jzOivhz850WJ2vNram8SKkhYgUrEPJ5NhmAGeD9Y7cUoIx3us-mn0VXEuYRQ7p9L74TyahrDkNm2Cnq5Ng9KJ-HJDey5ac-vQyT9SYl7jdeg0Ady4iXOasDRxgq1iAGSOfJTvsxwGCW=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azNfhyvVFCVaQQ0lrj_Bcz-zrcR4Hdb5YKCM7_1xg_4-_lhUeYUgb-NgaJkUjrwYSKzwjYKod1bR1AC65-dTeBnhgh6F5WN1BRXiGbCk3n3Oaw_lbhQYZPoMg15qFi2J0h6fJtgVJ32wbfI2malmq370-dsq7Eaf9w9ji9KDZk5HDwL=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-axd7_PMZUdEfwiBprO3lmf4hVXirJutddEeZf_U4BE4k2Th-8lU3dcUnbIYKcn-k8eXMFRN-z-OZ1kZcwoiS6Owk3q0qBIMgX1IapzoiTDuylY5sRYgwq0nF1YduSXbfqoyI8vN6RMrav5c9z7fLIzpeSUTgcKC_7ueDEwYNiChgcZS=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -838,7 +838,7 @@
       "name": "特別邀約\n京彥",
       "type": "特別邀約",
       "images": {
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayVXaSiclNtmczGvau0SdqVNJCvqVf8ncPfAXPqm30v5gA8SvA6myIyzxcUAHC0CESobUUll8cxBXchQm5y3l-tzXPNj4lvpg3_d5QC6PXd3DgtOdf9TWo8GGuIJ5VQCzEsYm7TazopSr5DqKAm_ugfIjwkbltWo4ccAabaknWB5WVV=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayeZWeArH5zTUPmP19sj3aWWtAHQEH9NoVYGAFnicO5adbaA_Qkt6336HvjFjlP0KIe6GeaIEtV2D_UZxW1-CiYIkUywIFFXdOAdUUEZmM7DVXAE9Hes79CQcOfBhvhZoSi6uhSKOgGo1AJMmyP5U4PegPkFTJb4rmGymFT8QcgM5fG=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -852,8 +852,8 @@
       "name": "專屬時刻\n米迦[暗羽之刻]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az5BmK2U4j3nA9_1j1KlqcbGDQ9LfliOTkkoIr8Jx-0SRz_nu0IUxKhw0vD3KJquuoTC1g7vsyg2FbOuuPiTmFOMm4wHbXsKQ1FkHUmVqzdDOJewJ_otAZq5831sUG18xYGWEwmaKQ-a87ZKkpgRRooDajHIkxbiLcFWpvk-1LniHVX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-awTApOTLYjKD_h9T4oWoCfvzVHYoRtpPvEq4oqValA9EhS4r6njTKTR0FOCqr2ETSU-e-5Ck7WiXJB-6E92EfoqJp48oQw4UO5YLAyEQHZM3cyNF0j-AtUDccFzLVwatYtZN538vyMl6KaAWtBpfzencF6_8lpVS4la9QLUeVjbM3H_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azOKCBCMLE4vVNLEl0yV9aL9k4mcNHrYM0AhvyqzkfebezkHYHQXcELGzzIRjnooKvQ5GrGcZIVgnqZ6HkEHd0s17B8po4VhV-GwIE5P8UHTZwIqaftYpkFs4qePiWJTedehp-_NNuvk5db8QgVQeJXnBOZqPzsCWOnueT7fwOWcHRw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-aw6qfi7yBwwPa9kI3kvyawBF_QC3NajqPaH5swtZ6P47Kxy70kemLU9knCGglfuWR3Q9UyKIe5HkjJytoSibWfFDgTNq5bTFi-Y-61XFK4YxxfrPfwJKJKIgM6bdCyGPu8gpyZF4EMgLgsyd5suDWqwalgY3Aqcseqs28yh-01WRvEl=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -867,9 +867,9 @@
       "name": "青草牧場",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw5XqqajVmIZeTGZixGLa0yJHR5pS9rnGN_P9K4zzyvel6FcZTb4Yj8m-6kSoWWPRaj6FU96ATnx-y2m8urs7ka5uE4IKbUzBJbRASlDh7aHfJCGeUuNU8mYDFiynz_WLUtOiDwG0UKN6pNWtZvF-fY1bzD0BK0d5qHnHiwSTrVrQ2o=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aznnOqTgq34INsrrqrNexx41QnvQiQQ_pkZbuJ1azyGz3hmhFftGBdPnyto135ZsUABR1sqarGB6NMt3Tnu364KrX4tn27d2COFwrFisqKPtVjtNViIZht9fTUKeDMBN92zoY4TN-wG88qub94WHksTi3WQ-oTZFoEQzsLHyZiwIDLw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayuvyQX2CkfyUHuCqiTlrZSDN42nuqX8KKTU7m3tL8hDLeZD4Em38txfIPVqCnvozji7iO4q9cwONVVJJeP2elZF9gYhOFVVbEjbfg6IkRk69O3ycLPI1ZwaV66zbDDfpewAio-tTCxYjsfQsuWqycDWqFxutP-slQZaR12cdL-BY89=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axmKfd1c-lehuMgjFyIVTHk7koTorh8yf90w2e5rPfVWrmIYI22wibMzEZUB59L7MNWU7Wcxrf2d4lR63cuFUFtPnqCBIDaZa3pivsW8E3HhYT11lFvNJZf__tMPmx8kxiVVxVFCiKJaz9YT6Lqxv9wasRwWBr_ZUQPiuaC7URouane=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayfGVsi8aBuqh0UTnO4D6jmiquTsGfwUNjDZOUnalFgVdO7AbPAd84rCMVLSu93a9imoEEzS9ONQTd5duji7brNpplmozQXAMXy-lUxJiBuxk0hsO9KvbOlcQqkPdJjDsUknCk2n1OkXSpuDAgVJfNUsIZHM_gR-g4e3alvSdajEBwE=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awJ-epnttRwshDKcx8e1VVE7ldMY_2tWuVwaqErFlHxNo0xFZv9wLQYBVJBHYgS20e_FWdRcegjyfZ25GQkPcUvZbDL8F48EHTk15_-oGc-PKWPwmnhMBRLPibYWpsO3d29wZ8L6OW9Qrde-CptRSHY0tau0nbJC2r49U1k8_C8Hdpg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -883,9 +883,9 @@
       "name": "童話世界的冒險",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax7UzDQMHVdoibj2mqbmzLtIgvJbxtlebqTRZLJaY_akF_PEImg6XFpcxaStYCzugP9FmlGtnynyxHNrkji3YJtHR5CxFkU-ibrOouC3vWgBm4eiIh5Pl0WZP03xune4gF7Yfuzum5PRqIqaFSTffxljNlhlNzzNe5lRIGy8dh5iJPU=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayBpJeEYZEtU8EM4fLBQwBz2v0KnRigQGZoWv7_kFAeuL6V17-XYGTMUF1ELx40r5l7bPr6GAg4tV7iSExRlqeWUSVDuPmyU27Xm2meK_Xg85ylGQB6uEYBSE4kMRBExd3x7cuzZL8soignvxHry7I4CkSVAI1a2WQGXvfFAF0cGg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayiqYSUlW-f6yWbpIfYDBKjnI0lq8xuWP2rcNk7_Mgx-l71NqlN4G7y8YXO9b9SBr9njddVC29A0Ul4V_hSv42JSoZv-hIh1jYVZHbBuN4gDGo5bpBGbb50299lvaqUWkWx_sVgWozlta5693UzpdCQPn6IXT0HgJBsujWoaVQtY-TP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azjoJdyzIaEG6qV61GM10mGzp61eZ0ijC5sXIdIS_1S45R_-Je4Cct6JP_xmjsu65kiZ80-Od3mCOh49UUSfeXxLpPLM9IytCyxoo6imXLZBukDo-8UbWAYbIvlNPoLcG2Pp903p6_WPKSXyouD81jQEBxO2Qm-YtYcGIAP1TkxiwD_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-az0gWAQL9HNCQxvYbolRLcbrJupmJ7ciqOba9_qm7rljGUvAMSRjmgWva_ePPN3jZTyl8FNrFfHWrkVx-xtKyj0fT1zFyi3kCLCIu3HMBixArk7zvp45T8mipc-m5l2UXpMhjzPe_Wot_0RynaqWPypl0vwCSaMD99oT--GmgK81w=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aya_iMp6uukMJMuEDqQuBjDPhDEAFLjfu7WXfWlPIZyVMhcfJoC7MX0wPtlOSzFIAxmIUWH1-fRAbu-1PjKL_D-WjedbLbznRX1LWOj6s2fskutIaUXinrKobZAtDpzXjO-siDp71L3TwBE_ta5JvTOhBMISX1gbABQ1Dh4w_eOFUlk=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -899,7 +899,7 @@
       "name": "專屬時刻\n洛蜜歐[暮夜沉醉]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awSUW96BEbY24K2gmKVC12s-xXR7EFTC2Qzrn6OP4pAQ7JF4w9u7lsBjnt9KCbfXGo5Ypyq_aGFRYoi4_sRH2zE_dS0JKt8ycW5zS9lLKzSUUA18IdHG4cZfH_qBh1Yk2p1cmifko8RCRAQNuXUrmZ4eOzZk_CCWyQs6i2DLHIlrE2H=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axapuFrHe6Idp1NDS5senQXdB9T2Xfhjl7ztDNnxeBYY-boUgeRNek9sMuzhCOmfTGZqk1kJhR01NkxH3eVvcy13HB4BhAw_Fop69ZZWn_HH7FLB141uKGrAOC7826NuqbtlArJdZ3uHj-IkqucNDwjE4wJtZcayje_AbE8SHndmUHQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -913,9 +913,9 @@
       "name": "夜鶯邀約\n月夜的微醺夢鄉",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awc0dFxYwRypSFE68irvMsLZ-8PXd27g0WLe7STwJKuNJFxL-DLPMON3E9Bco53qtNyZGKe1NRv9ZsKjBJItk1kGFaJsJVbQunamiMkAgazO21YbhwGNNRaAAomDlsZpjNX2HvDkK4t3SnYdb4zsbBxi68vY5CfkerudLDopXdXIhu7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ax7aLn4WlYnXUdhPasA6HCmNv63re5pgAd1srNXD8dW4TA9_1whrn7I76PqVQoudr7iyLgzdMVInda4u7Gn1PD2GEfqe9BB01nCCFizd5j3bPEQxy8PAjNcMfVAHIyCOZ9Xr8kODrHr9od17-7ScFxwkNaDZVz67-5wvhCvMYiTIfkd=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axSB2LUG9wP9u2rv8vbrTf9TdmV1xkeTcdPWO8geXSQXvtfGN6-ESjBRU3HQDeYZMQtWskcWIVvkMYT51PFGQ9oSk7svqaa2hjUtZ7CRydB2UK37wjPrAGr1nDIl3Lg-n8AmWnHUQPfL5iASnAIec_JUY3JW2RqOYYUV_QiFJXoaZmx=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axIqMGmn60WanE3nybKhPVqeVU5MQGN3fur3ilUUxpRdYA1Bp3mAe2vsQkeuoW3V6Eb2AzNoILH-o9quoAIWXghzNEJZyxHB2tZRFhnCW113snWAUJhQ8psN9PKprWWSPiw7-uxNNoAfIzUhItx6fJGsMrDi7qUqM2zyOGs__Q55IWc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awLzskNJ1mxcXLPGvBmgH1VhVATfZgvwvdI39mt8P9hQQHAolSO4upmrOUdziFoStDkI9B9RKv6hZnxxw_5nVj1AUCe7Y7SBJpmcQSqFXW2J372gJQhuA9J9lD3PL5R8VbfdQE3D6QxuNUQYVtmOQidka1v24fkDNfpj7Q86C37-Dx-=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayGmAIWK5O7mlvStWXs1GEevrcw7RFegILPycs1J4eMXMwwZWjJY8_z-VdIitUkNjF2fY68TBGrJI0F-XEt5UzixEdYW9lkJONoQmfjtFbNc6rU5AdJjwIaL2OzldYqP9wcGw2b2yiDHca65ULvLA-_x2vdmrrJfkJcn7pJH-_1xijn=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -929,8 +929,8 @@
       "name": "專屬時刻\n伊斯雷爾[湛藍誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azmmz19Oa83IAlE3oyMNTkFP8viPgcwNL5egQ7QOCmvRqwFD_6hspOWqRQzvAhpeluGR7g6cxj6FM1Hbxwz82D365UAyYGR0k0sORY-YQG49QGlCJjOVcTB52KhDA7_T8xaUIO-Zw8kVtx8OFxH3t2TMTnxSL9-kDkF62ZifzetxxWf=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-awXUMaLbXidU92GrWw1B-GmpndIH4hYV-mG11nYO5MFQfi5_oUfu3-M26jGJrteotRJuq2oqkrZhktQwwcIy_KLIuoNjxO7Z0cfXxhb_-298bblrGxjK91k19o1AN8O9hb7Ql3LIHTEnRjQhPtfHN6EkT-yV_G2c7OaUU9nFLqgnQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay788UvaXACSukI1UWgvOMd5VUdETJ4W6Vaal6iqBKaMNSfcbCsFqH5pwhYRDTe2FGvBJL4enthti8tXdR6qkiPw-zZ1RuwBU1Qw5k6pGSTWcjbeuPohhUBONjRl9iOaFWRP2XErF3cEiJ9f-Kp1nDqe6s0JMuUkfWYTtBVEMUrUZDK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-azOL7EyvE_HQFX7CkIYE21GAoqBfxX_KGk975dJiXaaY06vIoPJLass37GHXMJMhw1Vb_ndHicNuIBRtHeeXKrrIz0wBw7qv-Qh99zY_EqqAKRImstwnO72kYDr8Cjx4FBJmpfvAc3WS2U9A3fp4nD-OyACJKF_Q79HsfUYigZjDg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -944,7 +944,7 @@
       "name": "綺念邂逅\n赫蘿",
       "type": "綺念邂逅",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awoJveFUQC4ULw7lMQDN0A5I7S6SSOOJrwe8heLVnglkpH2cyxIMS_QwrUa0ogSOjShNFxnZ59pSTOAUBY8FKxg8RIpEOn05k_9wk6tASxLxbOh9xmxpNxDlq3XAsd9uq58enS6zkrELNdLsMeuaBPInfAePGQeVXD0jKtcsqcpgdCv=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axyGqOKoNVh9KoyWghc7amJBqbSokz0woj4Z9QZcE36ttdyA0o0xhtMzSQmYOhVtZi-vlEqmSVaED1jctJiNDLmAWHGlYrehhHnsD8gEKjovBXon7GoODXieZ8zhZId_arUT7S-Mj9kOZ3xu0ADRNWTnpom_T3WftJYxUYyrGeDZLY5=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -958,9 +958,9 @@
       "name": "學院的騎士守則",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azuRjKTbt7rgldNFVxfkVuG6NKJ8EfKmBVnVubdsJFcBjiYuV9Ezk8U6BR8nVoRTnDd1hL3L1gHiAMXzL_L9fDKTyDgOkAtR9AFFq8zHfvZdU5N-BJJmqGjzT6CTSqm6Nf6zaD5NWVGE2FtNEjD5Iaf0cpPkQJq04vKHNKaAqQt42pI=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay4Vv_QDZLz-LbhbkhNTyv02WHkkj7Z0mPf9Bv8_jKkaM89p4y4hNlJREZzqJWUy3Lu3S5N6-e10AY8HCEbyA3BKYKeOkFu5xPzJTN_dcUwOkIDq-KcmkjBfZRvIWs6GnBKzBLoeR5vfcZsuZfBLQ19L5u7AlYOlhGFVqC1fP6D-ISS=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awaDKlWpA3dwZVFo_sH4Q08H_jWsTuQ_ST1-W3ReJ-3v1rgudk2UHUYX-11tzYuG3XqamNWQ1pS8TBA8gOu84BhTe-MnvwVfj7hJkai_QuWabS55c3YqBa2DgxXX2qDTwNyBXF8wJdOR0_iiy7OwFyZC8RCl7zvxjDtOhBeDX6YtZhw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azn7Z_6mM8tRPWVpXw6IpKyRqkYJiY1I9YF6Fr7_UU5RssZco0Mkv7ynFneMZBZyo3-Abf-YDI_2-edUga0lraDS6HjV-oXPp54hMaogDTPdZDkNcS4jb1_2nG3ZovUmFgUaeeArnjl44SgP7o5LsUt5n40fVPWXuPJfo_x0MtvV145=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-az7Uft6fNzXrafNH7Bo8ypdH9oOOHFP-pcbySk6Z96fx4UJxZlc2ZVns94v8-EXLvM1KaVQIvbbZRhOdE1_Hw5G3yNxbA_3zri3VgTfz81lnUXgFqRYRxV-bqtBO0lHK02f8nZQRIp7ihax8KUc4TRL8yaC0FajVvalTniipMc5JC0x=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax8ddbg0hiV0W47qAS2VIhs4XMeKe89-w2cUMjrTzyMuJklB6FNQyAnFNag513lgg71MFH6FQq1e-4F7RiC3V6TMbk0nk8Q0CdfHohRvxi3_6IP0JldHIh1prcD8CDml0Jm6fG-jQlvp7721cTNfvRFuPZ0oIwmeaJDilD6TIgSrfcG=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -974,7 +974,7 @@
       "name": "專屬時刻\n繆爾夏[琥珀誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aydZdBteukvszmohyiiBjxGX8Eg3vVSpBOkrEvGHjQlUctFMFtdPqN8CqWKxJ2csns_g5SqHfm6ts3LkD8ZxK_CauT2I_A2oJXurRuR5DBRC_aY7CmGspD4V3VTQPdZ5ngEOSi21cyjhCPjo8Mum3k8ItxK8KkZjzYPb9YHkKH7-2d1=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aymsowlou6YIENqiTVs0bq55vKdoCmq7_PUpB7MAhQBNiC7SAQf_cgAt1xTBNat4eYiAijHfm32HRJa0VTZDrLy0dl2emRpljpik2_eECWa8ULi0ZHBKzk4yo5Jvub8pf9PYnfPlq85BpM5sSBwjx-ei4JrBa3hlQkpGk3On9JRXHGe=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -988,8 +988,8 @@
       "name": "滿月的鬼謠",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax-TP7fnaaOPuDq4bWbylgFKmT68c_eS4qHSkoMHw15sJFrsuP_ciOqL2K78KUy7lfRXEAHbQcbiF1BssnSdpdJDbEAm8zQ-ptvkVqx3fijhNP_7UdECYr07ng304MGGjXfekVdU_T7MiLjJc5a2SrayXBVuVS_99eHyQ3auZsh_0uM=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axJpZOWEP5_hf5Db89FMly5hhAI9ts9W8HtQc5MN-nA63J3WUsh7pzGROFsVZ6VQpN_CHm_ICpw9vrlcaezhsgTdwyhMQFeZslD2dvIq6a3Oac2FMrgG6ByezCMDz-2Wme0YQl1yUO86WoBOFkuurB3KoTYSLaqirnz01Hd5ApspQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azO8HfjZ8_tgKd38s8SHgkQEXUA6ZlvWW14vk6GiexrqatYkTUkjNPx-XmPpyh1f5zhRzOaDTToBMMq6PGgblmEUEx27ejeVh4pGD25So3lmt_gEw-y236K1RhMYtFUCZuqtSroVUElGlGrOZDnY7eOIhKte2LIJzVR4ckk6bqPY8iC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax0WLCi4r8m8LvQNHNYJ0Q-I9mkAfsbdwima2CnBS4s_JOqabDn4inNQtFWFd_8MkKYcjWobtysLWZHftSgL-qrN4LzD3fkOdHxRMOErklX9EghbhwU-cFZ7dI3vmCPbUjKA-ApgUyABEmiTQaRrp6AOuaoBn5f_CbtiG2enIGcGA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1003,7 +1003,7 @@
       "name": "專屬時刻\n雪柾[微醺失溫]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax8oO472kfsWPCSZVFf548D4LNfHZf4AdaUT1P4IAscYk3whjI9SbVitVn3USDMM6ylqstVNd9oGAg0YNgMLiezc8pTXDcteF2iSwD8CTDBzcs6jubBHbM3s3Kbc8Y0tB7xBFIcYJpi7O7uDKSzo3RX1GPdZc6QhMmZyYFM7Eeo_l0S=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azYc6vbe0Cr__z9kFJri7WgzhG4fKn2Eq01k1LECsxpXT6_tW4bOMcVezeObBlJpew--EeucKUgtQuQmAkyBhhhXYFnHlnVvouq0RgQsY1rjnoTi4yhCt25VDMqvZHXuNjRPqSciqB58ftjpyNvcZSMcT4RS1cXfAqJrLQJcBP5bl1L=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1017,8 +1017,8 @@
       "name": "冰封的絕境",
       "type": "主線劇情",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azWWc9bDaUqNCRaBPgTTqwyf1QY5R7swaru2bfaiaJBiINovo5y7f2YfqxwQpcfhIjH_f-g14tvpoqZw63-qr38IgI4H47xlNFJEmU8cF5NyFwZVSrGLrrrNgwIwfS5Wb70a0Iz7epGRGHAQTbiRNCtu5H1vEQxDanZuoJr8Ig-m30A=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayJQcpgm2ykeHGbdqddVpkqGVzNyZ83bd8a9Nq2z6BWCBYysx_NtxzxZ28fgOpZ-o_Y-bImzFCkGC17oOORJeBK61ELZBwdGycEioyRfQDY5AZfFTFBqmIo1atIbJfCyZMxZKfpv4stZt1rZmW3hSlmL0WffHN8OM76Gd4dVmzhlA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awrsVWjmhaq2VkV4HoksDMeRSYDborNUo4XeQBfqF2QPU0okvreKd2VZjm5p3ijqOakY64bu4slLycIkIeVNfqtV4575bpW2g9DF5dLw1rjzOltHRNwWKNDeyQZcoJi5RU12i1Iq-_ZUxH7L3d2LKMxTEZUq_1odpvjVyWBBgCO3nXo=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayguV-ELjUqX8qZjJ9bYBx4emkWqmMzxzljsPsOwPXCBHaJ9vhQPWo-XY1-_-kKWblBbopAiz7Efbj76fxDMLVntZHcJ-NkcOhk_suo2hpjiZftVNEnqEJdPbwebOJmpnz4m9EBpIrx51-MJ5L9y0-xqszHtC78sNTiBVomUfLafg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1032,7 +1032,7 @@
       "name": "專屬時刻\n萊米爾[冰鑽星芒]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azftSzXra7fpkFOz4TTMOwEfWeDZq8D1aWIGBpWHHRKDMBv8WlZQ40LSkL5yCQPKwkEoDg86uKOMalQufw6bYEbS9CTYJTRRXzbpVAU9xUskeS1TUoMpUSxmxLfVrb065mXD8ivhTGgUko2HHHEctAf3x-uZzjS_DNAOHqxXClv7dEM=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayb_KJitqpmx9tnazAg6lkjBWdsutdN1mFJsFSYog2aHQS0Q-EHv-Ui1FfVyIfJA5L7dcVZflAsXfDNw_BICNRQoeBo1I98agp643_dFdx4NOMlTnaxfEr2h-ASzV_upqcMcJlRvZknUQRr_Siv68Roo30cmNtHJAPYkEzjunMJD48O=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1046,7 +1046,7 @@
       "name": "第二期時光的馬車\n（自選池）",
       "type": "時光馬車",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayPrpNx0ocdyaBjtoGbRo4IUwNN6B7Gw3ERCAqKJn45TXKHrMCWitzAkuXsQyIOIAgSdpzY8tbEVpwEmFFS0-OenIBOYU_Z-aOC-FBpU9_hUt9ri_vNh4nwOWmAJWO2Oec2UXBsn8NTbKSUIQAF9L5Gn6CQ7iocEjC9kX_Imk2fTsUF=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aygkCjsZzilhxNg1VWG29VYe9HEHZTYAi_ISAnVfiV2kiZLAi-BGhUFAV5-775ErbE15ZLFoLLKsJTyFOxZv4RxqmSW8qsqJtFQXdVeqlqQTH8EP3lLKqezFr2B0NJqVyjJy1ajDvDPK5O7K187tHVq2bPCxShRORsZscul9ImFaZA3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "限定角收錄至\n月夜的微醺夢鄉",
       "link": "https://www.bilibili.com/opus/1094933194819502088?plat_id=186&share_from=dynamic&share_medium=android&share_plat=android&share_session_id=cd9e23c8-c9a0-423d-bee9-1c86f1873692&share_source=COPY&share_tag=s_i&spmid=dt.opus-detail.0.0&timestamp=1761454455&unique_k=V6K7PX8"
@@ -1060,9 +1060,9 @@
       "name": "病房的心電詭波",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az-OxeWZ8oN5Koq6ZF2dqSoVvkGw_uyO-hG3IdoTSynQmbPJi0fGqJNWF93Z51UZt4_MlhsL3Yn3rfvO_6inR4p9dFZR2I-iucGk5jxK9jX9tAB54E2iAekz3Jpru3DH77F10-5B8QhFvaGqcGikhxVtvL0sIN_kITS5S-NNKV8qw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayeDBhYJUvtwhsfaJJQuEEsf1v-R1hjz-UrKa-cj4gCd8XCYDJ3g6OFmc3KUdLgSL40cA3QPHw7qSpl9xRI2ON5qdFyqoy6OCYHFGPxB0S0TwoipBkwqQhXhU3v1SY0bOHJyaCtfgGbzW0Q4rp755QsMBjMsbljSJf-4bzT0RRAKFT6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axsJTVWqV0tNEciV9tVzZ2p6b1WxtGd_LfYodL3p79hf7_bV0IZ6iID0f8UTF7TZUH-DoOrizmkspmJF5LksoCBl40seOY9-hzzKecg-SG88Ixm_qRAv4VN7_9329iOEnSo-D2cxKbCkAtWmG5cwu9P8_5nN3npmSU5c2VFPZo5Stw3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axfXjMEeRReCKnU0CyMEIBKitKZTTBIRmONhQlSP1N1R8MXFrRJdDmkuwQK-YChJVhUNUgTfCSrt5AH_MPTpBCAmeqGhgcwykKTgwHcFqFQ4TCwctZDAGlkqKb-CzlL6JOHoe73P0gjADKvgRhmk8mEDmyqVX7E7ggCdkUaic7DCA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azaQGzomEyZKnBlLDhB-PwzfTWT_AOyHb1l7hc78h-ypMSPNmyr__BV3zkfHjHvlQac3If3g3_5n-tlSL1HRNBv1pa8FkOHtGE2CgE65I9DCoD-9vm9sbkMFe5l3dJzfGQo-uqlZmSy3J4_3W23uDx1fpt-rPjxtHGkHmU_BCS6zKdj=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axEO0JlxPPGnK6dgiqCWHYvOEHM3nnQlPfOo9jpW5bSY3LCmQLK1bKmbZWfBQHHtc_T8SQeERQTka50Qq9HgrazipQz323YWfJCbpGjX2ffwJo2TiQFuW_vH6marQ1mtKAZDvaup-rA3j-dZ5JG0xHIrgyhM2uHLNHY5s_d7jDNniDt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1076,7 +1076,7 @@
       "name": "專屬時刻\n路亞[夜刑侍從]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awg8s2z0iW_w0wyeaPMWi0uPEJiqvA_Fl5Ivaqs5wygyRqITrTh3N8lOX_YOFEeBVoCPkmlIIs7yUMc5cvAuKpcJb0Pysh_Uax3jV1j4KL72pYvohYpwko390b0xWA2AOCeeIdUScp2yyxqbQQdS5GXQKW0EcDQMM0nAm2xGkZcL1RC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axdlujNRgrSD_eJGhm4TlJaq19Ngab1GKSzknHVPFn9OXUvPKRI49PeCZWNQOOE0ta8v5QzHiYopqz_dwxFmY-8XEX0iklE1IzcVSjZH2DJgZTEbQ57GZsINuJEXvGwFJgOgzO09nOgVb2_2QJn8UipysAGYMBgt2r3bYIItndxVdT7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1090,9 +1090,9 @@
       "name": "學院的試卷風暴",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay3cI_-Nf4lwhc4OJiI95ubA9_3cK288PuuDlejTv4PjtNKro4Q9_FrYxNX5mlXUeK-lL4OBqG3gcnaeIDkwgEtSKEx_W2OOXDY6pG0NZFMjEDQyh8lMKMJw6uAHp9LnTzoMIFsSQx0Pq_HkWa44iYtggbre61gR8ohGrUUvQ0K_vXp=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axsbPI0ISvVG8E4ia_kFhx-Z55T0o_fQ9ERRPHA94b14r6TDvfh9L9hsiiqDBZTYrIe1IGl6y0SqxxDS24xlBA_XJMm8NKostoH027qpZt3sUXuptbDBiLbWVY6vLmfejfegOarlSnXKfwfbXfxIdzkmVKdMx42dwAm0EKZYPQtPsON=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-az9Mtlguybat3XHjjQxvUhngeTURI3gDiiiqE_IyazsZmYIs_BSBZhVk-wrpgHCMp4F6lbvTWEMBxx3H_djgd7LDJeJCUnwqzR9qL-frHfDBPeeLhkCJnssaNpCGxXCcRceDtIXwNoZ3eVgMGd7uDfRG-8KzMzXwPzXWx_1OPyMJ9aQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azdIFeUpEsAeCYqGXAP51xc-BePVuZS3Uu51GBKroCeLb0fq_KEcQf_v2-Q-ku6Ok7G_s70y80jhChHT2VAcCCfrP85Gb-0cTJhB4OtJDifMIh1UP6eYRVrQDNC_v2JulHNQ38pAktSz3BP46apy2wYVH-yGNE6CCUet_nqM5IhO_1W=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axn-t0c4-y-QHkJMZAU0QbdRSlXJkBFpK17MLAJpjIX2iTd8cibzQCcqbnn35WtG7bwQAsqhu7v33MAtgkxkwlU35pYdNs5LO_gq9R7bAuARyUclTsuhcTDBQMS36sk1JWlN8qQNo6WxzFiY6pOaGdEgNjneSBg14OFkXyEs8qUrt7b=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azpAlT05Ta-ST3_CycBiit33MdB_1SDcd61P4YI1Pv1O1GgoE5YB5aPQL1ULo29nPJkvGug_tP_Y0NnuSxx76aGEFW_ChvsFLU399hPAkzb3Fj0GMlPnUko1DmAhs5zBJnzn09kt8GcjFggRczb0PVuam26IjUWMyMjEtaZbDUrgJh8=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1106,7 +1106,7 @@
       "name": "專屬時刻\n德米安[眠雪之諾]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awTV0bFuGEpAeD4Oj5kd6788z494ReS7J6rmILHLq2WKnGtmcGYoT9yiWW0uwad4eZF0mezJAZ8TBtpiL5Q5tXg80Pnfjh7WK_GYzkDg9yn8Fq_m-kmj2kUE7PkCyLwBZNoZcQ6cTNuATzENEvUdRFnsAJSOAJn0aE09nMTeG-ZSg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azIQveL7tTu9fk1Oj8cl8su4h6bPNeaEqUqkmDz7qnrytgZ5Kbe_9IXIoJhoY3x5PjqnDAjJohGsYmeXvhr5LcLuwpV-CXswOAPKfr4T-aVjCE-UwyYN8r__PyN9DPGT3pFwJrHJ5J6wB9EFf-NRwwjckTXTlonvUkDWeP8XZ8qxA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1120,7 +1120,7 @@
       "name": "綺念邂逅\n埃彌克",
       "type": "綺念邂逅",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axiW72uahsGx9wbt8Nh0hVsLO9MIBI_FUAGcVpQxOkyZvd1tT8i69h-9wDCjvdzyq_HAljtzGibqXh4KoYppFXbEhG1udaeKsqSUfIjEnhAn-3C5N9dZM3YqAIV9ZJVv04cnbGs6ZhcBg0tSA2Wfkii6LAzkK38cwuBiEU_iTnxNTyp=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aymkXR_E-KUt3leTeNvMi-3P88z9J-C-6igYBxInc1Ab_GT01vN2QdlX3XL2ytRNr0R7Dm8cTLacqxPuWvaDYgNlQ8KQ88o-wWTZJjAv4mujEcr58LdDr4YiYCNfvtJm4l23vXvGTKH5XDEbJ-foZAHOvfLvx3IS9AKIgVRaDM1zDIQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "同步舉行",
       "link": ""
@@ -1134,7 +1134,7 @@
       "name": "專屬時刻\n雷塞爾[秩序之初]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axklgynjcB9qKMK2NKfdCNTbbIlNkq1VDPYnsvF1wBHRxR-jDmzk7-7lf3iaYNTyEALjQzFMJQxfYvNCpfnVNSv6mO2T9X7N-VAPz8o79N9JeYX2unsqkOqZK14PEFs9uMfByhZWbBqSBxNDKAP6WK6piyDAv1NkTJfhG5QkZCbM4Xu=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axRf1-7GvaEYiDBDoCjt5ZR76_wQ-TACpg90MbvN5DBcQQLNPDYnSbc9fKpfhuRwHCEXHMRoFS9_q5_7ESGTcMmrX6_LVd_437JCzeOylPqFInX9iQkbTBKzqhnlerFutkS-Z-tXGtzNUfGWbQk4BpWSqlo1_rJIEC2WZzGtvoNnrnJ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1148,9 +1148,9 @@
       "name": "綠洲的金砂旋律",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az-fwyKist2doKc3gzJQ5bb9gC2rFq0C_7d9vzo6iemsYQVUt3_gGDD4lVhJVyxWoSDs5qkPjtS5pFvBYFQvws5-C95GS-pU_aTqDDxJZe3YLsLIHH1L1DfpaGxEMcoeUcA2bVXhEu55RuFO_3PmPs9Nr8mD6eGbe0fC3h1B20SsA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axkmGKsaihLM30ujPCMVIudty7oaxL81KlScfhCjSWOYwfq-4l51flCL0ZfIPewhZOMJi43FHO-gag5ZALmHon4IrXL-AOine_fs0gwBng6Oal1L0xnAuZbBeoEQB7PXBTi8sr5gHtaYOg0sk4OJhRHpnOpHBf01-COFj8bvNr1cafR=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axyZMJ6q6Hw9Bg0rM01Ms4UNYVTeILwI4oQMf4epEa8-jj3yxo5es8C2x_--Ieq4JrryybnmX9gQpt2PZJs9WnaZXURyoOU_LZEG-SzQ9vsoz9ZbFqZ2LI92owCNzDTZGbbsQ1OD9zQqiJgevH0evtxWYWIYKO2TmJaxutcvumRyyNu=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axKascF_yRA03gtuaEUiF7YR9cNMZcx1kGaAROitKurwjd_YTyMRSYdyz_MVEUhmeROdSBMZbPl62B7F_NuYmDK7_NN9pstJiIq8lb_l56bB9wEV2oBd3aZ1Ovwq5Asaloz05GQDTbryeYkqT6LpkC7aIdnevMIOMpeKA9dx3bsWw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayj-S7lFO2zuvyiaX7uCM2atQgJ3BhR-KrmQEEGZhBIgQSZa3q0fZFpbW__lFgUCGS2V5fdkGuOedk13yKsBDaNB1q_7UFdnbn1iAqWs9dmA-xAGdjDSsnSe67tnMVxQb7MIowYYpDopKBjwmqnRDXOSQB_7Ja4uEMi5QLI3noH62rb=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awZa17iN2wk9lq1XRZ5kprF4ac7tqNXh4aV5So3t7xvKqmHGpttNZgDOFEIfpLxCBVG-cYGmIUukgDbqO4TsH5CgFqK36HToeZ3guhxdE7d2Em0zdIllb4fhbBZB06_OrwvsQyh3NuFlFmOgSoO_rRbovYifopedtdi9gt9qFiaIbkc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1164,7 +1164,7 @@
       "name": "專屬時刻\n埃彌克[花束序曲]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awubszLW_ldiw04rT75CistOAZwvpR0BkAOd8QL2ihR-OXqjXlSJ20Z-LuoNapSEp3U2sZiBq7I9__75_i9fGoEQdk5Zya4Gsr6mZ10WZmW_lRuKUowVPVRBCp7l1WSSrwR8HgWFiXCiHVaeLTyAJRLPDc_AX0iVfPTnVJU3x1-nQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aywI1RB15E7PKVFUwdeny-6WBhVdSqsmEZ56ck1aREgpRbzeJBJf45frKTVu4WH8ZXaiTsmKQLuPPfynaH-KDU84TD35iqSC4jic1SdsTB_AP1aa2K2R7rKFyKwg9JZ6OfaxuVsA3LXsvb1XNyuvgERBoVqB9P-xUH05aFjRjalPQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1178,9 +1178,9 @@
       "name": "驚奇！\n熱帶海島與竊竊私語",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayvnddRrbVu1E5dKceBGVairOBHn2173sG0S7x6uFKZzdxyzEwp7wgidq-toh0iExTacPPppCVVqLEl5_GXY69th0qkfeSnEqK30QNpNPPjwzi9jU7aPccOuucY0tovaC1E2fUNST_ZgjvfWde-jYpSVq2pWftill2LYZ2MyUUq_A=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axDJWyg5eAFOk8VGnuXaU66dazwTZzpbENFHkOboAQFPnoqYg9JssOFO0SDno0-PENqIMvouN1jhDUS6QEqImcWc_p_4tO7FDK8wm899lTZLxuVMliCdHYoCPorVYq1k9vxmgJD7pvOHYsHhvPjLs_neHpj17tbGRfofunGATzbYZFQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax-pe76ckegk35OvPWk5Vlw9Jy1mCgTfDMD7Dp7eeX_gz_J2O7pjdZg57pttioD6-njYrSoPYIzokALiY8gjl_xq60IIhOoMWyjzJ4sBBlSpElHKEAtP4IaEVIWAKJruZsVceXMjNJZp-169b0txv35Jrn8NMm1nl-rCormZCu81UWt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awa16Oryxjscla-2QcpoYr6OIs5o8OuosV-atAE58xmrZM72KuHfPA2_jz60bsn3HI2vTuDR0loNhlp7tm92ZcB7178xJLXJcfJoPgr9fr9EdJ5b0Wg_F6iMGIw7oUjocqD54pzDQh9oXyhvfAiYcNa9KA8gA7rPXdgIIq4fHGxjQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aygygZYCiF5LmAv4-Ni58iQswNAGLResDO8XgJZ9ZcBMPQK_jtAgO3gk3WQqJFpUUDS8NpmGlMD1w17afDVJpgxc-Mkqc4IZ7y_688PgFXg6X_VTqn2TQh_q03cpwdzzHh6NbBvni39TRGrIhaAwzRawiTb5RR5jcW1oP9nf1SBMTnf=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azUS_JM3IpM30nH1TEp918tjWjeGdJ5ZClLJ-bjLkQZq3ckG-HcS6d_yrbGuZ5uxp_hIPQp-nra6tjdvcwqWXeXAEiiCnWQOqwH6zbVaKAQNGuCij0WXzEWtEhPit1j9I_wBVfEQi5ZtmnB2ETpbcIDOmxPL_42MfBZdo1M2_i8nIKi=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1194,7 +1194,7 @@
       "name": "專屬時刻\n伽利爾亞[鳶紫誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az2Lcl18jS6LC99FRiD6Sq0pBe2_OvtwxJuK6Q0RR2Qjy2TzeYgAO0JGUWM68So8ibHRvA6LNjqGk6vv-3wl29r0p9hvEufxdA1oxcyEHPF2sKM0E6O08vt9VspQDvka-aOHhoDy-p-puxr3FPM6f3127AngTXXdfHWRxnwLxxfYLQX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayFJSBaUmILbVr2lhwU3HWEvoqRHRsgZmqJYf_eH-oX2sESU5yKrHU4_CcjHx3MrBpXOBfdlvxX0CgNxJ1snpTrWN8ysh2GBJuv8SK8hIGrC-GQj2h45eHg7n5VGELlxYjECyeYu37nAjhLLtlLlaYouFFAh8E6gK9nZ5oec8_4puxE=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1208,7 +1208,7 @@
       "name": "專屬時刻\n沙菲[夏夜燈光]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax-f0WBd-a4qTlRws408fDgRtkkYQ1h_r4b8XLLRx9VC2Kfey6gRXLPbOPrN6HvbwNeMkPdIeEHXD3rmIhKzAz01YpYxnal5TSUFOtcJRZkUq1papPpRSQ1G_nqJqaq1mEF_jWLevYIemDyXAHxhCmBIX5DiYOCI8V9kpzFo_UmDvJ8=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayKJcb_STe9WyqtnYMPogsc3Jr4lCaVpthTUdjntyF5wS0Bz4hkmwIh37cghD7ZttU0ZhpEiIlAtxfa3Qsen0GBIns4v3jOWLX_O6b4een6unNqSZRSjCGcQ1vz0YG5l1Zu_YHII2L0HPyaQQZsgq4UU7iBzsboO2kayn0NKVD4mW7q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1222,9 +1222,9 @@
       "name": "航海鐘的迴響",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axU5_qo_RwsoFHy4h3X5tSD9i2VD8PuLivKt8cii_wnufSifV0FdaiiGeJZajzbIOTMKN-1WQ1GfKXzpbgB92vV0RznfYVcHgQhIBwbfzo8bUoJx2bu7U3j5M-9TMCO7KRzWZQWUKOTL7xetQ0omIbwsMejWsDJVUX3M6ZxUbkeOHMh=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay5lbDiNAOYBkLFxLne1yGhiulwq81s9NRktkxW9cYGicUn3aBFwf_g_0xbGOTofcNcTWaHDDY0yd0YsnOs5SKY6Im8lWYrlLHue8sxfjCGTx7W7Bvf_V5NTUjfN93bkJa8JrYjk5ijJxUQAU5QrdbiIOM4ctb6agPSSf1O_80REw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayM4MaiUoNdIH9C9yEwnFpxOrj1_aa-C0HCCR-DQz1_BFcGkufS34tz4NiECvut1TIVchgoIsZ9jpvfaFc70ipp36oTeWTZtJuWpZllGTFjF15hsU_TdH7QIuGoFE4WZCTmw3cyvKWQK4oT6rSsVjdRtIusr7JkfoveXB9ItxkITA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az0iejJlIcN2Hxw4JapW-cXNpjuK7aTzsT5ZEmMDcm-ehjsZlHoUJXU5Fx7VDSJ6nrpwtFwTXbol7KofaVzKEJDt-2hCzUEmLBxnJtjT_oWsjt0MVcwhhnwgC7weo9gNaVgU5dU7EhrpIPkbA3AHJBdqg0Abz5nf9DE6WxaRumaoaGL=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awZmfFPMCYTtT-OvDrDQAqvqnwa-U4dR_Rf3sgGqaC4B7RLjAm-SKGHgyRw4XqU4WefBDfEKqrXOpj4BR2usSH9bTXFJug9XgqJeECqEjmvetiCcLyvWnc2WFHARB_wDZx8srtAhS8rHgaxS7BObD8PO8VJcc8ZQT_tWmIbSJrFyA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayWX88U27FfwdkGxAF8CefXDRq07GVk43Z6UmwCVIEXI7_QRdQMme_GL6e7yx60pGI_dpJlq-9lHQN7M7OybCU8lrqZ_rBBjn3Yi4mz-uCTG1tYCl42-8UpSWZbcoRdJlwJXCtt-YtDed48QOQm6tF0Z2MCIDfsNMKZC5J72hkPBA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1238,7 +1238,7 @@
       "name": "專屬時刻\n瑟琉[沁綠誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awHzEmSJvS2cPf4gl9xeUeeoduPCA6QaEqhYQJTtwsWOSr6o9BrHpEbSyJ3kwX2WR9fJ5VjMQsVvBZI5iphIQDxI12PGCZORVYycD3cBC5w1xiWv1LQFGBuKNKJNLjJVFsnqth5K63ElxiSn_m_NKFLtUMfy6ACes9ZuyTzMdqNbnOu=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw_efjtborumZ5mMjKbaBxMf3cnj2jqDVKifBY6xRwwdX17zQ-grYtPlX71aRBCRZl_Wcj3PXwbbpRdXHOYZB-LHW12-Vy3mvrSisYiiVgOsK1BEmO9FxW9eYbRxxfANOJDy0jrtOSH8ybJlR_zLQBzpt8Wt5afvUUOS0DDCNI2nqaP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1252,9 +1252,9 @@
       "name": "夜鶯邀約\n幻夜的熱砂盛宴",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awuQDG7o9Gfe3O9w-f4xql29cEi0RK3EqEAEW4pIyRO5s6HVH0dmSuaCIoVM5JRaM8vB7U7FtP_ZYL8uhq_Nbe2UTObmY-YIKPNO9BGwhFqv_mMVwKu6w_TmKN434tQR6sc2WkGT_xeAFpVCYMJAEK5SHeBEcMALSYfxmRIKhQY3sxA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axuLSqvTU4G7RI7IOfXGjv0tmgf27MJzh3loLr_ptQnni6y30xgwhKk39OuOUQZkRknSz-luZS1zyTm2wjSom3cJwH8v6NLECSTY81_heJIGWtLMc1RWc_s8YpZnI-1biFuXCAlTdlIvsQbhrCvL3HE92ViW_ANKD1s7LmtgWtGDGl_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axTx4YPlTFL-Yh9Xmim-XV3d7XdK0wsatViypufajQLUPQMi98ZjysU_jO8-sVqYoO3q_oZuaaNqNU9HFnx_G3WMprYsrYFPT0N6M9BojsXdU62RCnmwdBa4AoIrZHbAajkJjtkMT_5gNoDyTg5ZKnHSPSpo8tEWSOLSNM_9Sxbcw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayLtYLDcYicm792lnstZBLnil2oUEi_DXw3UnA_VymC7vy3AwSJ6JzHwhmZ0a_jT9XfM1DS_O76DEJPM_WvqjhWH0V3RerZdauKfQ4Mw_3G4WrNci7D61PiShzmQcs_ma3rXOB-ryPu9I2TVO4jc7fu2SDs8ahbNE9jJWKxmvTas6wX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awHSrGPqWXo23EdNi6Qr6AJUpZB_pTRXm_mbC9FGHYDPsJ-V6L7Rst1WCvInxLfsX0HutW22QEHs6dB4Bv2PboKjWuOF5vb2Se_5Ixq9587fsxuWXTjLeHb1HIGI2egb_C-NK42jKvo9aDG4xdqwvLvUjlh9Hsapa9zMGNV2CEo7MdA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azA_-eXA0QbDYhcCktLsixOPYxiwy27G0KDNJoh7uURjecexu-HNU3wv5qEpeoylLVAAM2qTxjfNdzublKXgB7IokswIWPpYSkDhjdzhLLTRdKkOaOaXOcPMdGNL3Yh7lgkV4gkcUlxWJ6rRP4HiSP7U3gqK1Xe3QMkEqWDPRtpbQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1268,7 +1268,7 @@
       "name": "專屬時刻\n默狄厄[暗魑封印]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azfnY02C79Uchj-9BNIfSi5aN0cmwrvUf8-Cl_iGAILGNbV_AGGybSANX8aE7bYVtXSOh4ppv26smfA-M0Pt4yiOI406Yul-m-Iqmg_1Le1of7kHp27UosCjSictQqQHcp8d_WKmkwARfawg2fHdIKm0njq11OB3LOJlCOv9pg7iGLo=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awyR6qhu-wdlsBR8B8GkDvSQ4kOF5i7RpR74ref_Os8i-7twYabLe5YMh77fmJGjyWhSOvTKaKcxIG1ffC4b74LydOyI71zMPcgymqeiKUcp5AsqajQlxjXxPJAlIEYIJZ2t4NXC6Tr86ZNI1Sovdoq7JdUHcXRl8NVJOKUVFga7vY3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1282,9 +1282,9 @@
       "name": "猩紅劇場的鬼魅",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azKC-xe2-qLD4FIpZh-Kte4ZLPHose2CwGzrFIeIPpPirBmzVpo75LM4CKWkm7X1JdofULUVRIRTSyUUaecsLkCjqkav-xPtPKo3tkj8o6kcoTxU_KbI6dnXz94Rbua-ZF-o77fhlu6PexpmnuhNotPn4te5Hfr3p7IGej0FSqw1i7r=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayoWrGgXMLGqUc5TBsF2VN-pWpluMUDMmL_UH-wKaN9oP56Ydol6nn7h-sqBNUkmy1mBu6Ai0CvwZlI0HzRLJU68_u_-VaBi13-7sIW2JlSVgwlcnKDXgcBODdmcVfLwnM6fd3JF_97NqR38Pj3XB9OalKjFdxJc_nFGuH379cTEQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayFlPbbTtGiPUJmd5Qi1qqIpFLswML3N8hzHds2H-LTlxFvQvx1U__9HK1lX3-VSULJGNjmCZsYKlS0hkmkRKrBcUD4oVfVZ8pgPW2L58boC2npA9HTyQfnFMF0-Et4n5NCfi9bpom96Ip0Z24TaFOVdpzYvV8WDnQZM5_pMrpY1g=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayopDvvun1ZslESYkvQdc2OejDP80R7_5GqOsKFsSAv8urQGcnDssGYuZ_ZR-la76XMbpBWcP0wE_oByOrAyZtsvx-NQbSOqfRGQdQUa3F01fq0t9Fr6-iE3WVaCtPpLG16oybNnXaCglj55_4Igda0IMVkYBLdK75-m2Lv82tQ4RGV=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axSfck2wYCcYqp5a1zVftD94M-kJFQrFEtCICxaIdIh2CjAOaqVA6IyuTWU3f7_TkHQpcoLaqLITnd0uogP0dBIpwR2_yQ24tpzqkSbrVPPP6gtOmWFV0aiY0ITeiRvqDcsvQdH33bsctHWXlFvL79vhO-LADCl9V8plkqrqUGDig=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aw5XKkPlDcQgcWfW-MqtZAVeVV9uPLWcBNDrOF2BSvocl3HFxAI6jMng1XbR8uUToYL54iYFlqKphOHxjUSprNbRj1wFo7bokQV6cssbK_OaNcLkJ7pRm2NIrXaog9dSSiPX5AoMClwvfRGAIYhn82gNKni3jVCdyFMPQM6dl31Mw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1298,7 +1298,7 @@
       "name": "專屬時刻\n奇琪蒂[午夜戲謔]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azOP4VdTN9FSw-DQgaUvdJhhPznm6c9itnOcT2ZXg59VxMfD5R9fSIPtFyA6GdGFmv9Hb3R6I3MnEhtxoUIl-ooSoIgoK29hks1zgncefe5OA77qxRaNL7dVZkniPrOTL339-5VuHhRe5Z8d3Lwk-sUcC8Sqpy-Cs6I3AxawwFse-z3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az5SSSMNV6_WTg5pAuaYFvmTku1fuGW26_6gfQLer0w-TcTGlnWGAxo7OgC7FC9YaX5NEKzrR3nakOTC_MtCKiLUuOD1LcKNZGOWQ5SJ4g529cc9U1QzAssAydEJBivSBMhLIpkhCnTfrvMlmkPjWGA9vwoo3RrBrMDNpgeR5WvmuKU=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1312,9 +1312,9 @@
       "name": "玻利西亞的寶石",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awQNnOQwn4frvKbzgsr7_VvJizMdqr7op0q_qQ-xbBfJaGBBpU90yxbdNtFMSFmkaYIeGc4nuTQZhzDKHJZ6CDao83ivKJKMoKSAv6u-DlfVPxzD54JV-wp9BBAEpnZocy-cX3CAGzOovKvYQrA6QusyfCr8Tx95D7hXSWeVWOb6A=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay-a2-Pmbayr9xBnHmnZX9Rj2Mp2_p7_A9UymDOoNhx8zbUZAN9VmWNkIpT5DjlfJfZYbaR4qQMPtdm5fuwN4wH1vMzuCwUgqPcUMQT8KpDm4J_5ph80J18jVl4Xq9vP7dOIlkPPtms0gckZe1ZVm9LHR3zvusZcavIS0kTByvjcA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awciDnFsSkZTvfJS_nQxDwl_RzLfMDzYunLfa9VAYE37ThT1kKg5c_8JhfshRcEmqUxxSEzDIYCnzxxj_yy3-1QW5pCAD02gf_Nooz5_rvxTSaKbYkrnBda4_-k1moMHrq6hcU3yTzE3NjTS3yR_5J2Vd5MLUJIqDHeI4i0SFxMcg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayk2Na6Eia1x3eijBMbxPURsVj87lrv-U508i9nn3jJwOaYVJPurr1DxaxkqdCquWYINFBYRpnLqmSVyRVchDTw1jZooUm2PnlB1kdj2b1WKOAkWAx6FP-bx_N6mT-9f64zKZhgxxczDfPVAyHEzE6WUSwFwCjQCuGCQ_ySuzlpTQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayfCjz7JnHmtOx4_Po0-Yjpo-z_dJWzt8Kfxx9Gd8QwdCX0UzyE1XJOda9PPlfIKK-waPQ3v68i-CwA6rfuXq0jAtf6tJSRrhmbuXheovZUWwS5AYd7-UeqitPG_yqaEa5E5m3NLzvYZDIObl9zjHxTLznzryRCMbg__xYoSxWyTA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-az8rndF33xhAnPHlXR5NUWqnFPvxkJPb_FGcsoaDjZ0MOQmoKXUM0dBEVn--xbyJvPLw97ezCJoZepi499qw6C8Itik7ABeGgZ7KYzvlzxzQbBOuwC8gNPgsN5hijS1n6TOoKOz3w8mRzidYR_xeZweb5gXJuByRbypAeBaM0GUMw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1328,7 +1328,7 @@
       "name": "專屬時刻\n伊斯雷爾[煙花夜遊]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw_1d26cBUh1YQLkbCOFUZ3uFw5nEo__dW9u6CPvjV6MDmOojmLkqHcNHgU3xc5MKBGyQlz1tuti21EuyXdVQfcs64q74Pe-BtwyVrjTCpG7mg4MFtRsR-xz_2yFzzfDmNVkkioqoEv8ngjsstieXk4c0_tFXd6Cfk2hKBdQseGHGxX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayq3QdMs5DEGBRWvF8iBDJDxXlJiCVV06GrojtsRU3Vk7SkZ6p2O6-gJAMtBA3xGA0ViEf_gtMVu7EfNMUZSUjYYf_ClEAv9F136IScOZJkCCVDNSojkWgdVv8ipc10FJGkqOlIO3GH7tQwdBd_hXnA-RAlFHt6wa8uwkNDk54DK9lA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1342,9 +1342,9 @@
       "name": "霧色中的暖楓泉",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azJQdcfHPbgJv1wEEOsYwH5sSJuS8IsuGhKaXMd2RfIEFHzkZB0gETjTBQE5ggAq_RVA4Fw3KhndndANYuIARz1Un3JMu3Fd0KebVWmXrh7ArSaep58N1DpSxgjRya0ybOjoVGE--H2J03J2Pm4k-FLJm_Oo75m9vGSIGU4VMDtwHWY=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay0a0t2l28hV2fQfkJSSeDXvT9anWoC67kzUvvjFNhq-BJZ7iBbT-lLDInXqV56iDnZWFzojdJCuSXHHHQwlmPrsH4wt4YcGmnNgklWHwupnedkw0J1Rf95WN1lp8I2SvKgLnlnD3Atw8B8PFa57YXeZtV98ks1kf-Wm-n4Z97HvYNu=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axaqn0f4ogDUMVQ4km7nkWlLvKp64tuXkmJ5YPNILq-5sdzbu58ijtYq07P_zVrh5xoq4alOlpue67QMm-noymO2sXUVHmdCMnn89N5U1JsqP-MIuzmZBMNZzURrUFMHwoVmhIX__FriowWrYFQ-7thPeEhwV3pYBPCiBy8hfJuEcqB=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayuKNTzS_5om2P11DKaZeqe8gEkN0BZm4f8VfQTVlt3vNZXfDvqIl4MLBW6Gpnix61L6oIXZUDs2sd6x8g548JNhjXymYH4UDpsVl670HVvNkFNfukTON_acVo1qxeSrF0aWfhNv791fxNTwMx0egELH6j_DTQPDWu8CYrx9LSCRqoL=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azewalVnQ9MSwWR4nzwOFmPKZNoXppWz2Q6DDfDzXqtnKwGEmPQ4UCn3KrrBRBRPnNBZSeMT6pW1vKuafxfoe4dqlPp1zEtlaAhDysJaI2GIqHcT-BAZgmaP304QKKQh2B7hqHN-h6T048TGS2mpP3q9D44krS-_xoOhVRqslLqXUpf=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awpFb3TNQ169Hop9zLX8h_RxaR2Gvr93Uq6bQjX5q4DcPUP0FR0cHuDgpdyheEv47H3IVw5Vuqg7oF_z75lL5FE5VIa-ebJ6tzr9umFRG5AKtX_za1x_asnlIrhLEc2AaK3Lpns06s20m__dJtioFhV2i7tJIF73CGncCxG8cuUD2n0=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1358,7 +1358,7 @@
       "name": "專屬時刻\n修伊[碧浪海岸]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayM6AWUXb95nP2KqGswQ2mvvhRGVX9x70vA7UMjihb9kSkgkT1IsOkVDx0pkD5Mf3tK8INsF_9eYG9xi0zB5bl7r4QhpjRolbCaOMVAtjb4t4IG-XcLEq3i-DJ0OtEMNGdmaxPN5I6m9f_rFK0sDbuwcfOQO76BczRxj54W3qRjipYI=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az5hUN2asIyQnm4iQACQ7F-C-PrVbM4AOpe0w56ADI_OSjtZxgluobBqPPn14a4Tqfsv7vnNboMPrJxDPgMuyESrm69B1B7QwS31ATavv6l5Z2E-TMKJO6RudEQPBQp56jEyg1THL214jX6pbny3L3haS0b8hX161Slo6fBoeDQt8pg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1372,10 +1372,10 @@
       "name": "罪惡山莊的鑰匙",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azqueTK-DkzSLQVzn7flA2UsZEkzkjKdpDvigi3HkIf4pa-ryuESpAQ1XsWeGoPBgAy2adhzVHJm3O1M_CDf3O24aIHNJsGVD-y1SOPK_scfcbS34vgZRPCios_c6IPLlGk6ZTFIa0K2AhLqZw0IWUIU7YANyxJ2KMCndiNSWy6mUau=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayP11YnCdJ__5_1HXNFZu5jZfV3Nq8ZbnCN6zYnAhMOdzsyON8GHWnVQ_6N01_U8dz_W0Cyc4gOyz3nVunplxT6NPDf6SaIDu2by4Pq4gkfcJOuPdoR1vKR-wS1TYV9XwrIiHn5iSGY9N0PznMkXkghnT9a0_LyNIypNmXkOojWE7Ie=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool3": "https://docs.google.com/sheets-images-rt/ADdU-azGfUltgTgymZw8_GocIbnFX_GZkC3X_jYod8q-XoFDhpA1r0ss610DFqMoeoXwXD9B1LCemNQqtfDkn-fNMZOncvy9BVtlWE6DfOGeKKLWsfDeLzEikDhntmsp1NCbaX-j_Mu4QQ0Lsndl_3tV9w62atp7YdmbYCeBsGquDA3cleU4=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axBarLokIpoKrAM0c3gI3y3xsoRAJHK7b-HH2MvzzZeiQaK6tEBEiBAribrTkWNejk7jegiT4S5D9Tfm1I59uz-Ap56l0SwO8XUuBIowH7MeXAPGaxVXJVuYFZ7AblrviSTv60hAW4wV9Z29wEufc-XgJEbcWu9e7DtH_kmKqKtsEmk=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awlAy1xw1J0dw_OjcovgbkntYXqze4pcwPAKw07RGz90tPNxkKkBUg4C3pZV0j_kMw3FtcRqqZ6egPCxvC03Qz8l8phiK9PCWb9GRjbfQabhog8rYZZyjcw6o3q0G799YnzeyXHTUP7ciL1ia6CYzJEco3feH2Zmlq0HRAm36EFMXzh=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azZXQU9BwAKWCA9U_x3kL0BPQEi3eFv9LS3vGcgZ_7HEPY7GE1IMupmJUYNsNIjs9JHhvcDnEYW8yE0ivVfchdfOmo1kHvvDOZ1fqytGKBASbXXZ7M6f8-ZMmvUnKb4w_eM6zC0mdj9zqajLew4r20QFq6x1gmbPXDmByX3e297Zl-O=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool3": "https://docs.google.com/sheets-images-rt/ADdU-az-oWdRGftPeZQeU-2TWT6SKgUXDGhEAX6y9buTtQjqLwXVfCuMHz-u-961CDqz7HnQWV2_0aYAU_rizoOERGH4O6S9rtyt9_TGEJoksBEU50__E-eZmYTmzFS2NAHMOVvjUfdyDxpXaQOqExYSR_IpSQnbMvmpyLl8jFTK5wDwLvqc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axvrMyOh7lyn0goHX48kZpMd2Q103m0KPFNp34t5GScietaQLJtKRzqcmZGxd7cFZuaW6M9X_buPkQGbZSIjejVCOW-uRbTkrJsswEw3q5KvINrOht8GMvK5xIr09TbsUTcmlylvSndw4tRdqLoEmli6EjiZqfmNUSxoT8KXIJBJ0da=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "新增常駐UR",
       "link": ""
@@ -1389,7 +1389,7 @@
       "name": "專屬時刻\n獠夜[妖魎驚魂]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aylRog0rumYAGRWoNI1ZQFVh-hDawndpafcXesyJLcX9_hhL9MOyvNYV8Wu2zMn7CVG1IW7yO9szo-gSVfG8Kh-pZSqXrk4t9wDwKH1EHHU9lcIuBXzy5_b2IBgE28zfuRS0WvQig9-j5JnxeT3T62iKhEji8lcgVmv0WBaxQFuMWmS=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw_llykTbYHOrMwCSrt_L9oCm_gneaQtRm8gP-gGYMlTQdfXsJuH6hI9XL8QTsksfpKIce3ejTFjQI9K55Caj4nUiqMBXNZJWRdR2bvmDRdPiONW0J_N1XVieBLUZLB6KY4BuVze1TM8wynRZMSGBrNC9o5rYuANIqdHLwi-QNXpS91=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1403,7 +1403,7 @@
       "name": "第三期時光的馬車\n（自選池）",
       "type": "時光馬車",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayOpyWQlOYgobjRfW5blZ4Q5do7YY7nHugltKzX0-VXG-RMgmtI9ny5NJ2DuuWAOdLM_Z1HfcqnMq7J7oqoCafyK4XrazqllcHGNj6c1dsjZfthFF179AK8b8SjV41HRY6G_rwS_IzruvSyV_tfFv0quI3YwLotOEWuAb-Gyh-yW1ZX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azzyAQM7Pvev4eW5_e-eUv6rg3igsNKJS3Y0eYrMx1n_Qx3rwIdVtpcm2CFWKt7smS9GvhYaQJo3YrumEpzffmIi3PiPtNFd5I3mTtuh7IjEoUvAqlb3elUujrZP-owm9rjvWVCfjbP3SEKAl2S9Y1aFePsFjqh1_e1lT0rJOkKA1C3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "限定角收錄至\n玻利西亞的寶石",
       "link": "https://www.bilibili.com/opus/1164743593225617415?spm_id_from=333.1387.0.0"
@@ -1417,9 +1417,9 @@
       "name": "月蝕的血影聖餐",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax8gSZnV0bcZ0Gq2M8qZ8K71Lt-8NKZrez-Ol1AWS3lxUnN-w9pSWQjWXmUinMWcuTd0b_kbTpm83Eo4Ha60H3QHhHATh7NEngPFu8bwSy7Q6OhBEazE04yR1Ce4QJJM_WvbqkosO_zImUDoaDNjqIxCnnqBRQLAjupMFBI8H0YiIMd=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axhxq7Dv1f4wxoBuUkX9NPD4ko0UlzoD60Og7mln6PybBuXcyWeZPFvZC4hvFYT5onIYWx5mfbO4GLoTq9R_173RMwkuChhT56jHIf_iBCUchNMjZu65BCtHTTx5XM6acRoZsWuXZxhDYn34a2Ed2LV-QB7EX4bnglmEoipRK3u8Q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayhI8-SJtZSVgatEY_D3oFnD68diRf-ZHj1kxKlRdjHBKttjdXzkHu_4tmEyZqQK5KFPIop1j5vOYKu9ZuCw4EH7zHOJmZQ6CLZ77Fh9AZ_cD-R0VR7emD4dmfubS0id2PKMZc-cfi9c_-2fXTlJcF2zgqpbCFbZaPV2V7Rr8xewB5u=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azS65euaezDZJfsQGIIFXpblMGXofBbrf2RkXHWO3zuZxfyQS6X4LHCq26-9LnBRXHdKgl6k-3IJCfRYDyTbY3GjJxbDWziPCeQNMAR5xAbC1atCQP58m542rIdOVs-V77MXlqqyCLdTKkKspHJ9nKZg5FlYqVLdez1Tb1-ewJJunVx=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-az2rZj2BQCdgVWBqJwOjlET51EWGqW2EQnNBlop8yFiUCgqYuknUmFaOxEJKxvZhrj6bU0tyyTx93RVIkEQaSAIOMRe9XTEWaB36KMI7rVxXffFnMCc0gBM3dZZ1pSWd7c7n5ezToct6DZe4Ao6_ArGA-d0HsfN42FOM1neMBLnSw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axXKWVeB4RsEpU5XqYiENoR5HFkd0NF3cSLQkgRx2rhAGuIUQ_OFJbjnmYZWMqzQNGzLasiJ5hqROkEAmkmetJDeSfw26UX1LVW4wuEtdilFWJYa8GZc01xQy0JKXeaoEakBrbx68y8UIYAWwIACh6kq4VoKK-avexhieKBAKfLOw9R=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1433,7 +1433,7 @@
       "name": "專屬時刻\n米迦[禁鎖侍奉]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azVcLK3XvTt1wXnVBsVWVXUd3Vam0y3rRumcWlmayDdvqq8Cay2Owf6ZoV1Onit8cJL_e0dFWqlFQvYzxvaGXjWhWAOAxm9paQo5X0sb6zC9UoFowbaQ063JIXLmwL5DXtRYtPJQrhPR4tadE_G_-osdAK6Bkibir7tFV1ciF6ydw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azIlJJb3NNAi8SQxFtYiYW55qvDlCs8ukw7wL_LyGU9Dfljr4gk5abTDW3rnM14ps6yEQgNM1O5Plrn2WGH1kVr1RMQS72Mn_ciGaBF_j2nTdi_z_Ude0VIT-tmOH6heSYfEzWl2VxHVzQcwWUJEB3LchxKdk0RdbFtjLV33IPu7g=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1447,9 +1447,9 @@
       "name": "成為偶像",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayewiAQBeK5dVTpESDlpLM8SXdTnJrS8Iuj0Qtkm_4YwFCRcPfCgQz0oWmLTO5FVbntC2etFYmuazabCtIB99BjR0SLE6MgipbdK0_Lx7yu5mIHwKFSeWCsy_rSVsmDVV0_IwQGJFBrluXq5XQB4j14La4sJ76ym7E-G1Jz5lRwEB4Z=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayvOZ-9znQOHGPja6M8BJM3PcznqjBYi3vfkywfJGnYz6cqtPPoyE1bry0kFAOoQbdOQKWoM50OdKKa9klEYzaY081TWXND1Dlf61LP1VZisftJsWH2rN_ltnrIhFUUhk1t9e0eK9tinOgnROCMJjuUnq8bEJQFTSnElKlAxe_BrN3I=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayHSmucSyPrCm5HTryqEb5TmFxOugQLHVIoUPueaWVp4Sql7SOdUzwTjwgfw8mAbrU6Fxt_irk55YtDZnagCWMVdGgJFDUb_6_LDlrrIsKsZ26LuFod6aKRiPNN7dcHvSX6D5dZA4S0kU70GeHaCbfRAcjbmQ1lV_Cw_T-_v1kP84Ew=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azbw8BhDrnI8qrcYnEO2ebpk5UNns7zOO0tkP1-R6y8ACDrhIt32qPGgLBvigDjx4OHGHAhaaV-UDkt0pXxuY56gggGIJ72uM6n_zeImCeT1nAY05A1c6_3zxO5A69WVwCU7orGoPgjP042Qok1UXmo-ItxbuJjEP4My2EwrntL67iY=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azNRW07DYBOJk8tj8zLz3aqAg2CtoxC4QgPvMaKYtaJOsYyFK6VGnw3uyL5zYkXwMxo1j10z5PiNRbwQSC7TPvOgtGqz44_tkhjK7UpFBVjPoT3YVbQqKKw2lsp87M7o2stIE8RxGee2xZhJY3nz_EYzkWIN4nBgJQCkp_7aZ7XbLe0=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awRgIK4W7xI0_6pJyvrP5kxECvdm8QMW4j1XsR83jDnSzQQTEzaptxaYUHFOA7Bq3hIYiRb0Jzyew6cW9gKoxIEJY0Pj5l6YgRYT94dxnkgbrSCUkc8-HoZ4lxyAJNLY6f_D7Iiua_rYgsol9KV5LkHseDMaFhY_L35H6X1VvlsWTkA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1463,8 +1463,8 @@
       "name": "專屬時刻\n獠夜[灼紅誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay_L4Og_maExiGTyp0vNTmzROvNulXn_PzUtahhxlT0-h16G3xZET9AD2sUGIIPj2BOmKszbElSZFyOz6gATvR9lCIT8IrbjfBeC3OaKUvZpSXc5Baho2kAe-b01Ix6xFpR83a2459_QAV9uh9ifFWFoGpePQwPxR5h0KL9YK6neW7N=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-aynwQgttDcSVD-bouj8nRfkykwsXngmMca5VSVvCN4gJEOCdZHtKHeUIbg2IVl2AAYHuKXNAsVOD1OcwXWjTvgQJiW74AIN3iUMRGQn_oLyR68q-qV49Ff2nGE4mMzyKhVR0BIVlVgaz1fT6fGPaQndpYMKYoxLvZupIQ2ax-KRaQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axkbbag0AubM3bVNIYien4LrnigtDwYrGG1jB9COInC7iv3FeD8uhfy4q22yXXGP4DhnyAcaqJAKb1EFkxpR1fkn3Ur0liEORUsDPx-Qqs_1OlT5jXfay5oFJOaVTfPl8x3D-ygjLwiI1VAlKRx0JfDX3WvfhlmagFJiSLb9FB92-0a=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-aypmUd6IkEDi3yjXfBERnayD2Bx8By8rI6n_hRek2N5_w24N8cKUDGMMPLIBmJElAmRznA8qCjig2P5_CNZ3PHkaLkSSKtjmJQo75iiFh_G6KHBmWamhA0dHMBbnUv3fWNR4knZELWxK-At3_gO3Y3UeNU9YxpSrcWBVNUw2EoJew=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1478,7 +1478,7 @@
       "name": "專屬時刻\n恩貝爾[輪盤籌碼]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axYNnMzQS6gOag68YQ8Fujt2Ad_OEPG7iQXoDYH12-d3KapwW5ZKpF-QRrNXupd_pRzu8rDw-ZqWsiRK31SJbPWbn8i-9Z5hid1seN0Wu6gkuTLwBl4bYpOJtfe-RVEaklIpRzv4tXMl0ORtL58mXRi5gXhaXiv1DvjeNHYiEeA6tEE=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayO79r5u-6eEfm_MlVVIyKd13vAxs_7qmV2GoJY8AO5XYkLW0D95oMNpCLtnlSXqEVaX7Mp6VrnLh2ovTdpXU0TLclfi0sTb-KwTXxTz6JRok-Z2gla7qFxLh5FhR-C6IUs_M6g2kKIUyJASREv37kT-MiVqJzq0VwfSvBgox420E0X=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1492,7 +1492,7 @@
       "name": "專屬時刻\n德米安[純白誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axCUc2P1UTJ_Y5IhqdYtb47tDWzQnL0B5CpKLffqt626nAdUTB5jRPMJYlZEv-jlpWPd6TYXkZZy5FSpgeWP5rgHUhnxqDzcq71eILnfismZ1ibe5N8Wq_FtGRS-rC6h3eLQqbyQOje8PZ0WbdBDBxHfHjkgneMq7YKr6PHyHu1sbzt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axG-yZkVLI5xdg5e74hIu331ER_1wOdzWkhY3zb5fcZhTVRiBfOKuRuuCVJeBC6fzU7yL4usg7FBSe-_xx5tLAZktP55TuajkBm8jX5eSvwVH0viorU19pNNhFR3cd6-rzSxm8A1XobOrmkubZROVQy4ZjHftUwIvOaQId6lKOQ7DSV=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1506,9 +1506,9 @@
       "name": "失控分貝",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayomUAdFvmPSJ7-4c5gswaymT9zqMbvIE5hKWamjJVoZ7u62Pe9RMhTQr8PWswCD635BTMnTQKknQsrSCz0a83XDL-X90B-SEJSD5aq__UELIGemnAKR_XuGw00pXkcAM7DwMlR6M_RZW38hEquVXj_HT-WTkR1dw87IVLhutc5sRKt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axaUAYKq7TrGzVDunKLv9mLGhiumwVX2YBkMKoggdQvhTAOglK4FZJFOu1XOtiZIYl9H1rmJXAGxU1MPkN3o1U_5vPC6z2OcLScdijzkTSq6Mxnn_s1xjAUEPe7JLN2ywhioGLrkWgifR89y8IMvguyO4NjxFq7phlSe2xeWbk7FpTn=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayzALe8FN_geopwU1NvxXDPNO-bw1khdOiBi_WAItkDxqUYaekcmQKiFoqOEJW5gij1WQ8ckfkTZtby5rNn_4Bc3vP4-ADi36lh2ZFtvdUxetj19JoWIuVC_t-IMMWdkrDDAIXnHDGZ6wFwVujBEB9MNrURVs6NmBcnjg6KSX3PX9ZE=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axTnLO6R7U1dmpf40sYObmvMT-46ZSbVrWkF2dV7YPkF_BPyZdJ1tHvw8_CYlY59npX3uAtlBfGUT9Yq66njv6TF1jt8Z90GzUY2TP0dTiQWd8lMHtxKw7njdOnwdT5HTz1T_tefTqV6IXGqo57bOWEO9gnu88SyJGUz2nZhJ79774g=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azu7XHo2JXL-X3kr8C-B4NAU8omdOQNQJBXHs0Kygm5TZvi0IOEXH0k4pmQUZ9gMg27DwLyk-bOLyDOATRAKA9YmPE0RJuwN23hFkrdpM3XqrVbiXPQKYzIa84gYaydMLJV4t-jhNO0h4HBHsPkQJN8SomXiLmrZ3XDb96HoRpnk5f3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-az-QOTPoi05yteg2VccjWu2u4FphhjqAxk84QhnjP2g4npTg3SEIFRF96GaYq5dQCr4tUgPCBkOwZc4s8v5-XxdsI01WuNteTIuruaJnw7awZeluB7kWaOM-Q6gl8pZoqZxAkIZ0ov2MqdIV3lghD3IlH6OxCfJx1hxN3feyckPFe38=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1522,7 +1522,7 @@
       "name": "專屬時刻\n明影[夜影無刃]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azMjohra-sXeKabd4SmOQx3aWbhCkrcxWNH7OS-cJMzrVkKYCK8q6uxqN1iQA8h1GyAnpFzSDejxmYlnbvHFw8CmkYZVs8GK3Y-EiDRtf5Ni1By5mUqV8LBIT2oSvL1z3bWukGhPkWBKtvcSFGAVXyIcUy3GO0tpJ3CAxHk1mpBvQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aypmDveYAGh6RQjH4eQ75dtVOO6PI5HTpYErdgwq6iTKjXhQDX-jfRbzBqGNxY7TkbmeYjLZKAsSTX9d8roR29AOGc_W6UD1B5Cd5FS2uUa95Zgf0GKoK-IZqsEEv_J7mQ5HBzYoTqe81zpDy9o8WCG2NSPwA1SVdu0yg3g1DmBXg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1536,9 +1536,9 @@
       "name": "夜鶯邀約\n暗夜的心跳迷夢",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axcbiDidWzjGB5QJb-kRTSVJBxvhshy3f39xO6soT9QaePcIBD1dJlKynKn2rc03QsBRhBXfaF-O6P99GnatGoMg78rHwx89EasFLWoZgiaZORHsWUrb0B8iuVD0pLuTwC--QiH7SHoagbq4oZw2JWfoEeZY59ToFkP-vjXzaT7yIUv=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayrk20kfpv7_Za9pJWlMKQsSZgldh7NfKTvbRgmpfU7VxRXtgWgJJ_gBwmNGgyuviWsfX8V0OdQgVvtWqEdo_0-fYrqVybKoNWwJKr-zp0Fk_uQxNQeqzKvXDxIwt7pUtLRM_RcboG9kVSYsOx_9gYabpFO3rkbXmtzzWkPX6QGkA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax74Yflcri4EPqfCbKtSBmfA6C-pPuGZ_f25IOk9GfntvLwDNQaj5bABZGGt3s0vp1R7eOjM_NW8wPDAaqMtG3TY7VC86oeZ_RvG8vMZQYjRbvQvG5DEGuy5kstVe0kgNcGHtgy3limJ9eKHnYuVo_5xSTvGPBm8AbLhMBwYWVRddvL=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awgmtfq1oLcd1Bzvs7LGLXRX499wqb1ud5kx0EyUeR0yH9iSQjERy8PE6Vydp_7gjAA5GQJ0ifzMUZifmyyzgBX51XT3cB_yO6FdNMIHHeNUImxVc4kyZTKW5y-AHWjNgOyUGRKLMai-lUSdQQs19U-KdJ7doSnSg5ijF1QgiLC0x8c=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axipCUTo_2aBg7OW3qTpxgXYud--OMW9IeRjEfaxv1T3lj7chhu2gE1VdgrDDlUG4gf_kLew33ZM8pwQwNaCHKsKvfWgtP3JzYWS-FVf_gxt7MtdGT0aWdlPYGZE465avn7Rhm0eLXgdNqW9dL2zqlOf6VCQrAhnTuVe_gGxdrGSQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-azNfhyvVFCVaQQ0lrj_Bcz-zrcR4Hdb5YKCM7_1xg_4-_lhUeYUgb-NgaJkUjrwYSKzwjYKod1bR1AC65-dTeBnhgh6F5WN1BRXiGbCk3n3Oaw_lbhQYZPoMg15qFi2J0h6fJtgVJ32wbfI2malmq370-dsq7Eaf9w9ji9KDZk5HDwL=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1552,8 +1552,8 @@
       "name": "專屬時刻\n德米安[拂曉兔耳]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayugSr2Gy9PjH00ef3ieBSAac3HzmXhqbWFrODI0I1SrjVDhr9Wyv_bB9weqLXQo1StmNfS_C-A1KDOjl-YFEX44rg5tBAsghpCoDPXnYZqWnoeLDrPu9oh-3zMbjKzk4GZ804NZ6pTaIWS-7OaVHD5YrQoIOCPkNSc_eSGJAn8HBDF=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-awM-xqouA87caYvKdMtL0sohovOSAE1KrNS2crYn5yoG_-2qxPWD6y0kL8LXL23IjBbv--PXlhle-EG5t0F2IfxP_dVdEdUjO26wA7bCmdDyYiRfx_4ezsHC_XRd3pl2G3VT475CGmn_n8YR1gNGL_zP9nNhCfCImniz8bPGHy7X9sP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aza1uhO04hKpqK9LIrNdu1wzJA7N9Sk_BNV3YeXkPM9tGBGggD1gz9Q10y68VE0A9Ob51EBVqituCH-O2Ph4KteQiEHqeLsTMB0cwB2IejjV9gzuNtsNKxGALkQnGLFM9C8JUqBRlMvXtplt1kEWMlH764_GUf3sQ2zVwgEJPLaa6AC=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-ay9g0tD1ip5bPTqsN7oJjtc4NjypkKDWi-iJ37QZGDz9Fgr1kszMimwszLTuNYwDCIifgHnMgOlw9N--4LdpaJ8nK_bTG7SYKmGjgiO1jISB_7bDb17h52XuqINsrB6eltNBeSShG9DsKm_MGPXpFUbP-YxWSu6wcq2eZZIcs59e_mV=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1567,7 +1567,7 @@
       "name": "專屬時刻\n雪柾[冰雪白影]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayxLrpszLH2tO8_rx3AD-609D79TCVc0IcYTiHM7vRZ_ECuBdUGoi6pwTS6-JtQ937LD0QxpKUpgBviQPqSscqJhzHy9mJUdRlS4T8Mkg5hYX3y3i61ElcDI4WM3v6O7pDgR73Exf1-tfTtU3u5Nwmp6JMSffAmIf9MwKqo4MShLsoz=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayo6sTKfT8zukV2g3HUNq3ZT2l10Qfmvw68DZYsCnn89-pSDpzlQ9w9WvfclUzS8WT6v1_6ic28d_WTN-KgHOHClomnBDYYWZwHN3a0uJ0WsoUhpRxHFi_Ym-OXtE00Deb3aeBL1ALDC8rxjZtHQN_p1NYU064Jt1N5k06R43je_0QD=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1581,10 +1581,10 @@
       "name": "萌芽的春日漫遊",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aw4pyocEr8-mhqWr3luTrIRHe41dEk62xuYxA0V6LvdoKuSb_EiuPFetP2ZaeyqNOD9U19HEvsl_Nw1CcqxCiDdUoQHh6LuQUijU4iy1n8O0F3exoIiIuvuv3TvHocI1DsrsVskyS0nZcPmKdk0rjS-mpmEhMgeUQksRIyjEKB0-w=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-aymMKMI4gwOjssY4ytRNWdUruJvA_geRhw8_F8h_ulmt1KgT2zgAgM_g8MP75nCPb6tn4zAA97iJ7iUg8NmmsEHVXWPdA28fXq2pJ6Hlo6YggAd9MIaSHaEVzKboGDmGhr-Q_0oGD0vAIWtuyxEGhsBVsW2hfPumJaVktw4vpr1Ssst=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aymI-PcyyCLvrOVoQjWWyNZryeFIk-vA37nxtat7gU35OyS8YbZl2Kkw3S-St216urU7YIWisSBQU3iN-XfQkCrTInzk0P7p496a7J-x3dMd7Y-ifTIC_pFwTH3b5xr_9hZsL_7stpoKMJ6XnpsqOn7IQbiM6GsPlT-LP6L0JttkaSP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-azyc4WMAib08-w2GkUajcc_W7T3Ez8doXYkplCrw1Nks0CNSsPQ7rSTSr_Vizkma_dBDEoXuebx7_jyv0CJXgOLo7I8PrFhwdxMlQ3WO_JBXNOnygTIxX1uRbPiJfsMn4cTuCgwcQ4cBefrOL28CiRN73C_wdonJFgLiYLa_94TzQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axtfbhEuTLGeVfWnY6O6z-brJnpALK16JjU4yQ1ezuHR0XqjwyRBBQCRbvuA4vJ2jFQDenddfEWmfV1oFkbnLDCFRgjPuGwDdBLFb8ex-qxm0YlVvcHOrmiQZ4nTK8Wnxs5DizfLCYv7-VEq-yxaY72B3NEdxCfQFbV9QXNiEhoHw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-az0OpWAQ_eaMN46wxwA_7AjsO7hY0ivW_vSmw1wV35J2p7PulfhkqXSwF7gA4QNyvgD6CCzwrrgSURw3yKHi39qA4e8XntgevSwtorN0cqeibh8JlyclGtFE5v796y3ySPG6yCw1RnmI-IJDYTvaRigZT0UwjetSlW14KJNvMGRQIPe=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayE5uWMtU6lUT-kPtwrEZytLABGNXTY5jkLIWqdJY8EkbwbRj6Wc11KQWd3VfLEFuSJ9ZxEVVxknoenQWbEFPWwa-VjAkxfggtzBVPwZNpp0X99g44mvGE858poGVWBZPcfy9NabPS0FZcUDazpKzxdh5wzAra3JQ_KHBd-tjsXPtok=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-az8xx_O6Lkssfl_NAn2yfDCF8GBxR7n-U8ovYdAXseTdsuytonLyt22iKZlRq1xbjZd3Sxq0so8_5DST4pmWhaLtiED78X4DuANsGbO_VaHwOUJY5kl0DoLdebtWVggjLeRo4EW-qehKbj9kiRSUcvqxfi7ZgUwNSMm8uT-TDS-Cw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1598,7 +1598,7 @@
       "name": "專屬時刻\n瑟琉[青緲仙逸]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awIFYlWP25G3TzQcY-7KhAjynkiyUduh5wrn-HkRDpTH5Nm3MF9bo0t7uzxa6yJy3jX0K-Ls_aVvYoDTxeXTIMd5Fbsc5ldBAYbNx2goawqPtK-G_R909DQDcLK9Bm2YDjiO-kN9aO0HJbEOLf0q9CK26QJamuapVIJeTWt6JMpiV52=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax_b4ZkFbI8R7DGSGh_MuORICJH0g__ds-15_A8xGCbaAK-OlryqJmlz4lnmDACY7al0f9LbcecjRmfjIQ52d6_0XPQqjLdzAbNKpm1M-zp6MIwLPjDXBkbZUvTZUDM5UAoYsmnG3gN0uZQ_-np4zaTiF4cRLZ6UNObTxGu-48mKtVX=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1612,9 +1612,9 @@
       "name": "童話世界的冒險",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax7UzDQMHVdoibj2mqbmzLtIgvJbxtlebqTRZLJaY_akF_PEImg6XFpcxaStYCzugP9FmlGtnynyxHNrkji3YJtHR5CxFkU-ibrOouC3vWgBm4eiIh5Pl0WZP03xune4gF7Yfuzum5PRqIqaFSTffxljNlhlNzzNe5lRIGy8dh5iJPU=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayBpJeEYZEtU8EM4fLBQwBz2v0KnRigQGZoWv7_kFAeuL6V17-XYGTMUF1ELx40r5l7bPr6GAg4tV7iSExRlqeWUSVDuPmyU27Xm2meK_Xg85ylGQB6uEYBSE4kMRBExd3x7cuzZL8soignvxHry7I4CkSVAI1a2WQGXvfFAF0cGg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayiqYSUlW-f6yWbpIfYDBKjnI0lq8xuWP2rcNk7_Mgx-l71NqlN4G7y8YXO9b9SBr9njddVC29A0Ul4V_hSv42JSoZv-hIh1jYVZHbBuN4gDGo5bpBGbb50299lvaqUWkWx_sVgWozlta5693UzpdCQPn6IXT0HgJBsujWoaVQtY-TP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azjoJdyzIaEG6qV61GM10mGzp61eZ0ijC5sXIdIS_1S45R_-Je4Cct6JP_xmjsu65kiZ80-Od3mCOh49UUSfeXxLpPLM9IytCyxoo6imXLZBukDo-8UbWAYbIvlNPoLcG2Pp903p6_WPKSXyouD81jQEBxO2Qm-YtYcGIAP1TkxiwD_=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-az0gWAQL9HNCQxvYbolRLcbrJupmJ7ciqOba9_qm7rljGUvAMSRjmgWva_ePPN3jZTyl8FNrFfHWrkVx-xtKyj0fT1zFyi3kCLCIu3HMBixArk7zvp45T8mipc-m5l2UXpMhjzPe_Wot_0RynaqWPypl0vwCSaMD99oT--GmgK81w=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aya_iMp6uukMJMuEDqQuBjDPhDEAFLjfu7WXfWlPIZyVMhcfJoC7MX0wPtlOSzFIAxmIUWH1-fRAbu-1PjKL_D-WjedbLbznRX1LWOj6s2fskutIaUXinrKobZAtDpzXjO-siDp71L3TwBE_ta5JvTOhBMISX1gbABQ1Dh4w_eOFUlk=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1628,7 +1628,7 @@
       "name": "專屬時刻\n奧古丁[虐痛執鞭]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awuF07qq2WY8IsppRdtPZkOXvl0EQofp1i1RaWLEsquNCIDPd5OMCWS00uzCRqGJXLLIx5HFEPWRf5goWarLashpC2W-_Fc0ie-4HkSZpZcGX3mBa-ElY5iqvHRXJXKQYhL_ENvexlZ-BwdukpEwSSbbHOo_qNZkPYO67-eT8Vc3HZG=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay11Pof_GjfCvUlm4ZazHJOPwKViwFX6ue6ezR3nxMDC9cGqHPeaq5xd2DZluOHOl6Ltozle0sh7PEhiidmS0q1UwC5gIBHILVXtC8yoSJ7EKjALg5ce6GIQ3kz7bvCXQMan6D9IicGwAWI77nERn1T0_YMr8P3AT7FDpMLt21ysWZf=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1642,7 +1642,7 @@
       "name": "專屬時刻\n以剎[風雪散時]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axP9Yt0w2EupdXnj6hG-vd0OhLXOBQVKH7GleTMEsNx6JUHQbJ_th4F5KtWH-_oVyvjvIfxuHQyWN67M5WHzNrIYnlaZs7R6I0Tre-uuuc5Qrl1GvQE0jdBapLMxK8qjU5BjVhS7gN8mA_GKLbXZlQUnnl4UUSt5X5zG_OrIww3kVqa=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay6szA7wKAkIUAlQ6nfX4RysEJRIV5ekJpS-6bhejkfyVtg77sW55bksze_XLqnzOa0VcMBMlvbD6PS4mRPA7WhTfUY5OhKVhVP5SzijJmLV5dKGZ5DB6AUA-jpsEfcraa3ANT8yh6VsnA9CNw_0F8C-rq7G2bbg-sLFgR-f65eVyL2=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1656,9 +1656,9 @@
       "name": "學院的畢業魔法",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awzn8maf3O3A9W1FyT2DG2y1ppmhp8bK6Om-B-PIoy2r8zNNMIvd6a8hDrqdK0F_wIbrUN_nEa6V6Brr0FRj4KyLCj6uuKrjwtHPiMssDrO4VfmwclUAJ2TfIP1GxO9oPX_XEmK4FYu-TJ8aRUhLgLibtRnrMnmCR9CIMHC8DGoaA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azSH4umSNa9C06Jjsfpw-qzcH_z2a61b_MVaYAje01xzVaFCnxZ1bTtVf_kXRsD5IUEju_boJHJPGwaFQoGKMfJS77OSrCBqaKeJUnYLOCe3lo5xztbV3aATKJMf9P7CTmaiEXZ4yBncu4gC_qAHgkSEHDsV71XywJresvD-8Yadgs-=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-aw-dO6cVKdxtQ9cEPmc9GdvABwfruzVmZCdn5MTzy8W2GjU5QpfrKi1Igbney8eCjsgW_f_SIwd3K_IuKSEqHbLDMA6qhxt7pWnjOlnOUVW5JKcwOXTl68JQ0bUjOIb1DMsLiD1zPbSL9asdu3Uyt7dfIXYnJHa_wzBhfieO_IREJbF=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axk4ilVvmjcpOwxGsruUPLUIuyBvDp4OjaI8tOeCGFg79DIFhDe5JfFALcBj31qAZsNM3fHKYDMSuHRQ5CDjMyaUZ1fN3wv4JVjFO6Foftxfk3-jBfxS5uvQOlIrkwEWyhMAxI9qIW7Y_v21hZHE30IJGPXMNFuDNyIi9guwun9Mg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axOU8GlGiiuiOtPWn_cbnngboiOYYfwc-jP--vN4npRLzN4uYyRnzjF3o8lAqXyr6y4zfkoxHFFAYRoO6RU78CZE7fC0Fl7bqoI5sDL45Tfp3xtwmxiNTvWFFecEk98N3Xt0mnaYEj3LKxVuW1ND_aR9T-FIZDIVaTc3RDIR0cUiADP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayelTGkh3NMxoUAyyetCg-kgsIzJtIX73f5q3y1IWBlkFASHyQ-yOMyQYEcMztlNcMHUv5sXYmq-_DykVKF4nCUF8wfn7xOB-brBcMNc1xZLp91YIztgJdIWlzZgDP5_DuUb_bNwlLoC_5J_aMkg37IjX1-evFT9JBd-SDrFhNvHbXP=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1672,7 +1672,7 @@
       "name": "專屬時刻\n閻秀秀[炸雞魔法]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axdEGbRHDbAdjsYFEL1XNPfG3NAdg4Mtc_--AOaPI5O9zqALh2PLlsHTo9ByA5q7M9u18WY3XRy7hHrJNCYaODtR88ImgVbjClIjXATad41jRUY6pVsRekQfj0F43kRGsGUI8mXGiR97UaHNdZ64JHFuuwA3fSfotS4r5R2b-2VFJMR=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axUX_VET4dFm7Bu7F7ef_wtcwFvv24TcEznlzmxVDSX0e_SWMDLWJiQPsFpvF17RvgGTs4tAr2xLVmNRI0KfPln_4G4ao_a83tJgVB3H6SroJYDgF7xkJGMWms9ACkp3yj6jrPAH8pQfwhVoPBaNrfl5zZPiz2itx2_S1U5oterD11D=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1686,9 +1686,9 @@
       "name": "學院的騎士守則",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axPH2x7z9cH63TgRfpWOGJMiQ-Tj_pjbK7bfghDXQcZr9MyRwBU5G1cDw78RGNEJBYV_n1WWzwzpnJ2k1eXMahjKxwOGHpkfXYMQHvJOuYGd5fcln_xDD_5HaGB3KtgJ3HT5vvHWPtufRUChkMq2SVmhvN4JCfSVz3IUjMP1USRV0BU=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awasozXvkzLfyo9E41fgZelnRoG3HY2BPfK5P9hch5OZWvAX-zyO4ocIBFmIKQkrKmat3t83mlOB7p_S5IRB2hj4MiXi8SPtMW_HRoH594MCt4QDE-C82symZQ1jia9ZuwrxhYfTukniMwNd3dibshCB_anb7S9rGauOvGeFJJS5y6h=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awaDKlWpA3dwZVFo_sH4Q08H_jWsTuQ_ST1-W3ReJ-3v1rgudk2UHUYX-11tzYuG3XqamNWQ1pS8TBA8gOu84BhTe-MnvwVfj7hJkai_QuWabS55c3YqBa2DgxXX2qDTwNyBXF8wJdOR0_iiy7OwFyZC8RCl7zvxjDtOhBeDX6YtZhw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azOyEE3ko2oAvgieCXNYEZ2ijiypDkFX2VVEQI4QB7UTBtf7hNqBQA1hLSYuD0Wl0IkPt_3N18og0LLUSUsIcKD-kBIKwGWqIRNeXpVdWsDqz98-Pd7hOk8hSg8lDVEEsay9bjQ9KBGvdF-hb4oz61t2ctN0ihmjdsDSJgV4RYUJwUo=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azwPAd0RQ5u-y0_og_iw1lM7VEx-clRJnNbX6A-sF0Pt8QgaqYEoyiKa69kX83qtoea6KCuvqj9VJW9jRxTY8pRMNOIHygd-sH7qfQOaPrRrlMnWJg4tyFJz5tKIkui5g2KbZepZy7zbZHVRgSGZJP8Pj58NeROUSKNx3s68oBvGUE9=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax8ddbg0hiV0W47qAS2VIhs4XMeKe89-w2cUMjrTzyMuJklB6FNQyAnFNag513lgg71MFH6FQq1e-4F7RiC3V6TMbk0nk8Q0CdfHohRvxi3_6IP0JldHIh1prcD8CDml0Jm6fG-jQlvp7721cTNfvRFuPZ0oIwmeaJDilD6TIgSrfcG=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1702,8 +1702,8 @@
       "name": "專屬時刻\n瑟琉[霧森兔耳]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azCd96SXHadFs2I5V71X4Vqj8Ehi8286RaRaoCNIAcgr2e5rj7A4RW7LjKzDAS_MI-5aeEeSPMNCJN7HZTpNWddtn760VJ4leF-GorponWCKTgDFF-f8KqklcLmmm_nxlrQmMzVpFwgOCjlqnvldQr5y0HQHGfZ2FgFcfbPxvNEmLsE=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-axw0Zp072PY4mLfYzZupwKMH8cg_Kh2TExSetZQwes0gRdxu3pH9ckKvVHNdQmH_4EgiLrQceU6P_634TfG4Ink75gmH0Lv0Xyepw5aszy6bbjGs2Ee-4LcVW0TZ40YqbtMOBxZnmdDiTqUQnQRZhDov1quWWx7WhUaYjy2tyNrI6kl=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awDMcsLS28Qdee6iociVLGaKhFOOLeB5knCIC88abA2e8JLUntZBVIuVZZd0TG49cm_wHB_QMaKTkFLsERrF-nOoag-qrsiKesxxUAa-zRH-g-GILiPtacb7hZERasyo4epiH8CD4aa384Vuio9NhooaRSb5bYIGILYAPEXsFaejPQm=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-aznnxAjf4TOsR2BzHC9tuoDO-EMKRpPjtg08AvP7S49rltFTs3PiL1ZM9-W6topOru-jfXt8zx84FZGBTZ3c11UENQ6n_Wsq246kB-kz8SXHnr52CZZqXV4pJX1PfTlEZ5JcxKRPrQHZVhGa3mGOnl2XXs08L97XC4dGWivpBBcgW7Q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1717,7 +1717,7 @@
       "name": "第四期時光的馬車\n（自選池）",
       "type": "時光馬車",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awi0QR-mOx_QOnuN-zsuSvqA_0lJ0drmzmV8qJfPDqLRF63jqBFd2P8pHEyAGBHlOqWcTfFDA_dtsdPNygg5Ybuhosj1A9aF4qwLpmQ8jT0AR-IsPqVhkF6cG5NOVWMdrq9bm6fwU0KqOfDIRxNB28b9Z0kxTOEaBMnm2L5RaZRHA9Y=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay2bl7bUlg6gIQ9IyCVQdLVxLQzxhpRd8XfDRZnNZZD3sSiCG2d5jtKyG-tlCMERmEJ-kukxo6xbWLDgCWuVqXaJlb8oZO2EGn-47O-Kq66JoG8gLkp9THhqIJ4TrW3C9e6OjIdYAd3QvjpaihtvRJypBjiquTke2L9Tdbvpw3E_r5X=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "限定角收錄至\n童話世界的冒險\n首次收錄專屬限定",
       "link": "https://www.bilibili.com/opus/1229312413602414616?spm_id_from=333.1387.0.0"
@@ -1731,9 +1731,9 @@
       "name": "深淵的無期囚徒",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awS28oC8aLjzJYsdKlLy-_QMmFssh9gO7bDtKWgZl18kh4VjqZiFhNYBneLpMxsUCgVxdP2noBj5-C4OJO4WshRmymGXCTs70EPMim12OoVu7fcIP2fzFe62rie0DViLN7O5nGUUZf5YDUh6pq8lRC9KKPxvO0h3dWTSkjrpNbMkG3T=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axpMQeN5zee2Tcy0hFQVsOfLbP6dBQDfWayUthFm3sJwfawjYhWLt2FlBlJOGe_IJEZ7-LJJddBrW-LMTRqBVJSk74fzzQInJDS-51aDaNzMIRjZjqVWy7Ky6Bl3noXhDoGHmwB6ZRJIg9h--ulHJOKpRRePcNhDcXGXp4Xo28Z4g=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ax-G1-Ij73UwpHeRBX9TC0M0bXUkn8y2ZPXTZocdDtm2OXi0PwxFDg_hoPeeBUnMsxr1qwjStTnmkqRWYWGkiYHCWT2EM5QH4pBe5_TvIfdOzjrHZowEESq58a7Y0PejFw8RDp7bD07a30lq5E6RhYhQ_qsBFYcZE-P4uaPvUj-pC7y=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayFC26y-2G8rTJQ3EsTq7JZtxBY8_Q5LeSE7-BvQ4SbsLi4jl5dMVV6nmloVQ8K3LHBKSWJlLiykIKixP5zaNlWlDCmVOuus_Wo3LdG1uDmptoksuqT67ikhHo3zL8LPeEKEsuHgVpJWcqoX0wO5wyYOHKDeGC9te8V0VxNWFCnFtA3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayL5FI5fK5dnfCG-CooK5sv8O7r_6lmWIjgu2QvjiWeQiheQMPpALNocTyB6pviiHF3-UWBy8scuZlucYY-j2ABiAJXsJVY5eHaKITsThhhAsf565jUNPte_RgvH-3qfQ_aeqIhyhW6hPwoqNbJXlXs_mvBQQV1yDGz5UoInyMZcA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awQL7XK4fH9CJdBqRWBi208LBCLA6SFee-9KlfFaNXSEd9SoMI5f65EoMQ_Yxn7SdGPt8nVi3-ePMJmRx9I6iqSYIcORIt7hxdidIO-0XMccUkSs2OrZoEmkhX7tUxRe7HjNZ5IMjrHrFApI9Krd6Vpk7wcohZYG1frlz_NnNPeeHdc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1747,7 +1747,7 @@
       "name": "專屬時刻\n枯霧[惡意禱告]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awQBLkJ_uRhJuKDjSmVbm3pmWvFfWBTspx7k6uoozGAijQ6YQRxwggqKDbWuDK8gwXhftkRfbJSafaAkWt2_6yvPXPrnPLoD7thHNl1N71mdZI5Z3zpTuoF7JR66vJlkzih-G3X69KpT--KNwY2DVm5QB7EjDoUIx90VQaeHIUnC8kg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayKDX2-Ja0tkvNTiQmpgtdx1cyHAUIejrKuMH4SUNAWsZswicZpy-nLiFZwjuubHc93hBeurAh2yBBMF569iUqcZ3CGo_Jps5MFDQ0sIFRjBYzKOREZF6SE7CAZlWtCELew6n_qdjfpiOX2MHRxmreFUwWdxIqECIosgrs6G_quzAGv=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1761,9 +1761,9 @@
       "name": "病房的心電詭波",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-aykLmEuXkYfEuuRe4wGi7BMtgYnOCnS3w6WAiSh82dekD0FAZtdPgU2-b0XzJxY6SxQRSGaZnZdwlSDiSmOe10Gm8GgxtDpyjYMy3UYGcBWJTOrgy_ePg6-n8Kshs6WeKa91v0PEQHrZcvfcecG2NoohiZYhd_LvtaLYdd2F_H3GBTp=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay9UTmsBK7KTuEUItBozJ-LMbB1Ty3taLhN9JIjwBQrtI7z2b8Ji2mxLq_gp9CXNTF9JsNNMbcHG6RK4vePbASrLAgV57NVjeVTWAnTdPaC1w3h3L1e61NbvYAtGCzik6w2dWA5Ugk4MueHnwAj4rT7AeYADhxIkGzzgmVawO2Ggg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axsJTVWqV0tNEciV9tVzZ2p6b1WxtGd_LfYodL3p79hf7_bV0IZ6iID0f8UTF7TZUH-DoOrizmkspmJF5LksoCBl40seOY9-hzzKecg-SG88Ixm_qRAv4VN7_9329iOEnSo-D2cxKbCkAtWmG5cwu9P8_5nN3npmSU5c2VFPZo5Stw3=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axwGqIVCt31682hZvkLL1DTxwqv6mQVxXAHDAVBjcn-v5fUOLqTGWH6smHJ9KWZEqqzI9CpJjlqMrZvazmKXp13MLMg3AUooHANdNsTkgdrVnQZxFOdG6llCv5Gg7CbJfKGe7DslUvdUMJDEHdnhwYmwWFOyhCM08x8ZOJJ8AebI121=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-azghivtt4JwmjFEBGb5izgWm3JnHmSKus5p2D-kDFM3EQSqvCX-GU8SITKZlCgeNojy9rnTb49zVudU1nEHruRsJvGtUZYltXesxqD7eZW5cgbkapB54xZV_DAAJttDsMNaoeB2zfIirbIGynt5HmNGcjTszw7GgNTWhRcCu8GE1w=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axEO0JlxPPGnK6dgiqCWHYvOEHM3nnQlPfOo9jpW5bSY3LCmQLK1bKmbZWfBQHHtc_T8SQeERQTka50Qq9HgrazipQz323YWfJCbpGjX2ffwJo2TiQFuW_vH6marQ1mtKAZDvaup-rA3j-dZ5JG0xHIrgyhM2uHLNHY5s_d7jDNniDt=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1777,8 +1777,8 @@
       "name": "專屬時刻\n獠夜[灼炎兔耳]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awyxhXHvgQdbczoKk9dIBi1iezCyVGnizrsF-giiE9JLxRqYAdWItGXsi-oYcltWmZDoIa5nzJk2ZrkOXz00l7fnJ9zbfsvFq9uYEjdeTkm3ekYeNCiJd8d2UTrDBBl2YDGEP_0NTezhlLgZdja1X58RTuSGjEApOz_17SiWdcHNw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-awu2QHNxC6FR-6WF3JKmQYYnXc3Hhzad_DIa2ZPw5ve9Q8qilWK2Y4ianBQZIfed-6YAZJH8H7ntq8ilQ9LGKHC7b992JZIdDUrAVI3mQRC1_PiG_9xmo4z5oEczbBlEtqIausML2TZcaz86Zrsb1BuM0NN_V4n-zne6Ho1eLasvw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax-VBsdR6oa1wrfnTMkNW9gJu6J7kZpcohonY-GQy5Pykp6sPk7dIS0NQfVnRSm7q5zdRYC-fsjYqPLJ7xUs0CIRTU8hrX0dwCbtwREI3iTxmVSwvc_KNgu1gxpFhcACtRNiy2I2PZH-qmOSebSC2qobwD5pg6YMAGJhUDhxUTrxA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-axTAJon7kmkiYEQ27nHNlDylxqpLPDMdVhS-4594-yKE6gTpRG7V_wLgLsDdwMmkhf1zDhYUT_R2kcLrrN3qKGFkMLeUTNtjcxqiO9HEQAApUgdh6GABinC80vB864RHB6yTHTQm7r7ZTFLLbLcp8cvofUlocDokJBBdM7twObXrQ=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1792,7 +1792,7 @@
       "name": "專屬時刻\n米迦[暗羽之刻]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azsJcD8Yv0qOzNrGPlNZ65PZHxHqlU6g9o4osdi1f3uMGVqVFp0J0ESyEgLNbmDMXII2AKbDi-IsmCCjbGusg6IAoNT9Wxj4lxBlIR5nKz06N8Lx6l2iBg2Ys-MvbX8BDFxJHUcpdIysxcR2GDp8m-tYl9F1JicorBwZWSZ86Zh11Vm=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay2frDV9btzx4LNhQtqrPsfBod7-rfxclKXyV681e9u6wWfmi9RV5IHQhj1ynNUnh-3sct-AG99E1143PagpkA1Fv2ygjZXPhs0og7-qmfEeP8EU-mJXgNCsIK3oE4Pqmgpw3WzYf7px7bjlCgUzuu_ekuzreOPKTdmIohxpLDeJfi7=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1806,9 +1806,9 @@
       "name": "靈魂的熔爐",
       "type": "主線劇情",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az7JwtotHxQAPBWWV5YC2mmsL1dse528TrgT5XtxaXc4JUVRhKgBCRfW2-pWaybuf9a2FF63R9Lev2BGNM5eQzf0fps8aRTvR9KKUwbGFiL_kBTQAGGK3HmFsOrWNza7GgmTta47ZFsYv2y_bSdSN6lez10IK3-8_zy7eD06_tQLwn6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ay2DBE7v9O-TDLj8e36jNQNc4pajy0KR-guZ2WdCoz9ffePWw_bBsGm6jzqSfi0GWhh-bTthVn7KQY1tGfJ7QaNAZEzLSS3Col-kXpC8DQWi5P45pYzWXoLCe7kTH9E31FpwOW5F8026kwuShbAH9jJCMRN-GBcLx_bqONrw1MhIA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-ayWhV9pcCEucf_NKKf0301HvhETQc9HhvvvxxKunipxbC3hobOAsAO5BFQQ-OIYvlHIyVJrLcY9y0CXM-mtzHv_WaBzXDlL2Vec9b41j-I_lTke3VR9vtIBmGByLlcTnI2mN6Mi9sLEcxawU9fYS1rMgpYp8GUto1JDJIAXm0rTSc4L=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayUM74U4IC9t-do7TZnzQTjdjuZjEIgK5QkgS2Wg_8CGtHjyl74cz0DXg-3bJ44wx1MqivnNg_VRkxnpUJZb0WUBRSFaizm9QBHdFTPd8_bSOQOlhHOgW-5OCaGHN5X6YIamNz65TicrPUXKvHvPecOsieNVPAXxeDux1w2Bw9sYt6l=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axydgme7JLFTEldVZSToSYxtgWpObiqHNPw8S9MLCyZaglZz7cwv8mGuWYCWCVb3Wg21otU_g41suLy2crbbVjBrC2AgpKg5IZ5Gav4klTC1dc-UiPPxDkfp9M_QVsr5fTzd0CRtGKBBYnpA_A8BYkntlQsR9IyDL6pqaPTW_FKdw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "carriage": "https://docs.google.com/sheets-images-rt/ADdU-azrf9VbynXHB0e--RR9QLc1G-WB8EjwuHm-bo-ScKkpZzm1ZsuV_AfeVxMiy1fxuPB5hogHPje_8NQahRlkBwOH7aka0Gcs_s8gLbaoDpTM16GbsJLO_wsINuA-wc2o4qF3HzKTR0UfdZsgpy6Fr1bvAJ4KymdH-P54eTzoxW7yJfCr=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1822,7 +1822,7 @@
       "name": "專屬時刻\n洛蜜歐[暮夜沉醉]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax2cnUP_FV15WSzlemjjbClE_-q_jb5mgeqQSTGKCKxP_rfbGxiBX4VUddD7kvNW-VB3ndTEVRL8QWS0WAT1CghtMyF0IKTqQud4P1mhzFxcK5_7NXQsXJNH5xxsQzQqO9sYgLRciTUWgBim6v1clYuI1zlp7QTeUjWEKwW3Ig-Mg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awJ-Yp4pXIaj1pzGCpE5kbnjm1UTpeLXNHOzCW7E8u0fQ0Rz_3HJNjncJC8QYJpnBMk9mJW28wPV3hf5vJyTxCcYI7eNKZzQ0qqz_a82icdFduXFIozdUxmGpqDtUA2jKZ1uLTcngOXJPkg5HMzk4uNwhQuICb3ljJCm3VWNMgo5Q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1836,7 +1836,7 @@
       "name": "專屬時刻\n修伊[隱密束縛]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay8qXQLT0Hu_aK9OI_vtY3X9pkB4KJY7iN7hAOU1DAV0b-kfKCiVlIByuGD_2h0hagWbypdkqLjU-0UGH1h3xs7bBFbQ2xwLURtRveAQxK3ypcvH8CcIT8qoF8ujr2VFU3lHp9WnoOSh7YIwsF-GQJ9Px1AHsQp5Ze_JNw3mOoE3Q=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ax_jFcNcz5sRZSVLiPT3oRPejftGL80QrRafOyED77GeKjXVjTIkJZsTwxD6aAzGjUlWM1Fn1mepccYhBpYMeGH9yH7yns41zo3HaMVKIuY9AGsbWckjwsqA4CNtliUmdqApmLgKKopDOtcbPQl3QGKvRM6Wz3hr7Wjf11SLg4aqw=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1850,9 +1850,9 @@
       "name": "綠洲的金砂旋律",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az5ALnQiOfGGIqimbacs5nMwPjmkBnj3E7Sn5W66WepZ-0JGgGYUuf4t-inp3UuNQeuv8diB1QmdPdYFQl6e98Ppr7i8k3zlrAYWkf3xJg5b7ZllAcdJ3lOzybkHSvnELCe8A7-8kjpEc5gCSoAtgBLmK1NFQ8ZblE4FaTDTyTb7Nck=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-axBwj3v7oB49zes_w0yfGtqOH0uBWES71stIe8HRGYJL1K9HXMRHFUJzM15h1mvp99yprJwcPS3GEPEc2_GlJqH229mLV68dBQsGCs57t9O_KGG9nIyaQxuUscjkw0AV44ZzP7RL3tAjP2RUkNlJUP5A1CQUJONZhP3kdn01rbYmR7D=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axyZMJ6q6Hw9Bg0rM01Ms4UNYVTeILwI4oQMf4epEa8-jj3yxo5es8C2x_--Ieq4JrryybnmX9gQpt2PZJs9WnaZXURyoOU_LZEG-SzQ9vsoz9ZbFqZ2LI92owCNzDTZGbbsQ1OD9zQqiJgevH0evtxWYWIYKO2TmJaxutcvumRyyNu=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azOVCFu_94AUZ6jytioGVMgK0Crsgd2q47ZfIUrLxeyzflXM2SG95l5omU59-spMto1bBDb7JDXH4FO4JVkA9LzTI3u7wIBMcrjsf5glLN-Hnui3O45uM3cZBYKmfI33sd2tAoOQxIVg5IrtSY4uUeQRE8yn9gz-z0yqZO28Jib-YyD=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ax3UKTW3uB6V3AQCbe19s6g1DrJiHWI06fyrjBL-aImdshmw_hsp2Z2lJzRnWE6efHkJWRu4dsfambM2AtPMnmr9pucebw6jbuH6fm3uZkX3EcF04jzjLwCGMjIc6y33QY7oXXThF9jHB8MuPodL100QdxgmmWagAMk4SguBg43M3Ow=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awZa17iN2wk9lq1XRZ5kprF4ac7tqNXh4aV5So3t7xvKqmHGpttNZgDOFEIfpLxCBVG-cYGmIUukgDbqO4TsH5CgFqK36HToeZ3guhxdE7d2Em0zdIllb4fhbBZB06_OrwvsQyh3NuFlFmOgSoO_rRbovYifopedtdi9gt9qFiaIbkc=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1866,7 +1866,7 @@
       "name": "專屬時刻\n吉露安[揚帆啟航]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-awnmnF4SRlouS1RzUQCeT8acJIUQKJzyII63IUOBjLGg5s-BLcggKUT54SN3QimsdS6VoUQ0IhuwLW7evReRKeSLyr5kw9zEFbi5Twybl6pdEuohjR8iw1VIUe3Y9D6W1MQmVFgRIy1DSmZQJ0s2F3M-jYMQ-NYR0wCfsfiCzeWZnJv=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayF5zbuY0bsmYlQkZM70qL8I2UTY5IDXkdQ5V9vI_J2mhh8uayio6AvxzyOvFSaFIwKtjrdi7vvO1dgX13YwFM2tWfLD-iFv3UF03mjcJysQbapjzXpqutdsRaV4AFtImNRR_UaBy52q8AJj_oKTO7MSEu7nfwm8Qd4btY8gc-gQFIS=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1880,7 +1880,7 @@
       "name": "專屬時刻\n伊斯雷爾[湛藍誓約]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azmmz19Oa83IAlE3oyMNTkFP8viPgcwNL5egQ7QOCmvRqwFD_6hspOWqRQzvAhpeluGR7g6cxj6FM1Hbxwz82D365UAyYGR0k0sORY-YQG49QGlCJjOVcTB52KhDA7_T8xaUIO-Zw8kVtx8OFxH3t2TMTnxSL9-kDkF62ZifzetxxWf=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ay788UvaXACSukI1UWgvOMd5VUdETJ4W6Vaal6iqBKaMNSfcbCsFqH5pwhYRDTe2FGvBJL4enthti8tXdR6qkiPw-zZ1RuwBU1Qw5k6pGSTWcjbeuPohhUBONjRl9iOaFWRP2XErF3cEiJ9f-Kp1nDqe6s0JMuUkfWYTtBVEMUrUZDK=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1894,9 +1894,9 @@
       "name": "沙海的幻夢奇譚",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-azPZ8PucFNCZrKppWH1CkvWb7B-04c03WQMWr5KCjU6yE-0j_suADBxHQ1iT_aAh3YXxgISHCDwwFzopncOSQieAy3ClYD4C88lQ-Ist-zAhAj_Z9QBTdBCtaSWQxfxFVOMCiFCgWp4mzt9N01xkO_mysE7tPCiYiQnD6RKKTBMqOD4=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ax2LqcLokG8Gdu-jMZDCuzRNqBnTrG4sQD5P6pHELsgkJhPRsThXiz4rxz4LwihUdrgt3nwK4nIRtbR-J4quJfuiDxbblbPtNlqssFhElKjmtqQePtGbApRl8RDR0x3GeMn-B-uPBq-442mgkIKmdUl9O9ib-crl7AqTeepaZyzIiZl=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-axmzb3Tx-5SAr4HX3sQXn8X5TGe7q5m5LD6Evr3F8KjBTnnKRaiR881gj75EwjhgXpy2Np0Q75SBHV01kkJ-amCvOj-kR3FMFzOZ_tRIwV87Bs1SRy5F8d8_1Sh5IrwMliy-JqpobuPElnLjZtAJ9nsUaV23t_3GRwmuxqG0dXGZwC9=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayftXWyXpsNzCBsrfCcJLQHnVa8zSIvaEJ9-nJjwL9bMBZn3tTeFmPFPGicaQ3mshVNM5j1sAbmY6xhYXCbgQY8pMUFvPLyZ23dpv2Jf1uLWNTecY4IRtaa2FGdW7CW7fTgqazTBCe8B2CI3d3SeweEK0v4QC-8rO5o-rfW-RQbun7V=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awFQtPuQGZaPGtkYBXcqELwv9slzeTFFCvkZvTxuH3jHEFeN2sxH8aheSY_zTplCDK3A6Q1nBvTXfbpqbhVErXOrs7SeqqjFjR3vx3hNfx2ZcpG6FhNQxrqfw7IrFNwtmZHAi6vgmS-x7sM8T36fc2d-b7vjSAJC2MTLdnjNwwz9uUD=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-awEKsA9T2KsIZwv1v3lN29f_y1zQMaj5Yymqk2V7Luhn1-3lfWSWYVIG4uCvzoV1CjtncWiyzj7mOAcMxf5Wb7aH9ZkSOOox15CkkKHPgJLZDA1K5HsBUlFrQSXaXHSx5axDRK4U6wKVHek4L0_eJNyeoAer8qoYf4qDwsUZPcYmdo9=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1910,7 +1910,7 @@
       "name": "專屬時刻\n奇琪蒂[蝠翼節拍]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axsYozOwAbBZiSl4Z7BUgLds7BMuIqvvyGWA2Rmzzced38mWVANShsQTjyMufkj8lZ71JYmabttUnS56nct4wsOiC1PeR3yFiMCDlfnpImpu9rZvuXA5lrQUfo5D4WHXdgZRlQD9-Lbh2933OXDlUOsdHNVPuVzW3_r8x-gdMEnyMn6=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az3ICTRhgCQj7J_CIP679IRzE0Wjovpdl9kJUTXkZ5ZYLfhDxIlPCS3_fCI6HejtXbLzBK1e9_GSATZHuRgZ2RiqCHKtde_5U7L_myc4a7uRsYWhYB5nTYVgD-zqrEf6sMe7GApf3I0rmW05aiu_PXjyJhtLD7ZuR1cDv0mr8ilbPpl=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1924,9 +1924,9 @@
       "name": "航海鐘的迴響",
       "type": "限時活動",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axU5_qo_RwsoFHy4h3X5tSD9i2VD8PuLivKt8cii_wnufSifV0FdaiiGeJZajzbIOTMKN-1WQ1GfKXzpbgB92vV0RznfYVcHgQhIBwbfzo8bUoJx2bu7U3j5M-9TMCO7KRzWZQWUKOTL7xetQ0omIbwsMejWsDJVUX3M6ZxUbkeOHMh=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-ayR9YbKbeO8iZolCIuUNtr8r2fGB37oI1vImL_KRnlUDyaKe1GiAv-Ieuzk5i_1dRHpKBi4HnL6Ld2InianR8HoD1cRdg4aveyhpq4uUU4Dd8933rWhTJs0_OXHjA6pYwuyQVdMKBB5N2X7caSdqpQIIVdE_uqk0OSMKj8H6UZLlg=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
-        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayM4MaiUoNdIH9C9yEwnFpxOrj1_aa-C0HCCR-DQz1_BFcGkufS34tz4NiECvut1TIVchgoIsZ9jpvfaFc70ipp36oTeWTZtJuWpZllGTFjF15hsU_TdH7QIuGoFE4WZCTmw3cyvKWQK4oT6rSsVjdRtIusr7JkfoveXB9ItxkITA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-az0iejJlIcN2Hxw4JapW-cXNpjuK7aTzsT5ZEmMDcm-ehjsZlHoUJXU5Fx7VDSJ6nrpwtFwTXbol7KofaVzKEJDt-2hCzUEmLBxnJtjT_oWsjt0MVcwhhnwgC7weo9gNaVgU5dU7EhrpIPkbA3AHJBdqg0Abz5nf9DE6WxaRumaoaGL=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "pool2": "https://docs.google.com/sheets-images-rt/ADdU-awZmfFPMCYTtT-OvDrDQAqvqnwa-U4dR_Rf3sgGqaC4B7RLjAm-SKGHgyRw4XqU4WefBDfEKqrXOpj4BR2usSH9bTXFJug9XgqJeECqEjmvetiCcLyvWnc2WFHARB_wDZx8srtAhS8rHgaxS7BObD8PO8VJcc8ZQT_tWmIbSJrFyA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ",
+        "freeCharacter": "https://docs.google.com/sheets-images-rt/ADdU-ayWX88U27FfwdkGxAF8CefXDRq07GVk43Z6UmwCVIEXI7_QRdQMme_GL6e7yx60pGI_dpJlq-9lHQN7M7OybCU8lrqZ_rBBjn3Yi4mz-uCTG1tYCl42-8UpSWZbcoRdJlwJXCtt-YtDed48QOQm6tF0Z2MCIDfsNMKZC5J72hkPBA=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
@@ -1940,7 +1940,7 @@
       "name": "專屬時刻\n伽利爾亞[星辰兔耳]",
       "type": "專屬時刻",
       "images": {
-        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-axYDE2Eg3_qDtyGP3W3Qd5-_B1OuYmmt4B3JOXTUxc483tYF9lqN4kSOp8YGJ22uOwrXW_AiQdNShMMd3-36wtJxalfEiBuXI3pwfXMQHHXoqDWHMlY08fsE_6BG6zcjMNO1uuY-I0pc3A_dHVyhSDJbyf_Gb5ohx_bPSOnznHUnf3B=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
+        "pool1": "https://docs.google.com/sheets-images-rt/ADdU-ayXala2n_yPulCR_OZhzApRmRZzXF2XHRW1G7OybJLmpJp8bAqcevHVUxsziA1yaLePsrHQVaPixb5bJ23f8Jx1FplbzEBnOfw254VZtL8wFco82vV34A72dVqFzPqKPlbiEXp0ACGT4A8_Hj9SVUe2BgIs8S8SSiqHnhMwi9IGO2db=s2048?key=NW76gNbMmDf7Psoe2P-FdQ"
       },
       "note": "",
       "link": ""
